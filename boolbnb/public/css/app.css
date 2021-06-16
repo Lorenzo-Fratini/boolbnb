@@ -1,5 +1,75 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+header {
+  height: 80px;
+  background-color: crimson;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+header .container-header {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  width: 80%;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .searchbar-header form {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1px solid black;
+  outline: none;
+  background-color: white;
+}
+
+header .searchbar-header input,
+header .searchbar-header button {
+  all: unset;
+}
+
+header .searchbar-header button i {
+  background-color: crimson;
+  border-radius: 100%;
+  padding: 10px;
+  color: white;
+}
+
+header .user-header {
+  background-color: white;
+  border-radius: 10px;
+  outline: none;
+}
+
+.container-content {
+  height: 700px;
+  background-color: #ccc;
+  padding-top: 80px;
+  display: flex;
+  align-items: center;
+  background-image: url(/images/bosch.jpg?97988beab1eb162eb20784e2419c590e);
+  background-position: top;
+  background-size: cover;
+}
+
+.container-content .margin-content {
+  width: 80%;
+  margin: auto;
+}
+
+.container-content .text-content {
+  color: white;
+}
+
+.container-dintorni {
+  width: 80%;
+  margin: auto;
+  padding-top: 50px;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

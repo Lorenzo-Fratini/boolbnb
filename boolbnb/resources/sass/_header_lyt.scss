@@ -1,0 +1,49 @@
+header {
+
+  height: 80px;
+  background-color: crimson;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .container-header {
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .searchbar-header {
+
+    form  {
+
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: 1px solid black;
+      outline: none;
+      background-color: white;
+    }
+
+    input,button {
+      all: unset;
+    }
+
+    button i {
+
+      background-color: crimson;
+      border-radius: 100%;
+      padding: 10px;
+      color: white;
+    }
+  }
+
+  .user-header {
+
+    background-color: white;
+    border-radius: 10px;
+    outline: none;
+  }
+}
