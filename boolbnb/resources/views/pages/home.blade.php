@@ -9,11 +9,35 @@
     </div>
   </div>
 
-  <div class="container-dintorni">
-    <h1>Esplora i dintorni</h1>
+  <div class="container-evidenza">
+    <h1>Appartamenti in evidenza</h1>
+    <div class="cities-evidenza">
+      <div class="cities-box">
 
-    <div class="cities-dintorni">
-      <div class="city-box">
+        <div class="box-img">
+
+        </div>
+
+      </div>
+      <div class="cities-box">
+
+        <div class="box-img">
+          
+        </div>
+
+      </div>
+      <div class="cities-box">
+
+        <div class="box-img">
+          
+        </div>
+
+      </div>
+      <div class="cities-box">
+
+        <div class="box-img">
+          
+        </div>
 
       </div>
     </div>

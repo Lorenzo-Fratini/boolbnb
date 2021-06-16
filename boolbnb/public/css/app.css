@@ -64,10 +64,30 @@ header .user-header {
   color: white;
 }
 
-.container-dintorni {
+.container-evidenza {
   width: 80%;
   margin: auto;
   padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.container-evidenza .cities-evidenza {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container-evidenza .cities-evidenza .cities-box {
+  width: 350px;
+  height: 500px;
+  background-color: salmon;
+}
+
+.container-evidenza .cities-evidenza .cities-box .box-img {
+  width: 350px;
+  height: 350px;
+  background-color: sienna;
+}
 
 .f_margin {
   margin: 5px;
@@ -11065,3 +11085,4 @@ a.text-dark:focus {
 .invisible {
   display: none;
 }
+
