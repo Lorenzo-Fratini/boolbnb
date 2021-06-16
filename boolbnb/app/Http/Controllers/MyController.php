@@ -8,6 +8,7 @@ class MyController extends Controller
 {
 
     public function home(){
+        // code 2
 
         return view('pages.home');
     }
