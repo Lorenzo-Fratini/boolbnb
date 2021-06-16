@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKey extends Migration
+class AddForeignKeys extends Migration
 {
     /**
      * Run the migrations.
@@ -27,9 +27,9 @@ class AddForeignKey extends Migration
                    -> on('users');
         });
 
-        Schema::table('sposorships', function (Blueprint $table) {
+        Schema::table('sponsorships', function (Blueprint $table) {
 
-            $table -> foreign('apartment_id', 'sposorship-apartment')
+            $table -> foreign('apartment_id', 'sponsorship-apartment')
                    -> references('id')
                    -> on('apartments');
         });
@@ -74,7 +74,7 @@ class AddForeignKey extends Migration
      */
     public function down() {
         
-        Schema::table('apartments', function (Blueprint $table) {
+        /* Schema::table('apartments', function (Blueprint $table) {
 
             $table -> dropForeign('apartment-user');
         });
@@ -84,9 +84,9 @@ class AddForeignKey extends Migration
             $table -> dropForeign('payment-user');
         });
 
-        Schema::table('sposorships', function (Blueprint $table) {
+        Schema::table('sponsorships', function (Blueprint $table) {
 
-            $table -> dropForeign('sposorship-apartment');
+            $table -> dropForeign('sponsorship-apartment');
         });
 
         Schema::table('statistics', function (Blueprint $table) {
@@ -108,6 +108,6 @@ class AddForeignKey extends Migration
 
             $table -> dropForeign('apartment-service');
             $table -> dropForeign('service-apartment');
-        });
+        }); */
     }
 }
