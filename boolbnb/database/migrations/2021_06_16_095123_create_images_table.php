@@ -14,8 +14,13 @@ class CreateImagesTable extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table -> id();
+
+            $table -> string('url');
+            $table -> string('extension');
+            $table -> boolean('is_cover');
+
+            $table -> timestamps();
         });
     }
 
