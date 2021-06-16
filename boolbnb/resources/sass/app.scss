@@ -4,7 +4,15 @@
 // Variables
 @import 'variables';
 @import 'header_lyt';
+<<<<<<< HEAD
 @import 'home.scss';
+=======
+@import 'footer_lyt';
+>>>>>>> main
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.invisible {
+    display: none;
+}
