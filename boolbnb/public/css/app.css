@@ -27,6 +27,30 @@
   line-height: 35px;
 }
 
+.links-ft {
+  color: lightslategray;
+  text-decoration: none;
+}
+
+.links-ft:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.links-ft-two {
+  color: black;
+}
+
+.links-ft-two:hover {
+  color: lightslategray;
+  text-decoration: none;
+}
+
+#last-row-footer {
+  justify-content: space-between;
+  padding: 0 auto;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10967,5 +10991,9 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.invisible {
+  display: none;
 }
 

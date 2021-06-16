@@ -32,3 +32,27 @@
         }
     }
 }
+
+.links-ft {
+    color: lightslategray;
+    text-decoration: none;
+
+    &:hover {
+        color: black;
+        text-decoration: underline;
+    }
+}
+
+.links-ft-two {
+    color: black;
+
+    &:hover {
+        color: lightslategray;
+        text-decoration: none;
+    }
+}
+
+#last-row-footer {
+    justify-content: space-between;
+    padding: 0 auto;
+}
