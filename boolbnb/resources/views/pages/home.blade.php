@@ -12,33 +12,39 @@
   <div class="container-evidenza">
     <h1>Appartamenti in evidenza</h1>
     <div class="cities-evidenza">
+
       <div class="cities-box">
 
         <div class="box-img">
-
+          <p>Immagine principale dell'appartamento</p>
         </div>
-
+        <div class="box-text">Descrizione appartamento</div>
       </div>
+
       <div class="cities-box">
 
         <div class="box-img">
-          
+          <p>Immagine principale dell'appartamento</p>
         </div>
-
+        <div class="box-text"Descrizione appartamento></div>
       </div>
+
       <div class="cities-box">
 
         <div class="box-img">
-          
-        </div>
+          <p>Immagine principale dell'appartamento</p>
 
+        </div>
+        <div class="box-text">Descrizione appartamento</div>
       </div>
+
       <div class="cities-box">
 
         <div class="box-img">
-          
-        </div>
+          <p>Immagine principale dell'appartamento</p>
 
+        </div>
+        <div class="box-text">Descrizione appartamento</div>
       </div>
     </div>
   </div>
