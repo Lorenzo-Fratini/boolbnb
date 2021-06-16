@@ -26,6 +26,8 @@ class CreateApartmentsTable extends Migration
             $table -> float('longitude');
             $table -> date('sponsorships_date');
 
+            $table -> bigInteger('user_id') -> unsigned() -> index();
+
             $table -> timestamps();
         });
     }

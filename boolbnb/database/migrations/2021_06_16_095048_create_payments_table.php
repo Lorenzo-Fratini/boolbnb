@@ -19,6 +19,8 @@ class CreatePaymentsTable extends Migration
             $table -> string('cardholder_name');
             $table -> integer('card_number');
 
+            $table -> bigInteger('user_id') -> unsigned() -> index();
+
             $table -> timestamps();
         });
     }

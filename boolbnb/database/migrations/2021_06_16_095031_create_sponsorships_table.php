@@ -19,6 +19,9 @@ class CreateSponsorshipsTable extends Migration
             $table -> float('price');
             $table -> integer('duration');
 
+            $table -> bigInteger('apartment_id') -> unsigned() -> index();
+
+
             $table -> timestamps();
         });
     }

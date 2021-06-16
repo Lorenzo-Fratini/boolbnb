@@ -20,6 +20,8 @@ class CreateImagesTable extends Migration
             $table -> string('extension');
             $table -> boolean('is_cover');
 
+            $table -> bigInteger('apartment_id') -> unsigned() -> index();
+
             $table -> timestamps();
         });
     }
