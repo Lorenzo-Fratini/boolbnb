@@ -1,0 +1,29 @@
+.container-content {
+
+  height: 700px;
+  background-color: #ccc;
+  padding-top: 80px;
+  display: flex;
+  align-items: center;
+  background-image: url('storage/images/bosch.jpg');
+  background-position: top;
+  background-size: cover;
+
+  .margin-content {
+
+    width: 80%;
+    margin: auto;
+  }
+
+  .text-content {
+
+    color: white;
+  }
+}
+
+.container-dintorni {
+
+  width: 80%;
+  margin: auto;
+  padding-top: 50px;
+}

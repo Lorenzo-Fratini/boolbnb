@@ -24,7 +24,6 @@
           <a class="dropdown-item" href="#">Login</a>
           <a class="dropdown-item" href="#">Register</a>
           <a class="dropdown-item" href="#">Siuummm</a>
-          <a href="#">Ciao</a>
         </div>
       </div>
     </div>
