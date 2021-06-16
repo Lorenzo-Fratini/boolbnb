@@ -1,3 +1,16 @@
+//variables
+@import 'variables';
+
 .f_margin {
     margin: 5px;
+}
+
+.container {
+    display: flax;
+
+    ul {
+        list-style: none;
+
+        background-color: $lt_gray;
+    }
 }

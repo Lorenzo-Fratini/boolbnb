@@ -4,6 +4,15 @@
   margin: 5px;
 }
 
+.container {
+  display: flax;
+}
+
+.container ul {
+  list-style: none;
+  background-color: #d8d8d8;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
