@@ -18,6 +18,9 @@ class CreateStatisticsTable extends Migration
 
             $table -> date('date');
 
+            $table -> bigInteger('apartment_id') -> unsigned() -> index();
+
+
             $table -> timestamps();
         });
     }
