@@ -1,3 +1,9 @@
 <header>
-  <h1>Ciao sono un header</h1>
+  <div class="container-fluid">
+
+    <div class="row">
+      <h2>This is an amazing header</h2>
+    </div>
+
+  </div>
 </header>
