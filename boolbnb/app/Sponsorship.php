@@ -13,8 +13,8 @@ class Sponsorship extends Model
         'apartment_id',
     ];
 
-    public function apartments(){
+    public function orders(){
 
-        return $this -> hasMany(Apartment::class);
+        return $this -> hasMany(Order::class);
     }
 }

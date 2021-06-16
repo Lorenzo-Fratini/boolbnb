@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStatisticsTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateStatisticsTable extends Migration
      */
     public function up()
     {
-        Schema::create('statistics', function (Blueprint $table) {
-            $table -> id();
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
 
-            $table -> datetime('date');
+            $table->datetime('date_start');
+            $table->datetime('date_end');
 
             $table -> bigInteger('apartment_id') -> unsigned() -> index();
+            $table -> bigInteger('sponsorship_id') -> unsigned() -> index();
 
-
-            $table -> timestamps();
+            $table->timestamps();
         });
     }
 
@@ -32,6 +33,6 @@ class CreateStatisticsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('statistics');
+        Schema::dropIfExists('orders');
     }
 }

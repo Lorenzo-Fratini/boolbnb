@@ -16,8 +16,10 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table -> id();
 
-            $table -> string('cardholder_name');
-            $table -> integer('card_number');
+            $table -> string('cardholder_name', 128);
+            $table -> string('card_number', 25);
+            $table -> string('expiration');
+            $table -> string('cvv');
 
             $table -> bigInteger('user_id') -> unsigned() -> index();
 
@@ -30,8 +32,7 @@ class CreatePaymentsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('payments');
     }
 }
