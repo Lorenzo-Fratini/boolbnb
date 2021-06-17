@@ -17,4 +17,9 @@ class Sponsorship extends Model
 
         return $this -> hasMany(Order::class);
     }
+
+    public function apartments(){
+
+        return $this -> belongsToMany(Apartment::class);
+    }
 }

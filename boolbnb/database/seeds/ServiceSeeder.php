@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Apartment;
 use App\Service;
 
 class ServiceSeeder extends Seeder
@@ -13,43 +14,14 @@ class ServiceSeeder extends Seeder
      */
     public function run() {
 
-        $services = [
-            [
-                'name' => 'WiFi'
-            ],
-            [
-                'name' => 'Posto Macchina'
-            ],
-            [
-                'name' => 'Piscina'
-            ],
-            [
-                'name' => 'Portineria'
-            ],
-            [
-                'name' => 'Sauna'
-            ],
-            [
-                'name' => 'Cucina'
-            ],
-            [
-                'name' => 'Riscaldamento'
-            ],
-            [
-                'name' => 'Aria Cpndizionata'
-            ],
-            [
-                'name' => 'Colazione'
-            ],
-            [
-                'name' => 'TV'
-            ],
-        ];
+        factory(Service::class, 10) -> create()
+            -> each(function($service) {
 
-        foreach ($services as $key => $service) {
-            
-            Service::create($service);
-            
-        }
+            $apartment = Apartment::inRandomOrder() 
+                        -> limit(rand(1, 3))
+                        -> get();
+            $service -> apartments() -> attach($apartment);
+            $service -> save();
+        });
     }
 }

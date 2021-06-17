@@ -8,6 +8,7 @@ class Statistic extends Model
 {
     protected $fillable = [
 
+        'ip',
         'date',
         'apartment_id',
     ];
