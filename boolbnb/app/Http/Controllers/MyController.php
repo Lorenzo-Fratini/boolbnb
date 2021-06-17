@@ -12,4 +12,10 @@ class MyController extends Controller
 
         return view('pages.home');
     }
+
+    public function flat(){
+        // code 2
+
+        return view('pages.flat');
+    }
 }
