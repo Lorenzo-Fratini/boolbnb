@@ -22,10 +22,14 @@ class CreateApartmentsTable extends Migration
             $table -> string('bathrooms_number', 5);
             $table -> string('m2', 10);
             $table -> string('address', 256);
+            $table -> string('city');
+            $table -> string('country');
+            $table -> string('postal_code', 5);
             $table -> float('latitude') -> nullable();
             $table -> float('longitude') -> nullable();
 
             $table -> bigInteger('user_id') -> unsigned() -> index();
+            $table -> bigInteger('sponsorship_id') -> unsigned() -> index();
 
             $table -> timestamps();
         });
