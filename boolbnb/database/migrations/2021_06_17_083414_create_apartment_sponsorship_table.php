@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdersTable extends Migration
+class CreateApartmentSponsorshipTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('apartment_sponsorship', function (Blueprint $table) {
             $table->id();
 
-            $table->datetime('date_start');
-            $table->datetime('date_end');
+            $table->datetime('start_date');
+            $table->datetime('end_date');
 
             $table -> bigInteger('apartment_id') -> unsigned() -> index();
             $table -> bigInteger('sponsorship_id') -> unsigned() -> index();
@@ -33,6 +33,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('apartment_sponsorship');
     }
 }

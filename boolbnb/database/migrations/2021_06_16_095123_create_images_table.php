@@ -18,7 +18,6 @@ class CreateImagesTable extends Migration
 
             $table -> string('url', 128);
             $table -> string('extension', 5);
-            $table -> boolean('is_cover');
 
             $table -> bigInteger('apartment_id') -> unsigned() -> index();
 
