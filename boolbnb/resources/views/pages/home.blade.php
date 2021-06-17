@@ -1,6 +1,8 @@
 @extends('layouts.main-layout')
 
 @section('content')
+
+            {{-- JT --}}
   <div class="container-content">
     <div class="margin-content">
       <div class="text-content">
@@ -9,7 +11,12 @@
     </div>
   </div>
 
-  <div class="container-evidenza">
+
+            {{-- PREMIUM APARTMENTS --}}
+
+
+  {{-- debug --}}
+  {{-- <div class="container-evidenza">
     <h1>Appartamenti in evidenza</h1>
     <div class="cities-evidenza">
 
@@ -47,5 +54,30 @@
         <div class="box-text">Descrizione appartamento</div>
       </div>
     </div>
+  </div> --}}
+
+  <div class="container">
+
+
+    <div class="row">
+      
+      <h3>IN EVIDENZA</h3>
+
+    </div>
+
+    <div class="row">
+      
+      @foreach ($apartments as $apartment)
+
+      <div class="app-lyt">
+        <p>{{ $apartment -> title }}</p>
+      </div>
+          
+      @endforeach
+
+    </div>
+
+
   </div>
+
 @endsection

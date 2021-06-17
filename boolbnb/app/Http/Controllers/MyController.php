@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Apartment;
 
 class MyController extends Controller
 {
@@ -10,6 +11,11 @@ class MyController extends Controller
     public function home(){
         // code 2
 
-        return view('pages.home');
+        //apartment's data call
+        $apartments = Apartment::all();
+
+        // dd($apartments);
+
+        return view('pages.home', compact('apartments'));
     }
 }
