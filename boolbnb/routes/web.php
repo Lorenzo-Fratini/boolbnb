@@ -13,7 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'MyController@home') -> name('home');
+Route::get('/', 'Controller@index')
+    -> name('index');
+
+Route::get('/apartment/{id}', 'GuestController@apartment')
+    -> name('apartment.show');
+    
+Route::get('/search', 'GuestController@advancedSearch')
+    -> name('advancedSearch');
+
+Route::get('/dashboard/{id}', 'LoggedController@dashboard')
+    -> name('dashboard');
+
+Route::get('/message/{id}', 'GuestController@message')
+    -> name('message');
+
+Route::post('/storeMessage/{id}', 'GuestController@storeMessage')
+    -> name('storeMessage');
 
 Auth::routes();
 
