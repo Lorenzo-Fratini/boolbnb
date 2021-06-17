@@ -1,0 +1,25 @@
+//variables
+@import 'variables';
+
+.container-ap {
+
+    content: "";
+    display: table;
+    clear: both;
+
+    .row {
+        display: flex;
+
+        width: 100vw;
+
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        .ap-lyt {
+            background-color: darkslategray;
+
+            text-align: center;
+        }
+    }
+}
