@@ -50,7 +50,7 @@ header .user-header {
   padding-top: 80px;
   display: flex;
   align-items: center;
-  background-image: url(/images/bosch.jpg?97988beab1eb162eb20784e2419c590e);
+  background-color: darkorange;
   background-position: top;
   background-size: cover;
 }
@@ -137,7 +137,11 @@ header .user-header {
 
 #last-row-footer {
   justify-content: space-between;
-  padding: 0 auto;
+  padding: 0 5%;
+}
+
+#last-row-footer .fab {
+  margin-left: 10px;
 }
 
 /*!

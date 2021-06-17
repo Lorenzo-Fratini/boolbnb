@@ -53,6 +53,12 @@
 }
 
 #last-row-footer {
+
     justify-content: space-between;
-    padding: 0 auto;
+    padding: 0 5%;
+
+    .fab {
+        margin-left: 10px;
+    }
+    
 }
