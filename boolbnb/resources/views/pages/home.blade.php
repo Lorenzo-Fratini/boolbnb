@@ -26,7 +26,7 @@
         <div class="box-img">
           <p>Immagine principale dell'appartamento</p>
         </div>
-        <div class="box-text"Descrizione appartamento></div>
+        <div class="box-text">Descrizione appartamento</div>
       </div>
 
       <div class="cities-box">
