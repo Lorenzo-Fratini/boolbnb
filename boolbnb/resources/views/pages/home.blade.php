@@ -56,7 +56,7 @@
     </div>
   </div> --}}
 
-  <div class="container">
+  <div class="container-ap">
 
 
     <div class="row">
@@ -69,8 +69,26 @@
       
       @foreach ($apartments as $apartment)
 
-      <div class="app-lyt">
+      <div class="ap-lyt">
+
+
         <p>{{ $apartment -> title }}</p>
+
+        <p>{{ $apartment -> rooms_number }}</p>
+
+        <p>{{ $apartment -> beds_number }}</p>
+
+        <p>{{ $apartment -> bathrooms_number }}</p>
+
+        <p>{{ $apartment -> area }}</p>
+
+        <p>{{ $apartment -> address }}</p>
+        
+        <p>{{ $apartment -> city }}</p>
+
+        <p>{{ $apartment -> country }}</p>
+
+
       </div>
           
       @endforeach
