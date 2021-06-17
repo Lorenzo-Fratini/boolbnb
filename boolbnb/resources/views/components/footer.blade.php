@@ -1,6 +1,6 @@
 <footer>
     <div class="links">
-        <div class="container" id="container_f">
+        <div class="container bg-dark" id="container_f">
 
             {{-- debug --}}
 

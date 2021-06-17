@@ -8,7 +8,9 @@
 
       <input type="text" class="city-input" placeholder="city">
 
-      
+      <button>Cerca</button> 
+
+      <button>Filtri</button>
 
     </div>
 
