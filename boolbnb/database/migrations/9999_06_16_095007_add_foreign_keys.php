@@ -18,25 +18,14 @@ class AddForeignKeys extends Migration
             $table -> foreign('user_id', 'apartment-user')
                    -> references('id')
                    -> on('users');
-
-            $table -> foreign('sponsorship_id', 'apartment-sponsor')
-                   -> references('id')
-                   -> on('sponsorships');
         });
 
-        Schema::table('payments', function (Blueprint $table) {
+        Schema::table('apartment_sponsorship', function (Blueprint $table) {
 
-            $table -> foreign('user_id', 'payment-user')
-                   -> references('id')
-                   -> on('users');
-        });
-
-        Schema::table('orders', function (Blueprint $table) {
-
-            $table -> foreign('apartment_id', 'orders-apartment')
+            $table -> foreign('apartment_id', 'sponsorship-apartment')
                    -> references('id')
                    -> on('apartments');
-            $table -> foreign('sponsorship_id', 'orders-sponsorship')
+            $table -> foreign('sponsorship_id', 'apartment-sponsorship')
                    -> references('id')
                    -> on('sponsorships');
         });
@@ -84,12 +73,12 @@ class AddForeignKeys extends Migration
         Schema::table('apartments', function (Blueprint $table) {
 
             $table -> dropForeign('apartment-user');
-            $table -> dropForeign('apartment-sponsor');
         });
 
-        Schema::table('payments', function (Blueprint $table) {
+        Schema::table('apartment_sponsorship', function (Blueprint $table) {
 
-            $table -> dropForeign('payment-user');
+            $table -> dropForeign('sponsorship-apartment');
+            $table -> dropForeign('apartment-sponsorship');
         });
 
         Schema::table('statistics', function (Blueprint $table) {

@@ -9,15 +9,20 @@ class Apartment extends Model
     protected $fillable = [
 
         'title',
+        'cover_image',
         'rooms_number',
         'beds_number',
         'bathrooms_number',
-        'm2',
+        'area',
         'address',
+        'city',
+        'country',
+        'postal_code',
         'latitude',
         'longitude',
         'sponsor_date',
         'user_id',
+        'visible'
     ];
 
     public function images(){
@@ -45,8 +50,8 @@ class Apartment extends Model
         return $this -> hasMany(Message::class);
     }
 
-    public function orders(){
-        
-        return $this -> hasMany(Order::class);
+    public function sponsorships(){
+
+        return $this -> belongsToMany(Sponsorship::class);
     }
 }

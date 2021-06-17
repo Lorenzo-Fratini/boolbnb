@@ -10,7 +10,6 @@ class Image extends Model
 
         'url',
         'extension',
-        'is_cover',
         'apartment_id',
     ];
 

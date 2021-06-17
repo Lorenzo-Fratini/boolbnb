@@ -16,6 +16,7 @@ class CreateStatisticsTable extends Migration
         Schema::create('statistics', function (Blueprint $table) {
             $table -> id();
 
+            $table -> string('ip') -> nullable(); //temp null
             $table -> datetime('date');
 
             $table -> bigInteger('apartment_id') -> unsigned() -> index();

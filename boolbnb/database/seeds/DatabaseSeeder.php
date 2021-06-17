@@ -18,8 +18,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             StatisticSeeder::class,
             ImageSeeder::class,
-            MessageSeeder::class,
-            OrderSeeder::class
+            MessageSeeder::class, 
         ]);
     }
 }
