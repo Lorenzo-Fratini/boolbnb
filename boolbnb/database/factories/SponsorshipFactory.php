@@ -33,3 +33,9 @@ $factory->define(Sponsorship::class, function (Faker $faker) use ($autoIncrement
         'duration' => $sponsorship['duration']
     ];
 });
+
+function autoIncrement() {
+    for ($i = -1; $i < 3; $i++) {
+         yield $i;
+     }
+ } 

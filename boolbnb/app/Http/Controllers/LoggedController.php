@@ -27,4 +27,11 @@ class LoggedController extends Controller
         return view('pages.dashboard', compact('userInfo', 'apartments'));
     }
 
+    public function editApartment($id){
+
+        $apartment = Apartment::findOrFail($id);
+
+        return view('pages.apartment-edit', compact('apartment'));
+
+    }
 }

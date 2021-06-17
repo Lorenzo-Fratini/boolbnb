@@ -34,3 +34,6 @@ Route::post('/storeMessage/{id}', 'GuestController@storeMessage')
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/flat', 'MyController@flat') -> name('flat');
+// Route::get('/home', 'HomeController@index')->name('home');

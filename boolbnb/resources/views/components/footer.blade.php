@@ -67,7 +67,17 @@
                 </span>
 
                 <span>
+
                     <i class="fas fa-globe"></i><a href="#" class="links-ft">Italinao (IT)</a>
+                    
+                     € <a href="#" class="links-ft">EUR</a>
+
+                     <i class="fab fa-facebook-f"></i>
+
+                     <i class="fab fa-twitter"></i>
+
+                     <i class="fab fa-instagram"></i>
+
                 </span>
             </div>
 
