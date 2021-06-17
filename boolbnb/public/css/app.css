@@ -44,51 +44,6 @@ header .user-header {
   outline: none;
 }
 
-.container-content {
-  height: 700px;
-  background-color: #ccc;
-  padding-top: 80px;
-  display: flex;
-  align-items: center;
-  background-image: url(/images/bosch.jpg?97988beab1eb162eb20784e2419c590e);
-  background-position: top;
-  background-size: cover;
-}
-
-.container-content .margin-content {
-  width: 80%;
-  margin: auto;
-}
-
-.container-content .text-content {
-  color: white;
-}
-
-.container-evidenza {
-  width: 80%;
-  margin: auto;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.container-evidenza .cities-evidenza {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.container-evidenza .cities-evidenza .cities-box {
-  width: 350px;
-  height: 500px;
-  background-color: salmon;
-}
-
-.container-evidenza .cities-evidenza .cities-box .box-img {
-  width: 350px;
-  height: 350px;
-  background-color: sienna;
-}
-
 .f_margin {
   margin: 5px;
 }
@@ -137,7 +92,11 @@ header .user-header {
 
 #last-row-footer {
   justify-content: space-between;
-  padding: 0 auto;
+  padding: 0 5%;
+}
+
+#last-row-footer .fab {
+  margin-left: 10px;
 }
 
 /*!
