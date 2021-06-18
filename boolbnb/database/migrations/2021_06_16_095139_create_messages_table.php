@@ -18,7 +18,6 @@ class CreateMessagesTable extends Migration
 
             $table -> string('email', 128);
             $table -> string('text');
-            $table -> date('date');
 
             $table -> bigInteger('apartment_id') -> unsigned() -> index();
 

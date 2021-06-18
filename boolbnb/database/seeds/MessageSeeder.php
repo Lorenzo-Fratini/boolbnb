@@ -17,31 +17,26 @@ class MessageSeeder extends Seeder
             [
                 'email' => 'Luca Neri',
                 'text' => 'Sarei interessato ad affitare questo appartamento, quali sono le date disponibili?',
-                'date' => '2021-06-12',
                 'apartment_id' => '1'
             ],
             [
                 'email' => 'Marco Rossi',
                 'text' => 'Sarei interessato ad affitare questo appartamento, quali sono le date disponibili?',
-                'date' => '2021-06-09',
                 'apartment_id' => '2'
             ],
             [
                 'email' => 'Francesca Bianchi',
                 'text' => 'Sarei interessata ad affitare questo appartamento, quali sono le date disponibili?',
-                'date' => '2021-05-21',
                 'apartment_id' => '3'
             ],
             [
                 'email' => 'Guybrush Threepwood',
                 'text' => 'Sarei interessato ad affitare questo appartamento, quali sono le date disponibili?',
-                'date' => '2021-04-15',
                 'apartment_id' => '4'
             ],
             [
                 'email' => 'Simone Icardi',
                 'text' => 'Sarei interessato ad affitare questo appartamento, quali sono le date disponibili?',
-                'date' => '2021-04-08',
                 'apartment_id' => '5'
             ],
         ];

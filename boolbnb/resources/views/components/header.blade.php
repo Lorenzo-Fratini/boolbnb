@@ -21,11 +21,26 @@
                     aria-haspopup="true" aria-expanded="false">
                     User
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                    <a class="dropdown-item" href="{{ route('register') }}">Register</a>
-                    <a class="dropdown-item" href="#">Siuummm</a>
-                </div>
+                @guest
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                        <a class="dropdown-item" href="{{ route('register') }}">Register</a>
+                    </div>
+                @else
+                    <h1>
+                        Hello {{ Auth::user() -> firstname }}
+                    </h1>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="btn" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                @endguest
             </div>
         </div>
     </div>

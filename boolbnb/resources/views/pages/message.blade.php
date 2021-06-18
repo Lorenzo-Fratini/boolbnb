@@ -1,9 +1,10 @@
 @extends('layouts.main-layout')
 @section('content')
 
-    <main class="mt-5">
+    <main style="margin:100px 0 0 0">
         
-        <form method="POST" action="{{ route('storeMessage', $apartment -> id) }}">
+        <form method="POST" action="{{ route('storeMessage') }}">
+            
             @csrf
             @method('POST')
     
@@ -14,13 +15,10 @@
     
             <div class="form-group row">
                 <label for="text" class="col-md-4 col-form-label text-md-right">Text</label>
-                <input id="text" type="text" class="form-control" name="text" value="" required>
+                <input id="text" type="textarea" class="form-control" name="text" value="" required>
             </div>
-    
-            <div class="form-group row">
-                <label for="date" class="col-md-4 col-form-label text-md-right">date</label>
-                <input id="date" type="date" class="form-control" name="date" value="" required>
-            </div>
+
+            <input type="hidden" name="apartment_id" value="{{ $apartment -> id }}">
     
             <button type="submit">Submit</button>
 
