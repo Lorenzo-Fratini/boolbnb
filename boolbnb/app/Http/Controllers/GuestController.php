@@ -11,8 +11,7 @@ class GuestController extends Controller
 {
     public function index(){      
 
-        $apartments = Apartment::all(); //temp //where sponsor not null?
-        // $proApartments = Apartment::all(); //temp //where sponsor not null?
+        $apartments = Apartment::all();
 
         return view('pages.home', compact('apartments'));
     }
@@ -33,19 +32,11 @@ class GuestController extends Controller
 
         $apartment = Apartment::findOrFail($id);
 
-        return view('pages.apartment', compact('apartment'));
-    }
-
-    public function message($id){
-
-        $apartment = Apartment::findOrFail($id);
-
-        return view('pages.message', compact('apartment'));
+        return view('pages.apartmentShow', compact('apartment'));
     }
     public function storeMessage(Request $request) {
 
-        //dd($request);
-        $valid = $request -> validate([
+        $validation = $request -> validate([
             'email' => 'required|string|max:128',
             'text' => 'required|string|min:20|max:255',
             'apartment_id' => 'required|exists:App\Apartment,id|integer'
@@ -53,10 +44,17 @@ class GuestController extends Controller
 
         $apartment = Apartment::findOrFail($request -> apartment_id);
 
-        $message = Message::make($valid);
+        $message = Message::make($validation);
         $message -> apartment() -> associate($apartment);
         $message -> save();
 
         return redirect() -> route('index');
     }
+
+    /* public function message($id){
+
+        $apartment = Apartment::findOrFail($id);
+
+        return view('pages.message', compact('apartment'));
+    } */
 }
