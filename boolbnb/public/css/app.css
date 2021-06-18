@@ -246,6 +246,10 @@ header .user-header {
   color: whitesmoke;
 }
 
+body {
+  background-color: goldenrod;
+}
+
 * {
   border: 1px solid red;
   margin: 0;
