@@ -6,26 +6,49 @@ use Illuminate\Http\Request;
 
 use App\Apartment;
 use App\Message;
+use App\Service;
+use App\Sponsorship;
 
 class GuestController extends Controller
 {
-    public function index(){      
+    public function index(){    
 
-        $apartments = Apartment::all();
+        $allApartments = Apartment::all();
+
+        $apartments = [];
+
+        foreach ($allApartments as $apartment) {
+           
+            foreach ($apartment -> sponsorships  as $apartRel) {
+
+                $endDate = $apartRel -> pivot -> end_date;
+
+                date_default_timezone_set('Europe/Rome');
+                $currentDate = date('m/d/Y H:i:s', time());
+                $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
+
+                /* dd($currentDate, $endDate); */
+                
+                if ($currentDate < $endDateFormat) {
+
+                    !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
+                }
+            }
+        }
 
         return view('pages.home', compact('apartments'));
     }
 
-    public function search(Request $request){
+    public function search(Request $request) {
 
-        $valid = $request -> validate([
-            'search' => 'required|string'
+        $validation = $request -> validate([
+            'searchString' => 'required|string'
         ]);
 
-        $apartments = Apartment::where('city', 'LIKE', '%{$valid}%');
+        $apartments = Apartment::where('city', 'LIKE', '%' . $validation['searchString'] . '%')->get();
         $services = Service::all();
 
-        return view('pages.results', compact('apartments', 'services'));
+        return view('pages.apartmentSearch', compact('apartments', 'services'));
     }
 
     public function showApartment($id){
