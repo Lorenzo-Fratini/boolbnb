@@ -26,8 +26,6 @@ class GuestController extends Controller
                 date_default_timezone_set('Europe/Rome');
                 $currentDate = date('m/d/Y H:i:s', time());
                 $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
-
-                /* dd($currentDate, $endDate); */
                 
                 if ($currentDate < $endDateFormat) {
 
@@ -73,11 +71,4 @@ class GuestController extends Controller
 
         return redirect() -> route('index');
     }
-
-    /* public function message($id){
-
-        $apartment = Apartment::findOrFail($id);
-
-        return view('pages.message', compact('apartment'));
-    } */
 }
