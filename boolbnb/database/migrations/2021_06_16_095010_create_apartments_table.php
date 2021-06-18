@@ -17,7 +17,8 @@ class CreateApartmentsTable extends Migration
             $table -> id();
 
             $table -> string('title', 256);
-            $table -> string('cover_image') ->nullable(); //temp null
+            $table -> string('cover_image') -> nullable(); //temp null
+            $table -> string('description');
             $table -> string('rooms_number', 5);
             $table -> string('beds_number', 5);
             $table -> string('bathrooms_number', 5);
@@ -30,6 +31,7 @@ class CreateApartmentsTable extends Migration
             $table -> float('longitude') -> nullable(); //temp null
             $table -> boolean('visible') -> default(0);
 
+            $table -> softDeletes();
             $table -> bigInteger('user_id') -> unsigned() -> index();
             
             $table -> timestamps();
