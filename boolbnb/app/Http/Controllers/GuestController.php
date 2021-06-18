@@ -7,12 +7,34 @@ use Illuminate\Http\Request;
 use App\Apartment;
 use App\Message;
 use App\Service;
+use App\Sponsorship;
 
 class GuestController extends Controller
 {
-    public function index(){      
+    public function index(){    
 
-        $apartments = Apartment::all();
+        $allApartments = Apartment::all();
+
+        $apartments = [];
+
+        foreach ($allApartments as $apartment) {
+           
+            foreach ($apartment -> sponsorships  as $apartRel) {
+
+                $endDate = $apartRel -> pivot -> end_date;
+
+                date_default_timezone_set('Europe/Rome');
+                $currentDate = date('m/d/Y H:i:s', time());
+                $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
+
+                /* dd($currentDate, $endDate); */
+                
+                if ($currentDate < $endDateFormat) {
+
+                    !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
+                }
+            }
+        }
 
         return view('pages.home', compact('apartments'));
     }
