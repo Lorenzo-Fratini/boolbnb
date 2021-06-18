@@ -3,13 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Apartment extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
 
         'title',
         'cover_image',
+        'description',
         'rooms_number',
         'beds_number',
         'bathrooms_number',
@@ -24,6 +28,8 @@ class Apartment extends Model
         'user_id',
         'visible'
     ];
+
+    protected $dates = ['deleted_at'];
 
     public function images(){
 

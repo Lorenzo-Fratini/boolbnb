@@ -13,11 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Controller@index')
+Route::get('/', 'GuestController@index')
     -> name('index');
 
 Route::get('/apartment/{id}', 'GuestController@apartment')
     -> name('apartment.show');
+    
+Route::get('/apartment/create', 'LoggedController@createApartment')
+    -> name('apartment.create');
+Route::get('/apartment', 'LoggedController@storeApartment')
+    -> name('apartment.store');
+    
+Route::get('/apartment/{id}/edit', 'LoggedController@editApartment')
+    -> name('apartment.edit');
+Route::get('/apartment', 'LoggedController@updateApartment')
+    -> name('apartment.update');
+    
+Route::get('/apartment/{id}', 'LoggedController@destroyApartment')
+    -> name('apartment.destroy');
     
 Route::get('/search', 'GuestController@advancedSearch')
     -> name('advancedSearch');
