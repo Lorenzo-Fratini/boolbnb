@@ -16,6 +16,7 @@ class ApartmentSeeder extends Seeder
         $apartments = [
             [
                 'title' => 'Caseggiato Millefoglie',
+                'cover_image' => 'es1.jpg',
                 'rooms_number' => '4',
                 'beds_number' => '3',
                 'bathrooms_number' => '2',
@@ -30,6 +31,7 @@ class ApartmentSeeder extends Seeder
             ],
             [
                 'title' => 'Villa Nest',
+                'cover_image' => 'es2.jpg',
                 'rooms_number' => '6',
                 'beds_number' => '4',
                 'bathrooms_number' => '3',
@@ -44,6 +46,7 @@ class ApartmentSeeder extends Seeder
             ],
             [
                 'title' => 'Prima Luce',
+                'cover_image' => 'es3.jpg',
                 'rooms_number' => '2',
                 'beds_number' => '1',
                 'bathrooms_number' => '1',
@@ -58,6 +61,7 @@ class ApartmentSeeder extends Seeder
             ],
             [
                 'title' => 'il Podere del Lago',
+                'cover_image' => 'es4.jpg',
                 'rooms_number' => '5',
                 'beds_number' => '5',
                 'bathrooms_number' => '3',
@@ -72,6 +76,7 @@ class ApartmentSeeder extends Seeder
             ],
             [
                 'title' => 'La Contea',
+                'cover_image' => 'es5.jpg',
                 'rooms_number' => '2',
                 'beds_number' => '3',
                 'bathrooms_number' => '1',
