@@ -87,10 +87,6 @@ header .user-header {
   background-color: sienna;
 }
 
-.f_margin {
-  margin: 5px;
-}
-
 #container_f {
   max-width: 100vw;
 }
@@ -227,7 +223,7 @@ header .user-header {
 
 .container-ap .row {
   display: flex;
-  width: 100vw;
+  width: 95vw;
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
