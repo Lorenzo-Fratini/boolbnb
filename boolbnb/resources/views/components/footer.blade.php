@@ -68,7 +68,7 @@
 
                 <span>
 
-                    <i class="fas fa-globe"></i><a href="#" class="links-ft">Italinao (IT)</a>
+                    <i class="fas fa-globe"></i><a href="#" class="links-ft">Italiano (IT)</a>
                     
                      € <a href="#" class="links-ft">EUR</a>
 
