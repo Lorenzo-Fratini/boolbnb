@@ -10,16 +10,37 @@
     .row {
         display: flex;
 
-        width: 95vw;
+        width: 100vw;
 
         justify-content: space-around;
         align-items: flex-start;
         flex-wrap: wrap;
 
         .ap-lyt {
-            background-color: darkslategray;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
 
-            text-align: center;
+            padding: 25px;
+
+            background-color: darkslategray;
+            color: white;
+
+            width: 40%;
+            height: 250px;
+
+            border-radius: 10px;
+            margin: 5%;
+
+            .details {
+                span {
+                    margin-right: 10px;
+                }
+
+                .fas {
+                    color: whitesmoke;
+                }
+            }
         }
     }
 }

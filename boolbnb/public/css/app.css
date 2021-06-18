@@ -48,7 +48,7 @@ header .user-header {
   padding-top: 80px;
   display: flex;
   align-items: center;
-  background-color: darkorange;
+  background-image: url(/images/bosch.jpg?97988beab1eb162eb20784e2419c590e);
   background-position: top;
   background-size: cover;
 }
@@ -137,10 +137,6 @@ header .user-header {
   margin-left: 10px;
 }
 
-* {
-  border: 1px solid red;
-}
-
 .margins {
   width: 65%;
   margin: auto;
@@ -223,15 +219,31 @@ header .user-header {
 
 .container-ap .row {
   display: flex;
-  width: 95vw;
+  width: 100vw;
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .container-ap .row .ap-lyt {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 25px;
   background-color: darkslategray;
-  text-align: center;
+  color: white;
+  width: 40%;
+  height: 250px;
+  border-radius: 10px;
+  margin: 5%;
+}
+
+.container-ap .row .ap-lyt .details span {
+  margin-right: 10px;
+}
+
+.container-ap .row .ap-lyt .details .fas {
+  color: whitesmoke;
 }
 
 body {
@@ -243,6 +255,7 @@ body .dash {
 }
 
 * {
+  border: 1px solid red;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
