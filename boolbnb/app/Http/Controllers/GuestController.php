@@ -42,17 +42,17 @@ class GuestController extends Controller
 
         return view('pages.message', compact('apartment'));
     }
+    public function storeMessage(Request $request) {
 
-    public function storeMessage(Request $request){
-
-        dd($request);
+        //dd($request);
         $valid = $request -> validate([
             'email' => 'required|string|max:128',
             'text' => 'required|string|min:20|max:255',
-            'date' => 'required|date'
+            'apartment_id' => 'required|exists:App\Apartment,id|integer'
         ]);
 
-        $apartment = Apartment::findOrFail($request -> get('apartment_id'));
+        $apartment = Apartment::findOrFail($request -> apartment_id);
+
         $message = Message::make($valid);
         $message -> apartment() -> associate($apartment);
         $message -> save();

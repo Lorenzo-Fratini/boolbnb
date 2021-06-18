@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Controller@index')
+Route::get('/', 'GuestController@index')
     -> name('index');
 
 Route::get('/apartment/{id}', 'GuestController@apartment')
@@ -27,8 +27,7 @@ Route::get('/dashboard/{id}', 'LoggedController@dashboard')
 
 Route::get('/message/{id}', 'GuestController@message')
     -> name('message');
-
-Route::post('/storeMessage/{id}', 'GuestController@storeMessage')
+Route::post('/storeMessage', 'GuestController@storeMessage')
     -> name('storeMessage');
 
 Auth::routes();
