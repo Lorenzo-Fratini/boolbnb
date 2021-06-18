@@ -26,6 +26,11 @@ Route::get('/apartment/{id}', 'LoggedController@destroyApartment')
 Route::get('/search', 'GuestController@advancedSearch')
     -> name('advancedSearch');
 
+Route::get('/show/apartment/{id}', 'GuestController@showApartment')
+    -> name('showApartment');
+Route::post('/store/Message', 'GuestController@storeMessage')
+    -> name('storeMessage');
+    
 Route::get('/dashboard/{id}', 'LoggedController@dashboard')
     -> name('dashboard');
 

@@ -1,17 +1,15 @@
 @extends('layouts.main-layout')
-@section('content')
 
-    <style>
-        h1{
-            margin-top: 100px;
-        }
-    </style>
-    <main class="mt-5">
-        <h1>Hello World</h1>
-        @foreach ($apartments as $apartment)
-            {{ $apartment -> title }}
-            {{ $apartment -> description }}
-            ciao
-        @endforeach
-    </main>
+@section('content')
+    <div class="container text-center dash">
+        <div class="row">
+            <div class="col-12">
+                <h1> DASHBOARD:</h1>
+                
+                <p>Dettagli utente</p>
+                <p>Appartamenti</p>
+
+            </div>
+        </div>
+    </div>
 @endsection
