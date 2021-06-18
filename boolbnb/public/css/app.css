@@ -48,7 +48,6 @@ header .user-header {
   padding-top: 80px;
   display: flex;
   align-items: center;
-  background-image: url(/images/bosch.jpg?97988beab1eb162eb20784e2419c590e);
   background-position: top;
   background-size: cover;
 }
@@ -246,11 +245,7 @@ header .user-header {
   color: whitesmoke;
 }
 
-body {
-  background-color: goldenrod;
-}
-
-body .dash {
+.dash {
   margin-top: 80px;
 }
 
