@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Apartment;
+use App\User;
 
 class LoggedController extends Controller
 {
@@ -20,7 +21,7 @@ class LoggedController extends Controller
 
     public function dashboard($id){
 
-        $userInfo = Auth::findOrFail($id);
+        $userInfo = User::findOrFail($id);
         $apartments = Apartment::where($user_id = $id);
         // dd($apartments);
 
