@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Apartment;
 use App\Message;
+use App\Service;
 
 class GuestController extends Controller
 {
@@ -16,16 +17,16 @@ class GuestController extends Controller
         return view('pages.home', compact('apartments'));
     }
 
-    public function search(Request $request){
+    public function search(Request $request) {
 
-        $valid = $request -> validate([
-            'search' => 'required|string'
+        $validation = $request -> validate([
+            'searchString' => 'required|string'
         ]);
 
-        $apartments = Apartment::where('city', 'LIKE', '%{$valid}%');
+        $apartments = Apartment::where('city', 'LIKE', '%' . $validation['searchString'] . '%')->get();
         $services = Service::all();
 
-        return view('pages.results', compact('apartments', 'services'));
+        return view('pages.apartmentSearch', compact('apartments', 'services'));
     }
 
     public function showApartment($id){

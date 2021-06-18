@@ -5,14 +5,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'GuestController@index')
     -> name('index');
 
-Route::get('/apartment/{id}', 'GuestController@showApartment')
-    -> name('apartment.show');
-Route::post('/storeMessage', 'GuestController@storeMessage')
-        -> name('storeMessage');
-    
-Route::get('/search', 'GuestController@advancedSearch')
-    -> name('advancedSearch');
+Route::post('/search', 'GuestController@search')
+    -> name('search');
 
+Route::get('/show/apartment/{id}', 'GuestController@showApartment')
+    -> name('showApartment');
+Route::post('/store/Message', 'GuestController@storeMessage')
+    -> name('storeMessage');
+    
 Route::get('/dashboard/{id}', 'LoggedController@dashboard')
     -> name('dashboard');
 
