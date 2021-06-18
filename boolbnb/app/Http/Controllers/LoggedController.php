@@ -22,7 +22,7 @@ class LoggedController extends Controller
     public function dashboard($id){
 
         $userInfo = User::findOrFail($id);
-        $apartments = Apartment::where($user_id = $id);
+        $apartments = Apartment::where('user_id', 'LIKE', $id) -> get();
 
         return view('pages.dashboard', compact('userInfo', 'apartments'));
     }

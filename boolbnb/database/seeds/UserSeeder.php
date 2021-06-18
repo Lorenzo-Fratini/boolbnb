@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 'lastname' => 'Fratini',
                 'date_of_birth' => '1992-06-13',
                 'email' => 'lorenzo.fratini@gmail.com',
-                'password' => 'asd123',
+                'password' => bcrypt('asdasdasd'),
                 'remember_token' => Str::random(10),
             ],
             [
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
                 'lastname' => 'Barbaresco',
                 'date_of_birth' => '1990-01-01',
                 'email' => 'diego.barbaresco@gmail.com',
-                'password' => 'asd123',
+                'password' => bcrypt('asdasdasd'),
                 'remember_token' => Str::random(10),
             ],
             [
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
                 'lastname' => 'Cassa',
                 'date_of_birth' => '1990-01-01',
                 'email' => 'benito.cassa@gmail.com',
-                'password' => 'asd123',
+                'password' => bcrypt('asdasdasd'),
                 'remember_token' => Str::random(10),
             ],
             [
@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
                 'lastname' => 'Trimi',
                 'date_of_birth' => '1990-01-01',
                 'email' => 'paolo.trimi@gmail.com',
-                'password' => 'asd123',
+                'password' => bcrypt('asdasdasd'),
                 'remember_token' => Str::random(10),
             ],
             [
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
                 'lastname' => 'Tibaldo',
                 'date_of_birth' => '1990-01-01',
                 'email' => 'alessandro.tibaldo@gmail.com',
-                'password' => 'asd123',
+                'password' => bcrypt('asdasdasd'),
                 'remember_token' => Str::random(10),
             ]
         ];
