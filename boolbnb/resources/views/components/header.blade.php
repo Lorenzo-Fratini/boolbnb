@@ -6,11 +6,17 @@
         </div>
 
         <div class="searchbar-header">
-            <form class="" method="post">
-                <input type="text" placeholder="Inizia la ricerca...">
+            <form method="POST" action="{{ route('search') }}">
+
+                @csrf
+                @method('POST')
+
+                <input id="searchString" type="text" class="form-control" name="searchString" placeholder="Cerca la città..." required>
+
                 <button type="submit" class="searchButton">
                     <i class="fa fa-search"></i>
                 </button>
+
             </form>
 
         </div>
