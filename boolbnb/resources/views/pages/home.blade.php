@@ -28,7 +28,7 @@
       
       @foreach ($apartments as $apartment)
 
-      <div class="ap-lyt">
+      <div class="ap-lyt" style="background-image: url(storage/images/es{{$apartment -> id}}.jpg)">
 
 
         <h2>{{ $apartment -> title }}</h2>
