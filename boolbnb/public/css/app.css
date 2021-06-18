@@ -234,6 +234,10 @@ header .user-header {
   text-align: center;
 }
 
+body {
+  background-color: goldenrod;
+}
+
 * {
   margin: 0;
   padding: 0;
