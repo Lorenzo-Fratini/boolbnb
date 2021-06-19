@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -11,30 +12,26 @@ use App\Sponsorship;
 
 class GuestController extends Controller
 {
-    public function index(){    
+    public function index(){
 
-        $allApartments = Apartment::all();
+        date_default_timezone_set('Europe/Rome');
+        $currentDate = date('Y-m-d H:i:s', time());
 
-        $apartments = [];
-
-        foreach ($allApartments as $apartment) {
-           
-            foreach ($apartment -> sponsorships  as $apartRel) {
-
-                $endDate = $apartRel -> pivot -> end_date;
-
-                date_default_timezone_set('Europe/Rome');
-                $currentDate = date('m/d/Y H:i:s', time());
-                $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
-                
-                if ($currentDate < $endDateFormat) {
-
-                    !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
-                }
-            }
-        }
+        $apartments = DB::table('sponsorships')
+            ->join('apartment_sponsorship', 'sponsorships.id', '=', 'apartment_sponsorship.sponsorship_id')
+            ->join('apartments', 'apartment_sponsorship.apartment_id', '=', 'apartments.id')
+            -> where('end_date', '>', $currentDate)
+            ->get();
 
         return view('pages.home', compact('apartments'));
+    }
+    public function showApartment($id){
+
+        $apartment = Apartment::findOrFail($id);
+
+        $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
+
+        return view('pages.apartmentShow', compact('apartment', 'services'));
     }
 
     public function search(Request $request) {
@@ -47,14 +44,8 @@ class GuestController extends Controller
         $services = Service::all();
 
         return view('pages.apartmentSearch', compact('apartments', 'services'));
-    }
+     }
 
-    public function showApartment($id){
-
-        $apartment = Apartment::findOrFail($id);
-
-        return view('pages.apartmentShow', compact('apartment'));
-    }
     public function storeMessage(Request $request) {
 
         $validation = $request -> validate([
@@ -69,6 +60,6 @@ class GuestController extends Controller
         $message -> apartment() -> associate($apartment);
         $message -> save();
 
-        return redirect() -> route('index');
+        return redirect() -> route('apartment.show', ['id' => $apartment]);
     }
 }

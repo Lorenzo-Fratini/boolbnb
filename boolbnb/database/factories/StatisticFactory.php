@@ -7,7 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(Statistic::class, function (Faker $faker) {
     return [
-        'date' => $faker -> datetime,
-        'apartment_id' => rand(1, 5)
+        'date' => $faker -> dateTimeBetween('-5 month', 'now')
     ];
 });

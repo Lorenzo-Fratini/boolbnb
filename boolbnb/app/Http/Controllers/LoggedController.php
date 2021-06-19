@@ -32,7 +32,7 @@ class LoggedController extends Controller
         return view('pages.apartment-create');
     }
 
-    public function storeApartment(Request $request){
+    public function storeApartment(Request $request) {
 
         $validation = $request -> validate([
             
@@ -50,17 +50,18 @@ class LoggedController extends Controller
 
         $apartment = Apartment::create($validation);
 
-        return redirect() -> route('dashboard');
+        $userId = $apartment -> user_id;
+
+        return redirect() -> route('dashboard', ['id' => $userId]);
     }
 
-    public function editApartment($id){
+    public function editApartment($id) {
 
         $apartment = Apartment::findOrFail($id);
 
         return view('pages.apartment-edit', compact('apartment'));
     }
-
-    public function updateApartment(Request $request, $id){
+    public function updateApartment(Request $request, $id) {
 
         $validation = $request -> validate([
             
@@ -79,15 +80,18 @@ class LoggedController extends Controller
         $apartment = Apartment::findOrFail($id);
         $apartment -> update($validation);
 
-        return redirect() -> route('dashboard');
+        $userId = $apartment -> user_id;
+
+        return redirect() -> route('dashboard', ['id' => $userId]);
     }
 
-    public function destroyApartment($id){
+    public function destroyApartment($id) {
 
         $apartment = Apartment::findOrFail($id);
+        $userId = $apartment -> user_id;
         $apartment -> delete();
         $apartment -> save();
 
-        return redirect() -> route('dashboard');
+        return redirect() -> route('dashboard', ['id' => $userId]);
     }
 }
