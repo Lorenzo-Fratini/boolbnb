@@ -1,4 +1,77 @@
-.dash {
-    margin-top: 80px;
+// Regole generali
 
+
+// Main
+
+.main-box {
+    margin-top: 200px;
+    margin-bottom: 200px;
+    font-size: 22px;
+    
+    .box-side {
+        display: flex;
+        //height: 600px;
+        //debug
+        background-color: yellowgreen;
+
+        .left-side {
+            margin-left: 10%;
+            background-color: darkcyan;
+        }
+
+        .right-side {
+            //flex-grow: 1;
+            //display: flex;
+            margin-left: 200px;;
+            //debug
+            background-color: green;
+
+            .box-title {
+                background-color: goldenrod;
+            }
+
+            .box-content {
+                // debug
+                background-color: lightblue;
+
+                p {
+                    padding: 10px 0;
+                }
+
+                a{
+                    font-size: 14px;
+                    margin-left: 10px;
+                    padding: 3px 6px;
+                    background-color: hotpink;
+                    border-radius: 3px;
+                    border-color: black;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                }
+
+            }
+
+            .box-apart {
+
+                a {
+                    font-size: 14px;
+                    margin-left: 10px;
+                    padding: 3px 6px;
+                    background-color: hotpink;
+                    border-radius: 3px;
+                    border-color: black;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                }
+
+            }
+        }
+
+        .stat-side {
+            margin-left: 200px;
+            //debug
+            background-color: lightblue;
+        }
+    }
 }
+

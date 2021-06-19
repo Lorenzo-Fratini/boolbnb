@@ -320,8 +320,64 @@ header .user-header {
   color: whitesmoke;
 }
 
-.dash {
-  margin-top: 80px;
+.main-box {
+  margin-top: 200px;
+  margin-bottom: 200px;
+  font-size: 22px;
+}
+
+.main-box .box-side {
+  display: flex;
+  background-color: yellowgreen;
+}
+
+.main-box .box-side .left-side {
+  margin-left: 10%;
+  background-color: darkcyan;
+}
+
+.main-box .box-side .right-side {
+  margin-left: 200px;
+  background-color: green;
+}
+
+.main-box .box-side .right-side .box-title {
+  background-color: goldenrod;
+}
+
+.main-box .box-side .right-side .box-content {
+  background-color: lightblue;
+}
+
+.main-box .box-side .right-side .box-content p {
+  padding: 10px 0;
+}
+
+.main-box .box-side .right-side .box-content a {
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 3px 6px;
+  background-color: hotpink;
+  border-radius: 3px;
+  border-color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.main-box .box-side .right-side .box-apart a {
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 3px 6px;
+  background-color: hotpink;
+  border-radius: 3px;
+  border-color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.main-box .box-side .stat-side {
+  margin-left: 200px;
+  background-color: lightblue;
 }
 
 * {
