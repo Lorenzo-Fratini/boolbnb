@@ -28,30 +28,34 @@
       
       @foreach ($apartments as $apartment)
 
+      
       <div class="ap-lyt" style="background-image: url(storage/images/{{$apartment -> cover_image}})">
-
-
-        <h2>{{ $apartment -> title }}</h2>
-
-        <div>
-
-          <span>Numero di stanze:</span>
-          <span>{{ $apartment -> rooms_number }}</span>
-
-        </div>
         
-        <div class="details">
+        <a href="{{ route('apartment.show', $apartment -> id) }}" class="prem-apart">
 
-          <i class="fas fa-bed"></i>
-          <span>{{ $apartment -> beds_number }}</span>
+            <h2>{{ $apartment -> title }}</h2>
   
-          <i class="fas fa-toilet"></i>
-          <span>{{ $apartment -> bathrooms_number }}</span>
+            <div>
+  
+             <span>Numero di stanze:</span>
+              <span>{{ $apartment -> rooms_number }}</span>
+  
+            </div>
+          
+            <div class="details">
+  
+             <i class="fas fa-bed"></i>
+             <span>{{ $apartment -> beds_number }}</span>
+    
+              <i class="fas fa-toilet"></i>
+              <span>{{ $apartment -> bathrooms_number }}</span>
+  
+            </div>
+  
+          </a>
+  
+          </div>
 
-        </div>
-
-
-      </div>
           
       @endforeach
 

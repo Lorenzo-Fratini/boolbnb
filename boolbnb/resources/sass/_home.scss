@@ -80,7 +80,8 @@
           padding: 25px;
 
           background-color: darkslategray;
-          background-size: contain;
+          background-size: 100%;
+          background-repeat: no-repeat;
           color: white;
 
           width: 40%;
@@ -100,4 +101,10 @@
           }
       }
   }
+}
+
+.free-size {
+    content: "";
+    display: table;
+    clear: both;
 }
