@@ -1,0 +1,110 @@
+//variables
+@import 'variables';
+
+.container-content {
+
+  height: 700px;
+  background-color: #ccc;
+  padding-top: 80px;
+  display: flex;
+  align-items: center;
+  background-image: url('storage/images/bosch.jpg');
+  // background-color: darkorange; // solo per il debug, non definitivo
+  background-position: top;
+  background-size: cover;
+
+  .margin-content {
+
+    width: 80%;
+    margin: auto;
+  }
+
+  .text-content {
+
+    color: white;
+  }
+}
+
+.container-evidenza {
+
+  width: 80%;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  .cities-evidenza {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .cities-box {
+
+      width: 350px;
+      height: 500px;
+      background-color: salmon;
+
+      .box-img {
+
+        width: 350px;
+        height: 350px;
+        background-color: sienna;
+        
+      }
+    }
+  }
+  
+}
+
+
+.container-ap {
+
+  content: "";
+  display: table;
+  clear: both;
+
+  .row {
+      display: flex;
+
+      width: 100%;
+
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+
+      .ap-lyt {
+          display: flex;
+          justify-content: flex-end;
+          flex-direction: column;
+
+          padding: 25px;
+
+          background-color: darkslategray;
+          background-size: 100%;
+          background-repeat: no-repeat;
+          color: white;
+
+          width: 40%;
+          height: 250px;
+
+          border-radius: 10px;
+          margin: 5%;
+
+          .details {
+              span {
+                  margin-right: 10px;
+              }
+
+              .fas {
+                  color: whitesmoke;
+              }
+          }
+      }
+  }
+}
+
+.free-size {
+    content: "";
+    display: table;
+    clear: both;
+}
