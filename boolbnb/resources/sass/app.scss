@@ -7,17 +7,10 @@
 @import 'home';
 @import 'footer_lyt';
 @import 'apartment';
-@import 'home_PA';
 @import 'dashboard';
 
-
-
-// Bootstrap
-// @import '~bootstrap/scss/bootstrap';
-
 *{
-    //ho spostato qui il codice generale per evitare che si causino imbrogli, Tiba se vuoi spostarlo va bene. Scusami per aver toccato uno dei tuoi file
-    border: 1px solid red;
+    // border: 1px solid red;
 
     margin: 0;
     padding: 0;

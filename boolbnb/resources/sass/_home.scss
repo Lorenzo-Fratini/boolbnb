@@ -1,3 +1,6 @@
+//variables
+@import 'variables';
+
 .container-content {
 
   height: 700px;
@@ -51,4 +54,50 @@
     }
   }
   
+}
+
+
+.container-ap {
+
+  content: "";
+  display: table;
+  clear: both;
+
+  .row {
+      display: flex;
+
+      width: 100%;
+
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+
+      .ap-lyt {
+          display: flex;
+          justify-content: flex-end;
+          flex-direction: column;
+
+          padding: 25px;
+
+          background-color: darkslategray;
+          background-size: contain;
+          color: white;
+
+          width: 40%;
+          height: 250px;
+
+          border-radius: 10px;
+          margin: 5%;
+
+          .details {
+              span {
+                  margin-right: 10px;
+              }
+
+              .fas {
+                  color: whitesmoke;
+              }
+          }
+      }
+  }
 }

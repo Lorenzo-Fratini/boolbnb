@@ -28,7 +28,7 @@
       
       @foreach ($apartments as $apartment)
 
-      <div class="ap-lyt" style="background-image: url(storage/images/es{{$apartment -> id}}.jpg)">
+      <div class="ap-lyt" style="background-image: url(storage/images/{{$apartment -> cover_image}})">
 
 
         <h2>{{ $apartment -> title }}</h2>
@@ -49,14 +49,6 @@
           <span>{{ $apartment -> bathrooms_number }}</span>
 
         </div>
-
-        {{-- <p>{{ $apartment -> area }}</p>
-
-        <p>{{ $apartment -> address }}</p>
-        
-        <p>{{ $apartment -> city }}</p>
-
-        <p>{{ $apartment -> country }}</p> --}}
 
 
       </div>
