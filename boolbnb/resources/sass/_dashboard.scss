@@ -1,4 +1,67 @@
-.dash {
-    margin-top: 80px;
+.main-box {
+    margin-top: 180px;   // di cui 80px di header
+    margin-bottom: 100px;
+    font-size: 22px;
+    
+    .box-side {  
+        //debug
+        background-color: yellowgreen;
+        display: flex;
+        justify-content: space-around;
 
+        .left-side {
+            background-color: darkcyan;
+        }
+
+        .right-side {
+            //debug
+            background-color: green;
+
+            .box-title {
+                //debug
+                background-color: goldenrod;
+            }
+
+            .box-content {
+                // debug
+                background-color: lightblue;
+
+                p {
+                    padding: 10px 50px;
+                }
+
+                a {
+                    font-size: 14px;
+                    margin-left: 10px;
+                    padding: 3px 6px;
+                    background-color: hotpink;
+                    border-radius: 3px;
+                    border-color: black;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                }
+
+            }
+
+            .box-apart {
+
+                a {
+                    font-size: 14px;
+                    margin-left: 10px;
+                    padding: 3px 6px;
+                    background-color: hotpink;
+                    border-radius: 3px;
+                    border-color: black;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .stat-side {
+            //debug
+            background-color: lightblue;
+        }
+    }
 }
+

@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);header {
   height: 80px;
   background-color: #FF5A5F;
-  position: fixed;
-  top: 0;
   width: 100%;
   z-index: 2;
 }
@@ -35,6 +33,7 @@ header .searchbar-header button i {
   border-radius: 100%;
   padding: 10px;
   color: white;
+  cursor: pointer;
 }
 
 header .user-header {
@@ -341,8 +340,62 @@ a.prem-apart {
   cursor: pointer;
 }
 
-.dash {
-  margin-top: 80px;
+.main-box {
+  margin-top: 180px;
+  margin-bottom: 100px;
+  font-size: 22px;
+}
+
+.main-box .box-side {
+  background-color: yellowgreen;
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-box .box-side .left-side {
+  background-color: darkcyan;
+}
+
+.main-box .box-side .right-side {
+  background-color: green;
+}
+
+.main-box .box-side .right-side .box-title {
+  background-color: goldenrod;
+}
+
+.main-box .box-side .right-side .box-content {
+  background-color: lightblue;
+}
+
+.main-box .box-side .right-side .box-content p {
+  padding: 10px 50px;
+}
+
+.main-box .box-side .right-side .box-content a {
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 3px 6px;
+  background-color: hotpink;
+  border-radius: 3px;
+  border-color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.main-box .box-side .right-side .box-apart a {
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 3px 6px;
+  background-color: hotpink;
+  border-radius: 3px;
+  border-color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.main-box .box-side .stat-side {
+  background-color: lightblue;
 }
 
 * {

@@ -19,10 +19,10 @@ class CreateApartmentsTable extends Migration
             $table -> string('title', 256);
             $table -> string('cover_image') -> nullable(); //temp null
             $table -> string('description');
-            $table -> string('rooms_number', 5);
-            $table -> string('beds_number', 5);
-            $table -> string('bathrooms_number', 5);
-            $table -> string('area', 10);
+            $table -> integer('rooms_number');
+            $table -> integer('beds_number');
+            $table -> integer('bathrooms_number');
+            $table -> integer('area');
             $table -> string('address', 256);
             $table -> string('city');
             $table -> string('country');

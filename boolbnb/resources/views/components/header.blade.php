@@ -2,7 +2,7 @@
     <div class="container-header">
 
         <div class="logo-header">
-            <img src="{{ asset('storage/images/logo.svg') }}" alt="">
+        <a href="{{ route('index')}}"><img src="{{ asset('storage/images/logo.svg') }}" alt="Logo BoolB&B"></a>
         </div>
 
         <div class="searchbar-header">
@@ -23,10 +23,6 @@
 
         <div class="user-header">
             <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    User
-                </button>
                 @guest
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="{{ route('login') }}">Login</a>
@@ -45,6 +41,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
+                    <a href="{{ route('dashboard', ['id' => Auth::id()]) }}">Dashboard</a>
                     </div>
                 @endguest
             </div>
