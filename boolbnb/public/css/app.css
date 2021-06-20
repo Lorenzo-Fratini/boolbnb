@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);header {
   height: 80px;
   background-color: #FF5A5F;
-  position: fixed;
-  top: 0;
   width: 100%;
 }
 

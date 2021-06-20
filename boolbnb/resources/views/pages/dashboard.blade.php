@@ -19,13 +19,13 @@
                             <p>
                                 <i class="fas fa-home"></i>
                                 {{ $apartment -> title}} - {{ $apartment -> address}} - {{ $apartment -> city}}
-                                <a href="#">Edit</a>
-                                <a href="#">Delete</a>
+                            <a href="{{ route('editApartment', $apartment -> id) }}">Edit</a>
+                            <a href="{{ route('destroyApartment', $apartment -> id) }}">Delete</a>
                             </p>
                         @endforeach
                     </div>
                     <div class="box-apart">
-                        <p>Inserisci un nuovo appartamrto <a href="#">Nuovo appartamento</a></p>
+                        <p>Inserisci un nuovo appartamrto <a href="{{ route('createApartment') }}">Nuovo appartamento</a></p>
                     </div>
                 </div>
                 {{-- statistiche --}}
