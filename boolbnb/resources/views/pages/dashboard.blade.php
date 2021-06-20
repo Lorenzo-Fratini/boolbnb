@@ -7,6 +7,7 @@
                 {{-- left side --}}
                 <div class="left-side">
                     <p>Dettagli utente:</p>
+                <a href="{{ route('index')}}"> <-- Back To Home</a>
                 </div>
                 {{-- right side --}}
                 <div class="right-side">

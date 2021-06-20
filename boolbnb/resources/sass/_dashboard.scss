@@ -1,32 +1,24 @@
-// Regole generali
-
-
-// Main
-
 .main-box {
-    margin-top: 200px;
-    margin-bottom: 200px;
+    margin-top: 180px;   // di cui 80px di header
+    margin-bottom: 100px;
     font-size: 22px;
     
-    .box-side {
-        display: flex;
-        //height: 600px;
+    .box-side {  
         //debug
         background-color: yellowgreen;
+        display: flex;
+        justify-content: space-around;
 
         .left-side {
-            margin-left: 10%;
             background-color: darkcyan;
         }
 
         .right-side {
-            //flex-grow: 1;
-            //display: flex;
-            margin-left: 200px;;
             //debug
             background-color: green;
 
             .box-title {
+                //debug
                 background-color: goldenrod;
             }
 
@@ -35,10 +27,10 @@
                 background-color: lightblue;
 
                 p {
-                    padding: 10px 0;
+                    padding: 10px 50px;
                 }
 
-                a{
+                a {
                     font-size: 14px;
                     margin-left: 10px;
                     padding: 3px 6px;
@@ -63,12 +55,10 @@
                     text-transform: uppercase;
                     text-decoration: none;
                 }
-
             }
         }
 
         .stat-side {
-            margin-left: 200px;
             //debug
             background-color: lightblue;
         }
