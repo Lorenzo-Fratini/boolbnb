@@ -2,6 +2,7 @@
   height: 80px;
   background-color: #FF5A5F;
   width: 100%;
+  z-index: 2;
 }
 
 header .container-header {
@@ -86,12 +87,6 @@ header .user-header {
   background-color: sienna;
 }
 
-.container-ap {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .container-ap .row {
   display: flex;
   width: 100%;
@@ -100,33 +95,50 @@ header .user-header {
   flex-wrap: wrap;
 }
 
-.container-ap .row .ap-lyt {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  padding: 25px;
-  background-color: darkslategray;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  color: white;
-  width: 40%;
-  height: 250px;
+.container-ap .row:first-child {
+  background-color: rgba(211, 211, 211, 0.4);
+  padding: 25px 0;
+}
+
+.container-ap .row .mini-container {
+  margin: 15px 0;
+  position: relative;
+  z-index: 0;
+}
+
+.container-ap .row .mini-container .ap-img {
+  width: 40vw;
   border-radius: 10px;
-  margin: 5%;
+  position: relative;
 }
 
-.container-ap .row .ap-lyt .details span {
-  margin-right: 10px;
-}
-
-.container-ap .row .ap-lyt .details .fas {
-  color: whitesmoke;
+a.prem-apart {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: black;
+  text-decoration: none;
+  line-height: 1.7;
+  height: 100%;
+  width: 100%;
 }
 
 .free-size {
   content: "";
   display: table;
   clear: both;
+}
+
+.white-buble {
+  background-color: rgba(211, 211, 211, 0.6);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 #container_f {
@@ -173,7 +185,7 @@ header .user-header {
 #last-row-footer {
   justify-content: space-between;
   padding: 15px 5%;
-  background-color: silver;
+  background-color: #ffc1c3;
 }
 
 #last-row-footer .fab {
