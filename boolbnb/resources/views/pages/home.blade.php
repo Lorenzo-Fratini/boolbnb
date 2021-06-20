@@ -31,7 +31,7 @@
       
       <div class="ap-lyt" style="background-image: url(storage/images/{{$apartment -> cover_image}})">
         
-        <a href="{{ route('apartment.show', $apartment -> id) }}" class="prem-apart">
+        <a href="{{ route('showApartment', $apartment -> id) }}" class="prem-apart">
 
             <h2>{{ $apartment -> title }}</h2>
   

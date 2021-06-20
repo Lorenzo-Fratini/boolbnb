@@ -6,37 +6,34 @@ use Illuminate\Http\Request;
 
 use App\Apartment;
 use App\User;
+use App\Service;
 
-class LoggedController extends Controller
-{
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+class LoggedController extends Controller {
+    
     public function __construct() {
         
         $this->middleware('auth');
     }
 
-    public function dashboard($id){
+    public function dashboard($id) {
 
-        $userInfo = User::findOrFail($id);
-        $apartments = Apartment::where('user_id', 'LIKE', $id) -> get();
+        $user = User::findOrFail($id);
+        $apartments = Apartment::where('user_id', 'LIKE', $id) -> orderBy('city') -> get();
 
-        return view('pages.dashboard', compact('userInfo', 'apartments'));
+        return view('pages.dashboard', compact('user', 'apartments'));
     }
     
-    public function createApartment(){
+    public function createApartment($id) {
 
-        return view('pages.apartment-create');
+        $user = User::findOrFail($id);
+        $services = Service::all();
+
+        return view('pages.apartmentCreate', compact('user', 'services'));
     }
-
     public function storeApartment(Request $request) {
 
         $validation = $request -> validate([
-            
-            'title' => 'required|string|min:8|max:256',
+            'title' => 'required|string|max:256',
             'cover_image' => 'required|string|',
             'rooms_number' => 'required|integer',
             'beds_number' => 'required|integer',
@@ -45,27 +42,35 @@ class LoggedController extends Controller
             'address' => 'required|string|min:1',
             'city' => 'required|string|min:1',
             'country' => 'required|string|min:1',
-            'postal_code' => 'required|integer|min:5|max:5',           
+            'postal_code' => 'required|integer|min:5|max:5',
+            'user_id' => 'required|exists:App\User,id|integer',
+            'service_id.*' => 'required_if:current,1|distinct|exists:App\Service,id|integer'       
         ]);
 
-        $apartment = Apartment::create($validation);
+        $user = User::findOrFail($request -> get('user_id'));
 
-        $userId = $apartment -> user_id;
+        $apartment = Apartment::make($validation);
+        $apartment -> user() -> associate($user);
+        $apartment -> save();
 
-        return redirect() -> route('dashboard', ['id' => $userId]);
+        $apartment -> services() -> attach($request -> get('service_id'));
+        $apartment -> save();
+
+        return redirect() -> route('dashboard', ['id' => $user -> id]);
     }
 
     public function editApartment($id) {
 
         $apartment = Apartment::findOrFail($id);
+        $user = User::findOrFail($apartment -> user_id);
+        $services = Service::all();
 
-        return view('pages.apartment-edit', compact('apartment'));
+        return view('pages.apartmentEdit', compact('apartment', 'user', 'services'));
     }
     public function updateApartment(Request $request, $id) {
 
         $validation = $request -> validate([
-            
-            'title' => 'required|string|min:8|max:256',
+            'title' => 'required|string|max:256',
             'cover_image' => 'required|string',
             'rooms_number' => 'required|integer',
             'beds_number' => 'required|integer',
@@ -74,15 +79,22 @@ class LoggedController extends Controller
             'address' => 'required|string|min:1',
             'city' => 'required|string|min:1',
             'country' => 'required|string|min:1',
-            'postal_code' => 'required|integer|min:5|max:5',           
+            'postal_code' => 'required|integer|min:5|max:5',
+            'user_id' => 'required|exists:App\User,id|integer',
+            'service_id.*' => 'required_if:current,1|distinct|exists:App\Service,id|integer'       
         ]);
+
+        $user = User::findOrFail($request -> get('user_id'));
 
         $apartment = Apartment::findOrFail($id);
         $apartment -> update($validation);
 
-        $userId = $apartment -> user_id;
+        $apartment -> user() -> associate($user);
+        $apartment -> save();
 
-        return redirect() -> route('dashboard', ['id' => $userId]);
+        $apartment -> services() -> sync($request -> get('service_id'));
+
+        return redirect() -> route('dashboard', ['id' => $user -> id]);
     }
 
     public function destroyApartment($id) {

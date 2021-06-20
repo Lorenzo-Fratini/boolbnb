@@ -10,28 +10,19 @@ use App\Message;
 use App\Service;
 use App\Sponsorship;
 
-class GuestController extends Controller
-{
+class GuestController extends Controller {
     public function index(){
 
         date_default_timezone_set('Europe/Rome');
         $currentDate = date('Y-m-d H:i:s', time());
 
         $apartments = DB::table('sponsorships')
-            ->join('apartment_sponsorship', 'sponsorships.id', '=', 'apartment_sponsorship.sponsorship_id')
-            ->join('apartments', 'apartment_sponsorship.apartment_id', '=', 'apartments.id')
+            -> join('apartment_sponsorship', 'sponsorships.id', '=', 'apartment_sponsorship.sponsorship_id')
+            -> join('apartments', 'apartment_sponsorship.apartment_id', '=', 'apartments.id')
             -> where('end_date', '>', $currentDate)
-            ->get();
+            -> get();
 
         return view('pages.home', compact('apartments'));
-    }
-    public function showApartment($id){
-
-        $apartment = Apartment::findOrFail($id);
-
-        $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
-
-        return view('pages.apartmentShow', compact('apartment', 'services'));
     }
 
     public function search(Request $request) {
@@ -44,7 +35,16 @@ class GuestController extends Controller
         $services = Service::all();
 
         return view('pages.apartmentSearch', compact('apartments', 'services'));
-     }
+    }
+
+    public function showApartment($id){
+
+        $apartment = Apartment::findOrFail($id);
+
+        $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
+
+        return view('pages.apartmentShow', compact('apartment', 'services'));
+    }
 
     public function storeMessage(Request $request) {
 
@@ -60,6 +60,6 @@ class GuestController extends Controller
         $message -> apartment() -> associate($apartment);
         $message -> save();
 
-        return redirect() -> route('apartment.show', ['id' => $apartment]);
+        return redirect() -> route('showApartment', ['id' => $apartment]);
     }
 }
