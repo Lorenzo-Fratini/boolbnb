@@ -1,10 +1,6 @@
 //variables
 @import 'variables';
 
-// .f_margin {
-//     margin: 5px;
-// }
-
 #container_f {
     max-width: 100vw;
 }
@@ -54,7 +50,8 @@
 #last-row-footer {
 
     justify-content: space-between;
-    padding: 0 5%;
+    padding: 15px 5%;
+    background-color: silver;
 
     .fab {
         margin-left: 10px;

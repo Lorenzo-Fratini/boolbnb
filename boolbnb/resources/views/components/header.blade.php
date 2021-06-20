@@ -6,10 +6,10 @@
         </div>
 
         <div class="searchbar-header">
-            <form method="POST" action="{{ route('search') }}">
+            <form method="GET" action="{{ route('search') }}">
 
                 @csrf
-                @method('POST')
+                @method('GET')
 
                 <input id="searchString" type="text" class="form-control" name="searchString" placeholder="Cerca la città..." required>
 

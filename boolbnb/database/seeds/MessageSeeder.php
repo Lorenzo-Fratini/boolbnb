@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Apartment;
 use App\Message;
 
 class MessageSeeder extends Seeder
@@ -13,37 +14,12 @@ class MessageSeeder extends Seeder
      */
     public function run() {
         
-        $messages = [
-            [
-                'email' => 'Luca Neri',
-                'text' => 'Sarei interessato ad affitare questo appartamento, quali sono le date disponibili?',
-                'apartment_id' => '1'
-            ],
-            [
-                'email' => 'Marco Rossi',
-                'text' => 'Sarei interessato ad affitare questo appartamento, quali sono le date disponibili?',
-                'apartment_id' => '2'
-            ],
-            [
-                'email' => 'Francesca Bianchi',
-                'text' => 'Sarei interessata ad affitare questo appartamento, quali sono le date disponibili?',
-                'apartment_id' => '3'
-            ],
-            [
-                'email' => 'Guybrush Threepwood',
-                'text' => 'Sarei interessato ad affitare questo appartamento, quali sono le date disponibili?',
-                'apartment_id' => '4'
-            ],
-            [
-                'email' => 'Simone Icardi',
-                'text' => 'Sarei interessato ad affitare questo appartamento, quali sono le date disponibili?',
-                'apartment_id' => '5'
-            ],
-        ];
-        
-        foreach ($messages as $key => $message) {
-            
-            Message::create($message);
-        }
+        factory(Message::class, 50) -> make()
+            -> each(function($message) {
+
+        $apartment = Apartment::inRandomOrder() -> first();
+        $message -> apartment() -> associate($apartment);
+        $message -> save();
+    });
     }
 }

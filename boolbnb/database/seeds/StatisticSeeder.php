@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Apartment;
 use App\Statistic;
 
 class StatisticSeeder extends Seeder
@@ -11,8 +12,14 @@ class StatisticSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        factory(Statistic::class, 50) -> create();
+    public function run() {
+        
+        factory(Statistic::class, 300) -> make()
+            -> each(function($statistic) {
+
+        $apartment = Apartment::inRandomOrder() -> first();
+        $statistic -> apartment() -> associate($apartment);
+        $statistic -> save();;
+        });
     }
 }

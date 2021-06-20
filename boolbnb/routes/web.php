@@ -10,7 +10,7 @@ Route::get('/apartment/{id}', 'GuestController@showApartment')
 Route::post('/storeMessage', 'GuestController@storeMessage')
     -> name('storeMessage');
 
-Route::post('/search', 'GuestController@search')
+Route::get('/search', 'GuestController@search')
     -> name('search');
 
 Route::get('/dashboard/{id}', 'LoggedController@dashboard')
