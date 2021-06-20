@@ -9,7 +9,7 @@
                 </div>
             </div>
         </div>
-    <form method="POST" action="{{ route('updateApartment', $apartment -> id)}}">
+    <form method="POST" action="{{ route('updateApartment', $apartment -> id)}}" enctype="multipart/form-data">
 
             @csrf
             @method('POST')
@@ -17,86 +17,86 @@
     <input type="hidden" name="user_id" value="{{ $user -> id}}">
 
             {{-- title --}}
-            <div class="form-group row">
-                <label for="title" class="col-md-4 col-form-label text-md-right">Title</label>
-                <div class="col-md-6">
-                    <input id="title" type="text" class="form-control" name="title" value="{{ $apartment -> title }}">
-                </div>
-            </div>
-            {{-- cover image --}}
-            <div class="form-group row">
-                <label for="cover_image" class="col-md-4 col-form-label text-md-right">Cover image</label>
-                <div class="col-md-6">
-                    <input id="cover_image" type="text" class="form-control" name="cover_image" value="{{ $apartment -> cover_image }}">
+            <div>
+                <label for="title">Title</label>
+                <div>
+                    <input id="title" type="text" name="title" value="{{ $apartment -> title }}">
                 </div>
             </div>
             {{-- description --}}
-            <div class="form-group row">
-                <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
-                <div class="col-md-6">
-                    <input id="description" type="text" class="form-control" name="description" value="{{ $apartment -> description }}">
+            <div>
+                <label for="description">Description</label>
+                <div>
+                    <input id="description" type="text" name="description" value="{{ $apartment -> description }}">
                 </div>
             </div>
             {{-- rooms number --}}
-            <div class="form-group row">
-                <label for="rooms_number" class="col-md-4 col-form-label text-md-right">Rooms number</label>
-                <div class="col-md-6">
-                    <input id="rooms_number" type="number" class="form-control" name="rooms_number" value="{{ $apartment -> rooms_number }}">
+            <div>
+                <label for="rooms_number">Rooms number</label>
+                <div>
+                    <input id="rooms_number" type="number" name="rooms_number" value="{{ $apartment -> rooms_number }}">
                 </div>
             </div>
             {{-- beds number --}}
-            <div class="form-group row">
-                <label for="beds_number" class="col-md-4 col-form-label text-md-right">Beds number</label>
-                <div class="col-md-6">
-                    <input id="beds_number" type="number" class="form-control" name="beds_number" value="{{ $apartment -> beds_number }}">
+            <div>
+                <label for="beds_number">Beds number</label>
+                <div>
+                    <input id="beds_number" type="number" name="beds_number" value="{{ $apartment -> beds_number }}">
                 </div>
             </div>
             {{-- bathrooms number --}}
-            <div class="form-group row">
-                <label for="bathrooms_number" class="col-md-4 col-form-label text-md-right">Bathrooms number</label>
-                <div class="col-md-6">
-                    <input id="bathrooms_number" type="number" class="form-control" name="bathrooms_number" value="{{ $apartment -> bathrooms_number }}">
+            <div>
+                <label for="bathrooms_number">Bathrooms number</label>
+                <div>
+                    <input id="bathrooms_number" type="number" name="bathrooms_number" value="{{ $apartment -> bathrooms_number }}">
                 </div>
             </div>
             {{-- area --}}
-            <div class="form-group row">
-                <label for="area" class="col-md-4 col-form-label text-md-right">Area</label>
-                <div class="col-md-6">
-                    <input id="area" type="number" class="form-control" name="area" value="{{ $apartment -> area }}">
+            <div>
+                <label for="area">Area</label>
+                <div>
+                    <input id="area" type="number" name="area" value="{{ $apartment -> area }}">
                 </div>
             </div>
             {{-- address --}}
-            <div class="form-group row">
-                <label for="address" class="col-md-4 col-form-label text-md-right">Address</label>
-                <div class="col-md-6">
-                    <input id="address" type="text" class="form-control" name="address" value="{{ $apartment -> address }}">
+            <div>
+                <label for="address">Address</label>
+                <div>
+                    <input id="address" type="text" name="address" value="{{ $apartment -> address }}">
                 </div>
             </div>
             {{-- city --}}
-            <div class="form-group row">
-                <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
-                <div class="col-md-6">
-                    <input id="city" type="text" class="form-control" name="city" value="{{ $apartment -> city }}">
+            <div>
+                <label for="city">City</label>
+                <div>
+                    <input id="city" type="text" name="city" value="{{ $apartment -> city }}">
                 </div>
             </div>
             {{-- country --}}
-            <div class="form-group row">
-                <label for="country" class="col-md-4 col-form-label text-md-right">Country</label>
-                <div class="col-md-6">
-                    <input id="country" type="text" class="form-control" name="country" value="{{ $apartment -> country }}">
+            <div>
+                <label for="country">Country</label>
+                <div>
+                    <input id="country" type="text" name="country" value="{{ $apartment -> country }}">
                 </div>
             </div>
             {{-- postal_code --}}
-            <div class="form-group row">
-                <label for="postal_code" class="col-md-4 col-form-label text-md-right">Postal Code</label>
-                <div class="col-md-6">
-                    <input id="postal_code" type="text" class="form-control" name="postal_code" value="{{ $apartment -> postal_code }}">
+            <div>
+                <label for="postal_code">Postal Code</label>
+                <div>
+                    <input id="postal_code" type="text" name="postal_code" value="{{ $apartment -> postal_code }}">
+                </div>
+            </div>
+            {{-- cover image --}}
+            <div>
+                <label for="cover_image">Immagine di copertina</label>
+                <div>
+                    <input id="cover_image" type="file" name="cover_image">
                 </div>
             </div>
             {{-- services --}}
-            <div class="form-group row">
-                <label for="service_id[]" class="col-md-4 col-form-label text-md-right">Services</label>
-                <div class="col-md-6">
+            <div>
+                <label for="service_id[]">Services</label>
+                <div>
                     @foreach ($services as $service)
                         <input type="checkbox" id="service_id[]" name="service_id[]" value="{{ $service -> id }}"
                         @foreach ($apartment -> services as $apartmentService)
@@ -111,9 +111,9 @@
             </div>
           
             {{-- BUTTON --}}
-            <div class="form-group row">
-                <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary">
+            <div>
+                <div>
+                    <button type="submit">
                         UPDATE
                     </button>
                 </div>

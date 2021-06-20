@@ -15,7 +15,7 @@ $factory->define(Service::class, function (Faker $faker){
         'Sauna',
         'Cucina',
         'Riscaldamento',
-        'Aria Cpndizionata',
+        'Aria Condizionata',
         'Colazione',
         'TV'
     ];

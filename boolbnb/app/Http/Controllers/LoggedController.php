@@ -31,11 +31,9 @@ class LoggedController extends Controller {
     }
     public function storeApartment(Request $request) {
 
-        //dd($request);
-
         $validation = $request -> validate([
             'title' => 'required|string|max:256',
-            'cover_image' => 'required|string',
+            'cover_image' => 'required|mimes:jpeg,png,jpg',
             'description' => 'required|string',
             'rooms_number' => 'required|integer',
             'beds_number' => 'required|integer',
@@ -51,8 +49,17 @@ class LoggedController extends Controller {
 
         $user = User::findOrFail($request -> get('user_id'));
 
+        $img = $request -> file('cover_image');
+        $imgExt = $img -> getClientOriginalExtension();
+
+        $imgNewName = time() . rand(0, 1000) . '.' . $imgExt;
+        $folder = '/images/';
+
+        $imgFile = $img -> storeAs($folder, $imgNewName, 'public');
+
         $apartment = Apartment::make($validation);
         $apartment -> user() -> associate($user);
+        $apartment -> cover_image = $imgNewName;
         $apartment -> save();
 
         $apartment -> services() -> attach($request -> get('service_id'));
@@ -71,11 +78,9 @@ class LoggedController extends Controller {
     }
     public function updateApartment(Request $request, $id) {
 
-        dd($request);
-
         $validation = $request -> validate([
             'title' => 'required|string|max:256',
-            'cover_image' => 'required|string',
+            'cover_image' => 'mimes:jpeg,png,jpg',
             'rooms_number' => 'required|integer',
             'beds_number' => 'required|integer',
             'bathrooms_number' => 'required|integer',
@@ -94,6 +99,20 @@ class LoggedController extends Controller {
         $apartment -> update($validation);
 
         $apartment -> user() -> associate($user);
+
+        if ($request -> file('cover_image')) {
+            
+            $img = $request -> file('cover_image');
+            $imgExt = $img -> getClientOriginalExtension();
+
+            $imgNewName = time() . rand(0, 1000) . '.' . $imgExt;
+            $folder = '/images/';
+
+            $imgFile = $img -> storeAs($folder, $imgNewName, 'public');
+
+            $apartment -> cover_image = $imgNewName;
+        }
+
         $apartment -> save();
 
         $apartment -> services() -> sync($request -> get('service_id'));

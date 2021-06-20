@@ -16,11 +16,18 @@ class GuestController extends Controller {
         date_default_timezone_set('Europe/Rome');
         $currentDate = date('Y-m-d H:i:s', time());
 
-        $apartments = DB::table('sponsorships')
+        $allApartments = DB::table('sponsorships')
             -> join('apartment_sponsorship', 'sponsorships.id', '=', 'apartment_sponsorship.sponsorship_id')
             -> join('apartments', 'apartment_sponsorship.apartment_id', '=', 'apartments.id')
             -> where('end_date', '>', $currentDate)
             -> get();
+
+        $apartments = [];
+        
+        foreach ($allApartments as $apartment) {
+            
+            !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
+        }
 
         return view('pages.home', compact('apartments'));
     }
