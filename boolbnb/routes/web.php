@@ -17,17 +17,17 @@ Route::get('/search', 'GuestController@search')
 Route::get('/dashboard/{id}', 'LoggedController@dashboard')
     -> name('dashboard');
 
-Route::get('/apartment/create', 'LoggedController@createApartment')
+Route::get('/createApartment', 'LoggedController@createApartment')
     -> name('createApartment');
 Route::post('/apartment/store', 'LoggedController@storeApartment')
     -> name('storeApartment');
     
-Route::get('/apartment/edit/{id}', 'LoggedController@editApartment')
+Route::get('/editApartment/{id}', 'LoggedController@editApartment')
     -> name('editApartment');
-Route::post('/apartment/update', 'LoggedController@updateApartment')
+Route::post('/updateApartment/{id}', 'LoggedController@updateApartment')
     -> name('updateApartment');
     
-Route::get('/delete/apartment/{id}', 'LoggedController@destroyApartment')
+Route::get('/deleteApartment/{id}', 'LoggedController@destroyApartment')
     -> name('destroyApartment');
 
 Auth::routes();

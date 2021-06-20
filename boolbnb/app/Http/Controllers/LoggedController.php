@@ -23,18 +23,20 @@ class LoggedController extends Controller {
         return view('pages.dashboard', compact('user', 'apartments'));
     }
     
-    public function createApartment($id) {
+    public function createApartment() {
 
-        $user = User::findOrFail($id);
         $services = Service::all();
 
-        return view('pages.apartmentCreate', compact('user', 'services'));
+        return view('pages.apartmentCreate', compact('services'));
     }
     public function storeApartment(Request $request) {
 
+        //dd($request);
+
         $validation = $request -> validate([
             'title' => 'required|string|max:256',
-            'cover_image' => 'required|string|',
+            'cover_image' => 'required|string',
+            'description' => 'required|string',
             'rooms_number' => 'required|integer',
             'beds_number' => 'required|integer',
             'bathrooms_number' => 'required|integer',
@@ -42,7 +44,7 @@ class LoggedController extends Controller {
             'address' => 'required|string|min:1',
             'city' => 'required|string|min:1',
             'country' => 'required|string|min:1',
-            'postal_code' => 'required|integer|min:5|max:5',
+            'postal_code' => 'required|string|min:5|max:5',
             'user_id' => 'required|exists:App\User,id|integer',
             'service_id.*' => 'required_if:current,1|distinct|exists:App\Service,id|integer'       
         ]);
@@ -69,6 +71,8 @@ class LoggedController extends Controller {
     }
     public function updateApartment(Request $request, $id) {
 
+        dd($request);
+
         $validation = $request -> validate([
             'title' => 'required|string|max:256',
             'cover_image' => 'required|string',
@@ -79,7 +83,7 @@ class LoggedController extends Controller {
             'address' => 'required|string|min:1',
             'city' => 'required|string|min:1',
             'country' => 'required|string|min:1',
-            'postal_code' => 'required|integer|min:5|max:5',
+            'postal_code' => 'required|string|min:5|max:5',
             'user_id' => 'required|exists:App\User,id|integer',
             'service_id.*' => 'required_if:current,1|distinct|exists:App\Service,id|integer'       
         ]);
