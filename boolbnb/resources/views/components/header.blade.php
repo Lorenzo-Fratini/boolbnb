@@ -11,7 +11,7 @@
                 @csrf
                 @method('GET')
 
-                <input id="searchString" type="text" class="form-control" name="searchString" placeholder="Cerca la città..." required>
+                <input id="searchString" type="text" class="form-control" name="searchString" placeholder="Inserisci una via..." required>
 
                 <button type="submit" class="searchButton">
                     <i class="fa fa-search"></i>
