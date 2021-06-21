@@ -30,4 +30,7 @@ Route::post('/updateApartment/{id}', 'LoggedController@updateApartment')
 Route::get('/deleteApartment/{id}', 'LoggedController@destroyApartment')
     -> name('destroyApartment');
 
+Route::get('/statisticsApartment/{id}', 'LoggedController@statisticsApartment')
+    -> name('statisticsApartment');
+
 Auth::routes();
