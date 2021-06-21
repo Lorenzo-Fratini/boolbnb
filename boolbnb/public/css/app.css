@@ -341,31 +341,51 @@ a.prem-apart {
 }
 
 .main-box {
-  margin-top: 180px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
   font-size: 22px;
 }
 
 .main-box .box-side {
-  background-color: yellowgreen;
   display: flex;
   justify-content: space-around;
 }
 
 .main-box .box-side .left-side {
-  background-color: darkcyan;
+  margin: 20px 0;
 }
 
-.main-box .box-side .right-side {
-  background-color: green;
+.main-box .box-side .left-side a {
+  font-size: 16px;
 }
 
-.main-box .box-side .right-side .box-title {
-  background-color: goldenrod;
+.main-box .box-side .right-side .box-title h3 {
+  margin-bottom: 20px;
+}
+
+.main-box .box-side .right-side .box-apart {
+  margin: 20px 0;
+}
+
+.main-box .box-side .right-side .box-apart p {
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.main-box .box-side .right-side .box-apart a {
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .main-box .box-side .right-side .box-content {
-  background-color: lightblue;
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
 .main-box .box-side .right-side .box-content p {
@@ -376,26 +396,14 @@ a.prem-apart {
   font-size: 14px;
   margin-left: 10px;
   padding: 3px 6px;
-  background-color: hotpink;
-  border-radius: 3px;
-  border-color: black;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.main-box .box-side .right-side .box-apart a {
-  font-size: 14px;
-  margin-left: 10px;
-  padding: 3px 6px;
-  background-color: hotpink;
-  border-radius: 3px;
-  border-color: black;
+  border-radius: 5px;
+  border: 1px solid black;
   text-transform: uppercase;
   text-decoration: none;
 }
 
 .main-box .box-side .stat-side {
-  background-color: lightblue;
+  margin: 20px 0;
 }
 
 * {
