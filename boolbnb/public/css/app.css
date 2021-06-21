@@ -37,9 +37,35 @@ header .searchbar-header button i {
 }
 
 header .user-header {
-  background-color: white;
-  border-radius: 10px;
   outline: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header .user-header a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: black;
+}
+
+header .user-header .login,
+header .user-header .register {
+  padding: 7px 14px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+header .user-header .hello-user {
+  margin: 0 10px;
+}
+
+header .user-header .logout,
+header .user-header .dashboard {
+  font-size: 17px;
+  padding: 7px 14px;
+  background-color: white;
+  border-radius: 20px;
 }
 
 .container-content {
