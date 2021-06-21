@@ -37,14 +37,14 @@
                     </li>
                 </ul>
 
-                <h2 class="servizi">Servizi:</h2>
+                {{-- <h2 class="servizi">Servizi:</h2>
                 <ul>
 
                     <li>
-                        Altri servizi da implementare tipo WIFI FERRO DA STIRO BLABLA
+                        {{ $apartment -> description }}
                     </li>
 
-                </ul>
+                </ul> --}}
                 
                 {{-- <h4>Stanze:</h4>
                 <h4>Letti:</h4>
