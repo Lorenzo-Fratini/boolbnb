@@ -13,7 +13,7 @@
 
         <div class="flat-img">
             {{-- <span>Qui dentro ci va l'immagine principale</span> --}}
-            <img src="http://lorempixel.com/output/nature-q-g-1920-1080-10.jpg" alt="">
+            <img src="storage/images/{{$apartment -> cover_image}}" alt="">
         </div>
 
         <div class="container-text">
