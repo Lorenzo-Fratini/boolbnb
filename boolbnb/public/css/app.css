@@ -49,8 +49,8 @@ header .user-header a {
   color: black;
 }
 
-header .user-header .login,
-header .user-header .register {
+header .user-header .login-header-btn,
+header .user-header .register-header-btn {
   padding: 7px 14px;
   background-color: white;
   border-radius: 20px;
@@ -60,8 +60,8 @@ header .user-header .hello-user {
   margin: 0 10px;
 }
 
-header .user-header .logout,
-header .user-header .dashboard {
+header .user-header .logout-header-btn,
+header .user-header .dashboard-header-btn {
   font-size: 17px;
   padding: 7px 14px;
   background-color: white;
@@ -430,6 +430,74 @@ a.prem-apart {
 
 .main-box .box-side .stat-side {
   margin: 20px 0;
+}
+
+.register-container label {
+  width: 150px;
+}
+
+.register-container .form-group {
+  margin: 20px 0;
+}
+
+.register-container h1:first-of-type {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+.register-container input {
+  padding: 3px 6px;
+  border-radius: 20px;
+  outline: none;
+  border-color: #FF5A5F;
+}
+
+.register-container button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #FF5A5F;
+  border-color: black;
+}
+
+.container-login {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container-login .card-body {
+  text-align: center;
+}
+
+.container-login .form-group {
+  margin: 20px 0;
+}
+
+.container-login h1:first-of-type {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+.container-login input {
+  margin: 10px 0;
+  padding: 3px 6px;
+  border-radius: 20px;
+  outline: none;
+  border-color: #FF5A5F;
+}
+
+.container-login button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #FF5A5F;
+  border-color: black;
+}
+
+.container-login .forget-psw {
+  display: block;
+  margin-top: 15px;
 }
 
 * {

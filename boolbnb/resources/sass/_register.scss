@@ -1,0 +1,37 @@
+@import 'variables';
+
+.register-container {
+
+    label {
+
+        width: 150px;
+    }
+
+    .form-group {
+
+        margin: 20px 0;
+    }
+
+    h1:first-of-type {
+
+        margin-top: 10px;
+        display: block;
+        text-align: center;
+    }
+
+    input {
+
+        padding: 3px 6px;
+        border-radius: 20px;
+        outline: none;
+        border-color: $header_red;
+    }
+
+    button {
+
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-color: $header_red;
+        border-color: black;
+    }
+}
