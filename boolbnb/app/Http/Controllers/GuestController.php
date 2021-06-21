@@ -32,18 +32,6 @@ class GuestController extends Controller {
         return view('pages.home', compact('apartments'));
     }
 
-    public function search(Request $request) {
-
-        $validation = $request -> validate([
-            'searchString' => 'required|string'
-        ]);
-
-        $apartments = Apartment::where('city', 'LIKE', '%' . $validation['searchString'] . '%')->get();
-        $services = Service::all();
-
-        return view('pages.apartmentSearch', compact('apartments', 'services'));
-    }
-
     public function showApartment($id){
 
         $apartment = Apartment::findOrFail($id);
