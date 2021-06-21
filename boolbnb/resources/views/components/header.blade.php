@@ -22,18 +22,19 @@
         </div>
 
         <div class="user-header">
-            <div class="dropdown">
+            {{-- <div class="dropdown"> --}}
                 @guest
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                        <a class="dropdown-item" href="{{ route('register') }}">Register</a>
-                    </div>
+                    {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> --}}
+                        <a class="dropdown-item login" href="{{ route('login') }}">Login</a>
+                        <a class="dropdown-item register" href="{{ route('register') }}">Register</a>
+                    {{-- </div> --}}
                 @else
-                    <h1>
+                    <h1 class="hello-user">
                         Hello {{ Auth::user() -> firstname }}
                     </h1>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="btn" href="{{ route('logout') }}"
+                    {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> --}}
+                        <a class="dashboard" href="{{ route('dashboard', ['id' => Auth::id()]) }}">Dashboard</a>
+                        <a class="btn logout" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -41,10 +42,9 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                    <a href="{{ route('dashboard', ['id' => Auth::id()]) }}">Dashboard</a>
-                    </div>
+                    {{-- </div> --}}
                 @endguest
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 
