@@ -25,16 +25,16 @@
             {{-- <div class="dropdown"> --}}
                 @guest
                     {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> --}}
-                        <a class="dropdown-item login" href="{{ route('login') }}">Login</a>
-                        <a class="dropdown-item register" href="{{ route('register') }}">Register</a>
+                        <a class="dropdown-item login-header-btn" href="{{ route('login') }}">Login</a>
+                        <a class="dropdown-item register-header-btn" href="{{ route('register') }}">Register</a>
                     {{-- </div> --}}
                 @else
                     <h1 class="hello-user">
                         Hello {{ Auth::user() -> firstname }}
                     </h1>
                     {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> --}}
-                        <a class="dashboard" href="{{ route('dashboard', ['id' => Auth::id()]) }}">Dashboard</a>
-                        <a class="btn logout" href="{{ route('logout') }}"
+                        <a class="dashboard-header-btn" href="{{ route('dashboard', ['id' => Auth::id()]) }}">Dashboard</a>
+                        <a class="btn logout-header-btn" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
