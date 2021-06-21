@@ -13,7 +13,7 @@
 
         <div class="flat-img">
             {{-- <span>Qui dentro ci va l'immagine principale</span> --}}
-            <img src="storage/images/{{$apartment -> cover_image}}" alt="">
+            <img src="{{ asset('/storage/images/' . $apartment -> cover_image) }}" alt="">
         </div>
 
         <div class="container-text">
