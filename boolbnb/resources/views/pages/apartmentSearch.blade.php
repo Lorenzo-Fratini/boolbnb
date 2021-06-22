@@ -4,7 +4,6 @@
     <main>
         <div id="search">
             {{-- ricerca avanzata Vue --}}
-            <div></div>
         </div>
     </main>
 
