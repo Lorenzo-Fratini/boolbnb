@@ -11,6 +11,7 @@ use App\Service;
 use App\Sponsorship;
 
 class GuestController extends Controller {
+    
     public function index(){
 
         date_default_timezone_set('Europe/Rome');
@@ -30,6 +31,11 @@ class GuestController extends Controller {
         }
 
         return view('pages.home', compact('apartments'));
+    }
+
+    public function search(Request $request) {
+
+        return view('pages.apartmentSearch');
     }
 
     public function showApartment($id){
