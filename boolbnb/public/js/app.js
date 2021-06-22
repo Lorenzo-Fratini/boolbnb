@@ -49889,11 +49889,7 @@ files.keys().map(function (key) {
 //     el: '#app',
 // });
 
-/* document.addEventListener('DOMContentLoaded', () => {
-    
-    new Vue({
-        el: '#search',
-    });
+/* document.addEventListener('DOMContentLoaded', () => { */
 
 }); */
 
@@ -50031,8 +50027,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/paolo/Desktop/esercizi-boolean/boolbnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/paolo/Desktop/esercizi-boolean/boolbnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Laravel\boolbnb\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Laravel\boolbnb\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

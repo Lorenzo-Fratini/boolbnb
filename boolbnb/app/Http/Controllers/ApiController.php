@@ -12,13 +12,13 @@ class ApiController extends Controller {
     
     public function getApartments($searchString) {
 
-        $sponsoredApartments = Apartment::where('address', 'LIKE', '%' . $searchString . '%')->get();
+        $getApartments = Apartment::where('address', 'LIKE', '%' . $searchString . '%')->get();
 
         $apartments = [];
 
-        foreach ($sponsoredApartments as $apartment) {
+        foreach ($getApartments as $apartment) {
            
-            foreach ($apartment -> sponsorships  as $apartRel) {
+            foreach ($apartment -> sponsorships as $apartRel) {
 
                 $endDate = $apartRel -> pivot -> end_date;
 
@@ -32,12 +32,10 @@ class ApiController extends Controller {
                 }
             }
         }
-
-        $otherApartments = Apartment::where('address', 'LIKE', '%' . $searchString . '%')->get();
-
-        foreach ($otherApartments as $otherApartment) {
+        
+        foreach ($getApartments as $apartment) {
             
-            !in_array($otherApartment, $apartments) ? $apartments [] = $otherApartment : '';
+            !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
         }
 
         return response() -> json($apartments, 200);
@@ -49,4 +47,9 @@ class ApiController extends Controller {
 
         return response() -> json($services, 200);
     }
+
+    /* public function filterApartments($services) {
+
+        return response() -> json($filteredApartmets, 200);
+    } */
 }
