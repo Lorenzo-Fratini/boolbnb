@@ -605,6 +605,12 @@ a.prem-apart {
   }
 }
 
+.search-box {
+  display: flex;
+  margin: 20px;
+  background-color: lightblue;
+}
+
 * {
   margin: 0;
   padding: 0;
