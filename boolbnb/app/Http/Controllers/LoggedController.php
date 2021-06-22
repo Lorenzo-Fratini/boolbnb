@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Apartment;
 use App\User;
 use App\Service;
+use App\Message;
+use App\Statistic;
 
 class LoggedController extends Controller {
     
@@ -129,5 +131,14 @@ class LoggedController extends Controller {
         $apartment -> save();
 
         return redirect() -> route('dashboard', ['id' => $userId]);
+    }
+
+    public function statisticsApartment($id) {
+
+        $apartment = Apartment::findOrFail($id);
+        $messages = Message::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
+        $statistics = Statistic::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
+
+        return view('pages.statistics', compact('apartment', 'messages', 'statistics'));
     }
 }
