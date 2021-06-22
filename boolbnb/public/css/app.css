@@ -37,9 +37,35 @@ header .searchbar-header button i {
 }
 
 header .user-header {
-  background-color: white;
-  border-radius: 10px;
   outline: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+header .user-header a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: black;
+}
+
+header .user-header .login-header-btn,
+header .user-header .register-header-btn {
+  padding: 7px 14px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+header .user-header .hello-user {
+  margin: 0 10px;
+}
+
+header .user-header .logout-header-btn,
+header .user-header .dashboard-header-btn {
+  font-size: 17px;
+  padding: 7px 14px;
+  background-color: white;
+  border-radius: 20px;
 }
 
 .container-content {
@@ -341,31 +367,51 @@ a.prem-apart {
 }
 
 .main-box {
-  margin-top: 180px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
   font-size: 22px;
 }
 
 .main-box .box-side {
-  background-color: yellowgreen;
   display: flex;
   justify-content: space-around;
 }
 
 .main-box .box-side .left-side {
-  background-color: darkcyan;
+  margin: 20px 0;
 }
 
-.main-box .box-side .right-side {
-  background-color: green;
+.main-box .box-side .left-side a {
+  font-size: 16px;
 }
 
-.main-box .box-side .right-side .box-title {
-  background-color: goldenrod;
+.main-box .box-side .right-side .box-title h3 {
+  margin-bottom: 20px;
+}
+
+.main-box .box-side .right-side .box-apart {
+  margin: 20px 0;
+}
+
+.main-box .box-side .right-side .box-apart p {
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.main-box .box-side .right-side .box-apart a {
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .main-box .box-side .right-side .box-content {
-  background-color: lightblue;
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
 .main-box .box-side .right-side .box-content p {
@@ -376,32 +422,198 @@ a.prem-apart {
   font-size: 14px;
   margin-left: 10px;
   padding: 3px 6px;
-  background-color: hotpink;
-  border-radius: 3px;
-  border-color: black;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.main-box .box-side .right-side .box-apart a {
-  font-size: 14px;
-  margin-left: 10px;
-  padding: 3px 6px;
-  background-color: hotpink;
-  border-radius: 3px;
-  border-color: black;
+  border-radius: 5px;
+  border: 1px solid black;
   text-transform: uppercase;
   text-decoration: none;
 }
 
 .main-box .box-side .stat-side {
-  background-color: lightblue;
+  margin: 20px 0;
+}
+
+.register-container label {
+  width: 150px;
+}
+
+.register-container .form-group {
+  margin: 20px 0;
+}
+
+.register-container h1:first-of-type {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+.register-container input {
+  padding: 3px 6px;
+  border-radius: 20px;
+  outline: none;
+  border-color: #FF5A5F;
+}
+
+.register-container button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #FF5A5F;
+  border-color: black;
+}
+
+.container-login {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container-login .card-body {
+  text-align: center;
+}
+
+.container-login .form-group {
+  margin: 20px 0;
+}
+
+.container-login h1:first-of-type {
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+.container-login input {
+  margin: 10px 0;
+  padding: 3px 6px;
+  border-radius: 20px;
+  outline: none;
+  border-color: #FF5A5F;
+}
+
+.container-login button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #FF5A5F;
+  border-color: black;
+}
+
+.container-login .forget-psw {
+  display: block;
+  margin-top: 15px;
+}
+
+.create-container,
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-container h1:first-of-type,
+.edit-container h1:first-of-type {
+  margin-top: 20px;
+}
+
+.create-container form,
+.edit-container form {
+  text-align: center;
+}
+
+.create-container form input,
+.edit-container form input {
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.create-container form .line,
+.edit-container form .line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 20px auto;
+  width: 60%;
+}
+
+.create-container form .cover-img,
+.edit-container form .cover-img {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.create-container form .servizih2,
+.edit-container form .servizih2 {
+  display: block;
+  margin-top: 30px;
+}
+
+.create-container form .services,
+.edit-container form .services {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  margin: auto;
+}
+
+.create-container form .services .service,
+.edit-container form .services .service {
+  display: inline-block;
+  margin: 8px;
+  width: 200px;
+  text-align: center;
+}
+
+.create-container form .services .service label,
+.edit-container form .services .service label {
+  display: inline-block;
+  text-align: start;
+}
+
+.create-container form .services input,
+.create-container form .services label,
+.edit-container form .services input,
+.edit-container form .services label {
+  display: inline;
+}
+
+.create-container form .services label,
+.edit-container form .services label {
+  margin: 5px;
+}
+
+.create-container form button,
+.edit-container form button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 1200px) {
+  .services {
+    width: 80% !important;
+  }
+}
+
+@media screen and (max-width: 563px) {
+  .services {
+    width: 100% !important;
+  }
+
+  .line {
+    width: 100% !important;
+  }
 }
 
 * {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
   box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
 }
 
 .invisible {

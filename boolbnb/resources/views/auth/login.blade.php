@@ -1,11 +1,11 @@
 @extends('layouts.main-layout')
 
 @section('content')
-<div class="container">
+<div class="container-login">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <h1>Login</h1>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -17,6 +17,7 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
+                                <br>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -31,6 +32,7 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
+                                <br>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -56,9 +58,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
+                                <br>
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link forget-psw" href="{{ route('password.request') }}">
                                         {{ __('Hai dimenticato la tua password?') }}
                                     </a>
                                 @endif

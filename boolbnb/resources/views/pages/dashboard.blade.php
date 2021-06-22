@@ -6,31 +6,33 @@
             <div class="box-side">
                 {{-- left side --}}
                 <div class="left-side">
-                    <p>Dettagli utente:</p>
+                    <h3>Dettagli utente:</h3>
                 <a href="{{ route('index')}}"> <-- Back To Home</a>
                 </div>
                 {{-- right side --}}
                 <div class="right-side">
+                    <div class="box-apart">
+                        <p>Inserisci un nuovo appartamento <a href="{{ route('createApartment') }}">Nuovo appartamento</a></p>
+                    </div>
                     <div class="box-title">
-                        <p>I miei appartamenti</p>
+                        <h3>I miei appartamenti</h3>
                     </div>
                     <div class="box-content">
                         @foreach ($apartments as $apartment)
                             <p>
                                 <i class="fas fa-home"></i>
                                 {{ $apartment -> title}} - {{ $apartment -> address}} - {{ $apartment -> city}}
+                                <a href="{{ route('showApartment', $apartment -> id) }}">View</a>
                             <a href="{{ route('editApartment', $apartment -> id) }}">Edit</a>
                             <a href="{{ route('destroyApartment', $apartment -> id) }}">Delete</a>
                             </p>
                         @endforeach
                     </div>
-                    <div class="box-apart">
-                        <p>Inserisci un nuovo appartamrto <a href="{{ route('createApartment') }}">Nuovo appartamento</a></p>
-                    </div>
                 </div>
                 {{-- statistiche --}}
                 <div class="stat-side">
-                    <p>Statistiche</p>
+                    <h3>Statistiche</h3>
+                    <p>work in progress...</p>
                 </div>
             </div>
         </div>

@@ -42,8 +42,36 @@ header {
 
   .user-header {
 
-    background-color: white;
-    border-radius: 10px;
     outline: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    a {
+
+      margin: 0 5px;
+      text-decoration: none;
+      color: black;
+    }
+
+    .login-header-btn,.register-header-btn {
+
+      padding: 7px 14px;
+      background-color: white;
+      border-radius: 20px;
+    }
+
+    .hello-user {
+
+      margin: 0 10px;
+    }
+
+    .logout-header-btn,.dashboard-header-btn {
+
+      font-size: 17px;
+      padding: 7px 14px;
+      background-color: white;
+      border-radius: 20px;
+    }
   }
 }

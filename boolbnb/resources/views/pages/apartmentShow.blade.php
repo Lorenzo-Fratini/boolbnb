@@ -19,8 +19,8 @@
         <div class="container-text">
             <div class="flat-text" id="flat-text-id">
                 <h2>Descrizione</h2>
-                {{-- <span> {{ $apartment -> description}} </span> --}}
-                <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto molestiae distinctio modi, quasi maxime, at ex repellendus suscipit sed aut ad non, iste vitae cumque illo ea similique et inventore.</span>
+                <span> {{ $apartment -> description}} </span>
+                {{-- <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto molestiae distinctio modi, quasi maxime, at ex repellendus suscipit sed aut ad non, iste vitae cumque illo ea similique et inventore.</span> --}}
                 
                 <ul>
                     <li>
@@ -37,14 +37,18 @@
                     </li>
                 </ul>
 
-                {{-- <h2 class="servizi">Servizi:</h2>
+                <h2 class="servizi">Servizi:</h2>
                 <ul>
 
                     <li>
-                        {{ $apartment -> description }}
+                        @foreach ($services as $service)
+
+                        {{ $service -> name }}
+                            
+                        @endforeach
                     </li>
 
-                </ul> --}}
+                </ul>
                 
                 {{-- <h4>Stanze:</h4>
                 <h4>Letti:</h4>

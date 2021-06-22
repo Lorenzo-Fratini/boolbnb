@@ -11,6 +11,7 @@ use App\Service;
 use App\Sponsorship;
 
 class GuestController extends Controller {
+    
     public function index(){
 
         date_default_timezone_set('Europe/Rome');
@@ -34,14 +35,7 @@ class GuestController extends Controller {
 
     public function search(Request $request) {
 
-        $validation = $request -> validate([
-            'searchString' => 'required|string'
-        ]);
-
-        $apartments = Apartment::where('city', 'LIKE', '%' . $validation['searchString'] . '%')->get();
-        $services = Service::all();
-
-        return view('pages.apartmentSearch', compact('apartments', 'services'));
+        return view('pages.apartmentSearch');
     }
 
     public function showApartment($id){

@@ -83,6 +83,7 @@ class LoggedController extends Controller {
         $validation = $request -> validate([
             'title' => 'required|string|max:256',
             'cover_image' => 'mimes:jpeg,png,jpg',
+            'description' => 'required|string',
             'rooms_number' => 'required|integer',
             'beds_number' => 'required|integer',
             'bathrooms_number' => 'required|integer',

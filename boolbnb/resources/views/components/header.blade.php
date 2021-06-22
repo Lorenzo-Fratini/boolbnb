@@ -11,7 +11,7 @@
                 @csrf
                 @method('GET')
 
-                <input id="searchString" type="text" class="form-control" name="searchString" placeholder="Cerca la città..." required>
+                <input id="searchString" type="text" class="form-control" name="searchString" placeholder="Inserisci una via..." required>
 
                 <button type="submit" class="searchButton">
                     <i class="fa fa-search"></i>
@@ -22,18 +22,19 @@
         </div>
 
         <div class="user-header">
-            <div class="dropdown">
+            {{-- <div class="dropdown"> --}}
                 @guest
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                        <a class="dropdown-item" href="{{ route('register') }}">Register</a>
-                    </div>
+                    {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> --}}
+                        <a class="dropdown-item login-header-btn" href="{{ route('login') }}">Login</a>
+                        <a class="dropdown-item register-header-btn" href="{{ route('register') }}">Register</a>
+                    {{-- </div> --}}
                 @else
-                    <h1>
+                    <h1 class="hello-user">
                         Hello {{ Auth::user() -> firstname }}
                     </h1>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="btn" href="{{ route('logout') }}"
+                    {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> --}}
+                        <a class="dashboard-header-btn" href="{{ route('dashboard', ['id' => Auth::id()]) }}">Dashboard</a>
+                        <a class="btn logout-header-btn" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -41,10 +42,9 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                    <a href="{{ route('dashboard', ['id' => Auth::id()]) }}">Dashboard</a>
-                    </div>
+                    {{-- </div> --}}
                 @endguest
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 
