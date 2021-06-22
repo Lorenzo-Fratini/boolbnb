@@ -32,9 +32,6 @@ class ApiController extends Controller {
                 }
             }
         }
-
-        
-        $otherApartments = Apartment::where('address', 'LIKE', '%' . $searchString . '%')->get();
         
         foreach ($getApartments as $apartment) {
             
@@ -50,4 +47,9 @@ class ApiController extends Controller {
 
         return response() -> json($services, 200);
     }
+
+    /* public function filterApartments($services) {
+
+        return response() -> json($filteredApartmets, 200);
+    } */
 }
