@@ -1,5 +1,6 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
 
 // Variables
 @import 'variables';
@@ -8,14 +9,25 @@
 @import 'footer_lyt';
 @import 'apartment';
 @import 'dashboard';
+@import 'register';
+@import 'login';
+@import 'createapartment';
 
 *{
     // border: 1px solid red;
 
     margin: 0;
     padding: 0;
-
+    font-family: sans-serif;
     box-sizing: border-box;
+
+    //test font
+    font-family: $font-family-sans-serif;
+}
+
+button {
+
+    cursor: pointer;
 }
 
 .invisible {

@@ -1,7 +1,10 @@
+//chiedo venia in caso di problemi b.c.
+
 header {
 
   height: 80px;
-  background-color: #FF5A5F;
+  // background-color: #FF5A5F;
+  background-color: $benny-red;
   width: 100%;
   z-index: 2;
 
@@ -21,7 +24,7 @@ header {
 
       padding: 8px 16px;
       border-radius: 10px;
-      border: 1px solid black;
+      // border: 1px solid black;
       outline: none;
       background-color: white;
     }
@@ -32,10 +35,14 @@ header {
 
     button i {
 
-      background-color: #FF5A5F;
-      border-radius: 100%;
+      // background-color: #FF5A5F;
+      // border-radius: 100%;
+      // padding: 10px;
+      // color: white;
+      // cursor: pointer;
+
       padding: 10px;
-      color: white;
+      color: #FF5A5F;
       cursor: pointer;
     }
   }
@@ -54,7 +61,7 @@ header {
       color: black;
     }
 
-    .login,.register {
+    .login-header-btn,.register-header-btn {
 
       padding: 7px 14px;
       background-color: white;
@@ -66,7 +73,7 @@ header {
       margin: 0 10px;
     }
 
-    .logout,.dashboard {
+    .logout-header-btn,.dashboard-header-btn {
 
       font-size: 17px;
       padding: 7px 14px;
