@@ -65,6 +65,34 @@
 
     </div>
 
+    <div class="row" id="adv-block">
+
+      <h1>SCOPRI COME GUADAGNARE CON NOI</h1>
+
+    </div>
+
+    <div class="row" id="adv-body">
+
+      <div>
+        <h2>Metti in vendita il tuo immobile</h2>
+
+      <p>
+        Vendi a migliaia di persone in tutto il mondo
+        e mettiti in mostra graie alle fantastiche promozioni
+        a tua completa disposizione.
+      </p>
+      </div>
+
+      <div>
+        <a href="#">
+          <button class="">
+            CARICA IMMOBILE
+          </button>
+        </a>
+      </div>
+
+    </div>
+
 
   </div>
 
