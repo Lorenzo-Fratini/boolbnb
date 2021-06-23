@@ -11,18 +11,16 @@
 
                 {{-- appartamenti --}}
                 <div class="my-apartments">
-                    <p v-for="apartment in apartments">
+                    <p v-for="apartment in currentApartments">
                         @{{ apartment.title }}
                     </p>
                 </div>
 
                 {{-- servizi --}}
-                <form action="">
-                    <div v-for="service in allServices">
-                    <input v-on:change="sendServices" type="checkbox" :name="service.name" :value="service.id" v-model="filterServices">
-                        <label for="" style="margin-right:10px">@{{ service.name }}</label>
-                    </div>
-                </form>
+                <div v-for="service in allServices">
+                <input v-on:change="sendServices" type="checkbox" :name="service.name" :value="service.id" v-model="filterServices">
+                    <label for="" style="margin-right:10px">@{{ service.name }}</label>
+                </div>
                       
             </div>
         </div>
@@ -35,18 +33,23 @@
 
             data: {
 
-                apartments: [],
+                allApartments: [],
+                currentApartments: [],
                 allServices: [],
-                filterServices: []
+                filterServices: [],
             },
 
             methods: {
 
                 sendServices: function(){
-                    axios.get('/api/filterApartments/' + filterServices)
+                    axios.post('/api/filterApartments/' + allApartments + '/' + currentApartments + '/' + filterServices, {
+                        allApartments: JSON.stringify(this.allApartments),
+                        currentApartments: JSON.stringify(this.currentApartments),
+                        filterServices: JSON.stringify(this.filterServices)
+                    })
                     .then(res => {
 
-                        this.apartments = res.data;
+                        this.currentApartments = res.data;
                         // console.log(res.data);
                     });
                 }
@@ -62,7 +65,8 @@
                 axios.get('/api/getApartments/' + searchString)
                     .then(res => {
 
-                        this.apartments = res.data;  // inserisco appartamenti in array x portarmeli in pagina
+                        this.allApartments = res.data;  // inserisco appartamenti in array x portarmeli in pagina
+                        this.currentApartments = this.allApartments;
                         // console.log(res.data);
                     });
 
