@@ -605,10 +605,36 @@ a.prem-apart {
   }
 }
 
-.search-box {
+.box-service {
+  margin: 20px 0 20px 70px;
+}
+
+.box-service .my-services input {
+  padding: 0 10px;
+}
+
+.box-app-map {
   display: flex;
-  margin: 20px;
-  background-color: lightblue;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: lightcyan;
+}
+
+.box-app-map .my-apartments {
+  margin-left: 50px;
+}
+
+.box-app-map .my-apartments p {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#mymap {
+  border: 1px solid black;
+  width: 1000px;
+  height: 600px;
 }
 
 * {
