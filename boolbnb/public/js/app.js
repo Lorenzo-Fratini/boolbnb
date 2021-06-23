@@ -49891,8 +49891,6 @@ files.keys().map(function (key) {
 
 /* document.addEventListener('DOMContentLoaded', () => { */
 
-// }); */
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -50027,8 +50025,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Laravel\boolbnb\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Laravel\boolbnb\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Git\boolbnb\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Git\boolbnb\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
