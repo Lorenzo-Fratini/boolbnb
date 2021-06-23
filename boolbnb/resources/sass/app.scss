@@ -9,9 +9,9 @@
 @import 'footer_lyt';
 @import 'apartment';
 @import 'dashboard';
-// @import 'register';
-// @import 'login';
-// @import 'createapartment';
+@import 'register';
+@import 'login';
+@import 'createapartment';
 
 *{
     // border: 1px solid red;
@@ -32,4 +32,15 @@ button {
 
 .invisible {
     display: none;
+}
+
+.big-button {
+    padding: 14px;
+
+    font-size: 18px;
+
+    border-radius: 10px;
+    border: none;
+
+    background-color: $cyan;
 }
