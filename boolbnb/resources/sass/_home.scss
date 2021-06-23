@@ -64,7 +64,7 @@
 
       width: 100%;
 
-      justify-content: space-around;
+      justify-content: center;
       align-items: flex-start;
       flex-wrap: wrap;
 
@@ -74,57 +74,71 @@
         padding: 25px 0;
       }
 
-      // .ap-lyt {
-      //     display: flex;
-      //     justify-content: flex-end;
-      //     flex-direction: column;
-
-      //     padding: 25px;
-
-      //     background-color: darkslategray;
-      //     background-size: 100%;
-      //     background-repeat: no-repeat;
-      //     background-position: center;
-      //     color: white;
-
-      //     width: 40%;
-      //     height: 250px;
-
-      //     border-radius: 10px;
-      //     margin: 5%;
-
-      //     .details {
-      //         span {
-      //             margin-right: 10px;
-      //         }
-
-      //         .fas {
-      //             color: whitesmoke;
-      //         }
-      //     }
-      // }
-
-      .mini-container{
-        margin: 15px 0;
+      .mini-container {
+        margin: 15px;
         position: relative;
         z-index: 0;
 
+        width: 35%;
+        height: 250px;
+
+        overflow: hidden;
+        border-radius: 10px;
+
 
         .ap-img {
-          width: 40vw;
-          border-radius: 10px;
-          position: relative;
-  
-          // .prem-apart {
-              // position: absolute;
-              // left: 10px;
-              // bottom: 10px;
-          //   }
+          width: 100%;
+          height: 500px;
 
-          
+          border-radius: 10px;
+
+          position: relative;
+
+          margin-top: -125px;
         }
       }
 
+  }
+}
+
+#adv-block {
+
+  padding: 12px;
+
+  h1 {
+    text-align: center;
+
+    border-radius: 10px;
+
+    width: 80%;
+  }
+}
+
+#adv-body {
+  display: flex;
+  justify-content: space-b;
+  align-items: center;
+  flex-wrap: wrap;
+
+  line-height: 1.6;
+
+  background-image: linear-gradient(to right, white, $teal);
+
+  height: 390px;
+
+  div{
+    width: 35%;
+
+    margin: 30px;
+
+    &:last-child {
+
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 25px;
+    }
   }
 }
 
@@ -151,11 +165,21 @@ a.prem-apart {
     clear: both;
 }
 
-.white-buble{
+.white-buble {
 
-  background-color: rgba(lightgray, $alpha: 0.6);
+  background-color: rgba(lightgray, $alpha: 0.4);
 
   width: fit-content;
   padding: 10px;
   border-radius: 10px;
+
+  .details {
+
+    .fas {
+      font-size: 15px;
+      line-height: 15px;
+  
+      margin-left: 5px;
+    }
+  }
 }

@@ -2,7 +2,8 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+// $font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Benne', serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -20,12 +21,12 @@ $teal: #4dc0b5;
 $cyan: #6cb2eb;
 $header_red: #FF5A5F;
 $footer_pink: #ffc1c3;
+$benny-red: rgba(250, 0, 8, 0.7);
 
 
 //Pre-build code 
 
 %clear-fix {
-
     
     content: "";
     display: table;

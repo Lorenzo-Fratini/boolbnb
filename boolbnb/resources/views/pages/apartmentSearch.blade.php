@@ -17,11 +17,12 @@
                 </div>
 
                 {{-- servizi --}}
-               
+                <form action="">
                     <div v-for="service in allServices">
-                    <input v-on:click="test" type="checkbox" name="services_id" value="@{{ service.id }}">
-                        <label for="">@{{ service.name }}</label>
+                    <input v-on:change="sendServices" type="checkbox" :name="service.name" :value="service.id" v-model="filterServices">
+                        <label for="" style="margin-right:10px">@{{ service.name }}</label>
                     </div>
+                </form>
                       
             </div>
         </div>
@@ -36,42 +37,21 @@
 
                 apartments: [],
                 allServices: [],
-                filterServices:[]
+                filterServices: []
             },
 
             methods: {
 
-                test: function(){
-                    console.log('test ciao');
-                } 
-                
-              // aggiungi il servizio solo se non è presente nell'array:
-            //   addService: function(){
+                sendServices: function(){
+                    axios.get('/api/filterApartments/' + filterServices)
+                    .then(res => {
 
-            //     if (!this.filterServices.includes(service.name)) {
-            //                     this.filterServices.push(service.name);
-            //                 }
-            //    },
-               
-
-            
-            
-                // submit: function(){
-                 
-                //     console.log('hello');
-
-                //     axios.post('/api/', { services: JSON.stringify(services){ // posto nella rotta (vedi web.php), mando servizi (transformo in oggetto (JSON, codifico) in formato stringa(stringify)
-                                                                        
-                //          .then(res => {
-                //              // qui codice x tornare alla pag.
-                //         })
-        
-                //      .catch(err => console.log(err));
-                //         devo poi decodificare (nel controller)
-                // }
+                        this.apartments = res.data;
+                        // console.log(res.data);
+                    });
+                }
             
             },
-
 
             mounted() {
 
@@ -80,17 +60,17 @@
                 console.log(searchString);
 
                 axios.get('/api/getApartments/' + searchString)
-                    .then(data => {
+                    .then(res => {
 
-                        this.apartments = data.data;  // inserisco appartamenti in array x portarmeli in pagina
-                        console.log(data.data);
+                        this.apartments = res.data;  // inserisco appartamenti in array x portarmeli in pagina
+                        // console.log(res.data);
                     });
 
                 axios.get('/api/getServices/')
-                    .then(data => {
+                    .then(res => {
 
-                        this.allServices = data.data;   // inserisco servizi in array x portarmeli in pagina
-                        console.log(data.data);
+                        this.allServices = res.data;   // inserisco servizi in array x portarmeli in pagina
+                        // console.log(res.data);
                     });
             }
         });
