@@ -18,7 +18,7 @@ class ServiceSeeder extends Seeder
             -> each(function($service) {
 
             $apartment = Apartment::inRandomOrder() 
-                        -> limit(rand(35, 70))
+                        -> limit(rand(0, 70))
                         -> get();
             $service -> apartments() -> attach($apartment);
             $service -> save();
