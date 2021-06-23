@@ -48,8 +48,13 @@ class ApiController extends Controller {
         return response() -> json($services, 200);
     }
 
-    /* public function filterApartments($services) {
+    public function filterApartments($services) {
+
+        $apartments = Apartment::whereHas('services', function($query) use($services)
+        {
+            $query -> whereIn('service_id', $services);
+        }, "=", count($services))->get();
 
         return response() -> json($filteredApartmets, 200);
-    } */
+    }
 }

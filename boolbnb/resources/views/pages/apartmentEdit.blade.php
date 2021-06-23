@@ -97,7 +97,7 @@
                 </div>
             </div>    
             {{-- cover image --}}
-            <div>
+            <div class="cover-img">
                 <label for="cover_image">Immagine di copertina</label>
                 <div>
                     <input id="cover_image" type="file" name="cover_image">
