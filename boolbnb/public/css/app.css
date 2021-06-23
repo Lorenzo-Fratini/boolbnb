@@ -1,46 +1,78 @@
 @import url(https://fonts.googleapis.com/css2?family=Benne&display=swap);header {
   height: 80px;
-  background-color: #FF5A5F;
+  background-color: white;
   width: 100%;
   z-index: 2;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 header .container-header {
   display: flex;
   flex-direction: row;
   height: 80px;
+  align-items: center;
   width: 80%;
   margin: auto;
-  align-items: center;
-  justify-content: space-between;
+}
+
+header .logo-header {
+  flex-basis: calc(100%/3);
+}
+
+header .logo-header a {
+  margin-left: 10px;
+}
+
+header .searchbar-header {
+  display: flex;
+  flex-basis: calc(100%/3);
+  margin: auto;
+  justify-content: center;
 }
 
 header .searchbar-header form {
-  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #FF5A5F;
   border-radius: 10px;
-  border: 1px solid black;
+  padding: 5px 10px;
   outline: none;
   background-color: white;
+  width: 60%;
 }
 
-header .searchbar-header input,
-header .searchbar-header button {
+header .searchbar-header form #searchString {
+  width: 80%;
+}
+
+header .searchbar-header form input,
+header .searchbar-header form button {
   all: unset;
 }
 
-header .searchbar-header button i {
-  background-color: #FF5A5F;
+header .searchbar-header form button i {
+  background-color: inherit;
   border-radius: 100%;
-  padding: 10px;
-  color: white;
+  padding: 10px 0;
+  padding-left: 5px;
+  color: #FF5A5F;
   cursor: pointer;
+  justify-content: flex-end;
 }
 
 header .user-header {
-  outline: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex-basis: calc(100%/3);
+  height: 80px;
+  align-items: center;
+}
+
+header .user-header ul {
+  list-style-type: none;
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 
 header .user-header a {
@@ -49,10 +81,22 @@ header .user-header a {
   color: black;
 }
 
+header .user-header .hamburger {
+  background-color: transparent;
+  border: 0;
+  color: black;
+  font-size: 20px;
+  display: none;
+}
+
+header .user-header .hamburger:focus {
+  outline: none;
+}
+
 header .user-header .login-header-btn,
 header .user-header .register-header-btn {
   padding: 7px 14px;
-  background-color: white;
+  background-color: #FF5A5F;
   border-radius: 20px;
 }
 
@@ -64,8 +108,59 @@ header .user-header .logout-header-btn,
 header .user-header .dashboard-header-btn {
   font-size: 17px;
   padding: 7px 14px;
-  background-color: white;
+  background-color: #FF5A5F;
   border-radius: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .container-header {
+    width: 100% !important;
+    margin: auto;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .logo-header img {
+    width: 70% !important;
+    flex-shrink: 0;
+  }
+
+  .nav-ul {
+    display: none !important;
+    flex-direction: column !important;
+    position: absolute !important;
+    right: 10px;
+    top: 70px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-ul .dashboard-header-btn,
+  .nav-ul .logout-header-btn {
+    display: block;
+    margin: 3px;
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  .nav-ul.show {
+    display: flex !important;
+  }
+
+  .hamburger {
+    display: block !important;
+    margin-right: 20px !important;
+    position: relative !important;
+  }
+
+  .searchbar-header form {
+    width: 100% !important;
+  }
+
+  .searchbar-header form #searchString {
+    width: 100% !important;
+  }
 }
 
 .container-content {
@@ -682,6 +777,38 @@ a.prem-apart {
   .line {
     width: 100% !important;
   }
+}
+
+.box-service {
+  margin: 20px 0 20px 70px;
+}
+
+.box-service .my-services input {
+  padding: 0 10px;
+}
+
+.box-app-map {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: lightcyan;
+}
+
+.box-app-map .my-apartments {
+  margin-left: 50px;
+}
+
+.box-app-map .my-apartments p {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#mymap {
+  border: 1px solid black;
+  width: 1000px;
+  height: 600px;
 }
 
 * {
