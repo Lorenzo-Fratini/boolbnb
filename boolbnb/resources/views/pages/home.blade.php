@@ -88,7 +88,7 @@
       </div>
 
       <div>
-        <a href="#">
+        <a href="{{ route('createApartment') }}">
           <button class="big-button">
             CARICA IMMOBILE
           </button>

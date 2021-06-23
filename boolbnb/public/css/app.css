@@ -315,18 +315,18 @@ a.prem-apart {
 }
 
 .container-flat .flat-block {
-  background-color: white;
   height: auto;
   margin-top: 20px;
-  border-radius: 20px;
-  box-shadow: 0 0 30px 5px #888888;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
 }
 
 .container-flat .flat-block .flat-img {
   display: flex;
   justify-content: center;
-  max-width: 700px;
+  max-width: 50%;
   height: auto;
   margin: auto;
   background-color: salmon;
@@ -337,13 +337,12 @@ a.prem-apart {
   max-width: 100%;
   height: auto;
   margin: 0;
-  -o-object-fit: cover;
-     object-fit: cover;
   border-radius: 20px;
 }
 
 .container-flat .flat-block .container-text {
   display: flex;
+  flex-direction: column;
   width: 80%;
   margin: auto;
   justify-content: space-around;
@@ -402,6 +401,41 @@ a.prem-apart {
 }
 
 .container-flat .flat-block .container-text .flat-form button {
+  background-color: salmon;
+  padding: 8px 16px;
+  margin: 10px 0;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.container-flat .flat-block .container-text hr {
+  margin: 25px;
+}
+
+.flat-form {
+  text-align: center;
+}
+
+.flat-form input {
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  border-radius: 20px;
+  outline: none;
+}
+
+.flat-form textarea {
+  height: 150px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 75%;
+  outline: none;
+  resize: none;
+}
+
+.flat-form button {
   background-color: salmon;
   padding: 8px 16px;
   margin: 10px 0;
