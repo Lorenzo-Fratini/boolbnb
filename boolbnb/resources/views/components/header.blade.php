@@ -2,7 +2,7 @@
     <div class="container-header">
 
         <div class="logo-header">
-        <a href="{{ route('index')}}"><img src="{{ asset('storage/images/logo.svg') }}" alt="Logo BoolB&B"></a>
+            <a href="{{ route('index')}}"><img src="{{ asset('storage/images/logo.svg') }}" alt="Logo BoolB&B"></a>
         </div>
 
         <div class="searchbar-header">
@@ -22,30 +22,54 @@
         </div>
 
         <div class="user-header">
-            {{-- <div class="dropdown"> --}}
                 @guest
-                    {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> --}}
-                        <a class="dropdown-item login-header-btn" href="{{ route('login') }}">Login</a>
-                        <a class="dropdown-item register-header-btn" href="{{ route('register') }}">Register</a>
-                    {{-- </div> --}}
+                        <a class="login-header-btn" href="{{ route('login') }}">Login</a>
+                        <a class="register-header-btn" href="{{ route('register') }}">Register</a>
                 @else
-                    <h1 class="hello-user">
-                        Hello {{ Auth::user() -> firstname }}
-                    </h1>
-                    {{-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> --}}
-                        <a class="dashboard-header-btn" href="{{ route('dashboard', ['id' => Auth::id()]) }}">Dashboard</a>
-                        <a class="btn logout-header-btn" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                <div id="user-logged">
+                        <button class="hamburger" id="hamburger">
+    
+                            <i class="fas fa-bars"></i>
+    
+                        </button>
+                        <ul class="nav-ul" id="nav-ul">
+                            <li>
+                                <h3 class="hello-user">
+                                    {{ Auth::user() -> firstname }}
+                               </h3>
+                            </li>
+
+                            <li>
+                                <a class="dashboard-header-btn" href="{{ route('dashboard', ['id' => Auth::id()]) }}">Dashboard</a>
+                            </li>
+
+                            <li>
+                                <a class="btn logout-header-btn" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+    
+                            </li>
+                        </ul>
+                        
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                    {{-- </div> --}}
+                    </div>    
                 @endguest
-            {{-- </div> --}}
         </div>
     </div>
 
 </header>
+
+<script>
+
+    const hamburger = document.getElementById('hamburger');
+    const navUL = document.getElementById('nav-ul');
+    
+    hamburger.addEventListener('click', () => {
+        navUL.classList.toggle('show')
+    });
+
+</script>
