@@ -7,5 +7,11 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 }); */
 
-Route::get('/search', 'ApiController@search')
-    -> name('search');
+Route::get('/getApartments/{searchString}', 'ApiController@getApartments')
+    -> name('getApartments');
+
+Route::get('/getServices', 'ApiController@getServices')
+    -> name('getServices');
+
+Route::post('/filterApartments/{services}', 'ApiController@filterApartments')
+    -> name('filterApartments');

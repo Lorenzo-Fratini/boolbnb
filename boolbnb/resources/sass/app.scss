@@ -1,5 +1,6 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
 
 // Variables
 @import 'variables';
@@ -19,6 +20,9 @@
     padding: 0;
     font-family: sans-serif;
     box-sizing: border-box;
+
+    //test font
+    font-family: $font-family-sans-serif;
 }
 
 button {
@@ -28,4 +32,15 @@ button {
 
 .invisible {
     display: none;
+}
+
+.big-button {
+    padding: 14px;
+
+    font-size: 18px;
+
+    border-radius: 10px;
+    border: none;
+
+    background-color: $cyan;
 }

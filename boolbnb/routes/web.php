@@ -11,6 +11,9 @@ Route::get('/apartment/{id}', 'GuestController@showApartment')
 Route::post('/message/store', 'GuestController@storeMessage')
     -> name('storeMessage');
 
+Route::get('/search', 'GuestController@search')
+    -> name('search');
+
 Route::get('/dashboard/{id}', 'LoggedController@dashboard')
     -> name('dashboard');
 
@@ -26,5 +29,8 @@ Route::post('/updateApartment/{id}', 'LoggedController@updateApartment')
     
 Route::get('/deleteApartment/{id}', 'LoggedController@destroyApartment')
     -> name('destroyApartment');
+
+Route::get('/statisticsApartment/{id}', 'LoggedController@statisticsApartment')
+    -> name('statisticsApartment');
 
 Auth::routes();

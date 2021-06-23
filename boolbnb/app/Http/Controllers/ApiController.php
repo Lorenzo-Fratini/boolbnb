@@ -10,17 +10,46 @@ use App\Service;
 
 class ApiController extends Controller {
     
-    public function search(Request $request) {
+    public function getApartments($searchString) {
 
-        $validation = $request -> validate([
-            'searchString' => 'required|string'
-        ]);
+        $getApartments = Apartment::where('address', 'LIKE', '%' . $searchString . '%')->get();
 
-        $apartments = Apartment::where('address', 'LIKE', '%' . $validation['searchString'] . '%')->get();
+        $apartments = [];
+
+        foreach ($getApartments as $apartment) {
+           
+            foreach ($apartment -> sponsorships as $apartRel) {
+
+                $endDate = $apartRel -> pivot -> end_date;
+
+                date_default_timezone_set('Europe/Rome');
+                $currentDate = date('m/d/Y H:i:s', time());
+                $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
+                
+                if ($currentDate < $endDateFormat) {
+
+                    !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
+                }
+            }
+        }
+        
+        foreach ($getApartments as $apartment) {
+            
+            !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
+        }
+
+        return response() -> json($apartments, 200);
+    }
+
+    public function getServices() {
+
         $services = Service::all();
 
-        return response() -> json([$apartments, $services], 200);
-
-        // return view('pages.apartmentSearch', compact('apartments', 'services'));
+        return response() -> json($services, 200);
     }
+
+    /* public function filterApartments($services) {
+
+        return response() -> json($filteredApartmets, 200);
+    } */
 }

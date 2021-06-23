@@ -38,22 +38,22 @@
 
                 <h2>{{ $apartment -> title }}</h2>
     
-              <div>
+                <div>
     
-                <span>Numero di stanze:</span>
-                <span>{{ $apartment -> rooms_number }}</span>
+                  <span>Numero di stanze:</span>
+                  <span>{{ $apartment -> rooms_number }}</span>
     
-              </div>
+                </div>
             
-              <div class="details">
+                <div class="details">
     
-               <i class="fas fa-bed"></i>
-               <span>{{ $apartment -> beds_number }}</span>
+                  <i class="fas fa-bed"></i>
+                  <span>{{ $apartment -> beds_number }}</span>
       
-                <i class="fas fa-toilet"></i>
-                <span>{{ $apartment -> bathrooms_number }}</span>
+                  <i class="fas fa-toilet"></i>
+                  <span>{{ $apartment -> bathrooms_number }}</span>
     
-              </div>
+                </div>
               </div>
     
             </a>
@@ -62,6 +62,38 @@
           
       @endforeach
 
+
+
+      {{-- WORK WITH US --}}
+    </div>
+
+    <div class="row" id="adv-block">
+
+      <h1>SCOPRI COME GUADAGNARE CON NOI</h1>
+
+    </div>
+
+    <div class="row" id="adv-body">
+
+      <div>
+        <h2>
+          Metti in vendita il tuo immobile
+        </h2>
+
+      <h3>
+        Vendi a migliaia di persone in tutto il mondo
+        e mettiti in mostra graie alle fantastiche promozioni
+        a tua completa disposizione.
+      </h3>
+      </div>
+
+      <div>
+        <a href="#">
+          <button class="big-button">
+            CARICA IMMOBILE
+          </button>
+        </a>
+      </div>
 
     </div>
 
