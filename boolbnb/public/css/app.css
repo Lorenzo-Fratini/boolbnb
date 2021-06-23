@@ -1,6 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);header {
+@import url(https://fonts.googleapis.com/css2?family=Benne&display=swap);header {
   height: 80px;
-  background-color: #FF5A5F;
+  background-color: rgba(250, 0, 8, 0.7);
   width: 100%;
   z-index: 2;
 }
@@ -18,7 +18,6 @@ header .container-header {
 header .searchbar-header form {
   padding: 8px 16px;
   border-radius: 10px;
-  border: 1px solid black;
   outline: none;
   background-color: white;
 }
@@ -29,10 +28,8 @@ header .searchbar-header button {
 }
 
 header .searchbar-header button i {
-  background-color: #FF5A5F;
-  border-radius: 100%;
   padding: 10px;
-  color: white;
+  color: #FF5A5F;
   cursor: pointer;
 }
 
@@ -49,8 +46,8 @@ header .user-header a {
   color: black;
 }
 
-header .user-header .login,
-header .user-header .register {
+header .user-header .login-header-btn,
+header .user-header .register-header-btn {
   padding: 7px 14px;
   background-color: white;
   border-radius: 20px;
@@ -60,8 +57,8 @@ header .user-header .hello-user {
   margin: 0 10px;
 }
 
-header .user-header .logout,
-header .user-header .dashboard {
+header .user-header .logout-header-btn,
+header .user-header .dashboard-header-btn {
   font-size: 17px;
   padding: 7px 14px;
   background-color: white;
@@ -116,7 +113,7 @@ header .user-header .dashboard {
 .container-ap .row {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
 }
@@ -127,15 +124,40 @@ header .user-header .dashboard {
 }
 
 .container-ap .row .mini-container {
-  margin: 15px 0;
+  margin: 15px;
   position: relative;
   z-index: 0;
+  width: 35%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .container-ap .row .mini-container .ap-img {
-  width: 40vw;
+  width: 100%;
   border-radius: 10px;
   position: relative;
+  margin-top: -125px;
+}
+
+#adv-block {
+  background-color: cadetblue;
+  padding: 12px;
+}
+
+#adv-block h1 {
+  text-align: center;
+  color: rgba(250, 0, 8, 0.7);
+  background-color: silver;
+  border-radius: 10px;
+  width: 80%;
+}
+
+#adv-body {
+  display: flex;
+  align-items: center;
+  line-height: 1.6;
+  background-image: linear-gradient(to bottom right, red, yellow);
 }
 
 a.prem-apart {
@@ -435,7 +457,13 @@ a.prem-apart {
 * {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
   box-sizing: border-box;
+  font-family: "Benne", serif;
+}
+
+button {
+  cursor: pointer;
 }
 
 .invisible {
