@@ -12,6 +12,14 @@
                         <label for="" style="margin-right:10px">@{{ service.name }}</label>
                     </div>
                 </div>
+
+                <div>
+                    <label for="beds">Beds</label>
+                    <input v-on:change="sendBedsRooms" type="number" name="beds" id="beds" v-model="beds">
+
+                    <label for="rooms">Rooms</label>
+                    <input v-on:change="sendBedsRooms" type="number" name="rooms" id="rooms" v-model="rooms">
+                </div>
             </div>
 
 {{--             <a :href="gethref">aaaaaaa</a>
@@ -50,58 +58,16 @@
                 allServices: [],
                 filterServices: [],
                 filterData: [],
+                beds: '1',
+                rooms: '1',
             },
 
             methods: {
-                /* sendServices: function(){
-
-                    var token = document.head.querySelector('meta[name="csrf-token"]');
-                    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content
-
-                    const test = {
-                        allApartments: this.allApartments,
-                        currentApartments: this.currentApartments,
-                        filterServices: this.filterServices
-                    }
-
-                    const currentApartments = {
-                        
-                    }
-
-                    const filterServices = {
-                        
-                    }
-
-                    axios({
-                        url: 'http://localhost:8000/api/filterApartments/',
-                        method: 'post',
-                        data: test
-                    })
-                    .then(res => {
-
-                        this.currentApartments = res.data;
-                        console.log(res);
-                    });
-                    /*  allApartments: JSON.stringify(this.allApartments),
-                        currentApartments: JSON.stringify(this.currentApartments),
-                        filterServices: JSON.stringify(this.filterServices)
-                } */
 
                 sendServices: function() {
                 console.log(this.filterServices);
 
-                    let searchString = new URL(location.href).searchParams.get('searchString');
-
-                    // console.log(this.filterServices);
-
-                    /* this.filterData = [
-                        {
-                            'allApartments' : this.allApartments
-                        },
-                        {
-                            'filterServices' : this.filterServices
-                        }
-                    ]; */
+                    const searchString = new URL(location.href).searchParams.get('searchString');
 
                     // console.log(this.filterData);
                     if (this.filterServices.length > 0) {
@@ -116,12 +82,28 @@
                         this.currentApartments = this.allApartments;
                         console.log(this.currentApartments);
                     }
+                },
+
+                sendBedsRooms: function() {
+
+                    console.log(this.beds, this.rooms);
+                    const searchString = new URL(location.href).searchParams.get('searchString');
+                    let bedsRooms = [];
+                    bedsRooms.push(this.beds, this.rooms);
+
+                    axios.post('/api/filterBedsRooms/' + searchString + '/' + bedsRooms)
+                    .then(res => {
+                        
+                        // console.log(res.data);
+                        this.currentApartments = res.data;
+
+                    })
                 }
             },
 
             mounted() {
 
-                let searchString = new URL(location.href).searchParams.get('searchString');
+                const searchString = new URL(location.href).searchParams.get('searchString');
 
                 axios.get('/api/getApartments/' + searchString)
                     .then(res => {
@@ -151,6 +133,7 @@
                 }
             }, */
         });
+
         // Tom Tom Map
 
         var APIKEY = "XPOiPra9khmu2grECjX15gw5Cdy98fSX"

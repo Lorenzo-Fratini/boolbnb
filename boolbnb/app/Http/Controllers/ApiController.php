@@ -50,33 +50,6 @@ class ApiController extends Controller {
 
     public function filterApartments($searchString, $filterServices) {
 
-
-        /* $getApartments = Apartment::where('address', 'LIKE', '%' . $searchString . '%')->get();
-
-        $apartments = [];
-
-        foreach ($getApartments as $apartment) {
-           
-            foreach ($apartment -> sponsorships as $apartRel) {
-
-                $endDate = $apartRel -> pivot -> end_date;
-
-                date_default_timezone_set('Europe/Rome');
-                $currentDate = date('m/d/Y H:i:s', time());
-                $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
-                
-                if ($currentDate < $endDateFormat) {
-
-                    !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
-                }
-            }
-        }
-        
-        foreach ($getApartments as $apartment) {
-            
-            !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
-        } */
-
         $filter = explode(',', $filterServices);
         
         $filter2 = [];
@@ -95,13 +68,6 @@ class ApiController extends Controller {
         -> join('services', 'apartment_service.service_id', '=', 'services.id') */
         ->get();
 
-        /* $selectedApartments = [];
-
-        foreach ($filteredApartments as $selectedApartment) {
-            
-            !in_array($selectedApartment, $selectedApartments) ? $selectedApartments [] = $selectedApartment : '';
-        }
-        */
         $apartments = [];
 
         foreach ($filteredApartments as $apartment) {
@@ -128,5 +94,32 @@ class ApiController extends Controller {
 
         return response() -> json($apartments, 200);
         
+    }
+
+    public function filterBedsRooms($searchString, $bedsRooms) {
+
+        $apartments = Apartment::where('city', 'LIKE', '%' . $searchString . '%') -> get();
+
+        $filter = explode(',', $bedsRooms);
+        $filter2 = [];
+        
+        foreach ($filter as $data) {
+            
+            $filter2 [] = intval($data);
+        }
+
+        $beds = $filter2[0];
+        $rooms = $filter2[1];
+        $filteredApartments = [];
+
+        foreach ($apartments as $apartment) {
+
+            if ($apartment -> beds_number >= $beds && $apartment -> rooms_number >= $rooms) {
+
+                $filteredApartments []= $apartment;
+            }
+        }
+        
+        return response() -> json($filteredApartments, 200);
     }
 }
