@@ -27,12 +27,12 @@
                         <a class="register-header-btn" href="{{ route('register') }}">Register</a>
                 @else
                 <div id="user-logged">
-                        <button class="hamburger" id="hamburger">
+                        <button onclick="myFunction()" class="hamburger dropbtn" id="hamburger">
     
                             <i class="fas fa-bars"></i>
     
                         </button>
-                        <ul class="nav-ul" id="nav-ul">
+                        <ul class="nav-ul dropdown-content" id="nav-ul">
                             <li>
                                 <h3 class="hello-user">
                                     {{ Auth::user() -> firstname }}
@@ -65,11 +65,8 @@
 
 <script>
 
-    const hamburger = document.getElementById('hamburger');
-    const navUL = document.getElementById('nav-ul');
-    
-    hamburger.addEventListener('click', () => {
-        navUL.classList.toggle('show')
-    });
+    function myFunction() {
+        document.getElementById("nav-ul").classList.toggle("show");
+    }
 
 </script>
