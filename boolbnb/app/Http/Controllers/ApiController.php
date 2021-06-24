@@ -48,22 +48,85 @@ class ApiController extends Controller {
         return response() -> json($services, 200);
     }
 
-    public function filterApartments(Request $request) {
+    public function filterApartments($searchString, $filterServices) {
 
-        $allApartments = json_decode($request -> allApartments);
-        $currentApartments = json_decode($request -> currentApartments);
-        $filterServices = json_decode($request -> filterServices);
 
-        if (!($request -> filterServices)) {
+        /* $getApartments = Apartment::where('address', 'LIKE', '%' . $searchString . '%')->get();
 
-            return response() -> json($allApartments, 200);
+        $apartments = [];
+
+        foreach ($getApartments as $apartment) {
+           
+            foreach ($apartment -> sponsorships as $apartRel) {
+
+                $endDate = $apartRel -> pivot -> end_date;
+
+                date_default_timezone_set('Europe/Rome');
+                $currentDate = date('m/d/Y H:i:s', time());
+                $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
+                
+                if ($currentDate < $endDateFormat) {
+
+                    !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
+                }
+            }
+        }
+        
+        foreach ($getApartments as $apartment) {
+            
+            !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
+        } */
+
+        $filter = explode(',', $filterServices);
+        
+        $filter2 = [];
+        
+        foreach ($filter as $data) {
+            
+            $filter2 [] = intval($data);
+        }
+        
+        $filteredApartments = Apartment::whereHas('services', function($query) use($filter2)
+        {
+            $query -> whereIn('service_id', $filter2);
+        }, "=", count($filter2))
+        ->where('address', 'LIKE', '%' . $searchString . '%')
+        /* -> join('apartment_service', 'apartments.id', '=', 'apartment_service.apartment_id')
+        -> join('services', 'apartment_service.service_id', '=', 'services.id') */
+        ->get();
+
+        /* $selectedApartments = [];
+
+        foreach ($filteredApartments as $selectedApartment) {
+            
+            !in_array($selectedApartment, $selectedApartments) ? $selectedApartments [] = $selectedApartment : '';
+        }
+        */
+        $apartments = [];
+
+        foreach ($filteredApartments as $apartment) {
+            
+            foreach ($apartment -> sponsorships as $apartRel) {
+
+                $endDate = $apartRel -> pivot -> end_date;
+
+                date_default_timezone_set('Europe/Rome');
+                $currentDate = date('m/d/Y H:i:s', time());
+                $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
+                
+                if ($currentDate < $endDateFormat) {
+
+                    !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
+                }
+            }
+        }
+        
+        foreach ($filteredApartments as $apartment) {
+            
+            !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
         }
 
-        $filteredApartments = Apartment::whereHas('services', function($query) use($filterServices)
-        {
-            $query -> whereIn('service_id', $filterServices);
-        }, "=", count($filterServices))->get();
-
-        return response() -> json($filteredApartmets, 200);
+        return response() -> json($apartments, 200);
+        
     }
 }

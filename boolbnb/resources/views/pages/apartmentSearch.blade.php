@@ -6,150 +6,166 @@
 
             {{-- servizi --}}
             <div class="box-service">
-                <form action="#">
+                <div style="display:flex">
                     <div v-for="service in allServices" class="my-services">
                         <input v-on:change="sendServices" type="checkbox" :name="service.name" :value="service.id" v-model="filterServices">
                         <label for="" style="margin-right:10px">@{{ service.name }}</label>
                     </div>
-                </form>
+                </div>
             </div>
 
+{{--             <a :href="gethref">aaaaaaa</a>
+ --}}
+            {{-- appartamenti --}}
             <div class="box-app-map">
-                {{-- appartamenti --}}
                 <div class="my-apartments">
-                    <p v-for="apartment in currentApartments">
-                        @{{ apartment.title }}
+                    <p v-for="apartment in currentApartments" style="margin: 20px 0 0 0">
+                        @{{ apartment.title }} - [@{{ apartment.id }}]
+                        <br>
+                        @{{ apartment.address}}
                     </p>
                 </div>
-
-                {{-- servizi --}}
-                <div v-for="service in allServices">
-                <input v-on:change="sendServices" type="checkbox" :name="service.name" :value="service.id" v-model="filterServices">
-                    <label for="" style="margin-right:10px">@{{ service.name }}</label>
-                </div>
-                      
-            </div>
-                    <p v-for="apartment in apartments">
-                                   @{{ apartment.title }}   <br>
-                        Indirizzo: @{{ apartment.address }} <br>
-                        Città:     @{{ apartment.city }}
-                    </p>
-                </div>
-                    {{-- tom tom map --}}
-                <div id="map" class="box-map">
+                {{-- tom tom --}}
+                {{-- <div id="map" class="box-map">
                     <div id="mymap">
                         Tom Tom Map
                     </div>
-                </div>
-    
-            </div>        
+                </div> --}}
+            </div>
         </div>
-            
+
         
+            
     </main>
 
     <script>
+        new Vue({
 
-    
-            new Vue({
+            el: '#search',
 
-                el: '#search',
+            data: {
 
-<<<<<<< HEAD
                 allApartments: [],
                 currentApartments: [],
                 allServices: [],
                 filterServices: [],
+                filterData: [],
             },
-=======
-                data: {
->>>>>>> main
 
-                    apartments: [],
-                    allServices: [],
-                    filterServices: []
-                    
-                },
+            methods: {
+                /* sendServices: function(){
 
-<<<<<<< HEAD
-                sendServices: function(){
-                    axios.post('/api/filterApartments/' + allApartments + '/' + currentApartments + '/' + filterServices, {
-                        allApartments: JSON.stringify(this.allApartments),
-                        currentApartments: JSON.stringify(this.currentApartments),
-                        filterServices: JSON.stringify(this.filterServices)
+                    var token = document.head.querySelector('meta[name="csrf-token"]');
+                    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content
+
+                    const test = {
+                        allApartments: this.allApartments,
+                        currentApartments: this.currentApartments,
+                        filterServices: this.filterServices
+                    }
+
+                    const currentApartments = {
+                        
+                    }
+
+                    const filterServices = {
+                        
+                    }
+
+                    axios({
+                        url: 'http://localhost:8000/api/filterApartments/',
+                        method: 'post',
+                        data: test
                     })
                     .then(res => {
 
                         this.currentApartments = res.data;
-                        // console.log(res.data);
+                        console.log(res);
                     });
-                }
-            
-            },
-=======
-                methods: {
+                    /*  allApartments: JSON.stringify(this.allApartments),
+                        currentApartments: JSON.stringify(this.currentApartments),
+                        filterServices: JSON.stringify(this.filterServices)
+                } */
 
-                    sendServices: function(){
-                        axios.get('/api/filterApartments/' + filterServices)
-                        .then(res => {
-
-                            this.apartments = res.data;
-                            // console.log(res.data);
-                        });
-                    }
-                
-                },
-
-                mounted() {
+                sendServices: function() {
+                console.log(this.filterServices);
 
                     let searchString = new URL(location.href).searchParams.get('searchString');
->>>>>>> main
 
-                    console.log(searchString);
+                    // console.log(this.filterServices);
 
-                    axios.get('/api/getApartments/' + searchString)
+                    /* this.filterData = [
+                        {
+                            'allApartments' : this.allApartments
+                        },
+                        {
+                            'filterServices' : this.filterServices
+                        }
+                    ]; */
+
+                    // console.log(this.filterData);
+                    if (this.filterServices.length > 0) {
+
+                        axios.post('/api/filterApartments/' + searchString + '/' + this.filterServices) 
                         .then(res => {
-
-                            this.apartments = res.data;  // inserisco appartamenti in array x portarmeli in pagina
-                            // console.log(res.data);
+    
+                            this.currentApartments = res.data;
                         });
+                    } else {
 
-                    axios.get('/api/getServices/')
-                        .then(res => {
-
-<<<<<<< HEAD
-                        this.allApartments = res.data;  // inserisco appartamenti in array x portarmeli in pagina
                         this.currentApartments = this.allApartments;
-                        // console.log(res.data);
-                    });
-=======
-                            this.allServices = res.data;   // inserisco servizi in array x portarmeli in pagina
-                            // console.log(res.data);
-                        });
+                        console.log(this.currentApartments);
+                    }
                 }
-            });
+            },
 
-            // Tom Tom Map
+            mounted() {
 
-            var APIKEY = "XPOiPra9khmu2grECjX15gw5Cdy98fSX"
-            //var MADRID = [-3.703790,40.416775]
-            //var LISBONA = [-3.703790,40.416775]
-            var ROMA = [12.62456,41.86756]
->>>>>>> main
+                let searchString = new URL(location.href).searchParams.get('searchString');
 
-            var map = tt.map({
-                key: APIKEY,
-                container: 'mymap',
-                //center: MADRID,
-                center: ROMA,
-                zoom: 10,
+                axios.get('/api/getApartments/' + searchString)
+                    .then(res => {
+
+                        this.allApartments = res.data;
+                        this.currentApartments = this.allApartments;
+                        // console.log(this.currentApartments, this.allApartments);
+                    });
+
+                axios.get('/api/getServices/')
+                    .then(res => {
+
+                        this.allServices = res.data;
+                });
+
+                axios.get('https://api.tomtom.com/search/2/geocode/via%20roma%20codognè%2031013%20it.JSON?key=e221oCcENGoXZRDyweSTg7PnYGiEXO82', {headers: ''})
+                    .then(res => {
+
+                        // console.log(res);
+                });
+            },
+
+            /* computed: {
+
+                gethref: function() {
+                    return '/apartment/' + this.filterServices
+                }
+            }, */
+        });
+        // Tom Tom Map
+
+        var APIKEY = "XPOiPra9khmu2grECjX15gw5Cdy98fSX"
+        //var MADRID = [-3.703790,40.416775]
+        //var LISBONA = [-3.703790,40.416775]
+        var ROMA = [12.62456,41.86756]
+
+        var map = tt.map({
+            key: APIKEY,
+            container: 'mymap',
+            //center: MADRID,
+            center: ROMA,
+            zoom: 10,
             style: 'tomtom://vector/1/basic-main'
-    });
-
-    var search = function(){
-
-    }
-        
+        });
     </script>
 
 @endsection
