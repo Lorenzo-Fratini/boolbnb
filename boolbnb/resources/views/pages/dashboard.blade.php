@@ -22,7 +22,7 @@
                             <p>
                                 <i class="fas fa-home"></i>
                                 {{ $apartment -> title}} - {{ $apartment -> address}} - {{ $apartment -> city}}
-                                <a href="{{ route('showApartment', $apartment -> id) }}">View</a>
+                                <a href="{{ route('myApartment', $apartment -> id) }}">View</a>
                             <a href="{{ route('editApartment', $apartment -> id) }}">Edit</a>
                             <a href="{{ route('destroyApartment', $apartment -> id) }}">Delete</a>
                             </p>

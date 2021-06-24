@@ -58,6 +58,10 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
+                                <p style="margin: 10px 0 0 0">
+                                    Oppure:
+                                </p>
+                                <a class="register-header-btn" href="{{ route('register') }}">Register</a>
                                 <br>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link forget-psw" href="{{ route('password.request') }}">
