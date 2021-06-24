@@ -1,6 +1,36 @@
-.search-box {
+// sezione Servizi
+.box-service {
+    margin: 20px 0 20px 70px;
+
+    .my-services input{
+        padding: 0 10px;
+    }
+}
+
+// sezione Appartamenti e Mappa
+.box-app-map {
     display: flex;
-    margin: 20px;
+    justify-content: space-between;
+    padding: 20px;
     //debug
-    background-color: lightblue;
+    background-color: lightcyan;
+
+    .my-apartments{
+        margin-left: 50px;
+      
+      
+        p {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+    }
+       
+}
+
+#mymap {
+    border: 1px solid black;
+    width: 1000px;
+    height: 600px;
 }
