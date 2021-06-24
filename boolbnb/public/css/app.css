@@ -745,38 +745,6 @@ a.prem-apart {
   }
 }
 
-.box-service {
-  margin: 20px 0 20px 70px;
-}
-
-.box-service .my-services input {
-  padding: 0 10px;
-}
-
-.box-app-map {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: lightcyan;
-}
-
-.box-app-map .my-apartments {
-  margin-left: 50px;
-}
-
-.box-app-map .my-apartments p {
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-}
-
-#mymap {
-  border: 1px solid black;
-  width: 1000px;
-  height: 600px;
-}
-
 * {
   margin: 0;
   padding: 0;
