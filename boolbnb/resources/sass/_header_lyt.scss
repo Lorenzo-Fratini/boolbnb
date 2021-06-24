@@ -26,7 +26,6 @@ header {
       margin-left: 10px;
 
     }
-  
   }
 
   .searchbar-header {
@@ -128,9 +127,20 @@ header {
 
       font-size: 17px;
       padding: 7px 14px;
-      background-color: #FF5A5F;;
+      background-color: #FF5A5F;
       border-radius: 20px;
+      transition: background-color 0.5s;
+      transition: color 0.5s;
+
+      &:hover {
+        color: white;
+        background-color: #af3d41 ;
+      }
     }
+
+
+      
+
   }
 }
 
@@ -186,17 +196,7 @@ header {
     position: relative !important
   }
 
-
-
-
-
-
-
-
-
-
   .searchbar-header {
-
 
     form  {
   
@@ -207,5 +207,10 @@ header {
         width: 100% !important;
       }
     }  
+  }
+
+  .login-header-btn,.register-header-btn {
+
+    margin: 1px !important;
   }
 }
