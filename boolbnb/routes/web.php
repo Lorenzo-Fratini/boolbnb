@@ -33,4 +33,10 @@ Route::get('/deleteApartment/{id}', 'LoggedController@destroyApartment')
 Route::get('/myApartment/{id}', 'LoggedController@myApartment')
     -> name('myApartment');
 
+Route::get('/sponsorshipPayment', 'LoggedController@sponsorshipPayment')
+    -> name('sponsorshipPayment');
+
+Route::get('/paymentCheckout', 'LoggedController@paymentCheckout')
+    -> name('paymentCheckout');
+
 Auth::routes();
