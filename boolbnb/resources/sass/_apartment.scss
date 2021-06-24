@@ -58,12 +58,17 @@
 
     .flat-block {
 
-        background-color: white;
+        // background-color: white;
         height: auto;
         margin-top: 20px;
-        border-radius: 20px;
-        box-shadow: 0 0 30px 5px #888888;
+        // border-radius: 20px;
+        // box-shadow: 0 0 30px 5px #888888;
         padding: 20px;
+
+
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
 
         
 
@@ -71,7 +76,7 @@
 
             display: flex;
             justify-content: center;
-            max-width: 700px;
+            max-width: 50%;
             height: auto;
             margin: auto;
             background-color: salmon;
@@ -82,7 +87,7 @@
                 max-width: 100%;
                 height: auto;
                 margin: 0;
-                object-fit: cover;
+                // object-fit: cover;
                 border-radius: 20px;
             }
         }
@@ -90,6 +95,7 @@
         .container-text {
 
             display: flex;
+            flex-direction: column;
             width: 80%;
             margin: auto;
             justify-content: space-around;
@@ -162,6 +168,43 @@
                 }
             }
 
+            hr {
+                margin: 25px;
+            }
+
         }
+    }
+}
+
+.flat-form {
+
+    text-align: center;
+
+    input {
+        margin: 10px;
+        border: 1px solid #ccc;
+        padding: 4px 8px;
+        border-radius: 20px;
+        outline: none;
+    }
+
+    textarea {
+        height: 150px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        width: 75%;
+        outline: none;
+        resize: none;
+    }
+
+    button {
+
+        background-color: salmon;
+        padding: 8px 16px;
+        margin: 10px 0;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        cursor: pointer;
     }
 }
