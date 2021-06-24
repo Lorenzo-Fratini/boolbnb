@@ -133,12 +133,13 @@ class LoggedController extends Controller {
         return redirect() -> route('dashboard', ['id' => $userId]);
     }
 
-    public function statisticsApartment($id) {
+    public function myApartment($id) {
 
         $apartment = Apartment::findOrFail($id);
         $messages = Message::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
         $statistics = Statistic::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
+        $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
 
-        return view('pages.statistics', compact('apartment', 'messages', 'statistics'));
+        return view('pages.myApartment', compact('apartment', 'messages', 'statistics', 'services'));
     }
 }

@@ -12,7 +12,7 @@ class ApiController extends Controller {
     
     public function getApartments($searchString) {
 
-        $getApartments = Apartment::where('address', 'LIKE', '%' . $searchString . '%')->get();
+        $getApartments = Apartment::where('city', 'LIKE', '%' . $searchString . '%')->get();
 
         $apartments = [];
 
@@ -90,7 +90,7 @@ class ApiController extends Controller {
         {
             $query -> whereIn('service_id', $filter2);
         }, "=", count($filter2))
-        ->where('address', 'LIKE', '%' . $searchString . '%')
+        ->where('city', 'LIKE', '%' . $searchString . '%')
         /* -> join('apartment_service', 'apartments.id', '=', 'apartment_service.apartment_id')
         -> join('services', 'apartment_service.service_id', '=', 'services.id') */
         ->get();
