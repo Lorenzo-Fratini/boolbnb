@@ -41,12 +41,11 @@
                 </div>
             </div>
         </div>
-
-        
             
     </main>
 
     <script>
+    
         new Vue({
 
             el: '#search',
@@ -58,6 +57,10 @@
                 allServices: [],
                 filterServices: [],
                 filterData: [],
+                testtomtomapi: [],
+                coord: [],
+                lat: 0,
+                lon: 0,
                 beds: '1',
                 rooms: '1',
             },
@@ -68,8 +71,6 @@
                 console.log(this.filterServices);
 
                     const searchString = new URL(location.href).searchParams.get('searchString');
-
-                    // console.log(this.filterData);
                     if (this.filterServices.length > 0) {
 
                         axios.post('/api/filterApartments/' + searchString + '/' + this.filterServices) 
@@ -77,6 +78,8 @@
     
                             this.currentApartments = res.data;
                         });
+
+
                     } else {
 
                         this.currentApartments = this.allApartments;
@@ -102,6 +105,7 @@
             },
 
             mounted() {
+                
 
                 const searchString = new URL(location.href).searchParams.get('searchString');
 
@@ -119,11 +123,37 @@
                         this.allServices = res.data;
                 });
 
-                axios.get('https://api.tomtom.com/search/2/geocode/via%20roma%20codognè%2031013%20it.JSON?key=e221oCcENGoXZRDyweSTg7PnYGiEXO82', {headers: ''})
+                axios.get('https://api.tomtom.com/search/2/geocode/%20' + searchString + '%20it.JSON?key=e221oCcENGoXZRDyweSTg7PnYGiEXO82', {headers: ''})
                     .then(res => {
 
-                        // console.log(res);
+                        this.testtomtomapi = res.data.results[0];
+
+                        this.lat = this.testtomtomapi.position.lat;
+                        this.lon = this.testtomtomapi.position.lon;
+
+                        // console.log(this.lat, this.lon);
+
+                        // console.log(this.testtomtomapi);
+                        
+                        // Tom Tom Map
+
+                        console.log(this.lat, this.lon);
+
+                        var APIKEY = "XPOiPra9khmu2grECjX15gw5Cdy98fSX"
+                        var CITY = [this.lon, this.lat] // [longitudine, latitudine]
+
+                        var map = tt.map({
+                            key: APIKEY,
+                            container: 'mymap',
+                            center: CITY,
+                            zoom: 10,
+                            style: 'tomtom://vector/1/basic-main'
+                        });
+
                 });
+
+                
+
             },
 
             /* computed: {
@@ -132,23 +162,14 @@
                     return '/apartment/' + this.filterServices
                 }
             }, */
+            
         });
 
-        // Tom Tom Map
+                
+        
 
-        var APIKEY = "XPOiPra9khmu2grECjX15gw5Cdy98fSX"
-        //var MADRID = [-3.703790,40.416775]
-        //var LISBONA = [-3.703790,40.416775]
-        var ROMA = [12.62456,41.86756]
+        
 
-        var map = tt.map({
-            key: APIKEY,
-            container: 'mymap',
-            //center: MADRID,
-            center: ROMA,
-            zoom: 10,
-            style: 'tomtom://vector/1/basic-main'
-        });
     </script>
 
 @endsection
