@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Apartment;
+use App\Message;
 use App\Service;
+use App\Statistic;
 
 
 class ApiController extends Controller {
@@ -122,4 +124,44 @@ class ApiController extends Controller {
         
         return response() -> json($filteredApartments, 200);
     }
+
+    public function getStatistics($id){
+
+        $apartment = Apartment::findOrFail($id);
+        $statistics = Statistic::where('apartment_id', 'LIKE', $id) -> get();
+            
+        $ordered_stats = array();
+            
+        foreach ($statistics as $statistic) {
+                
+            $formattedDate = date("n-Y", strtotime($statistic -> date));
+            $statDate = explode("-", $formattedDate);
+            list($month, $year) = $statDate;
+            
+            $ordered_stats[$year][$month][]= $statistic;
+        };
+        
+        return response() -> json($ordered_stats, 200);
+    }
+
+    public function getMessages($id) {
+
+        $apartment = Apartment::findOrFail($id);
+        $messages = Message::where('apartment_id', 'LIKE', $id) -> get();
+
+        $ordered_messages = array();
+            
+        foreach ($messages as $message) {
+                
+            $formattedDate = date("n-Y", strtotime($message -> created_at));
+            $messageDate = explode("-", $formattedDate);
+            list($month, $year) = $messageDate;
+            
+            $ordered_messages[$year][$month][]= $message;
+        };
+
+        return response() -> json($ordered_messages, 200);
+    }
 }
+
+
