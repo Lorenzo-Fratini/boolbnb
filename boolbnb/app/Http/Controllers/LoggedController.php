@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 use Braintree;
 
@@ -33,16 +34,12 @@ class LoggedController extends Controller {
 
     public function dashboard($id) {
 
-        if(Auth::id() == $id) {
+        $id = Crypt::decrypt($id);
 
-            $user = User::findOrFail($id);
-            $apartments = Apartment::where('user_id', 'LIKE', $id) -> orderBy('city') -> get();
-     
-            return view('pages.dashboard', compact('user', 'apartments'));
-        } else {
-            
-            return redirect() -> route('index');
-        }
+        $user = User::findOrFail($id);
+        $apartments = Apartment::where('user_id', 'LIKE', $id) -> orderBy('city') -> get();
+    
+        return view('pages.dashboard', compact('user', 'apartments'));
     }
     
     public function createApartment() {
@@ -92,20 +89,12 @@ class LoggedController extends Controller {
 
     public function editApartment($id) {
 
-        $apartment = Apartment::findOrFail($id);
-
-        if(Auth::id() == $apartment -> user_id) {
+        $apartment = Apartment::findOrFail(Crypt::decrypt($id));
             
-            $user = User::findOrFail($apartment -> user_id);
-            $services = Service::all();
-    
-            return view('pages.apartmentEdit', compact('apartment', 'user', 'services'));
- 
-        } else {
-            
-            return redirect() -> route('index');
-        } 
+        $user = User::findOrFail($apartment -> user_id);
+        $services = Service::all();
 
+        return view('pages.apartmentEdit', compact('apartment', 'user', 'services'));
     }
     public function updateApartment(Request $request, $id) {
 
@@ -154,40 +143,24 @@ class LoggedController extends Controller {
 
     public function destroyApartment($id) {
 
-        $apartment = Apartment::findOrFail($id);
+        $apartment = Apartment::findOrFail(Crypt::decrypt($id));
 
-        if(Auth::id() == $apartment -> user_id) {
+        $userId = $apartment -> user_id;
+        $apartment -> delete();
+        $apartment -> save();
 
-            $userId = $apartment -> user_id;
-            $apartment -> delete();
-            $apartment -> save();
-    
-            return redirect() -> route('dashboard', ['id' => $userId]);
- 
-        } else {
-            
-            return redirect() -> route('index');
-        } 
-
+        return redirect() -> route('dashboard', ['id' => $userId]);
     }
 
     public function myApartment($id) {
 
-        $apartment = Apartment::findOrFail($id);
+        $apartment = Apartment::findOrFail(Crypt::decrypt($id));
 
-        if(Auth::id() == $apartment -> user_id) {
+        $messages = Message::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
+        $statistics = Statistic::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
+        $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
 
-            $messages = Message::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
-            $statistics = Statistic::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
-            $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
-    
-            return view('pages.myApartment', compact('apartment', 'messages', 'statistics', 'services'));
- 
-        } else {
-            
-            return redirect() -> route('index');
-        } 
-
+        return view('pages.myApartment', compact('apartment', 'messages', 'statistics', 'services'));
     }
 
     public function sponsorshipPayment() {

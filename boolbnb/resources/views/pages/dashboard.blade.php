@@ -22,10 +22,10 @@
                             <p>
                                 <i class="fas fa-home"></i>
                                 {{ $apartment -> title}} - {{ $apartment -> address}} - {{ $apartment -> city}}
-                                <a href="{{ route('myApartment', $apartment -> id) }}">Dettagli</a>
-                            <a href="{{ route('editApartment', $apartment -> id) }}">Modifica</a>
+                                <a href="{{ route('myApartment', encrypt($apartment -> id)) }}">Dettagli</a>
+                            <a href="{{ route('editApartment', encrypt($apartment -> id)) }}">Modifica</a>
                             <a href="{{ route('sponsorshipPayment')}}">Sponsorizza</a>
-                            <a href="{{ route('destroyApartment', $apartment -> id) }}">Elimina</a>
+                            <a href="{{ route('destroyApartment', encrypt($apartment -> id)) }}">Elimina</a>
                             </p>
                         @endforeach
                     </div>
