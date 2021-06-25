@@ -11,12 +11,12 @@ $factory->define(Apartment::class, function (Faker $faker) {
         'Roma',
         'Milano',
         'Torino',
+        'Venezia',
+        'Firenze',
         'Napoli',
         'Genova',
         'Palermo',
         'Bari',
-        'Venezia',
-        'Firenze',
         'Bologna'
     ];
 
