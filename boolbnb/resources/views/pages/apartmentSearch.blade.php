@@ -67,19 +67,10 @@
 
             methods: {
 
-                /* sendServices: function(){
-
                 sendServices: function() {
                 console.log(this.filterServices);
 
                     const searchString = new URL(location.href).searchParams.get('searchString');
-
-                    // console.log(this.filterData);
-                        // axios.post('https://api.tomtom.com/search/2/geocode/%20' +  + '%20it%2095065.JSON?key=bgD25FbOtXSk9OKpc08kQd51ll2aCVCK') 
-                        // .then(res => {
-    
-                        //     this.currentApartments = res.data;
-                        // });
                     if (this.filterServices.length > 0) {
 
                         axios.post('/api/filterApartments/' + searchString + '/' + this.filterServices) 
@@ -140,11 +131,7 @@
                         this.lat = this.testtomtomapi.position.lat;
                         this.lon = this.testtomtomapi.position.lon;
 
-                        console.log(this.lat, this.lon);
-
-                        this.coord.push(this.testtomtomapi.position.lon, this.testtomtomapi.position.lat)
-
-                        // this.testtomtomapi.push(res.data.results[0]);
+                        // console.log(this.lat, this.lon);
 
                         // console.log(this.testtomtomapi);
                         
@@ -153,17 +140,11 @@
                         console.log(this.lat, this.lon);
 
                         var APIKEY = "XPOiPra9khmu2grECjX15gw5Cdy98fSX"
-                        // var lon = 
-                        // var lat =
-                        // var CITY = [9.18812, 45.46362]
                         var CITY = [this.lon, this.lat] // [longitudine, latitudine]
-
-                        // console.log(CITY);
 
                         var map = tt.map({
                             key: APIKEY,
                             container: 'mymap',
-                            //center: MADRID,
                             center: CITY,
                             zoom: 10,
                             style: 'tomtom://vector/1/basic-main'
@@ -183,8 +164,6 @@
             }, */
             
         });
-
-        // Tom Tom Map
 
                 
         
