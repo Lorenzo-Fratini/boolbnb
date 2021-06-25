@@ -50,68 +50,65 @@ class ApiController extends Controller {
         return response() -> json($services, 200);
     }
 
-    public function filterApartments($searchString, $filterServices) {
-
-        $filter = explode(',', $filterServices);
-        
-        $filter2 = [];
-        
-        foreach ($filter as $data) {
-            
-            $filter2 [] = intval($data);
-        }
-        
-        $filteredApartments = Apartment::whereHas('services', function($query) use($filter2)
-        {
-            $query -> whereIn('service_id', $filter2);
-        }, "=", count($filter2))
-        ->where('city', 'LIKE', '%' . $searchString . '%')
-        /* -> join('apartment_service', 'apartments.id', '=', 'apartment_service.apartment_id')
-        -> join('services', 'apartment_service.service_id', '=', 'services.id') */
-        ->get();
-
-        $apartments = [];
-
-        foreach ($filteredApartments as $apartment) {
-            
-            foreach ($apartment -> sponsorships as $apartRel) {
-
-                $endDate = $apartRel -> pivot -> end_date;
-
-                date_default_timezone_set('Europe/Rome');
-                $currentDate = date('m/d/Y H:i:s', time());
-                $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
-                
-                if ($currentDate < $endDateFormat) {
-
-                    !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
-                }
-            }
-        }
-        
-        foreach ($filteredApartments as $apartment) {
-            
-            !in_array($apartment, $apartments) ? $apartments [] = $apartment : '';
-        }
-
-        return response() -> json($apartments, 200);
-        
-    }
-
-    public function filterBedsRooms($searchString, $bedsRooms) {
+    public function filterApartments($searchString, $filterServices, $bedsRooms) {
 
         $apartments = Apartment::where('city', 'LIKE', '%' . $searchString . '%') -> get();
 
-        $filter = explode(',', $bedsRooms);
-        $filter2 = [];
-        
-        foreach ($filter as $data) {
+        if ($filterServices != 'noServices') {
+
+            $filterServices = explode(',', $filterServices);
             
-            $filter2 [] = intval($data);
+            $services = [];
+            
+            foreach ($filterServices as $data) {
+                
+                $services [] = intval($data);
+            }
+            
+            $apartments = Apartment::whereHas('services', function($query) use($services)
+            {
+                $query -> whereIn('service_id', $services);
+            }, "=", count($services))
+            ->where('city', 'LIKE', '%' . $searchString . '%')
+            ->get();
+    
+            $newApartments = [];
+    
+            foreach ($apartments as $apartment) {
+                
+                foreach ($apartment -> sponsorships as $apartRel) {
+    
+                    $endDate = $apartRel -> pivot -> end_date;
+    
+                    date_default_timezone_set('Europe/Rome');
+                    $currentDate = date('m/d/Y H:i:s', time());
+                    $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
+                    
+                    if ($currentDate < $endDateFormat) {
+    
+                        !in_array($apartment, $newApartments) ? $newApartments [] = $apartment : '';
+                    }
+                }
+            }
+            
+            foreach ($apartments as $apartment) {
+                
+                !in_array($apartment, $newApartments) ? $newApartments [] = $apartment : '';
+            }
+
+            $apartments = $newApartments;
         }
 
-        $beds = $filter2[0];
-        $rooms = $filter2[1];
+        $filterBedsRooms = explode(',', $bedsRooms);
+        $bedsRooms = [];
+        
+        foreach ($filterBedsRooms as $data) {
+            
+            $bedsRooms [] = intval($data);
+        }
+
+        $beds = $bedsRooms[0];
+        $rooms = $bedsRooms[1];
         $filteredApartments = [];
 
         foreach ($apartments as $apartment) {
@@ -121,8 +118,9 @@ class ApiController extends Controller {
                 $filteredApartments []= $apartment;
             }
         }
-        
+
         return response() -> json($filteredApartments, 200);
+        
     }
 
     public function getStatistics($id){

@@ -8,22 +8,20 @@
             <div class="box-service">
                 <div style="display:flex">
                     <div v-for="service in allServices" class="my-services">
-                        <input v-on:change="sendServices" type="checkbox" :name="service.name" :value="service.id" v-model="filterServices">
+                        <input v-on:change="filterApartments" type="checkbox" :name="service.name" :value="service.id" v-model="filterServices">
                         <label for="" style="margin-right:10px">@{{ service.name }}</label>
                     </div>
                 </div>
 
                 <div>
-                    <label for="beds">Beds</label>
-                    <input v-on:change="sendBedsRooms" type="number" name="beds" id="beds" v-model="beds">
-
                     <label for="rooms">Rooms</label>
-                    <input v-on:change="sendBedsRooms" type="number" name="rooms" id="rooms" v-model="rooms">
+                    <input v-on:change="filterApartments" type="number" name="rooms" id="rooms" v-model="rooms">
+                    
+                    <label for="beds">Beds</label>
+                    <input v-on:change="filterApartments" type="number" name="beds" id="beds" v-model="beds">
                 </div>
             </div>
 
-{{--             <a :href="gethref">aaaaaaa</a>
- --}}
             {{-- appartamenti --}}
             <div class="box-app-map">
                 <div class="my-apartments">
@@ -67,41 +65,35 @@
 
             methods: {
 
-                sendServices: function() {
-                console.log(this.filterServices);
 
-                    const searchString = new URL(location.href).searchParams.get('searchString');
-                    if (this.filterServices.length > 0) {
+                filterApartments: function() {
 
-                        axios.post('/api/filterApartments/' + searchString + '/' + this.filterServices) 
-                        .then(res => {
-    
-                            this.currentApartments = res.data;
-                        });
-
-
-                    } else {
-
-                        this.currentApartments = this.allApartments;
-                        console.log(this.currentApartments);
-                    }
-                },
-
-                sendBedsRooms: function() {
-
-                    console.log(this.beds, this.rooms);
                     const searchString = new URL(location.href).searchParams.get('searchString');
                     let bedsRooms = [];
                     bedsRooms.push(this.beds, this.rooms);
 
-                    axios.post('/api/filterBedsRooms/' + searchString + '/' + bedsRooms)
-                    .then(res => {
+                    if (this.filterServices.length > 0) {
                         
-                        // console.log(res.data);
-                        this.currentApartments = res.data;
+                        axios.post('/api/filterApartments/' + searchString + '/' + this.filterServices + '/' + bedsRooms) 
+                        .then(res => {
 
-                    })
-                }
+                            this.currentApartments = res.data;
+                            console.log(res.data);
+                        });
+
+                    } else {
+
+                        let filterServices = 'noServices';
+
+                        axios.post('/api/filterApartments/' + searchString + '/' + filterServices + '/' + bedsRooms) 
+                        .then(res => {
+
+                            this.currentApartments = res.data;
+                            console.log(res.data);
+                        });
+                    }
+                },
+
             },
 
             mounted() {
@@ -164,11 +156,6 @@
             }, */
             
         });
-
-                
-        
-
-        
 
     </script>
 
