@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Braintree;
+
 use App\Apartment;
 use App\User;
 use App\Service;
@@ -15,6 +17,17 @@ class LoggedController extends Controller {
     public function __construct() {
         
         $this->middleware('auth');
+    }
+
+    private function braintree(){
+        $gateway = new Braintree\Gateway([
+            'environment' => env('BT_ENVIRONMENT'),
+            'merchantId' => env('BT_MERCHANT_ID'),
+            'publicKey' => env('BT_PUBLIC_KEY'),
+            'privateKey' => env('BT_PRIVATE_KEY')
+        ]);
+
+        return $gateway;
     }
 
     public function dashboard($id) {
@@ -141,5 +154,49 @@ class LoggedController extends Controller {
         $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
 
         return view('pages.myApartment', compact('apartment', 'messages', 'statistics', 'services'));
+    }
+
+    public function sponsorshipPayment() {
+
+        //        $apartment = Apartment::findOrFail($id);
+        
+        $gateway = $this -> braintree();
+        $token = $gateway->ClientToken()->generate();
+
+
+        return view('pages.sponsorshipPayment', compact('token'));
+    }
+
+    public function paymentCheckout(Request $request) {
+
+        $gateway = $this -> braintree();
+        $amount = $request -> amount;
+        $nonce = $request -> payment_method_nonce;
+
+        $result = $gateway->transaction()->sale([
+            'amount' => $amount,
+            'paymentMethodNonce' => $nonce,
+            'options' => [
+                'submitForSettlement' => true
+            ]
+        ]);
+        // se è andato a buon fine cambio lo status dell'ordine da false a true e ritorno alla pagina checkout
+        if ($result->success) {
+            $transaction = $result->transaction;
+
+            return back()->with('success_message', 'Transazione riuscita' . ' ' .  $transaction -> id);
+        // se non è andato a buon fine lo statu ordine rimane a false e ritorno in pagina checkout con un errore 
+        } else {
+            $errorString = "";
+
+            foreach($result->errors->deepAll() as $error) {
+                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+            }
+
+            $error = $result -> message;
+            
+            return back()->withErrors('an error occured with the message' . $result -> message);
+            // return back() -> withErrors('An error occured with the message:' . $result -> message);
+        }
     }
 }

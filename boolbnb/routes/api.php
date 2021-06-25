@@ -15,3 +15,6 @@ Route::get('/getServices', 'ApiController@getServices')
 
 Route::post('/filterApartments/{searchString}/{filterServices}', 'ApiController@filterApartments')
     -> name('filterApartments');
+
+Route::post('/filterBedsRooms/{searchString}/{bedsRooms}', 'ApiController@filterBedsRooms')
+    -> name('filterBedsRooms');

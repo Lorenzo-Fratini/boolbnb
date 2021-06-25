@@ -1,19 +1,7 @@
-// Fonts
-// @import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
-
 // Variables
 @import 'variables';
-@import 'header_lyt'; //consigliato margin-top: 80px;
-@import 'home';
-@import 'footer_lyt';
-@import 'apartment';
-@import 'dashboard';
-@import 'register';
-@import 'login';
-@import 'createapartment';
 
-*{
+* {
     // border: 1px solid red;
 
     margin: 0;
@@ -31,6 +19,7 @@ button {
 }
 
 .invisible {
+
     display: none;
 }
 
@@ -44,3 +33,19 @@ button {
 
     background-color: $cyan;
 }
+
+// Fonts
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
+
+// lyt-pages
+@import 'header_lyt'; //consigliato margin-top: 80px;
+@import 'home';
+@import 'footer_lyt';
+@import 'apartment';
+@import 'dashboard';
+@import 'register';
+@import 'login';
+@import 'createapartment';
+@import 'searchapartment';
+
