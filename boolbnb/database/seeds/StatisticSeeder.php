@@ -14,7 +14,7 @@ class StatisticSeeder extends Seeder
      */
     public function run() {
         
-        factory(Statistic::class, 300) -> make()
+        factory(Statistic::class, 500) -> make()
             -> each(function($statistic) {
 
         $apartment = Apartment::inRandomOrder() -> first();

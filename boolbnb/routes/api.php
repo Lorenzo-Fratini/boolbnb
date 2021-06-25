@@ -18,3 +18,9 @@ Route::post('/filterApartments/{searchString}/{filterServices}', 'ApiController@
 
 Route::post('/filterBedsRooms/{searchString}/{bedsRooms}', 'ApiController@filterBedsRooms')
     -> name('filterBedsRooms');
+
+Route::post('/getStatistics/{id}', 'ApiController@getStatistics')
+    -> name('getStatistics');
+
+Route::post('/getMessages/{id}', 'ApiController@getMessages')
+    -> name('getMessages');
