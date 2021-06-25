@@ -54,78 +54,85 @@
 
                 </ul>
                 
-                {{-- <h4>Stanze:</h4>
-                <h4>Letti:</h4>
-                <h4>Bagni:</h4>
-                <h4>Metratura:</h4> --}}
 
             </div>
-            {{-- <div class="flat-form">
-                <h3>Desideri maggiori informazioni? <br> Contatta {{ $apartment -> title }}</h3>
-                
-                <form method="POST" action="{{ route('storeMessage') }}">
-            
-                    @csrf
-                    @method('POST')
-            
-                    <div class="form-group row">
-                        <input id="email" type="text" class="form-control" name="email" value="" required placeholder="Inserisci qui la tua email">
-                    </div>
-            
-                    <div class="form-group row">
-                        <textarea id="text" class="form-control" name="text" value="" required placeholder="Inserisci qui la tua richiesta..."></textarea>
-                    </div>
-        
-                    <input type="hidden" name="apartment_id" value="{{ $apartment -> id }}">
-            
-                    <button type="submit">Submit</button>
-        
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                </form>
-            </div> --}}
         </div>
     </div>
 
-    <div class="flat-form">
-        <h3>Desideri maggiori informazioni? <br> Contatta {{ $apartment -> title }}</h3>
-        
-        <form method="POST" action="{{ route('storeMessage') }}">
-    
-            @csrf
-            @method('POST')
-    
-            <div class="form-group row">
-                <input id="email" type="text" class="form-control" name="email" value="" required placeholder="Inserisci qui la tua email">
-            </div>
-    
-            <div class="form-group row">
-                <textarea id="text" class="form-control" name="text" value="" required placeholder="Inserisci qui la tua richiesta..."></textarea>
-            </div>
+   <div class="my-apartment">
 
-            <input type="hidden" name="apartment_id" value="{{ $apartment -> id }}">
-    
-            <button type="submit">Submit</button>
+        <div class="stats">
+            <div>
 
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                <h1>Statistiche</h1>
+                <canvas id="myChart" width="500px" height="200px"></canvas>
+
+            </div>
+        </div>
+
+        <div class="messages">
+
+            <h1>Messaggi ricevuti:</h1>
+
+            <div class="received-msgs">
+
+                {{-- foreach msg blabla --}}
+                <div class="msg">
+
+                    @foreach ($messages as $message)
+                    <div class="msg-row">
+
+                        <p>Hai un nuovo messaggio da: {{ $message -> email }} </p>
+                        <p> {{ $message -> text }} </p>
+
+                    </div>
+                        
+                    @endforeach
+                    
                 </div>
-            @endif
-        </form>
-    </div>
+                
+            </div>
+        </div>
+   </div>
 
 </div>
 
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+            datasets: [{
+                label: '# of Visits',
+                data: [12, 19, 10, 5, 2, 3, 5, 6, 7, 3, 10, 20],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+</script>
 @endsection
