@@ -13,11 +13,8 @@ Route::get('/getApartments/{searchString}', 'ApiController@getApartments')
 Route::get('/getServices', 'ApiController@getServices')
     -> name('getServices');
 
-Route::post('/filterApartments/{searchString}/{filterServices}', 'ApiController@filterApartments')
+Route::post('/filterApartments/{searchString}/{filterServices}/{bedsRooms}', 'ApiController@filterApartments')
     -> name('filterApartments');
-
-Route::post('/filterBedsRooms/{searchString}/{bedsRooms}', 'ApiController@filterBedsRooms')
-    -> name('filterBedsRooms');
 
 Route::post('/getStatistics/{id}', 'ApiController@getStatistics')
     -> name('getStatistics');

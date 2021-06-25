@@ -11,6 +11,7 @@ use App\User;
 use App\Service;
 use App\Message;
 use App\Statistic;
+use Auth;
 
 class LoggedController extends Controller {
     
@@ -32,10 +33,16 @@ class LoggedController extends Controller {
 
     public function dashboard($id) {
 
-        $user = User::findOrFail($id);
-        $apartments = Apartment::where('user_id', 'LIKE', $id) -> orderBy('city') -> get();
+        if(Auth::id() == $id) {
 
-        return view('pages.dashboard', compact('user', 'apartments'));
+            $user = User::findOrFail($id);
+            $apartments = Apartment::where('user_id', 'LIKE', $id) -> orderBy('city') -> get();
+     
+            return view('pages.dashboard', compact('user', 'apartments'));
+        } else {
+            
+            return redirect() -> route('index');
+        }
     }
     
     public function createApartment() {
@@ -86,10 +93,19 @@ class LoggedController extends Controller {
     public function editApartment($id) {
 
         $apartment = Apartment::findOrFail($id);
-        $user = User::findOrFail($apartment -> user_id);
-        $services = Service::all();
 
-        return view('pages.apartmentEdit', compact('apartment', 'user', 'services'));
+        if(Auth::id() == $apartment -> user_id) {
+            
+            $user = User::findOrFail($apartment -> user_id);
+            $services = Service::all();
+    
+            return view('pages.apartmentEdit', compact('apartment', 'user', 'services'));
+ 
+        } else {
+            
+            return redirect() -> route('index');
+        } 
+
     }
     public function updateApartment(Request $request, $id) {
 
@@ -139,21 +155,39 @@ class LoggedController extends Controller {
     public function destroyApartment($id) {
 
         $apartment = Apartment::findOrFail($id);
-        $userId = $apartment -> user_id;
-        $apartment -> delete();
-        $apartment -> save();
 
-        return redirect() -> route('dashboard', ['id' => $userId]);
+        if(Auth::id() == $apartment -> user_id) {
+
+            $userId = $apartment -> user_id;
+            $apartment -> delete();
+            $apartment -> save();
+    
+            return redirect() -> route('dashboard', ['id' => $userId]);
+ 
+        } else {
+            
+            return redirect() -> route('index');
+        } 
+
     }
 
     public function myApartment($id) {
 
         $apartment = Apartment::findOrFail($id);
-        $messages = Message::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
-        $statistics = Statistic::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
-        $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
 
-        return view('pages.myApartment', compact('apartment', 'messages', 'statistics', 'services'));
+        if(Auth::id() == $apartment -> user_id) {
+
+            $messages = Message::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
+            $statistics = Statistic::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
+            $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
+    
+            return view('pages.myApartment', compact('apartment', 'messages', 'statistics', 'services'));
+ 
+        } else {
+            
+            return redirect() -> route('index');
+        } 
+
     }
 
     public function sponsorshipPayment() {
