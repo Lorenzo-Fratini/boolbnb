@@ -553,6 +553,51 @@ a.prem-apart {
   cursor: pointer;
 }
 
+.my-apartment {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  border: 1px solid red;
+  height: 300px;
+}
+
+.my-apartment .stats {
+  display: flex;
+  width: 50%;
+  background-color: #419948;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-apartment .messages {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background-color: lawngreen;
+  align-items: center;
+}
+
+.my-apartment .messages .received-msgs {
+  width: 90%;
+  margin: auto;
+  height: 200px;
+  background-color: lightcoral;
+}
+
+.my-apartment .messages .received-msgs .msg {
+  overflow-y: auto;
+  height: 200px;
+  padding: 5px 10px;
+}
+
+.my-apartment .messages .received-msgs .msg-row {
+  border-bottom: 1px solid black;
+}
+
+.my-apartment .messages .received-msgs span {
+  display: block;
+}
+
 .main-box {
   margin-bottom: 20px;
   font-size: 22px;
