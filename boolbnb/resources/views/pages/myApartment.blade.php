@@ -109,8 +109,7 @@
         },
         methods: {
 
-            chartCreate: function (){
-
+            chartCreate: function (statistics, messages){
                 let ctx = document.getElementById('myChart').getContext('2d');
                 let myChart = new Chart(ctx, {
                     type: 'bar',
@@ -118,7 +117,7 @@
                         labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
                         datasets: [{
                             label: '# of Visits',
-                            data: this.statistics.year.month,
+                            data: statistics,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
@@ -171,15 +170,15 @@
                     }
                 }
 
-                this.statistics = statistics;
+                this.chartCreate(statistics);
 
-                // console.log(this.statistics);
             });
 
             axios.post('/api/getMessages/' + {{$apartment -> id}})
             .then(res => {
-
+                
                 this.messages = res.data;
+
                 let messages = [];
 
                 for (let x = 0; x < 12; x++) {
@@ -195,12 +194,12 @@
                     }
                 }
 
-                this.messages = messages;
-
-                // console.log(this.messages);
+                this.chartCreate(messages);
             });
+            
         }
     })
 
+    
 </script>
 @endsection
