@@ -12,18 +12,20 @@
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
-            
         @endif --}}
-        <form method="get" id="payment-form" action="{{'paymentCheckout'}}">
+        <form method="post" id="payment-form" action="{{ route('paymentCheckout', $apartment -> id) }}">
             
             @csrf
-            @method('GET')
+            @method('POST')
 
             <section>
                 <label for="amount">
                     <span class="input-label">Amount</span>
                     <div class="input-wrapper amount-wrapper">
-                        <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+                        @foreach ($sponsorships as $sponsorship)
+                            <input type="radio" name="amount" value="{{ $sponsorship -> price }}">
+                            <label for="amount">{{ $sponsorship -> price }} €</label>
+                        @endforeach
                     </div>
                 </label>
 
