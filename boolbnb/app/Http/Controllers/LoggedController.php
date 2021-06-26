@@ -84,7 +84,7 @@ class LoggedController extends Controller {
         $apartment -> services() -> attach($request -> get('service_id'));
         $apartment -> save();
 
-        return redirect() -> route('dashboard', ['id' => $user -> id]);
+        return redirect() -> route('dashboard', Crypt::encrypt(['id' => $user -> id]));
     }
 
     public function editApartment($id) {
@@ -138,7 +138,7 @@ class LoggedController extends Controller {
 
         $apartment -> services() -> sync($request -> get('service_id'));
 
-        return redirect() -> route('dashboard', ['id' => $user -> id]);
+        return redirect() -> route('dashboard', Crypt::encrypt(['id' => $user -> id]));
     }
 
     public function destroyApartment($id) {
@@ -149,7 +149,7 @@ class LoggedController extends Controller {
         $apartment -> delete();
         $apartment -> save();
 
-        return redirect() -> route('dashboard', ['id' => $userId]);
+        return redirect() -> route('dashboard', Crypt::encrypt(['id' => $userId]));
     }
 
     public function myApartment($id) {

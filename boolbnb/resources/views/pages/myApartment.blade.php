@@ -158,22 +158,26 @@
                 this.statistics = res.data;
                 let statistics = [];
 
-                for (let x = 0; x < 12; x++) {
+                if (!res.data.lenght) {
 
-                    let month = (x + 1).toString();
-                    
-                    if (this.statistics['2021'][month]) {
+                    statistics = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ]
+                } else {
 
-                        statistics.push(this.statistics['2021'][month].length);
-                    } else {
+                    for (let x = 0; x < 12; x++) {
 
-                        statistics.push(0);
+                        let month = (x + 1).toString();
+                        
+                        if (this.statistics['2021'][month]) {
+
+                            statistics.push(this.statistics['2021'][month].length);
+                        } else {
+
+                            statistics.push(0);
+                        }
                     }
                 }
 
                 this.statistics = statistics;
-
-                // console.log(this.statistics);
             });
 
             axios.post('/api/getMessages/' + {{$apartment -> id}})
@@ -182,22 +186,26 @@
                 this.messages = res.data;
                 let messages = [];
 
-                for (let x = 0; x < 12; x++) {
+                if (!res.data.length) {
 
-                    let month = (x + 1).toString();
-                    
-                    if (this.messages['2021'][month]) {
+                    messages = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ]
+                } else {
 
-                        messages.push(this.messages['2021'][month].length);
-                    } else {
+                    for (let x = 0; x < 12; x++) {
 
-                        messages.push(0);
+                        let month = (x + 1).toString();
+                        
+                        if (this.messages['2021'][month]) {
+
+                            messages.push(this.messages['2021'][month].length);
+                        } else {
+
+                            messages.push(0);
+                        }
                     }
                 }
 
                 this.messages = messages;
-
-                // console.log(this.messages);
             });
         }
     })
