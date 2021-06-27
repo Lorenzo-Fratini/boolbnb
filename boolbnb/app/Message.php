@@ -10,7 +10,6 @@ class Message extends Model
 
         'email', 
         'text',
-        'date',
         'apartment_id',
     ];
 

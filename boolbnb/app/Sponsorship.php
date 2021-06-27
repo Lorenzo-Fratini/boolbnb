@@ -10,7 +10,6 @@ class Sponsorship extends Model
 
         'price',
         'duration',
-        'apartment_id',
     ];
 
     public function orders(){
