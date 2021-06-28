@@ -24,9 +24,8 @@ class Apartment extends Model
         'postal_code',
         'latitude',
         'longitude',
-        'sponsor_date',
+        'visible',
         'user_id',
-        'visible'
     ];
 
     protected $dates = ['deleted_at'];

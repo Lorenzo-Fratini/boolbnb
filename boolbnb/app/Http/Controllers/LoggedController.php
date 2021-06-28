@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 use Braintree;
 
+use Auth;
 use App\Apartment;
-use App\User;
-use App\Service;
 use App\Message;
+use App\Service;
+use App\Sponsorship;
 use App\Statistic;
+use App\User;
 
 class LoggedController extends Controller {
     
@@ -32,9 +35,11 @@ class LoggedController extends Controller {
 
     public function dashboard($id) {
 
+        $id = Crypt::decrypt($id);
+
         $user = User::findOrFail($id);
         $apartments = Apartment::where('user_id', 'LIKE', $id) -> orderBy('city') -> get();
-
+    
         return view('pages.dashboard', compact('user', 'apartments'));
     }
     
@@ -80,12 +85,13 @@ class LoggedController extends Controller {
         $apartment -> services() -> attach($request -> get('service_id'));
         $apartment -> save();
 
-        return redirect() -> route('dashboard', ['id' => $user -> id]);
+        return redirect() -> route('dashboard', Crypt::encrypt(['id' => $user -> id]));
     }
 
     public function editApartment($id) {
 
-        $apartment = Apartment::findOrFail($id);
+        $apartment = Apartment::findOrFail(Crypt::decrypt($id));
+            
         $user = User::findOrFail($apartment -> user_id);
         $services = Service::all();
 
@@ -133,41 +139,44 @@ class LoggedController extends Controller {
 
         $apartment -> services() -> sync($request -> get('service_id'));
 
-        return redirect() -> route('dashboard', ['id' => $user -> id]);
+        return redirect() -> route('dashboard', Crypt::encrypt(['id' => $user -> id]));
     }
 
     public function destroyApartment($id) {
 
-        $apartment = Apartment::findOrFail($id);
+        $apartment = Apartment::findOrFail(Crypt::decrypt($id));
+
         $userId = $apartment -> user_id;
         $apartment -> delete();
         $apartment -> save();
 
-        return redirect() -> route('dashboard', ['id' => $userId]);
+        return redirect() -> route('dashboard', Crypt::encrypt(['id' => $userId]));
     }
 
     public function myApartment($id) {
 
-        $apartment = Apartment::findOrFail($id);
-        $messages = Message::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
-        $statistics = Statistic::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
-        $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
+        $apartment = Apartment::findOrFail(Crypt::decrypt($id));
+
+        $messages = Message::where('apartment_id', 'LIKE', Crypt::decrypt($id)) -> orderBy('created_at') -> get();
+        $statistics = Statistic::where('apartment_id', 'LIKE', Crypt::decrypt($id)) -> orderBy('created_at') -> get();
+        $services = $apartment -> services() -> wherePivot('apartment_id', '=', Crypt::decrypt($id)) -> get();
 
         return view('pages.myApartment', compact('apartment', 'messages', 'statistics', 'services'));
     }
 
-    public function sponsorshipPayment() {
+    public function sponsorshipPayment($id) {
 
-        //        $apartment = Apartment::findOrFail($id);
-        
+        $apartment = Apartment::findOrFail(Crypt::decrypt($id));
+       
         $gateway = $this -> braintree();
         $token = $gateway->ClientToken()->generate();
 
+        $sponsorships = Sponsorship::all();
 
-        return view('pages.sponsorshipPayment', compact('token'));
+        return view('pages.sponsorshipPayment', compact('token', 'sponsorships', 'apartment'));
     }
 
-    public function paymentCheckout(Request $request) {
+    public function paymentCheckout(Request $request, $id) {
 
         $gateway = $this -> braintree();
         $amount = $request -> amount;
@@ -180,13 +189,40 @@ class LoggedController extends Controller {
                 'submitForSettlement' => true
             ]
         ]);
-        // se è andato a buon fine cambio lo status dell'ordine da false a true e ritorno alla pagina checkout
+
+        $sponsorship = Sponsorship::where('price', 'LIKE', $request -> amount);
+
+        $apartment = Apartment::findOrFail($id);
+
         if ($result->success) {
+
             $transaction = $result->transaction;
 
+            $getSponsorship = Sponsorship::where('price', 'LIKE', $request -> amount) -> get();
+
+            $sponsorship = $getSponsorship[0];
+
+            date_default_timezone_set('Europe/Rome');
+            $startDate = date('Y-m-d H:i:s', time());
+
+            if ($sponsorship -> id == 1) {
+        
+                $endDate = date("Y-m-d H:i:s", strtotime('+24 hours', strtotime($startDate)));
+            } else if ($sponsorship -> id == 2) {
+
+                $endDate = date("Y-m-d H:i:s", strtotime('+48 hours', strtotime($startDate)));
+            } else {
+
+                $endDate = date("Y-m-d H:i:s", strtotime('+144 hours', strtotime($startDate)));
+            }
+
+            $apartment -> sponsorships() -> attach($sponsorship, ['start_date' => $startDate, 'end_date' => $endDate]);
+            $apartment -> save();
+
+
             return back()->with('success_message', 'Transazione riuscita' . ' ' .  $transaction -> id);
-        // se non è andato a buon fine lo statu ordine rimane a false e ritorno in pagina checkout con un errore 
-        } else {
+        } /* else {
+
             $errorString = "";
 
             foreach($result->errors->deepAll() as $error) {
@@ -196,7 +232,6 @@ class LoggedController extends Controller {
             $error = $result -> message;
             
             return back()->withErrors('an error occured with the message' . $result -> message);
-            // return back() -> withErrors('An error occured with the message:' . $result -> message);
-        }
+        } */
     }
 }

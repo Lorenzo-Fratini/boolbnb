@@ -15,7 +15,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Monolocale zona Navigli',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt1.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -31,7 +31,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Porta Venezia - Green Apartment',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt2.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -47,7 +47,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => "Sant'Ambrogio & Duomo Functional Studio",
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt3.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -63,7 +63,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Comfortable single bed close to metro',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt4.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -79,7 +79,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Nuovo ed accogliente Monolocale sui Navigli!',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt5.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -95,7 +95,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Mini Abbaino sui tetti di Porta Venezia',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt6.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -111,7 +111,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Bilocale brevi periodi Niguarda e Isola',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt7.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -127,7 +127,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Monolocale a Dergano',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt8.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -143,7 +143,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Corso Como Garibaldi Room',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt9.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -159,7 +159,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'BABILA HOSTEL&BISTROT',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt10.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -178,7 +178,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'B&B Roma Centro - Tripla Superior',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt11.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -194,7 +194,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Primavera al Colosseo',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt12.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -210,7 +210,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'A Casa di Alessandro Jacuzzi Room',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt13.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -226,7 +226,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Rome Vatican Suite 5',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt14.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -242,7 +242,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'B&B Rione Monti',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt15.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -258,7 +258,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Magenta Luxury Fico 5',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt16.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -274,7 +274,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Winkler Suites',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt17.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -290,7 +290,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'B&B Roma Centro - Matrimoniale Comfort con bagno',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt18.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -306,7 +306,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Room Deluxe Roma Termini',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt19.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -322,7 +322,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Navona Sweet Home',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt20.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -341,7 +341,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Double/Twin Room',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt21.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -357,7 +357,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'CÀ LA RIVA mini-apartment',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt22.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -373,7 +373,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Al Teatro Italia centro Venezia',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt23.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -389,7 +389,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'DELUXE ROOM IN VENICE CENTRE',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt24.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -405,7 +405,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Palazzo DaPonte',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt25.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -421,7 +421,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Residenza Grisostomo Double Room',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt26.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -437,7 +437,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Apartment 2188/A Santacroce',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt27.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -453,7 +453,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Ca San Piero Biennale',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt28.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -469,7 +469,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Venice Hotel Altieri',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt29.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -485,7 +485,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Ca Tintoretto Room',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt30.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -504,7 +504,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'MONOLOCALE TORINO CENTRO',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt31.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -520,7 +520,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Appartamento Petrarca',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt32.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -536,7 +536,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Biancas friends',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt33.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -552,7 +552,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Casa Otta',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt34.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -568,7 +568,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Appartamento Quadrilatero',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt35.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -584,7 +584,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Casa Sebastian',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt36.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -600,7 +600,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Gretas little home',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt37.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -616,7 +616,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Il Nido di Oreste',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt38.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -632,7 +632,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'La mansarda Bizantina',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt39.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -648,7 +648,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Open Space Centralissimo',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt40.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -667,7 +667,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Il Cuore Di Firenze',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt41.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -683,7 +683,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'RESIDENZA ALBIZI - Michelangelo',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt42.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -699,7 +699,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Ponte Vecchio Elegant Apartment',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt43.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -715,7 +715,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Delizioso "Studio" in Coverciano',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt44.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -731,7 +731,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'La Signoria apartament',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt45.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -747,7 +747,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Luxury Home Florence',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt46.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -763,7 +763,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Residenza Sant Anna',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt47.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -779,7 +779,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Drom Comfort Double Room',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt48.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -798,7 +798,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Suite Capri',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt49.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -814,7 +814,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Suite Amalfi',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt50.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -830,7 +830,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Appartamento Ondina',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt51.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -846,7 +846,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Toledo Penthouse Don Pedro Apartment',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt52.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -862,7 +862,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Suite Ischia',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt53.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -878,7 +878,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Domus Municipio B&B',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt54.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -894,7 +894,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'The Little House',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt55.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -910,7 +910,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Monolocale a Palazzo Spinelli',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt56.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -929,7 +929,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Attico nel cuore antico di Genova',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt57.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -945,7 +945,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Camera matrimoniale Blu Mare',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt58.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -961,7 +961,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'La Casa di Giò',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt59.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -977,7 +977,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'La porta sul mare',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt60.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -993,7 +993,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'La Vecchia Posta di Via Balbi',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt61.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1009,7 +1009,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'The Artists house',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt62.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1025,7 +1025,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Il Paguro Bernardo',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt63.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1041,7 +1041,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'La casa del viaggiatore',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt64.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1060,7 +1060,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'LeCupole Luxury',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt65.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1076,7 +1076,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Papillon B&B in the city center',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt66.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1092,7 +1092,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Bacche Apartament',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt67.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1108,7 +1108,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'La casetta di MIRO',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt68.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1124,7 +1124,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Gagini House & Terrace',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt69.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1140,7 +1140,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'La Rosa dei Venti',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt70.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1159,7 +1159,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Dreams Room',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt71.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1175,7 +1175,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Macchia Mediterranea - Malva',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt72.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1191,7 +1191,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'La Casetta Apartment',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt73.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1207,7 +1207,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'CASA RANIERI- centro storico Bari',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt74.jpg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1223,7 +1223,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'The House of Arts',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt75.jpeg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1239,7 +1239,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Desire Home',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt76.jpeg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1258,7 +1258,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Residenza Il Glicine Da Vanni',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt77.jpeg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1274,7 +1274,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'B&B Allegra Stazione Centrale',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt78.jpeg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1290,7 +1290,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Casina Barberia',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt79.jpeg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1306,7 +1306,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'La casa dei libri',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt80.jpeg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1322,7 +1322,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'Open Space apartment',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt81.jpeg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),
@@ -1338,7 +1338,7 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
         [
             'title' => 'La Suite Monolocale',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'cover_image' => 'es' . rand(1, 9) . '.jpg',
+            'cover_image' => 'apt82.jpeg',
             'rooms_number' => rand(1, 5),
             'beds_number' => rand(1, 5),
             'bathrooms_number' => rand(1, 5),

@@ -40,7 +40,7 @@
                             </li>
 
                             <li>
-                                <a class="dashboard-header-btn" href="{{ route('dashboard', ['id' => Auth::id()]) }}">Dashboard</a>
+                                <a class="dashboard-header-btn" href="{{ route('dashboard', encrypt(['id' => Auth::id()])) }}">Dashboard</a>
                             </li>
 
                             <li>
