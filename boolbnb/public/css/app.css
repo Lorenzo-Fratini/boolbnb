@@ -201,14 +201,15 @@ header .user-header .dashboard-header-btn:hover {
 }
 
 .container-content {
-  height: 700px;
+  height: 600px;
   background-color: #ccc;
   padding-top: 80px;
   display: flex;
   align-items: center;
-  background-image: url(/images/bosch.jpg?97988beab1eb162eb20784e2419c590e);
-  background-position: top;
+  background-image: url(/images/jumbo.jpg?54568fb3f11d2727c260b6970830cb17);
+  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .container-content .margin-content {
@@ -217,7 +218,7 @@ header .user-header .dashboard-header-btn:hover {
 }
 
 .container-content .text-content {
-  color: white;
+  color: #000;
 }
 
 .container-evidenza {

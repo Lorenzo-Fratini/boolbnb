@@ -3,15 +3,15 @@
 
 .container-content {
 
-  height: 700px;
+  height: 600px;
   background-color: #ccc;
   padding-top: 80px;
   display: flex;
   align-items: center;
-  background-image: url('storage/images/bosch.jpg');
-  // background-color: darkorange; // solo per il debug, non definitivo
-  background-position: top;
+  background-image: url('storage/images/jumbo.jpg');
+  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 
   .margin-content {
 
@@ -21,7 +21,7 @@
 
   .text-content {
 
-    color: white;
+    color: #000;
   }
 }
 
