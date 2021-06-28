@@ -22,10 +22,28 @@
                             <p>
                                 <i class="fas fa-home"></i>
                                 {{ $apartment -> title}} - {{ $apartment -> address}} - {{ $apartment -> city}}
-                                <a href="{{ route('myApartment', encrypt($apartment -> id)) }}">Dettagli</a>
-                                <a href="{{ route('editApartment', encrypt($apartment -> id)) }}">Modifica</a>
-                                <a href="{{ route('sponsorshipPayment', encrypt($apartment -> id))}}">Sponsorizza</a>
-                                <a href="{{ route('destroyApartment', encrypt($apartment -> id)) }}">Elimina</a>
+                                <a href="{{ route('myApartment', $apartment -> id) }}">Dettagli</a>
+                                <a href="{{ route('editApartment', $apartment -> id) }}">Modifica</a>
+
+                                @if (count($apartment -> sponsorships) == 0)
+                                    <a href="{{ route('sponsorshipPayment', $apartment -> id)}}">Sponsorizza</a>
+                                @endif
+                                
+                                @foreach ($apartment -> sponsorships as $apartRel) 
+                                    @if ($currentDate < $apartRel -> pivot -> end_date)
+                                        <span>Sponsorizzato</span>
+                                        @break
+                                    @endif
+                                    @if ($loop -> last )
+                                        
+                                        @if ($currentDate > $apartRel -> pivot -> end_date)
+                                            <a href="{{ route('sponsorshipPayment', $apartment -> id)}}">Sponsorizza</a>
+                                        @endif
+
+                                    @endif
+                                @endforeach
+
+                                <a href="{{ route('destroyApartment', $apartment -> id) }}">Elimina</a>
                             </p>
                         @endforeach
                     </div>
