@@ -157,9 +157,9 @@ class LoggedController extends Controller {
 
         $apartment = Apartment::findOrFail(Crypt::decrypt($id));
 
-        $messages = Message::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
-        $statistics = Statistic::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
-        $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
+        $messages = Message::where('apartment_id', 'LIKE', Crypt::decrypt($id)) -> orderBy('created_at') -> get();
+        $statistics = Statistic::where('apartment_id', 'LIKE', Crypt::decrypt($id)) -> orderBy('created_at') -> get();
+        $services = $apartment -> services() -> wherePivot('apartment_id', '=', Crypt::decrypt($id)) -> get();
 
         return view('pages.myApartment', compact('apartment', 'messages', 'statistics', 'services'));
     }

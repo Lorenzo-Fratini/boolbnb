@@ -582,14 +582,12 @@ a.prem-apart {
   width: 80%;
   margin: auto;
   display: flex;
-  border: 1px solid red;
-  height: 300px;
+  height: auto;
 }
 
 .my-apartment .stats {
   display: flex;
   width: 50%;
-  background-color: #419948;
   justify-content: center;
   align-items: center;
 }
@@ -598,15 +596,14 @@ a.prem-apart {
   display: flex;
   flex-direction: column;
   width: 50%;
-  background-color: lawngreen;
   align-items: center;
+  border: 1px solid black;
 }
 
 .my-apartment .messages .received-msgs {
   width: 90%;
   margin: auto;
   height: 200px;
-  background-color: lightcoral;
 }
 
 .my-apartment .messages .received-msgs .msg {
@@ -616,11 +613,11 @@ a.prem-apart {
 }
 
 .my-apartment .messages .received-msgs .msg-row {
-  border-bottom: 1px solid black;
+  border: 1px solid black;
 }
 
-.my-apartment .messages .received-msgs span {
-  display: block;
+.my-apartment .messages .received-msgs .msg-row .new-msg-from {
+  color: #9b2424;
 }
 
 .main-box {
