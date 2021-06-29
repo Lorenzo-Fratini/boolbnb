@@ -65,9 +65,16 @@
             <div>
 
                 <h1>Statistiche</h1>
-                <canvas id="myChart" width="500px" height="200px"></canvas>
-                <canvas id="myChart2" width="500px" height="200px"></canvas>
+                <canvas id="statisticsChart" width="500px" height="200px"></canvas>
+                <canvas id="messagesChart" width="500px" height="200px"></canvas>
 
+                <select name="" id=""
+                    v-on:change="selectYear">
+                    <option
+                        v-for="year in statisticsYears"
+                        v-bind:value="year">@{{ year }}
+                    </option>
+                </select>
 
             </div>
         </div>
@@ -84,7 +91,7 @@
                     @foreach ($messages as $message)
                     <div class="msg-row">
 
-                        <p class="new-msg-from">Hai un nuovo messaggio da: {{ $message -> email }} </p>
+                        <p>Hai un nuovo messaggio da: {{ $message -> email }} </p>
                         <p> {{ $message -> text }} </p>
 
                     </div>
@@ -104,21 +111,212 @@
     new Vue ({
         el: '#stats',
         data: {
-            messages: {},
-            statistics: {},
-            months: '',
-            years: '',
+            resStatistics: {},
+            statisticsYears: [],
+            resMessages: {},
+            messagesYears: [],
+            statisticsChart: '',
+            messagesChart: '',
         },
         methods: {
 
-            chartCreate2: function (messages){
-                let ctx = document.getElementById('myChart2').getContext('2d');
-                let myChart = new Chart(ctx, {
+            selectYear: function(event) {
+
+                let year = event.target.value;
+
+                let statistics = [];
+                let parsedStatistics = JSON.parse(JSON.stringify(this.resStatistics));
+
+                if (!this.resStatistics) {
+
+                    statistics = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                } else {
+
+                    for (let x = 0; x < 12; x++) {
+
+                        let month = (x + 1).toString();
+                        
+                        if (parsedStatistics[year][month]) {
+
+                            statistics.push(parsedStatistics[year][month].length);
+                        } else {
+
+                            statistics.push(0);
+                        }
+                    }
+                }
+
+                // update dei grafici con l'anno selezionato dall'utente
+                this.statisticsChart.data.datasets[0].data = statistics;
+                this.statisticsChart.update();
+
+                
+                let messages = [];
+                let parsedMessages = JSON.parse(JSON.stringify(this.resMessages));
+
+                if (!this.resStatistics || !parsedMessages[year]) {
+
+                    messages = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                } else {
+
+                    for (let x = 0; x < 12; x++) {
+
+                        let month = (x + 1).toString();
+                        
+                        if (parsedMessages[year][month]) {
+
+                            messages.push(parsedMessages[year][month].length);
+                        } else {
+
+                            messages.push(0);
+                        }
+                    }
+                }
+
+                // update dei grafici con l'anno selezionato dall'utente
+                this.messagesChart.data.datasets[0].data = messages;
+                this.messagesChart.update();
+            },
+        },
+
+        mounted(){
+
+            // GET STATISTICS ///////////////////////////////
+
+            axios.post('/api/getStatistics/' + {{ $apartment -> id }})
+            .then(res => {
+
+                this.resStatistics = res.data;
+                let parsedStatistics = JSON.parse(JSON.stringify(this.resStatistics));
+                let currentYear = new Date().getFullYear();
+                
+
+                // prendiamo tutti gli anni delle statistiche
+                let statisticsYears = []
+
+                Object.keys(this.resStatistics).forEach(year => {
+
+                    statisticsYears.push(year);
+                });
+
+                this.statisticsYears = statisticsYears.reverse();
+
+
+                // preparazione dati per grafico
+                let statistics = [];
+
+                if (!this.resStatistics) {
+
+                    statistics = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                } else {
+
+                    for (let x = 0; x < 12; x++) {
+
+                        let month = (x + 1).toString();
+                        
+                        if (parsedStatistics[currentYear][month]) {
+
+                            statistics.push(parsedStatistics[currentYear][month].length);
+                        } else {
+
+                            statistics.push(0);
+                        }
+                    }
+                }
+
+
+                // creazione del grafico
+                let ctx = document.getElementById('statisticsChart').getContext('2d');
+                this.statisticsChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
                         datasets: [{
-                            label: 'Messaggi',
+                            label: 'Visite',
+                            data: statistics,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                suggestedMin: 0,
+                                max: 5,
+                                suggestedMax: 50,
+                            }
+                        }
+                    }
+                });
+            });
+
+
+            // GET MESSAGES ///////////////////////////////
+            axios.post('/api/getMessages/' + {{ $apartment -> id }})
+            .then(res => {
+
+                this.resMessages = res.data;
+                let parsedMessages = JSON.parse(JSON.stringify(this.resMessages));
+                let currentYear = new Date().getFullYear();
+
+
+                // prendiamo tutti gli anni dei messaggi
+                let messagesYears = []
+
+                Object.keys(this.resStatistics).forEach(year => {
+
+                    messagesYears.push(year);
+                });
+
+                this.messagesYears = messagesYears.reverse();
+
+
+                // preparazione dati per grafico
+                let messages = [];
+
+                if (!this.resMessages) {
+                    
+                    messages = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                } else {
+
+                    for (let x = 0; x < 12; x++) {
+
+                        let month = (x + 1).toString();
+
+                        if (parsedMessages[currentYear][month]) {
+
+                            messages.push(parsedMessages[currentYear][month].length);
+                        } else {
+
+                            messages.push(0);
+                        }
+                    }
+                }
+
+
+                // creazione del grafico
+                let ctx = document.getElementById('messagesChart').getContext('2d');
+                this.messagesChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+                        datasets: [{
+                            label: 'Visite',
                             data: messages,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
@@ -142,135 +340,19 @@
                     options: {
                         scales: {
                             y: {
-                                beginAtZero: true
+                                suggestedMin: 0,
+                                max: 5,
+                                suggestedMax: 50,
                             }
                         }
                     }
-                });
-            },
-
-        },
-
-        mounted(){
-
-            axios.post('/api/getStatistics/' + {{$apartment -> id}})
-            .then(res => {
-
-                this.statistics = res.data;
-                let statistics = [];
-
-                if (!res.data.lenght) {
-
-                    statistics = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ]
-                } else {
-
-                    for (let x = 0; x < 12; x++) {
-
-                        let month = (x + 1).toString();
-                        
-                        if (this.statistics['2021'][month]) {
-
-                            statistics.push(this.statistics['2021'][month].length);
-                        } else {
-
-                            statistics.push(0);
-                        }
-                    }
-                }
-
-                // for (let i = 0; i < Object.keys(this.statistics).length; i++){
-
-                //     let year = Object.keys(this.statistics)[i];
-                //     console.log(year);
-
-                //     for (let x = 0; x < 12; x++) {
-
-                //         let month = (x + 1).toString();
-
-                //         if (this.statistics[year][month]) {
-
-                //             statistics.push(this.statistics[year][month].length);
-                //         } else {
-
-                //             statistics.push(0);
-                //         }
-                //     }
-                // }
-
-                this.statistics = statistics;
-                console.log(this.statistics);
-                let ctx = document.getElementById('myChart').getContext('2d');
-                let myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-                        datasets: [{
-                            label: 'Visite',
-                            data: this.statistics,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            }),
-
-
-            axios.post('/api/getMessages/' + {{$apartment -> id}})
-            .then(res => {
-                
-                this.messages = res.data;
-
-                let messages = [];
-
-                if (!res.data.length) {
-
-                    messages = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                } else {
-
-                    for (let x = 0; x < 12; x++) {
-
-                        let month = (x + 1).toString();
-                        
-                        if (this.messages['2021'][month]) {
-
-                            messages.push(this.messages['2021'][month].length);
-                        } else {
-
-                            messages.push(0);
-                        }
-                    }
-                }                
-
-                this.messages = messages;
-                this.chartCreate2(this.messages);
-                console.log(this.messages);
-            });
+                }); // chiudono chart
+            }); // chiudono then
             
         }
     })
 
-    
 </script>
 @endsection
+
+{{-- creazione unico array per anni --}}
