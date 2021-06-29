@@ -13,6 +13,9 @@ Route::get('/getApartments/{searchString}', 'ApiController@getApartments')
 Route::get('/getServices', 'ApiController@getServices')
     -> name('getServices');
 
+Route::post('/getViews/{ip}/{id}', 'ApiController@getViews')
+    -> name('getViews');
+
 Route::post('/filterApartments/{searchString}/{filterServices}/{bedsRooms}', 'ApiController@filterApartments')
     -> name('filterApartments');
 

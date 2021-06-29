@@ -17,8 +17,6 @@ class CreateStatisticsTable extends Migration
             $table -> id();
 
             $table -> string('ip') -> nullable(); //temp null
-            $table -> datetime('date');
-
             $table -> bigInteger('apartment_id') -> unsigned() -> index();
 
 
