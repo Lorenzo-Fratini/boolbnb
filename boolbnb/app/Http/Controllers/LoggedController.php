@@ -111,10 +111,11 @@ class LoggedController extends Controller {
             'city' => 'required|string|min:1',
             'country' => 'required|string|min:1',
             'postal_code' => 'required|string|min:5|max:5',
+            'visible' => '',
             'user_id' => 'required|exists:App\User,id|integer',
             'service_id.*' => 'required_if:current,1|distinct|exists:App\Service,id|integer'       
         ]);
-
+        // dd($validation);
         $user = User::findOrFail($request -> get('user_id'));
 
         $apartment = Apartment::findOrFail($id);

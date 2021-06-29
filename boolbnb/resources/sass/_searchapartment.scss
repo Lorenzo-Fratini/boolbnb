@@ -1,3 +1,28 @@
+
+// test generale scrollbar inizio
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: lightgray; 
+  border-radius: 10px;
+  display: none;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: gray;
+  display: block;
+}
+
 // sezione Servizi
 .box-service {
     margin: 20px 0 20px 70px;
@@ -7,31 +32,64 @@
     }
 }
 
+// test generale scrollbar fine
+
+
+
+
+
+
+
 // sezione Appartamenti e Mappa
 .box-app-map {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    height: calc(100vh - 140px);
     //debug
-    background-color: lightcyan;
+    // background-color: lightcyan;
 
     .my-apartments{
-        margin-left: 50px;
+        // margin-left: 10px;
+        flex-grow: 1;
+        overflow: auto;
     
+        hr {
+          margin: 15px auto;
+
+          width: 90%;
+        }
       
-      
-        p {
-            margin-bottom: 20px;
+        .spc-apart {
+            // margin-bottom: 20px;
             padding: 10px;
-            border: 1px solid black;
+            // border: 1px solid black;
             border-radius: 5px;
+            align-items: center;
+            flex-wrap: wrap;
+
+            display: flex;
+        
+
+            img {
+                width: 20%;
+                border-radius: 10px;
+            }
+
+            .ap-description {
+                display: flex;
+
+                flex-direction: column;
+                justify-content: space-between;
+
+                padding: 25px;
+            }
         }
     }
        
 }
 
 #mymap {
-    border: 1px solid black;
-    width: 1000px;
-    height: 600px;
+    // border: 1px solid black;
+    width: 35vw;
+    height: calc(90vh - 60px);
 }

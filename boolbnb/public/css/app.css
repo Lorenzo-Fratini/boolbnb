@@ -859,6 +859,31 @@ a.prem-apart {
   }
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 10px;
+  display: none;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: gray;
+  display: block;
+}
+
 .box-service {
   margin: 20px 0 20px 70px;
 }
@@ -870,24 +895,41 @@ a.prem-apart {
 .box-app-map {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background-color: lightcyan;
+  height: calc(100vh - 140px);
 }
 
 .box-app-map .my-apartments {
-  margin-left: 50px;
+  flex-grow: 1;
+  overflow: auto;
 }
 
-.box-app-map .my-apartments p {
-  margin-bottom: 20px;
+.box-app-map .my-apartments hr {
+  margin: 15px auto;
+  width: 90%;
+}
+
+.box-app-map .my-apartments .spc-apart {
   padding: 10px;
-  border: 1px solid black;
   border-radius: 5px;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.box-app-map .my-apartments .spc-apart img {
+  width: 20%;
+  border-radius: 10px;
+}
+
+.box-app-map .my-apartments .spc-apart .ap-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px;
 }
 
 #mymap {
-  border: 1px solid black;
-  width: 1000px;
-  height: 600px;
+  width: 35vw;
+  height: calc(90vh - 60px);
 }
 
