@@ -2,7 +2,7 @@
 
 @section('content')
     <main>
-        <div id="search">
+                <div id="search">
 
             {{-- servizi --}}
             <div class="box-service">
@@ -25,11 +25,27 @@
             {{-- appartamenti --}}
             <div class="box-app-map">
                 <div class="my-apartments">
-                    <p v-for="apartment in currentApartments" style="margin: 20px 0 0 0">
-                        @{{ apartment.title }} - [@{{ apartment.id }}]
-                        <br>
-                        @{{ apartment.address}}
-                    </p>
+                    <div v-for="apartment in currentApartments" v-if="apartment.visible == 0" class="spc-apart">
+
+
+                        <hr>
+
+                            <img :src="'/storage/images/' + apartment.cover_image">
+                            
+                            <div class="ap-description">
+
+                                <h3>
+
+                                    @{{ apartment.title }}
+
+                                </h3>
+
+                                Address: @{{ apartment.address}}
+
+                            </div>
+                    </div>
+
+                        <hr>
                 </div>
                 {{-- tom tom --}}
                 <div id="map" class="box-map">

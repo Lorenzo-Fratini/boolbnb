@@ -28,7 +28,11 @@
       
       @foreach ($apartments as $apartment)
 
-          <div class="mini-container">
+          <div class="mini-container @if ($apartment -> visible == 1)
+
+            invisible
+            
+        @endif">
 
             <img class="ap-img" src="{{ asset('/storage/images/' . $apartment -> cover_image) }}" alt="immagine principale appartamento {{ $apartment -> title }}">
 

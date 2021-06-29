@@ -14,7 +14,7 @@
             @csrf
             @method('POST')
 
-    <input type="hidden" name="user_id" value="{{ $user -> id}}">
+        <input type="hidden" name="user_id" value="{{ $user -> id}}">
 
             {{-- title --}}
             <div class="line">
@@ -103,6 +103,33 @@
                     <input id="cover_image" type="file" name="cover_image">
                 </div>
             </div>
+            {{-- vidibility --}}
+            <div class="vis-if">
+
+                <label for="visible">Rendi invisibile</label>
+                <input type="radio" id="visible" name="visible" value="1"
+
+                @if ($apartment -> visible == 1)
+
+                    checked
+                    
+                @endif
+                
+                >
+
+                <label for="visible">Rendi visibile</label>
+                <input type="radio" id="visible" name="visible" value="0"
+                
+                @if ($apartment -> visible == 0)
+
+                    checked
+                    
+                @endif
+
+                >
+
+                
+            </div>
             {{-- services --}}
             <h2 class="servizih2">Servizi</h2>
             <div class="services">
@@ -118,7 +145,7 @@
                         @endforeach
                         >
                         <br>
-                        <label for="service_id[]">{{ $service -> name}}</label>
+                        <label for="service_id[]">{{ $service -> name }}</label>
                     </div>    
                     @endforeach
                 </div>
