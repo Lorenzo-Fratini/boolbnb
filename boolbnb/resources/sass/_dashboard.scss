@@ -2,23 +2,12 @@
     //margin-top: 100px;
     margin-bottom: 20px;
     font-size: 22px;
-    
-    .box-side {  
+
+    .box-side {
         display: flex;
         justify-content: space-around;
         //debug
         //background-color: yellowgreen;
-        
-
-        .left-side {
-            //debug
-            //background-color: darkcyan;
-            margin: 20px 0;
-
-            a {
-                font-size: 16px;
-            }
-        }
 
         .right-side {
             //debug
@@ -27,29 +16,39 @@
             .box-title {
                 //debug
                 //background-color: goldenrod;
+                text-align: center;
 
                 h3 {
                     margin-bottom: 20px;
                 }
             }
 
-            .box-apart {    // sezione appartamenti
+            .box-apart {
+                // sezione appartamenti
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 margin: 20px 0;
-                
-                p {
-                    border: 1px solid black;
-                    padding: 10px 20px;
-                    border-radius: 5px;
-                }
+                padding: 10px 20px;
+                border-radius: 5px;
 
                 a {
-                    font-size: 14px;
+                    font-size: 17px;
+                    font-weight: bold;
                     margin-left: 10px;
-                    padding: 3px 6px;
-                    border-radius: 5px;
+                    padding: 10px 20px;
+                    border-radius: 10px;
                     border: 1px solid black;
                     text-transform: uppercase;
                     text-decoration: none;
+                    color: inherit;
+                    background-color: #ff5a5f;
+                    transition: background-color 0.5s, color 0.5s;
+                }
+
+                a:hover {
+                    background-color: #af3d41;
+                    color: white;
                 }
             }
 
@@ -57,11 +56,19 @@
                 // debug
                 //background-color: lightblue;
                 border: 1px solid black;
-                padding: 10px 20px;
+                padding: 0 20px;
                 border-radius: 5px;
 
+                .apartment-row {
+                    border-bottom: 1px solid black;
+                }
+
+                .apartment-row:last-of-type {
+                    border-bottom: none;
+                }
+
                 p {
-                    padding: 10px 50px;
+                    padding: 10px 6px;
                 }
 
                 a {
@@ -73,7 +80,6 @@
                     text-transform: uppercase;
                     text-decoration: none;
                 }
-
             }
         }
 
@@ -81,8 +87,6 @@
             //debug
             //background-color: lightblue;
             margin: 20px 0;
-
         }
     }
 }
-

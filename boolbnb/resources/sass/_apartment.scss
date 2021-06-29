@@ -4,49 +4,36 @@
 }
 
 @media screen and (max-width: 992px) {
-
     .margins {
-
         width: 85%;
         margin: auto;
     }
 
-    input {
-        width: 80%;
-    }
-
     .flat-block {
-
         padding: 10px;
     }
-}   
+}
 
 @media screen and (max-width: 700px) {
-
     .container-text {
         flex-wrap: wrap;
     }
 
     #flat-text-id {
-
         width: 100%;
     }
 
     .servizi {
-
         display: block;
         margin-top: 15px;
     }
 
     .flat-form {
-
         margin-top: 15px;
     }
 }
 
 .container-flat {
-
-    padding-top: 80px;
     background-color: #f2f2f2;
     height: auto;
     padding-bottom: 40px;
@@ -57,59 +44,45 @@
     }
 
     .flat-block {
-
-        // background-color: white;
         height: auto;
         margin-top: 20px;
-        // border-radius: 20px;
-        // box-shadow: 0 0 30px 5px #888888;
         padding: 20px;
-
 
         display: flex;
         justify-content: space-between;
         flex-direction: row-reverse;
 
-        
-
         .flat-img {
-
             display: flex;
             justify-content: center;
-            max-width: 50%;
+            max-width: 70%;
             height: auto;
             margin: auto;
-            background-color: salmon;
             border-radius: 20px;
 
             img {
-
                 max-width: 100%;
                 height: auto;
                 margin: 0;
-                // object-fit: cover;
                 border-radius: 20px;
             }
         }
 
         .container-text {
-
             display: flex;
             flex-direction: column;
             width: 80%;
             margin: auto;
             justify-content: space-around;
             margin-top: 15px;
-            
-            .flat-text {
 
+            .flat-text {
                 display: flex;
                 flex-direction: column;
                 margin-top: 10px;
-                width: 50%;
+                width: 80%;
 
                 span {
-
                     display: block;
                     margin-top: 15px;
                 }
@@ -121,22 +94,19 @@
                     justify-content: space-between;
 
                     li {
-
                         list-style: none;
                         display: inline-block;
                         margin-top: 15px;
 
                         span {
-
                             display: inline-block;
                             font-weight: bold;
                         }
                     }
-                } 
+                }
             }
 
             .flat-form {
-
                 text-align: center;
 
                 input {
@@ -157,7 +127,6 @@
                 }
 
                 button {
-
                     background-color: salmon;
                     padding: 8px 16px;
                     margin: 10px 0;
@@ -171,13 +140,11 @@
             hr {
                 margin: 25px;
             }
-
         }
     }
 }
 
 .flat-form {
-
     text-align: center;
 
     input {
@@ -198,7 +165,6 @@
     }
 
     button {
-
         background-color: salmon;
         padding: 8px 16px;
         margin: 10px 0;
@@ -210,54 +176,101 @@
 }
 
 .my-apartment {
-
-    width: 80%;
+    width: 65%;
     margin: auto;
+    margin-top: 50px;
     display: flex;
+    justify-content: space-between;
     height: auto;
 
     .stats {
-
         display: flex;
         width: 50%;
-        justify-content: center;
-        align-items: center;
     }
 
     .messages {
-
         display: flex;
         flex-direction: column;
+        align-self: flex-start;
         width: 50%;
         align-items: center;
-        border: 1px solid black;
-
 
         .received-msgs {
-
             width: 90%;
             margin: auto;
-            height: 200px;
 
             .msg {
-
                 overflow-y: auto;
-                height: 200px;
+                height: 400px;
                 padding: 5px 10px;
+            }
 
+            .msg::-webkit-scrollbar {
+                width: 10px;
+            }
+
+            .msg::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 5px;
+            }
+
+            .msg::-webkit-scrollbar-thumb {
+                background: #888;
+                border-radius: 5px;
             }
 
             .msg-row {
-                
                 border: 1px solid black;
+                padding: 5px;
 
                 .new-msg-from {
-
                     color: rgb(155, 36, 36);
                 }
             }
-
-
         }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .flat-block {
+        flex-direction: column !important;
+    }
+
+    .my-apartment {
+        flex-direction: column;
+        .stats {
+            justify-content: center;
+
+            width: 100% !important;
+
+            canvas {
+                width: 400px;
+            }
+        }
+
+        .messages {
+            width: 100%;
+            margin: auto;
+            margin-top: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .my-apartment {
+        width: 100% !important;
+    }
+    .stats {
+        canvas {
+            width: 350px !important;
+        }
+    }
+
+    .messages {
+        width: 90% !important;
+    }
+
+    .flat-img {
+        max-width: 95% !important;
     }
 }
