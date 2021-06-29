@@ -31,7 +31,7 @@
           <div class="mini-container">
 
             <img class="ap-img" src="{{ asset('/storage/images/' . $apartment -> cover_image) }}" alt="immagine principale appartamento {{ $apartment -> title }}">
-
+            
             <a href="{{ route('showApartment', $apartment -> id) }}" class="prem-apart">
 
               <div class="white-buble">
