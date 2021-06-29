@@ -315,8 +315,8 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
             'city' => 'Roma',
             'country' => 'it',
             'postal_code' => '00185',
-            'latitude' => '41.89031', 
-            'longitude' => ' 12.50359', 
+            'latitude' => '41.88831', 
+            'longitude' => '12.49446', 
             'user_id' => rand(1, 5),
         ],
         [
@@ -366,8 +366,8 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
             'city' => 'Venezia',
             'country' => 'it',
             'postal_code' => '30141',
-            'latitude' => '45.45755', 
-            'longitude' => '12.35248', 
+            'latitude' => '45.46048', 
+            'longitude' => '12.35449', 
             'user_id' => rand(1, 5),
         ],
         [
@@ -382,8 +382,8 @@ $factory->define(Apartment::class, function (Faker $faker) use ($autoIncrement) 
             'city' => 'Venezia',
             'country' => 'it',
             'postal_code' => '30141',
-            'latitude' => '45.45755', 
-            'longitude' => ' 12.35248', 
+            'latitude' => '45.43489', 
+            'longitude' => '12.34763', 
             'user_id' => rand(1, 5),
         ],
         [

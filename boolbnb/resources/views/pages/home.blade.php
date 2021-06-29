@@ -23,10 +23,15 @@
 
         </div>
 
-        <div class="row">
+          <div class="mini-container @if ($apartment -> visible == 1)
 
+            invisible
+            
+        @endif">
 
-            @foreach ($apartments as $apartment)
+            <img class="ap-img" src="{{ asset('/storage/images/' . $apartment -> cover_image) }}" alt="immagine principale appartamento {{ $apartment -> title }}">
+            
+            <a href="{{ route('showApartment', $apartment -> id) }}" class="prem-apart">
 
                 <div class="mini-container">
 

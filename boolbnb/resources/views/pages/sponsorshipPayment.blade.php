@@ -1,19 +1,22 @@
 @extends('layouts.main-layout')
 @section('content')
-
-    <main>
-        <div id="container-payment">
-            @if (session('success_message'))
-                {{ session('success_message') }}
-            @endif
-            {{-- @if (count($errors > 0))
+    
+<main>
+    <div id="container-payment">
+        @if (session('success_message'))
+            {{ session('success_message') }}
+        @endif
+        @if (count($errors) > 0)
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
-        @endif --}}
-            <form method="post" id="payment-form" action="{{ route('paymentCheckout', $apartment->id) }}">
+        @endif
+        <form method="post" id="payment-form" action="{{ route('paymentCheckout', $apartment -> id) }}">
+            
+            @csrf
+            @method('POST')
 
                 @csrf
                 @method('POST')

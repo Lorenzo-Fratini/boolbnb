@@ -11,7 +11,7 @@
                 @csrf
                 @method('GET')
 
-                <input id="searchString" type="text" class="form-control" name="searchString" placeholder="Inserisci una via..." required>
+                <input id="searchString" type="text" class="form-control" name="searchString" placeholder="Cerca una città" required>
 
                 <button type="submit" class="searchButton">
                     <i class="fa fa-search"></i>
@@ -40,7 +40,7 @@
                             </li>
 
                             <li>
-                                <a class="dashboard-header-btn" href="{{ route('dashboard', encrypt(['id' => Auth::id()])) }}">Dashboard</a>
+                                <a class="dashboard-header-btn" href="{{ route('dashboard', ['id' => Auth::id()]) }}">Dashboard</a>
                             </li>
 
                             <li>

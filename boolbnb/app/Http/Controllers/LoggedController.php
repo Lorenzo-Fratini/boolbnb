@@ -35,12 +35,18 @@ class LoggedController extends Controller {
 
     public function dashboard($id) {
 
-        $id = Crypt::decrypt($id);
+        if(Auth::id() == $id) {
+            
+            date_default_timezone_set('Europe/Rome');
+            $currentDate = date('Y-m-d H:i:s', time());
 
-        $user = User::findOrFail($id);
-        $apartments = Apartment::where('user_id', 'LIKE', $id) -> orderBy('city') -> get();
-    
-        return view('pages.dashboard', compact('user', 'apartments'));
+            $user = User::findOrFail($id);
+            $apartments = Apartment::where('user_id', 'LIKE', $id) -> orderBy('city') -> get();
+
+            return view('pages.dashboard', compact('user', 'apartments', 'currentDate'));
+        } 
+
+        return redirect() -> route('index');
     }
     
     public function createApartment() {
@@ -85,18 +91,25 @@ class LoggedController extends Controller {
         $apartment -> services() -> attach($request -> get('service_id'));
         $apartment -> save();
 
-        return redirect() -> route('dashboard', Crypt::encrypt(['id' => $user -> id]));
+        return redirect() -> route('dashboard', Auth::id());
     }
 
     public function editApartment($id) {
+        
+        $apartment = Apartment::findOrFail($id);
+        
+        if(Auth::id() == $apartment -> user_id) {
 
-        $apartment = Apartment::findOrFail(Crypt::decrypt($id));
+            $user = User::findOrFail($apartment -> user_id);
+            $services = Service::all();
+    
+            return view('pages.apartmentEdit', compact('apartment', 'user', 'services'));
+        }
+
+        return redirect() -> route('dashboard', Auth::id());
             
-        $user = User::findOrFail($apartment -> user_id);
-        $services = Service::all();
-
-        return view('pages.apartmentEdit', compact('apartment', 'user', 'services'));
     }
+
     public function updateApartment(Request $request, $id) {
 
         $validation = $request -> validate([
@@ -111,10 +124,11 @@ class LoggedController extends Controller {
             'city' => 'required|string|min:1',
             'country' => 'required|string|min:1',
             'postal_code' => 'required|string|min:5|max:5',
+            'visible' => '',
             'user_id' => 'required|exists:App\User,id|integer',
             'service_id.*' => 'required_if:current,1|distinct|exists:App\Service,id|integer'       
         ]);
-
+        // dd($validation);
         $user = User::findOrFail($request -> get('user_id'));
 
         $apartment = Apartment::findOrFail($id);
@@ -139,41 +153,70 @@ class LoggedController extends Controller {
 
         $apartment -> services() -> sync($request -> get('service_id'));
 
-        return redirect() -> route('dashboard', Crypt::encrypt(['id' => $user -> id]));
+        return redirect() -> route('dashboard', Auth::id());
     }
 
     public function destroyApartment($id) {
 
-        $apartment = Apartment::findOrFail(Crypt::decrypt($id));
+        $apartment = Apartment::findOrFail($id);
 
-        $userId = $apartment -> user_id;
-        $apartment -> delete();
-        $apartment -> save();
+        if(Auth::id() == $apartment -> user_id) {
 
-        return redirect() -> route('dashboard', Crypt::encrypt(['id' => $userId]));
+            $userId = $apartment -> user_id;
+            $apartment -> delete();
+            $apartment -> save();
+    
+            return redirect() -> route('dashboard', Auth::id());
+        }
+
+        return redirect() -> route('dashboard', Auth::id());
     }
 
     public function myApartment($id) {
 
-        $apartment = Apartment::findOrFail(Crypt::decrypt($id));
+        $apartment = Apartment::findOrFail($id);
 
-        $messages = Message::where('apartment_id', 'LIKE', Crypt::decrypt($id)) -> orderBy('created_at') -> get();
-        $statistics = Statistic::where('apartment_id', 'LIKE', Crypt::decrypt($id)) -> orderBy('created_at') -> get();
-        $services = $apartment -> services() -> wherePivot('apartment_id', '=', Crypt::decrypt($id)) -> get();
+        if(Auth::id() == $apartment -> user_id) {
 
-        return view('pages.myApartment', compact('apartment', 'messages', 'statistics', 'services'));
+            $messages = Message::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
+            $statistics = Statistic::where('apartment_id', 'LIKE', $id) -> orderBy('created_at') -> get();
+            $services = $apartment -> services() -> wherePivot('apartment_id', '=', $id) -> get();
+    
+            return view('pages.myApartment', compact('apartment', 'messages', 'statistics', 'services'));
+        }
+
+        return redirect() -> route('dashboard', Auth::id());
     }
 
     public function sponsorshipPayment($id) {
 
-        $apartment = Apartment::findOrFail(Crypt::decrypt($id));
-       
-        $gateway = $this -> braintree();
-        $token = $gateway->ClientToken()->generate();
+        $apartment = Apartment::findOrFail($id);
+        
+        foreach ($apartment -> sponsorships as $apartRel) {
 
-        $sponsorships = Sponsorship::all();
+            date_default_timezone_set('Europe/Rome');
+            $currentDate = date('Y-m-d H:i:s', time());
 
-        return view('pages.sponsorshipPayment', compact('token', 'sponsorships', 'apartment'));
+            $endDate = $apartRel -> pivot -> end_date;
+            $endDateFormat = date('Y-m-d H:i:s', strtotime($endDate));
+            
+            if ($currentDate < $endDateFormat) {
+
+                return redirect() -> route('dashboard', Auth::id());
+            }
+        }
+
+        if(Auth::id() == $apartment -> user_id) {
+
+            $gateway = $this -> braintree();
+            $token = $gateway->ClientToken()->generate();
+    
+            $sponsorships = Sponsorship::all();
+    
+            return view('pages.sponsorshipPayment', compact('token', 'sponsorships', 'apartment'));
+        }
+
+        return redirect() -> route('dashboard', Auth::id());
     }
 
     public function paymentCheckout(Request $request, $id) {
@@ -221,7 +264,7 @@ class LoggedController extends Controller {
 
 
             return back()->with('success_message', 'Transazione riuscita' . ' ' .  $transaction -> id);
-        } /* else {
+        } else {
 
             $errorString = "";
 
@@ -232,6 +275,6 @@ class LoggedController extends Controller {
             $error = $result -> message;
             
             return back()->withErrors('an error occured with the message' . $result -> message);
-        } */
+        } 
     }
 }
