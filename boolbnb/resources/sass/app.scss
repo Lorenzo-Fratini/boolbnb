@@ -1,5 +1,5 @@
 // Variables
-@import 'variables';
+@import "variables";
 
 * {
     // border: 1px solid red;
@@ -14,12 +14,10 @@
 }
 
 button {
-
     cursor: pointer;
 }
 
 .invisible {
-
     display: none;
 }
 
@@ -36,16 +34,16 @@ button {
 
 // Fonts
 // @import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Benne&display=swap");
 
 // lyt-pages
-@import 'header_lyt'; //consigliato margin-top: 80px;
-@import 'home';
-@import 'footer_lyt';
-@import 'apartment';
-@import 'dashboard';
-@import 'register';
-@import 'login';
-@import 'createapartment';
-@import 'searchapartment';
-
+@import "header_lyt"; //consigliato margin-top: 80px;
+@import "home";
+@import "footer_lyt";
+@import "apartment";
+@import "dashboard";
+@import "register";
+@import "login";
+@import "createapartment";
+@import "searchapartment";
+@import "sponsorship";

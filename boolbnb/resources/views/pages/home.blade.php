@@ -2,102 +2,103 @@
 
 @section('content')
 
-            {{-- JT --}}
-  <div class="container-content">
-    <div class="margin-content">
-      <div class="text-content">
-        <h1>Esplora BoolBnB</h1>
-      </div>
-    </div>
-  </div>
-
-
-            {{-- PREMIUM APARTMENTS --}}
-            
-  <div class="container-ap">
-
-
-    <div class="row">
-      
-      <h3>IN EVIDENZA</h3>
-
+    {{-- JT --}}
+    <div class="container-content">
+        <div class="margin-content">
+            <div class="text-content">
+                <h1>Esplora BoolBnB</h1>
+            </div>
+        </div>
     </div>
 
-    <div class="row">
 
-      
-      @foreach ($apartments as $apartment)
+    {{-- PREMIUM APARTMENTS --}}
 
-          <div class="mini-container">
+    <div class="container-ap">
 
-            <img class="ap-img" src="{{ asset('/storage/images/' . $apartment -> cover_image) }}" alt="immagine principale appartamento {{ $apartment -> title }}">
 
-            <a href="{{ route('showApartment', $apartment -> id) }}" class="prem-apart">
+        <div class="row">
 
-              <div class="white-buble">
+            <h3>IN EVIDENZA</h3>
 
-                <h2>{{ $apartment -> title }}</h2>
-    
-                <div>
-    
-                  <span>Numero di stanze:</span>
-                  <span>{{ $apartment -> rooms_number }}</span>
-    
+        </div>
+
+        <div class="row">
+
+
+            @foreach ($apartments as $apartment)
+
+                <div class="mini-container">
+
+                    <img class="ap-img" src="{{ asset('/storage/images/' . $apartment->cover_image) }}"
+                        alt="immagine principale appartamento {{ $apartment->title }}">
+
+                    <a href="{{ route('showApartment', $apartment->id) }}" class="prem-apart">
+
+                        <div class="white-buble">
+
+                            <h2>{{ $apartment->title }}</h2>
+
+                            <div>
+
+                                <span>Numero di stanze:</span>
+                                <span>{{ $apartment->rooms_number }}</span>
+
+                            </div>
+
+                            <div class="details">
+
+                                <i class="fas fa-bed"></i>
+                                <span>{{ $apartment->beds_number }}</span>
+
+                                <i class="fas fa-toilet"></i>
+                                <span>{{ $apartment->bathrooms_number }}</span>
+
+                            </div>
+                        </div>
+
+                    </a>
+
                 </div>
-            
-                <div class="details">
-    
-                  <i class="fas fa-bed"></i>
-                  <span>{{ $apartment -> beds_number }}</span>
-      
-                  <i class="fas fa-toilet"></i>
-                  <span>{{ $apartment -> bathrooms_number }}</span>
-    
-                </div>
-              </div>
-    
-            </a>
 
-          </div>
-          
-      @endforeach
+            @endforeach
 
 
 
-      {{-- WORK WITH US --}}
-    </div>
+            {{-- WORK WITH US --}}
+        </div>
 
-    <div class="row" id="adv-block">
+        <div class="row" id="adv-block">
 
-      <h1>SCOPRI COME GUADAGNARE CON NOI</h1>
+            <h1>SCOPRI COME GUADAGNARE CON NOI</h1>
 
-    </div>
+        </div>
 
-    <div class="row" id="adv-body">
+        <div class="row" id="adv-body">
 
-      <div>
-        <h2>
-          Metti in vendita il tuo immobile
-        </h2>
+            <div>
+                <h2>
+                    Metti in vendita il tuo immobile
+                </h2>
 
-      <h3>
-        Vendi a migliaia di persone in tutto il mondo
-        e mettiti in mostra graie alle fantastiche promozioni
-        a tua completa disposizione.
-      </h3>
-      </div>
+                <h3>
+                    Vendi a migliaia di persone in tutto il mondo
+                    e mettiti in mostra grazie alle fantastiche promozioni
+                    a tua completa disposizione.
+                </h3>
+            </div>
 
-      <div>
-        <a href="{{ route('createApartment') }}">
-          <button class="big-button">
-            CARICA IMMOBILE
-          </button>
-        </a>
-      </div>
+            <div>
+                <a href="{{ route('createApartment') }}">
+                    <button class="big-button">
+                        CARICA IMMOBILE
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
 
     </div>
-
-
-  </div>
 
 @endsection

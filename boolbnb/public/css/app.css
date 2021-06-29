@@ -40,7 +40,7 @@ header .container-header {
 }
 
 header .logo-header {
-  flex-basis: calc(100%/3);
+  flex-basis: calc(100% / 3);
 }
 
 header .logo-header a {
@@ -49,7 +49,7 @@ header .logo-header a {
 
 header .searchbar-header {
   display: flex;
-  flex-basis: calc(100%/3);
+  flex-basis: calc(100% / 3);
   margin: auto;
   justify-content: center;
 }
@@ -57,7 +57,7 @@ header .searchbar-header {
 header .searchbar-header form {
   display: flex;
   justify-content: space-between;
-  border: 2px solid #FF5A5F;
+  border: 2px solid #ff5a5f;
   border-radius: 10px;
   padding: 5px 10px;
   outline: none;
@@ -79,7 +79,7 @@ header .searchbar-header form button i {
   border-radius: 100%;
   padding: 10px 0;
   padding-left: 5px;
-  color: #FF5A5F;
+  color: #ff5a5f;
   cursor: pointer;
   justify-content: flex-end;
 }
@@ -88,7 +88,7 @@ header .user-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  flex-basis: calc(100%/3);
+  flex-basis: calc(100% / 3);
   height: 80px;
   align-items: center;
 }
@@ -120,7 +120,7 @@ header .user-header .hamburger:focus {
 header .user-header .login-header-btn,
 header .user-header .register-header-btn {
   padding: 7px 14px;
-  background-color: #FF5A5F;
+  background-color: #ff5a5f;
   border-radius: 20px;
 }
 
@@ -132,10 +132,9 @@ header .user-header .logout-header-btn,
 header .user-header .dashboard-header-btn {
   font-size: 17px;
   padding: 7px 14px;
-  background-color: #FF5A5F;
+  background-color: #ff5a5f;
   border-radius: 20px;
-  transition: background-color 0.5s;
-  transition: color 0.5s;
+  transition: background-color 0.5s, color 0.5s;
 }
 
 header .user-header .logout-header-btn:hover,
@@ -345,6 +344,12 @@ a.prem-apart {
   margin-left: 5px;
 }
 
+@media screen and (max-width: 800px) {
+  .mini-container {
+    width: 65% !important;
+  }
+}
+
 #container_f {
   max-width: 100vw;
 }
@@ -407,10 +412,6 @@ a.prem-apart {
     margin: auto;
   }
 
-  input {
-    width: 80%;
-  }
-
   .flat-block {
     padding: 10px;
   }
@@ -436,7 +437,6 @@ a.prem-apart {
 }
 
 .container-flat {
-  padding-top: 80px;
   background-color: #f2f2f2;
   height: auto;
   padding-bottom: 40px;
@@ -459,10 +459,9 @@ a.prem-apart {
 .container-flat .flat-block .flat-img {
   display: flex;
   justify-content: center;
-  max-width: 50%;
+  max-width: 70%;
   height: auto;
   margin: auto;
-  background-color: salmon;
   border-radius: 20px;
 }
 
@@ -486,7 +485,7 @@ a.prem-apart {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  width: 50%;
+  width: 80%;
 }
 
 .container-flat .flat-block .container-text .flat-text span {
@@ -579,45 +578,102 @@ a.prem-apart {
 }
 
 .my-apartment {
-  width: 80%;
+  width: 65%;
   margin: auto;
+  margin-top: 50px;
   display: flex;
+  justify-content: space-between;
   height: auto;
 }
 
 .my-apartment .stats {
   display: flex;
   width: 50%;
-  justify-content: center;
-  align-items: center;
 }
 
 .my-apartment .messages {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
   width: 50%;
   align-items: center;
-  border: 1px solid black;
 }
 
 .my-apartment .messages .received-msgs {
   width: 90%;
   margin: auto;
-  height: 200px;
 }
 
 .my-apartment .messages .received-msgs .msg {
   overflow-y: auto;
-  height: 200px;
+  height: 400px;
   padding: 5px 10px;
+}
+
+.my-apartment .messages .received-msgs .msg::-webkit-scrollbar {
+  width: 10px;
+}
+
+.my-apartment .messages .received-msgs .msg::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.my-apartment .messages .received-msgs .msg::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
 }
 
 .my-apartment .messages .received-msgs .msg-row {
   border: 1px solid black;
+  padding: 5px;
 }
 
 .my-apartment .messages .received-msgs .msg-row .new-msg-from {
   color: #9b2424;
+}
+
+@media screen and (max-width: 1300px) {
+  .flat-block {
+    flex-direction: column !important;
+  }
+
+  .my-apartment {
+    flex-direction: column;
+  }
+
+  .my-apartment .stats {
+    justify-content: center;
+    width: 100% !important;
+  }
+
+  .my-apartment .stats canvas {
+    width: 400px;
+  }
+
+  .my-apartment .messages {
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .my-apartment {
+    width: 100% !important;
+  }
+
+  .stats canvas {
+    width: 350px !important;
+  }
+
+  .messages {
+    width: 90% !important;
+  }
+
+  .flat-img {
+    max-width: 95% !important;
+  }
 }
 
 .main-box {
@@ -630,12 +686,8 @@ a.prem-apart {
   justify-content: space-around;
 }
 
-.main-box .box-side .left-side {
-  margin: 20px 0;
-}
-
-.main-box .box-side .left-side a {
-  font-size: 16px;
+.main-box .box-side .right-side .box-title {
+  text-align: center;
 }
 
 .main-box .box-side .right-side .box-title h3 {
@@ -643,33 +695,49 @@ a.prem-apart {
 }
 
 .main-box .box-side .right-side .box-apart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 20px 0;
-}
-
-.main-box .box-side .right-side .box-apart p {
-  border: 1px solid black;
   padding: 10px 20px;
   border-radius: 5px;
 }
 
 .main-box .box-side .right-side .box-apart a {
-  font-size: 14px;
+  font-size: 17px;
+  font-weight: bold;
   margin-left: 10px;
-  padding: 3px 6px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 10px;
   border: 1px solid black;
   text-transform: uppercase;
   text-decoration: none;
+  color: inherit;
+  background-color: #ff5a5f;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.main-box .box-side .right-side .box-apart a:hover {
+  background-color: #af3d41;
+  color: white;
 }
 
 .main-box .box-side .right-side .box-content {
   border: 1px solid black;
-  padding: 10px 20px;
+  padding: 0 20px;
   border-radius: 5px;
 }
 
+.main-box .box-side .right-side .box-content .apartment-row {
+  border-bottom: 1px solid black;
+}
+
+.main-box .box-side .right-side .box-content .apartment-row:last-of-type {
+  border-bottom: none;
+}
+
 .main-box .box-side .right-side .box-content p {
-  padding: 10px 50px;
+  padding: 10px 6px;
 }
 
 .main-box .box-side .right-side .box-content a {
@@ -775,6 +843,7 @@ a.prem-apart {
 .edit-container form input {
   padding: 5px 10px;
   border-radius: 10px;
+  outline: none;
 }
 
 .create-container form .line,
@@ -889,5 +958,48 @@ a.prem-apart {
   border: 1px solid black;
   width: 1000px;
   height: 600px;
+}
+
+#container-payment {
+  width: 80%;
+  margin: 20px auto;
+}
+
+#container-payment form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#container-payment form section {
+  text-align: center;
+}
+
+#container-payment form section .amount {
+  align-items: center;
+}
+
+#container-payment form section .input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container-payment form section .input-wrapper .prices {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+
+#container-payment form section .input-wrapper .prices label {
+  padding: 5px;
+}
+
+#container-payment form section .bt-drop-in-wrapper {
+  width: 100%;
+}
+
+#container-payment form button {
+  padding: 8px 16px;
 }
 
