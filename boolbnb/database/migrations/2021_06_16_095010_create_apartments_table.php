@@ -17,7 +17,7 @@ class CreateApartmentsTable extends Migration
             $table -> id();
 
             $table -> string('title', 256);
-            $table -> string('cover_image') -> nullable(); //temp null
+            $table -> string('cover_image');
             $table -> string('description');
             $table -> integer('rooms_number');
             $table -> integer('beds_number');
@@ -27,8 +27,8 @@ class CreateApartmentsTable extends Migration
             $table -> string('city');
             $table -> string('country');
             $table -> string('postal_code', 5);
-            $table -> float('latitude') -> nullable(); //temp null
-            $table -> float('longitude') -> nullable(); //temp null
+            $table -> float('latitude', 8, 5);
+            $table -> float('longitude', 8, 5);
             $table -> boolean('visible') -> default(0);
 
             $table -> softDeletes();

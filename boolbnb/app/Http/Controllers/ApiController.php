@@ -123,6 +123,29 @@ class ApiController extends Controller {
         
     }
 
+    public function getViews($ip, $id) {
+
+        $statistics = Statistic::all();
+
+        foreach ($statistics as $statistic) {
+            
+            if ($statistic -> ip == $ip && $statistic -> apartment_id == $id) {
+                
+                return;
+            }
+        }
+
+        $apartment = Apartment::findOrFail($id);
+
+        $newStatistic = [
+            'ip' => $ip
+        ];
+
+        $statistic = Statistic::make($newStatistic);
+        $statistic -> apartment() -> associate($apartment);
+        $statistic -> save();
+    }
+
     public function getStatistics($id){
 
         $apartment = Apartment::findOrFail($id);

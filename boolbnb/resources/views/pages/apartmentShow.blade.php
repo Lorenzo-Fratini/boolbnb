@@ -20,7 +20,6 @@
             <div class="flat-text" id="flat-text-id">
                 <h2>Descrizione</h2>
                 <span> {{ $apartment -> description}} </span>
-                {{-- <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto molestiae distinctio modi, quasi maxime, at ex repellendus suscipit sed aut ad non, iste vitae cumque illo ea similique et inventore.</span> --}}
 
                 <hr>
                 
@@ -53,44 +52,8 @@
                     </li>
 
                 </ul>
-                
-                {{-- <h4>Stanze:</h4>
-                <h4>Letti:</h4>
-                <h4>Bagni:</h4>
-                <h4>Metratura:</h4> --}}
 
             </div>
-            {{-- <div class="flat-form">
-                <h3>Desideri maggiori informazioni? <br> Contatta {{ $apartment -> title }}</h3>
-                
-                <form method="POST" action="{{ route('storeMessage') }}">
-            
-                    @csrf
-                    @method('POST')
-            
-                    <div class="form-group row">
-                        <input id="email" type="text" class="form-control" name="email" value="" required placeholder="Inserisci qui la tua email">
-                    </div>
-            
-                    <div class="form-group row">
-                        <textarea id="text" class="form-control" name="text" value="" required placeholder="Inserisci qui la tua richiesta..."></textarea>
-                    </div>
-        
-                    <input type="hidden" name="apartment_id" value="{{ $apartment -> id }}">
-            
-                    <button type="submit">Submit</button>
-        
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                </form>
-            </div> --}}
         </div>
     </div>
 
@@ -112,7 +75,7 @@
 
             <input type="hidden" name="apartment_id" value="{{ $apartment -> id }}">
     
-            <button type="submit">Submit</button>
+            <button type="submit">Invia</button>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -126,6 +89,23 @@
         </form>
     </div>
 
+    @php
+        $ip = $_SERVER["REMOTE_ADDR"];
+    @endphp
+
+    <div id="sendIp"></div>
+    
 </div>
+
+<script>
+    new Vue({
+
+        el: '#sendIp',
+
+        mounted() {
+            axios.post('/api/getViews/' + '{{ $ip }}' + '/' + '{{ $apartment -> id }}')
+        }
+    });
+</script>
 
 @endsection
