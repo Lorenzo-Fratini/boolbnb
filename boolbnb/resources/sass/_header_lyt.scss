@@ -133,6 +133,13 @@ header {
     }
   }
 
+  .logout-header-btn,
+  .dashboard-header-btn {
+    &:hover {
+      color: black !important;
+    }
+  }
+
   .nav-ul {
     display: none !important;
     flex-direction: column !important;

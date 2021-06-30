@@ -13,36 +13,47 @@
                     </div>
                     <div class="box-content">
                         @foreach ($apartments as $apartment)
-                            <p>
-                                <i class="fas fa-home"></i>
-                                {{ $apartment -> title}} - {{ $apartment -> address}} - {{ $apartment -> city}}
-                                <a href="{{ route('myApartment', $apartment -> id) }}">Dettagli</a>
-                                <a href="{{ route('editApartment', $apartment -> id) }}">Modifica</a>
+                            <div class="apartment-row">
 
-                                @if (count($apartment -> sponsorships) == 0)
-                                    <a href="{{ route('sponsorshipPayment', $apartment -> id)}}">Sponsorizza</a>
-                                @endif
-                                
-                                @foreach ($apartment -> sponsorships as $apartRel) 
-                                    @if ($currentDate < $apartRel -> pivot -> end_date)
-                                        <span>Sponsorizzato</span>
+
+                                <i class="fas fa-home"></i>
+                                <span>{{ $apartment->title }} - {{ $apartment->address }} -
+                                    {{ $apartment->city }}</span>
+                                <div class="dash-row-buttons">
+
+                                    <a href="{{ route('myApartment', $apartment->id) }}">Dettagli</a>
+                                    <a href="{{ route('editApartment', $apartment->id) }}">Modifica</a>
+
+                                    @if (count($apartment->sponsorships) == 0)
+                                        <a href="{{ route('sponsorshipPayment', $apartment->id) }}">Sponsorizza</a>
+                                    @endif
+
+                                    @foreach ($apartment->sponsorships as $apartRel)
+                                        @if ($currentDate < $apartRel->pivot->end_date)
+                                            <a class="sponsor-alreadysponsored">Sponsorizzato! <i
+                                                    class="fas fa-star"></i></a>
                                         @break
                                     @endif
-                                    @if ($loop -> last )
-                                        
-                                        @if ($currentDate > $apartRel -> pivot -> end_date)
-                                            <a href="{{ route('sponsorshipPayment', $apartment -> id)}}">Sponsorizza</a>
+                                    @if ($loop->last)
+
+                                        @if ($currentDate > $apartRel->pivot->end_date)
+                                            <a href="{{ route('sponsorshipPayment', $apartment->id) }}">Sponsorizza</a>
                                         @endif
 
                                     @endif
-                                @endforeach
-
-                                <a href="{{ route('destroyApartment', $apartment -> id) }}">Elimina</a>
-                            </p>
                         @endforeach
+
+                        <a href="{{ route('destroyApartment', $apartment->id) }}">Elimina</a>
+
                     </div>
+
+
+
                 </div>
+                @endforeach {{-- E' indentato male per colpa di Code ma funziona ed è giusto così --}}
             </div>
         </div>
+    </div>
+    </div>
     </div>
 @endsection

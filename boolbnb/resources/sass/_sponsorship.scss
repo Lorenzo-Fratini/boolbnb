@@ -22,11 +22,28 @@
 
                 .prices {
                     display: flex;
-                    align-items: center;
+                    flex-direction: column;
+                    justify-content: center;
+                    border-radius: 5px;
+                    border: 1px solid black;
+                    padding: 4px;
                     margin: 0 20px;
 
                     label {
-                        padding: 5px;
+                        padding: 8px;
+
+                        p {
+                            font-weight: bold;
+                        }
+
+                        .radio-price {
+                            display: flex;
+                            align-items: center;
+
+                            input {
+                                margin: 0 7px;
+                            }
+                        }
                     }
                 }
             }
