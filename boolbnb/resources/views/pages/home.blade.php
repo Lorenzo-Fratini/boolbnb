@@ -64,27 +64,19 @@
       {{-- WORK WITH US --}}
     </div>
 
-    <div class="row" id="adv-block">
-
-      <h1>SCOPRI COME GUADAGNARE CON NOI</h1>
-
-    </div>
-
     <div class="row" id="adv-body">
 
       <div>
         <h2>
-          Metti in vendita il tuo immobile
+          METTI IN VENDITA IL TUO IMMOBILE
         </h2>
 
-      <h3>
-        Vendi a migliaia di persone in tutto il mondo
-        e mettiti in mostra graie alle fantastiche promozioni
-        a tua completa disposizione.
-      </h3>
-      </div>
+        <h3>
+          Vendi a migliaia di persone in tutto il mondo
+          e mettiti in mostra graie alle fantastiche promozioni
+          a tua completa disposizione.
+        </h3>
 
-      <div>
         <a href="{{ route('createApartment') }}">
           <button class="big-button">
             CARICA IMMOBILE

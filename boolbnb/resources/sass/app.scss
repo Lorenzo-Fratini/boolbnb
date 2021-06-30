@@ -11,6 +11,38 @@
 
     //test font
     font-family: $font-family-sans-serif;
+
+    // test scroll-bar
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+        
+      /* Track */
+      ::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
+         
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: lightgray; 
+        border-radius: 10px;
+        display: none;
+      }
+        
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: gray;
+        display: block;
+      }
+      
+      // sezione Servizi
+      .box-service {
+          margin: 20px 0 20px 70px;
+      
+          .my-services input{
+              padding: 0 10px;
+          }
+      }
 }
 
 button {
@@ -29,8 +61,10 @@ button {
     border-radius: 10px;
     border: none;
 
-    background-color: $cyan;
+    background-color: #ff5a5f;
 }
+
+
 
 // Fonts
 // @import url('https://fonts.googleapis.com/css?family=Nunito');
