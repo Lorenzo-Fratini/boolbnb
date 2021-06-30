@@ -115,12 +115,31 @@ class ApiController extends Controller {
 
             if ($apartment -> beds_number >= $beds && $apartment -> rooms_number >= $rooms) {
 
-                $filteredApartments []= $apartment;
+                foreach ($apartment -> sponsorships as $apartRel) {
+    
+                    $endDate = $apartRel -> pivot -> end_date;
+    
+                    date_default_timezone_set('Europe/Rome');
+                    $currentDate = date('m/d/Y H:i:s', time());
+                    $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
+                    
+                    if ($currentDate < $endDateFormat) {
+    
+                        !in_array($apartment, $filteredApartments) ? $filteredApartments [] = $apartment : '';
+                    }
+                }
+            }
+        }
+
+        foreach ($apartments as $apartment) {
+
+            if ($apartment -> beds_number >= $beds && $apartment -> rooms_number >= $rooms) {
+                
+                !in_array($apartment, $filteredApartments) ? $filteredApartments [] = $apartment : '';
             }
         }
 
         return response() -> json($filteredApartments, 200);
-        
     }
 
     public function getViews($ip, $id) {
