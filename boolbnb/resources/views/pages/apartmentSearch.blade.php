@@ -2,7 +2,7 @@
 
 @section('content')
     <main>
-                <div id="search">
+            <div id="search">
 
             {{-- servizi --}}
             <div class="box-service">
@@ -21,6 +21,9 @@
                     <label for="beds">Beds</label>
                     <input v-on:change="filterApartments" type="number" name="beds" id="beds" v-model="beds"
                         onkeydown="return false" min="1">
+                        <label for="radius">Raggio</label>
+                        <input v-on:change="filterApartments" type="range" id="radius" name="radius" v-model="radius"
+                        min="0" max="20">
                 </div>
             </div>
 
@@ -28,10 +31,8 @@
             <div class="box-app-map">
                 <div class="my-apartments">
                     <div v-for="apartment in currentApartments" v-if="apartment.visible == 0" class="spc-apart">
-
-
-                        <hr>
-
+{{--                         <a :href="'/apartment/' + apartment.id">
+ --}}                        <hr>
                             <div id="img-box">
                                 <img :src="'/storage/images/' + apartment.cover_image">
                             </div>
@@ -47,9 +48,9 @@
                                 Address: @{{ apartment.address}}
 
                             </div>
-                    </div>
-
-                        <hr>
+{{--                         </a>
+ --}}                    </div>
+                    <hr>
                 </div>
                 {{-- tom tom --}}
                 <div id="map" class="box-map">
@@ -59,7 +60,6 @@
                 </div>
             </div>
         </div>
-
     </main>
 
     <script>
@@ -74,8 +74,9 @@
                 allServices: [],
                 filterServices: [],
                 filterData: [],
-                testtomtomapi: [],
+                tomTom: [],
                 coord: [],
+                radius: 20,
                 lat: 0,
                 lon: 0,
                 beds: '1',
@@ -100,6 +101,8 @@
                                 this.currentApartments = res.data;
                                 //console.log(res.data);
                                 this.getMap(searchString)
+
+                                this.getRadius();
                             });
 
 
@@ -114,16 +117,39 @@
                                 this.currentApartments = res.data;
                                 //console.log(res.data);
                                 this.getMap(searchString)
+
+                                this.getRadius();
                             });
 
                     }
-
+                    
 
                 },
 
-                getMap: function(searchString) {
+                getRadius: function() {
 
-                    console.log('hello');
+                    let newCurrentApartments = [];
+
+                    this.currentApartments.forEach(currentApartment => {
+
+                        // console.log(currentApartment);
+
+                        const point0 = [this.lon, this.lat]
+
+                        const point1 = [currentApartment.longitude, currentApartment.latitude]
+
+                        let kilometers = turf.distance(point0, point1);
+
+                        if (kilometers <= parseInt(this.radius)) {
+
+                            newCurrentApartments.push(currentApartment);
+                        }
+                    });
+
+                    this.currentApartments = newCurrentApartments;
+                },
+
+                getMap: function(searchString) {
 
                     // TOM TOM 
                     axios.get('https://api.tomtom.com/search/2/geocode/%20' + searchString +
@@ -132,10 +158,10 @@
                             })
                         .then(res => {
 
-                            this.testtomtomapi = res.data.results[0];
+                            this.tomTom = res.data.results[0];
 
-                            this.lat = this.testtomtomapi.position.lat;
-                            this.lon = this.testtomtomapi.position.lon;
+                            this.lat = this.tomTom.position.lat;
+                            this.lon = this.tomTom.position.lon;
 
 
                             // Tom Tom Map
@@ -166,7 +192,7 @@
                                 var appAddress = [this.currentApartments[i].address]
 
                                 //console.log(this.allApartments);
-                                console.log(this.currentApartments);
+                                // console.log(this.currentApartments);
 
                                 var marker1 = new tt.Marker().setLngLat(appLatLon).addTo(map);
 
@@ -227,8 +253,6 @@
 
                         this.allServices = res.data;
                     });
-
-
 
             }, // fine Mounted()
 
