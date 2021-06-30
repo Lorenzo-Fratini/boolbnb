@@ -1,34 +1,44 @@
 @extends('layouts.main-layout')
 @section('content')
-    
-<main>
-    <div id="container-payment">
-        @if (session('success_message'))
-            {{ session('success_message') }}
-        @endif
-        @if (count($errors) > 0)
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        @endif
-        <form method="post" id="payment-form" action="{{ route('paymentCheckout', $apartment -> id) }}">
-            
-            @csrf
-            @method('POST')
+
+    <main>
+        <div id="container-payment">
+            @if (session('success_message'))
+                {{ session('success_message') }}
+            @endif
+            @if (count($errors) > 0)
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+            <form method="post" id="payment-form" action="{{ route('paymentCheckout', $apartment->id) }}">
+
+                @csrf
+                @method('POST')
 
                 @csrf
                 @method('POST')
 
                 <section>
                     <label for="amount" class="amount">
-                        <span class="input-label">Amount</span>
+                        <h2 class="input-label">Ore di sponsorizzazione</h2>
                         <div class="input-wrapper amount-wrapper">
                             @foreach ($sponsorships as $sponsorship)
                                 <div class="prices">
-                                    <input type="radio" name="amount" value="{{ $sponsorship->price }}">
-                                    <label for="amount">{{ $sponsorship->price }} €</label>
+                                    <label>
+
+                                        <p>{{ $sponsorship->duration }} h</p>
+
+                                        <div class="radio-price">
+
+                                            <input type="radio" name="amount" value="{{ $sponsorship->price }}">
+                                            <span>{{ $sponsorship->price }} €</span>
+
+                                        </div>
+
+                                    </label>
 
                                 </div>
                             @endforeach

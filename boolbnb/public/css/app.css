@@ -186,6 +186,11 @@ header .user-header .dashboard-header-btn:hover {
     flex-shrink: 0;
   }
 
+  .logout-header-btn:hover,
+  .dashboard-header-btn:hover {
+    color: black !important;
+  }
+
   .nav-ul {
     display: none !important;
     flex-direction: column !important;
@@ -599,19 +604,27 @@ a.prem-apart {
   height: 150px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  width: 75%;
+  width: 40%;
   outline: none;
   resize: none;
+  text-indent: 10px;
 }
 
 .flat-form button {
   background-color: salmon;
-  padding: 8px 16px;
+  padding: 8px 25px;
   margin: 10px 0;
   border-radius: 10px;
   outline: none;
   border: none;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.flat-form button:hover {
+  background-color: #af3d41;
+  color: white;
 }
 
 .my-apartment {
@@ -766,15 +779,26 @@ a.prem-apart {
 }
 
 .main-box .box-side .right-side .box-content .apartment-row {
+  height: auto;
   border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  position: relative;
+}
+
+.main-box .box-side .right-side .box-content .apartment-row .sponsor-alreadysponsored {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  color: green;
+  border: 1px solid green;
 }
 
 .main-box .box-side .right-side .box-content .apartment-row:last-of-type {
   border-bottom: none;
-}
-
-.main-box .box-side .right-side .box-content p {
-  padding: 10px 6px;
 }
 
 .main-box .box-side .right-side .box-content a {
@@ -785,6 +809,7 @@ a.prem-apart {
   border: 1px solid black;
   text-transform: uppercase;
   text-decoration: none;
+  color: inherit;
 }
 
 .main-box .box-side .stat-side {
@@ -878,9 +903,11 @@ a.prem-apart {
 
 .create-container form input,
 .edit-container form input {
-  padding: 5px 10px;
+  padding: 20px 40px;
   border-radius: 10px;
   outline: none;
+  line-height: 30px;
+  font-size: 18px;
 }
 
 .create-container form .line,
@@ -890,6 +917,17 @@ a.prem-apart {
   justify-content: space-evenly;
   margin: 20px auto;
   width: 60%;
+}
+
+.create-container form .line label,
+.edit-container form .line label {
+  font-weight: bold;
+}
+
+.create-container form .line input,
+.edit-container form .line input {
+  border-color: #ff5a5f;
+  border-style: solid;
 }
 
 .create-container form .cover-img,
@@ -911,16 +949,19 @@ a.prem-apart {
 .edit-container form .services {
   display: flex;
   flex-wrap: wrap;
-  width: 60%;
+  width: 50%;
   margin: auto;
+  justify-content: center;
 }
 
 .create-container form .services .service,
 .edit-container form .services .service {
   display: inline-block;
   margin: 8px;
-  width: 200px;
+  width: 130px;
   text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .create-container form .services .service label,
@@ -943,15 +984,37 @@ a.prem-apart {
 
 .create-container form button,
 .edit-container form button {
-  padding: 10px 20px;
+  padding: 20px 40px;
   border-radius: 10px;
   margin-top: 20px;
   margin-bottom: 100px;
+  border-style: solid;
+  background-color: #ff5a5f;
+  border: none;
+  transition: color 0.5s, background-color 0.5s;
+  font-weight: bold;
+}
+
+.create-container form button:hover,
+.edit-container form button:hover {
+  background-color: #f52027;
+  color: white;
 }
 
 @media screen and (max-width: 1200px) {
   .services {
     width: 80% !important;
+  }
+
+  .line {
+    width: 80% !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .line input {
+    padding: 10px 20px !important;
+    font-size: 16px !important;
   }
 }
 
@@ -1038,12 +1101,29 @@ a.prem-apart {
 
 #container-payment form section .input-wrapper .prices {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 4px;
   margin: 0 20px;
 }
 
 #container-payment form section .input-wrapper .prices label {
-  padding: 5px;
+  padding: 8px;
+}
+
+#container-payment form section .input-wrapper .prices label p {
+  font-weight: bold;
+}
+
+#container-payment form section .input-wrapper .prices label .radio-price {
+  display: flex;
+  align-items: center;
+}
+
+#container-payment form section .input-wrapper .prices label .radio-price input {
+  margin: 0 7px;
 }
 
 #container-payment form section .bt-drop-in-wrapper {
