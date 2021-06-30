@@ -2,71 +2,68 @@
 
 @section('content')
 
-    <div class="container-flat">
+<div class="container-flat">
 
-        <div class="flat-description margins">
-            <h1> {{ $apartment->title }} </h1>
-            <h2> {{ $apartment->address }} | {{ $apartment->city }}</h2>
+    <div class="flat-description margins">
+        <h1> {{ $apartment -> title }} </h1>
+        <h2> {{ $apartment -> address}} | {{ $apartment -> city}}</h2>
+    </div>
+
+    <div class="flat-block margins">
+
+        <div class="flat-img">
+            {{-- <span>Qui dentro ci va l'immagine principale</span> --}}
+            <img src="{{ asset('/storage/images/' . $apartment -> cover_image) }}" alt="">
         </div>
 
-        <div class="flat-block margins">
+        <div class="container-text">
+            <div class="flat-text" id="flat-text-id">
+                <h2>Descrizione</h2>
+                <span> {{ $apartment -> description}} </span>
+                {{-- <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto molestiae distinctio modi, quasi maxime, at ex repellendus suscipit sed aut ad non, iste vitae cumque illo ea similique et inventore.</span> --}}
 
-            <div class="flat-img">
-                {{-- <span>Qui dentro ci va l'immagine principale</span> --}}
-                <img src="{{ asset('/storage/images/' . $apartment->cover_image) }}" alt="">
-            </div>
+                <hr>
+                
+                <ul>
+                    <li>
+                        <span>Stanze:</span> {{ $apartment -> rooms_number }}
+                    </li>
+                    <li>
+                        <span>Letti:</span> {{ $apartment -> beds_number }}
+                    </li>
+                    <li>
+                        <span>Bagni:</span> {{ $apartment -> bathrooms_number }}
+                    </li>
+                    <li>
+                        <span>mq:</span> {{ $apartment -> area }}
+                    </li>
+                </ul>
 
-            <div class="container-text">
-                <div class="flat-text" id="flat-text-id">
-                    <h2>Descrizione</h2>
-                    <span> {{ $apartment->description }} </span>
-                    {{-- <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto molestiae distinctio modi, quasi maxime, at ex repellendus suscipit sed aut ad non, iste vitae cumque illo ea similique et inventore.</span> --}}
+                <hr>
 
-                    <hr>
+                <h2 class="servizi">Servizi:</h2>
+                <ul class="flex-order">
 
-                    <ul>
-                        <li>
-                            <span>Stanze:</span> {{ $apartment->rooms_number }}
-                        </li>
-                        <li>
-                            <span>Letti:</span> {{ $apartment->beds_number }}
-                        </li>
-                        <li>
-                            <span>Bagni:</span> {{ $apartment->bathrooms_number }}
-                        </li>
-                        <li>
-                            <span>mq:</span> {{ $apartment->area }}
-                        </li>
-                    </ul>
+                    <li>
+                        @foreach ($apartment -> services as $service)
 
-                    <hr>
+                        {{ $service -> name }}
+                            
+                        @endforeach
+                    </li>
 
-                    <h2 class="servizi">Servizi:</h2>
-                    <ul class="flex-order">
+                </ul>
+                
 
-                        <li>
-                            @foreach ($apartment->services as $service)
-
-                                {{ $service->name }}
-
-                            @endforeach
-                        </li>
-
-                    </ul>
-
-
-                </div>
             </div>
         </div>
+    </div>
 
-        <div class="my-apartment">
+   <div class="my-apartment">
 
-            <div class="stats" id="stats">
-                <div>
-
+        <div class="stats" id="stats">
+            <div>
                 <h1>Statistiche</h1>
-                <canvas id="statisticsChart" width="500px" height="200px"></canvas>
-                <canvas id="messagesChart" width="500px" height="200px"></canvas>
 
                 <select name="" id=""
                     v-on:change="selectYear">
@@ -76,52 +73,39 @@
                     </option>
                 </select>
 
-                </div>
+                <canvas id="statisticsChart" width="500px" height="200px"></canvas>
+                <canvas id="messagesChart" width="500px" height="200px"></canvas>
             </div>
+        </div>
 
-            <div class="messages">
+        <div class="messages">
 
-                <h1>Messaggi ricevuti:</h1>
+            <h1>Messaggi ricevuti:</h1>
 
-                <div class="received-msgs">
+            <div class="received-msgs">
 
-                    {{-- foreach msg blabla --}}
-                    <div class="msg">
+                {{-- foreach msg blabla --}}
+                <div class="msg">
 
+                    @foreach ($messages as $message)
+                    <div class="msg-row">
 
                         <p>Hai un nuovo messaggio da: {{ $message -> email }} </p>
                         <p> {{ $message -> text }} </p>
 
-                        @foreach ($messages as $message)
-
-                            <div class="msg-row">
-                                <p class="new-msg-from">Hai un nuovo messaggio da: {{ $message->email }} </p>
-                                <p> {{ $message->text }} </p>
-                            </div>
-
-                        @endforeach
-
-
-
-
                     </div>
-
+                        
+                    @endforeach
+                    
                 </div>
+                
             </div>
         </div>
+   </div>
 
-    </div>
+</div>
 
-    <script>
-        new Vue({
-            el: '#stats',
-            data: {
-                messages: {},
-                statistics: {},
-                months: '',
-                years: '',
-            },
-            methods: {
+<script>
 
     new Vue ({
         el: '#stats',
@@ -293,7 +277,7 @@
                 // prendiamo tutti gli anni dei messaggi
                 let messagesYears = []
 
-                Object.keys(this.resStatistics).forEach(year => {
+                Object.keys(this.resMessages).forEach(year => {
 
                     messagesYears.push(year);
                 });
@@ -309,7 +293,7 @@
                     messages = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 } else {
 
-                                let month = (x + 1).toString();
+                    for (let x = 0; x < 12; x++) {
 
                         let month = (x + 1).toString();
 
@@ -320,6 +304,8 @@
 
                             messages.push(0);
                         }
+                    }
+                }
 
 
                 // creazione del grafico
@@ -359,8 +345,8 @@
                             }
                         }
                     }
-                }); // chiudono chart
-            }); // chiudono then
+                });
+            });
             
         }
     })
@@ -368,4 +354,8 @@
 </script>
 @endsection
 
-{{-- creazione unico array per anni --}}
+{{-- 
+    TODO: 
+
+    - creazione unico array per anni
+--}}
