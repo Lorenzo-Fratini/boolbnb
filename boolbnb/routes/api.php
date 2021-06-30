@@ -19,8 +19,5 @@ Route::post('/getViews/{ip}/{id}', 'ApiController@getViews')
 Route::post('/filterApartments/{searchString}/{filterServices}/{bedsRooms}', 'ApiController@filterApartments')
     -> name('filterApartments');
 
-Route::post('/getStatistics/{id}', 'ApiController@getStatistics')
-    -> name('getStatistics');
-
-Route::post('/getMessages/{id}', 'ApiController@getMessages')
-    -> name('getMessages');
+Route::post('/getChartData/{id}/{year}', 'ApiController@getChartData')
+    -> name('getChartData');
