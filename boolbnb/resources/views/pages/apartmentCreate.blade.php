@@ -113,7 +113,7 @@
                         <div class="service">
                             <input type="checkbox" id="service_id[]" name="service_id[]" value="{{ $service->id }}">
                             <br>
-                            <label for="service_id">{{ $service->name }}</label>
+                            <span for="service_id">{{ $service->name }}</span>
                         </div>
                     @endforeach
                 </div>
@@ -122,7 +122,7 @@
             {{-- BUTTON --}}
             <div>
                 <button type="submit">
-                    Crea
+                    CREA
                 </button>
             </div>
         </form>
