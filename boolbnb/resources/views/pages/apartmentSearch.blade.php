@@ -32,7 +32,9 @@
 
                         <hr>
 
-                            <img :src="'/storage/images/' + apartment.cover_image">
+                            <div id="img-box">
+                                <img :src="'/storage/images/' + apartment.cover_image">
+                            </div>
                             
                             <div class="ap-description">
 

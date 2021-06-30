@@ -4,6 +4,36 @@
   font-family: sans-serif;
   box-sizing: border-box;
   font-family: "Benne", serif;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+* ::-webkit-scrollbar {
+  width: 10px;
+}
+
+* ::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+* ::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 10px;
+  display: none;
+}
+
+* ::-webkit-scrollbar-thumb:hover {
+  background: gray;
+  display: block;
+}
+
+* .box-service {
+  margin: 20px 0 20px 70px;
+}
+
+* .box-service .my-services input {
+  padding: 0 10px;
 }
 
 button {
@@ -19,7 +49,7 @@ button {
   font-size: 18px;
   border-radius: 10px;
   border: none;
-  background-color: #6cb2eb;
+  background-color: #ff5a5f;
 }
 
 header {
@@ -259,15 +289,14 @@ header .user-header .dashboard-header-btn:hover {
 }
 
 .container-ap .row:first-child {
-  background-color: rgba(211, 211, 211, 0.4);
-  padding: 25px 0;
+  padding: 15px 0;
 }
 
 .container-ap .row .mini-container {
-  margin: 15px;
+  margin: 2%;
   position: relative;
   z-index: 0;
-  width: 35%;
+  width: 38%;
   height: 250px;
   overflow: hidden;
   border-radius: 10px;
@@ -293,12 +322,17 @@ header .user-header .dashboard-header-btn:hover {
 
 #adv-body {
   display: flex;
-  justify-content: space-b;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  color: white;
   line-height: 1.6;
-  background-image: linear-gradient(to right, white, #4dc0b5);
+  background: linear-gradient(to right, black 42%, rgba(255, 255, 255, 0) 100%), url(/images/woman.jpg?92e97cd46ee196a660d34104aa72ca71) no-repeat right;
+  height: 200px;
   height: 390px;
+  width: 80%;
+  margin: 25px auto;
+  border-radius: 30px;
 }
 
 #adv-body div {
@@ -307,7 +341,10 @@ header .user-header .dashboard-header-btn:hover {
 }
 
 #adv-body div:last-child {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
 }
 
 #adv-body div h2 {
@@ -991,39 +1028,6 @@ a.prem-apart {
   }
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-
-/* Handle */
-
-::-webkit-scrollbar-thumb {
-  background: lightgray;
-  border-radius: 10px;
-  display: none;
-}
-
-/* Handle on hover */
-
-::-webkit-scrollbar-thumb:hover {
-  background: gray;
-  display: block;
-}
-
-.box-service {
-  margin: 20px 0 20px 70px;
-}
-
-.box-service .my-services input {
-  padding: 0 10px;
-}
-
 .box-app-map {
   display: flex;
   justify-content: space-between;
@@ -1031,7 +1035,6 @@ a.prem-apart {
 }
 
 .box-app-map .my-apartments {
-  flex-grow: 1;
   overflow: auto;
 }
 
@@ -1041,15 +1044,16 @@ a.prem-apart {
 }
 
 .box-app-map .my-apartments .spc-apart {
+  height: 25%;
   padding: 10px;
-  border-radius: 5px;
   align-items: center;
   flex-wrap: wrap;
   display: flex;
 }
 
 .box-app-map .my-apartments .spc-apart img {
-  width: 20%;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
 }
 
@@ -1061,8 +1065,13 @@ a.prem-apart {
 }
 
 #mymap {
-  width: 35vw;
-  height: calc(90vh - 60px);
+  width: 50vw;
+  height: 98%;
+}
+
+#img-box {
+  width: 20%;
+  height: 80%;
 }
 
 #container-payment {

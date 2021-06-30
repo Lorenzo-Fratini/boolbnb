@@ -1,44 +1,4 @@
 
-// test generale scrollbar inizio
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-  
-/* Track */
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-   
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: lightgray; 
-  border-radius: 10px;
-  display: none;
-}
-  
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: gray;
-  display: block;
-}
-
-// sezione Servizi
-.box-service {
-    margin: 20px 0 20px 70px;
-
-    .my-services input{
-        padding: 0 10px;
-    }
-}
-
-// test generale scrollbar fine
-
-
-
-
-
-
 
 // sezione Appartamenti e Mappa
 .box-app-map {
@@ -49,8 +9,6 @@
     // background-color: lightcyan;
 
     .my-apartments{
-        // margin-left: 10px;
-        flex-grow: 1;
         overflow: auto;
     
         hr {
@@ -60,10 +18,11 @@
         }
       
         .spc-apart {
-            // margin-bottom: 20px;
+            height: 25%;
+
             padding: 10px;
             // border: 1px solid black;
-            border-radius: 5px;
+            // border-radius: 10px;
             align-items: center;
             flex-wrap: wrap;
 
@@ -71,7 +30,8 @@
         
 
             img {
-                width: 20%;
+                width: 100%;
+                height: 100%;
                 border-radius: 10px;
             }
 
@@ -90,6 +50,11 @@
 
 #mymap {
     // border: 1px solid black;
-    width: 35vw;
-    height: calc(90vh - 60px);
+    width: 50vw;
+    height: 98%;
+}
+
+#img-box {
+    width: 20%;
+    height: 80%;
 }
