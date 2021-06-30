@@ -146,43 +146,98 @@ class ApiController extends Controller {
         $statistic -> save();
     }
 
-    public function getStatistics($id){
+    public function getChartData($id, $year){
 
+        $bottomLimit = strval($year - 1) . '12-31';
+        $topLimit = strval($year) . '12-31';
+        
         $apartment = Apartment::findOrFail($id);
-        $statistics = Statistic::where('apartment_id', 'LIKE', $id) -> get();
+
+        $statistics = Statistic::where('apartment_id', 'LIKE', $id)
+                                -> where('created_at', '>', $bottomLimit)
+                                -> where('created_at', '<=', $topLimit)
+                                -> get();
+
+        $messages = Message::where('apartment_id', 'LIKE', $id)
+                                -> where('created_at', '>', $bottomLimit)
+                                -> where('created_at', '<=', $topLimit)
+                                -> get();
             
         $ordered_stats = array();
             
         foreach ($statistics as $statistic) {
                 
-            $formattedDate = date("n-Y", strtotime($statistic -> date));
+            $formattedDate = date("n-Y", strtotime($statistic -> created_at));
             $statDate = explode("-", $formattedDate);
-            list($month, $year) = $statDate;
+            list($month, $statYear) = $statDate;
             
-            $ordered_stats[$year][$month][]= $statistic;
+            $ordered_stats[$statYear][$month][]= $statistic;
         };
+
+        $stats = array();
+
+        if (empty($ordered_stats)) {
+
+            $stats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        } else {
+
+            for ($i=0; $i < 12; $i++) { 
+                
+                $newYear = strval($year);
+                $newMonth = strval($i + 1);
+                
+                if (isset($ordered_stats[$newYear][$newMonth])) {
+
+                    $stats []= count($ordered_stats[$newYear][$newMonth]);
+                } else {
+
+                    $stats []= 0;
+                }
+            }
+        }
         
-        return response() -> json($ordered_stats, 200);
-    }
-
-    public function getMessages($id) {
-
-        $apartment = Apartment::findOrFail($id);
-        $messages = Message::where('apartment_id', 'LIKE', $id) -> get();
-
         $ordered_messages = array();
             
         foreach ($messages as $message) {
                 
             $formattedDate = date("n-Y", strtotime($message -> created_at));
             $messageDate = explode("-", $formattedDate);
-            list($month, $year) = $messageDate;
+            list($month, $mexYear) = $messageDate;
             
-            $ordered_messages[$year][$month][]= $message;
+            $ordered_messages[$mexYear][$month][]= $message;
         };
 
-        return response() -> json($ordered_messages, 200);
+        $messages = array();
+
+        if (empty($ordered_messages)) {
+
+            $messages = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        } else {
+
+            for ($i=0; $i < 12; $i++) { 
+                
+                $newYear = strval($year);
+                $newMonth = strval($i + 1);
+                
+                if (isset($ordered_messages[$newYear][$newMonth])) {
+
+                    $messages []= count($ordered_messages[$newYear][$newMonth]);
+                } else {
+
+                    $messages []= 0;
+                }
+            }
+        }
+
+        $chart = [
+
+            'statistics' => $stats,
+            'messages' => $messages,
+        ];
+        
+        return response() -> json($chart, 200);
     }
+
 }
 
 
