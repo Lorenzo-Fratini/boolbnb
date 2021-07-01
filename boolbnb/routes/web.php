@@ -39,4 +39,7 @@ Route::get('/sponsorshipPayment/{id}', 'LoggedController@sponsorshipPayment')
 Route::post('/paymentCheckout/{id}', 'LoggedController@paymentCheckout')
     -> name('paymentCheckout');
 
+Route::get('/testApi', 'GuestController@testApi')
+    -> name('testApi');
+
 Auth::routes();
