@@ -11,6 +11,7 @@
         </div>
     </div>
 
+    <a href="{{ route('testApi') }}">TESTAPi</a>
 
     {{-- PREMIUM APARTMENTS --}}
 
