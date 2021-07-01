@@ -27,8 +27,8 @@ class CreateApartmentsTable extends Migration
             $table -> string('city');
             $table -> string('country');
             $table -> string('postal_code', 5);
-            $table -> float('latitude', 8, 5) -> default('40.00000');
-            $table -> float('longitude', 8, 5) -> default('10.00000');;
+            $table -> float('latitude', 8, 5);
+            $table -> float('longitude', 8, 5);
             $table -> boolean('visible') -> default(0);
 
             $table -> softDeletes();
