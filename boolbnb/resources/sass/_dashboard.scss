@@ -38,16 +38,15 @@
                     margin-left: 10px;
                     padding: 10px 20px;
                     border-radius: 10px;
-                    border: 1px solid black;
+                    border: 2px solid $header_red;
                     text-transform: uppercase;
                     text-decoration: none;
                     color: inherit;
-                    background-color: #ff5a5f;
                     transition: background-color 0.5s, color 0.5s;
                 }
 
                 a:hover {
-                    background-color: #af3d41;
+                    background-color: $header_red;
                     color: white;
                 }
             }
@@ -57,7 +56,8 @@
                 //background-color: lightblue;
                 border: 1px solid black;
                 padding: 0 20px;
-                border-radius: 5px;
+                border-radius: 20px;
+                box-shadow: 0 0 30px rgb(190, 189, 189);
 
                 .apartment-row {
                     height: auto;
@@ -75,6 +75,7 @@
                         right: 0;
                         color: green;
                         border: 1px solid green;
+                        background-color: inherit;
                     }
                 }
 
@@ -87,10 +88,16 @@
                     margin-left: 10px;
                     padding: 3px 6px;
                     border-radius: 5px;
-                    border: 1px solid black;
+                    border: 1px solid $header_red;
                     text-transform: uppercase;
                     text-decoration: none;
                     color: inherit;
+                    transition: background-color 0.3s, color 0.3s;
+
+                    &:hover {
+                        background-color: $header_red;
+                        color: white;
+                    }
                 }
             }
         }

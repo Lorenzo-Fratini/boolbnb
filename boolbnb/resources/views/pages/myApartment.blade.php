@@ -20,22 +20,27 @@
                 <div class="flat-text" id="flat-text-id">
                     <h2>Descrizione</h2>
                     <span> {{ $apartment->description }} </span>
-                    {{-- <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto molestiae distinctio modi, quasi maxime, at ex repellendus suscipit sed aut ad non, iste vitae cumque illo ea similique et inventore.</span> --}}
-
                     <hr>
 
                     <ul>
                         <li>
-                            <span>Stanze:</span> {{ $apartment->rooms_number }}
+                            <span class="rooms-details">Stanze:</span> <span
+                                class="rooms-details-number">{{ $apartment->rooms_number }}</span>
                         </li>
                         <li>
-                            <span>Letti:</span> {{ $apartment->beds_number }}
+                            <span class="rooms-details">Letti:</span> <span
+                                class="rooms-details-number">{{ $apartment->beds_number }}</span>
+
                         </li>
                         <li>
-                            <span>Bagni:</span> {{ $apartment->bathrooms_number }}
+                            <span class="rooms-details">Bagni:</span> <span
+                                class="rooms-details-number">{{ $apartment->bathrooms_number }}</span>
+
                         </li>
                         <li>
-                            <span>mq:</span> {{ $apartment->area }}
+                            <span class="rooms-details">mq:</span> <span
+                                class="rooms-details-number">{{ $apartment->area }}</span>
+
                         </li>
                     </ul>
 
@@ -48,6 +53,10 @@
                             @foreach ($apartment->services as $service)
 
                                 {{ $service->name }}
+
+                                @if (!$loop->last)
+                                    -
+                                @endif
 
                             @endforeach
                         </li>
@@ -62,7 +71,7 @@
         <div class="my-apartment">
 
             <div class="stats" id="stats">
-                <div>
+                <div class="stats-container">
                     <h1>Statistiche</h1>
 
                     <select name="" id="" v-on:change="updateChart" v-model="selectedYear">
@@ -72,8 +81,10 @@
                         </option>
                     </select>
 
-                    <canvas id="statisticsChart" width="500px" height="200px"></canvas>
-                    <canvas id="messagesChart" width="500px" height="200px"></canvas>
+                    <div class="charts" style="position: relative; height:400px; width:60vw">
+                        <canvas id="statisticsChart" width="800px height:200px"></canvas>
+                        <canvas id="messagesChart" width="800px height:200px"></canvas>
+                    </div>
                 </div>
             </div>
 
@@ -83,20 +94,22 @@
 
                 <div class="received-msgs">
 
-                    {{-- foreach msg blabla --}}
-                    <div class="msg">
+                    @if (count($messages) > 0)
+                        <div class="msg">
 
-                        @foreach ($messages as $message)
-                            <div class="msg-row">
+                            @foreach ($messages as $message)
+                                <div class="msg-row">
 
-                                <p>Hai un nuovo messaggio da: {{ $message->email }} </p>
-                                <p> {{ $message->text }} </p>
+                                    <p class="new-msg-from">Hai un nuovo messaggio da: {{ $message->email }} </p>
+                                    <p> {{ $message->text }} </p>
 
-                            </div>
+                                </div>
+                            @endforeach
 
-                        @endforeach
-
-                    </div>
+                        </div>
+                    @else
+                        <p>Non hai messaggi da leggere</p>
+                    @endif
 
                 </div>
             </div>
@@ -182,11 +195,12 @@
                             }]
                         },
                         options: {
+
+                            maintainAspectRatio: false,
                             scales: {
                                 y: {
                                     suggestedMin: 0,
-                                    max: 10,
-                                    suggestedMax: 50,
+                                    suggestedMax: 15,
                                 }
                             }
                         }

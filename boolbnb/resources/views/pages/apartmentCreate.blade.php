@@ -37,14 +37,16 @@
                 <div>
                     <label for="rooms_number">Stanze</label>
                     <div>
-                        <input id="rooms_number" type="number" name="rooms_number" onkeydown="return false" min="1">
+                        <input id="rooms_number" type="number" name="rooms_number" min="1"
+                            oninput="validity.valid||(value='')">
                     </div>
                 </div>
                 {{-- beds number --}}
                 <div>
                     <label for="beds_number">Letti</label>
                     <div>
-                        <input id="beds_number" type="number" name="beds_number" onkeydown="return false" min="1">
+                        <input id="beds_number" type="number" name="beds_number" min="1"
+                            oninput="validity.valid||(value='')">
                     </div>
                 </div>
             </div>
@@ -53,19 +55,20 @@
                 <div>
                     <label for="bathrooms_number">Bagni</label>
                     <div>
-                        <input id="bathrooms_number" type="number" name="bathrooms_number" onkeydown="return false" min="1">
+                        <input id="bathrooms_number" type="number" name="bathrooms_number" min="1"
+                            oninput="validity.valid||(value='')">
                     </div>
                 </div>
                 {{-- area --}}
                 <div>
                     <label for="area">m²</label>
                     <div>
-                        <input id="area" type="number" name="area" onkeydown="return false" min="1">
+                        <input id="area" type="number" name="area" min="1" oninput="validity.valid||(value='')">
                     </div>
                 </div>
             </div>
             {{-- address --}}
-            <div class="line">
+            <div class=" line">
                 <div>
                     <label for="address">Indirizzo</label>
                     <div>
