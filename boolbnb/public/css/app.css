@@ -401,24 +401,25 @@ a.prem-apart {
 
 #container_f {
   max-width: 100vw;
+  list-style-type: none;
+  text-decoration: none;
 }
 
-.container .row {
+.container .left-side {
   display: flex;
   justify-content: space-around;
   align-content: space-between;
   flex-wrap: wrap;
-  flex-direction: row;
 }
 
-.container .row ul {
+.container .left-side ul {
+  display: flex;
+  align-items: baseline;
   list-style: none;
-  background-color: #d8d8d8;
-  margin: 15px;
 }
 
-.container .row ul li {
-  line-height: 35px;
+.container .left-side ul li {
+  padding: 0 5px;
 }
 
 .links-ft {
@@ -442,8 +443,10 @@ a.prem-apart {
 
 #last-row-footer {
   justify-content: space-between;
+  align-content: center;
+  height: 80px;
   padding: 15px 5%;
-  background-color: lightgrey;
+  border-top: 1px solid lightgray;
 }
 
 #last-row-footer .fab {
