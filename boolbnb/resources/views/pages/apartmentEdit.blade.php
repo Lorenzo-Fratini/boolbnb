@@ -37,16 +37,16 @@
                 <div>
                     <label for="rooms_number">Rooms number</label>
                     <div>
-                        <input id="rooms_number" type="number" onkeydown="return false" min="1" name="rooms_number"
-                            value="{{ $apartment->rooms_number }}">
+                        <input id="rooms_number" type="number" oninput="validity.valid||(value='')" min="1"
+                            name="rooms_number" value="{{ $apartment->rooms_number }}">
                     </div>
                 </div>
                 {{-- beds number --}}
                 <div>
                     <label for="beds_number">Beds number</label>
                     <div>
-                        <input id="beds_number" type="number" onkeydown="return false" min="1" name="beds_number"
-                            value="{{ $apartment->beds_number }}">
+                        <input id="beds_number" type="number" oninput="validity.valid||(value='')" min="1"
+                            name="beds_number" value="{{ $apartment->beds_number }}">
                     </div>
                 </div>
             </div>
@@ -55,15 +55,15 @@
                 <div>
                     <label for="bathrooms_number">Bathrooms number</label>
                     <div>
-                        <input id="bathrooms_number" type="number" onkeydown="return false" min="1" name="bathrooms_number"
-                            value="{{ $apartment->bathrooms_number }}">
+                        <input id="bathrooms_number" type="number" oninput="validity.valid||(value='')" min="1"
+                            name="bathrooms_number" value="{{ $apartment->bathrooms_number }}">
                     </div>
                 </div>
                 {{-- area --}}
                 <div>
                     <label for="area">Area</label>
                     <div>
-                        <input id="area" type="number" onkeydown="return false" min="1" name="area"
+                        <input id="area" type="number" oninput="validity.valid||(value='')" min="1" name="area"
                             value="{{ $apartment->area }}">
                     </div>
                 </div>

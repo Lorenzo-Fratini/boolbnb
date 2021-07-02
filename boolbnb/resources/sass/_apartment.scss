@@ -83,8 +83,9 @@
                 width: 80%;
 
                 span {
-                    display: block;
+                    display: inline-block;
                     margin-top: 15px;
+                    font-size: 18px;
                 }
 
                 ul {
@@ -96,44 +97,18 @@
                     li {
                         list-style: none;
                         display: inline-block;
-                        margin-top: 15px;
+                        padding: 15px 0;
+                        font-size: 18px;
 
-                        span {
+                        .rooms-details {
                             display: inline-block;
                             font-weight: bold;
                         }
+
+                        .rooms-details-number {
+                            font-size: 23px;
+                        }
                     }
-                }
-            }
-
-            .flat-form {
-                text-align: center;
-
-                input {
-                    margin: 10px;
-                    border: 1px solid #ccc;
-                    padding: 4px 8px;
-                    border-radius: 20px;
-                    outline: none;
-                }
-
-                textarea {
-                    height: 150px;
-                    border: 1px solid #ccc;
-                    border-radius: 10px;
-                    width: 75%;
-                    outline: none;
-                    resize: none;
-                }
-
-                button {
-                    background-color: salmon;
-                    padding: 8px 16px;
-                    margin: 10px 0;
-                    border-radius: 10px;
-                    outline: none;
-                    border: none;
-                    cursor: pointer;
                 }
             }
 
@@ -150,34 +125,36 @@
     input {
         margin: 10px;
         border: 1px solid #ccc;
-        padding: 4px 8px;
+        padding: 6px 12px;
         border-radius: 20px;
         outline: none;
+        font-size: 17px;
     }
 
     textarea {
         height: 150px;
         border: 1px solid #ccc;
         border-radius: 10px;
-        width: 40%;
+        width: 30%;
         outline: none;
         resize: none;
         text-indent: 10px;
+        font-size: 17px;
     }
 
     button {
-        background-color: salmon;
-        padding: 8px 25px;
+        padding: 10px 60px;
         margin: 10px 0;
         border-radius: 10px;
         outline: none;
-        border: none;
+        border: 2px solid $header_red;
         cursor: pointer;
+        font-size: 18px;
         font-weight: bold;
         transition: background-color 0.5s, color 0.5s;
 
         &:hover {
-            background-color: #af3d41;
+            background-color: $header_red;
             color: white;
         }
     }
@@ -187,20 +164,35 @@
     width: 65%;
     margin: auto;
     margin-top: 50px;
+    margin-bottom: 50px;
     display: flex;
-    justify-content: space-between;
-    height: auto;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 
     .stats {
         display: flex;
-        width: 50%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+        .stats-container {
+            padding-bottom: 50px;
+        }
+
+        .charts {
+            padding-bottom: 50px;
+            canvas {
+                margin: 40px 0;
+            }
+        }
     }
 
     .messages {
         display: flex;
         flex-direction: column;
-        align-self: flex-start;
-        width: 50%;
+        width: 60%;
+        margin-top: 150px;
         align-items: center;
 
         .received-msgs {
@@ -209,7 +201,7 @@
 
             .msg {
                 overflow-y: auto;
-                height: 400px;
+                height: auto;
                 padding: 5px 10px;
             }
 
@@ -232,7 +224,7 @@
                 padding: 5px;
 
                 .new-msg-from {
-                    color: rgb(155, 36, 36);
+                    color: rgb(177, 44, 44);
                 }
             }
         }
@@ -248,30 +240,29 @@
         flex-direction: column;
         .stats {
             justify-content: center;
-
             width: 100% !important;
-
-            canvas {
-                width: 400px;
-            }
         }
 
         .messages {
             width: 100%;
-            margin: auto;
-            margin-top: 50px;
         }
     }
 }
 
 @media screen and (max-width: 650px) {
+    .flat-description {
+        text-align: center;
+    }
+
+    .flat-text {
+        text-align: center;
+    }
+
+    .stats-container {
+        text-align: center;
+    }
     .my-apartment {
         width: 100% !important;
-    }
-    .stats {
-        canvas {
-            width: 350px !important;
-        }
     }
 
     .messages {
@@ -280,5 +271,10 @@
 
     .flat-img {
         max-width: 95% !important;
+    }
+
+    .charts {
+        width: 90vw !important;
+        height: 400px !important;
     }
 }

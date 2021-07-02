@@ -3,26 +3,28 @@
 
 #container_f {
     max-width: 100vw;
+    list-style-type: none;
+    text-decoration: none;
 }
 
 .container {
-    .row {
+    
+    .left-side {
         display: flex;
         justify-content: space-around;
         align-content: space-between;
         flex-wrap: wrap;
-    
-        flex-direction: row;
 
         ul {
+            display: flex;
+            align-items: baseline;
             list-style: none;
-    
-            background-color: $lt_gray;
-
-            margin: 15px;
+            //background-color: green; //$lt_gray
+            //margin: 15px;
     
             li {
-                line-height: 35px;
+                //line-height: 35px;
+                padding: 0 5px;
             }
         }
     }
@@ -48,10 +50,11 @@
 }
 
 #last-row-footer {
-
     justify-content: space-between;
+    align-content: center;
+    height: 80px;
     padding: 15px 5%;
-    background-color: lightgrey;
+    border-top: 1px solid lightgray;
 
     .fab {
         margin-left: 10px;
