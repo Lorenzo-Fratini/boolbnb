@@ -36,6 +36,20 @@
   padding: 0 10px;
 }
 
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: 80%;
+  padding: 50px 0;
+  margin: auto;
+  flex-grow: 1;
+}
+
 button {
   cursor: pointer;
 }
@@ -293,10 +307,10 @@ header .user-header .dashboard-header-btn:hover {
 }
 
 .container-ap .row .mini-container {
-  margin: 2%;
+  margin: 1%;
   position: relative;
   z-index: 0;
-  width: 38%;
+  width: 48%;
   height: 250px;
   overflow: hidden;
   border-radius: 10px;
@@ -311,7 +325,7 @@ header .user-header .dashboard-header-btn:hover {
 }
 
 #adv-block {
-  padding: 12px;
+  margin: 50px 0 20px 0;
 }
 
 #adv-block h1 {
@@ -321,34 +335,25 @@ header .user-header .dashboard-header-btn:hover {
 }
 
 #adv-body {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  color: white;
-  line-height: 1.6;
-  background: linear-gradient(to right, black 42%, rgba(255, 255, 255, 0) 100%), url(/images/woman.jpg?92e97cd46ee196a660d34104aa72ca71) no-repeat right;
-  height: 200px;
+  width: 98%;
   height: 390px;
-  width: 80%;
+  padding: 5%;
   margin: 25px auto;
+  line-height: 1.6;
   border-radius: 30px;
+  background: linear-gradient(to right, black 42%, rgba(255, 255, 255, 0) 100%), url(/images/woman.jpg?92e97cd46ee196a660d34104aa72ca71) no-repeat right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
 }
 
 #adv-body div {
-  width: 35%;
-  margin: 30px;
+  width: 50%;
 }
 
-#adv-body div:last-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 80%;
-}
-
-#adv-body div h2 {
-  font-size: 25px;
+#adv-body a {
+  margin: 35px 0 0 0;
 }
 
 a.prem-apart {
@@ -855,11 +860,10 @@ a.prem-apart {
 }
 
 .container-login .form-group {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .container-login h1:first-of-type {
-  margin-top: 10px;
   display: block;
   text-align: center;
 }

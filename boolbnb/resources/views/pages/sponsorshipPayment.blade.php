@@ -51,8 +51,11 @@
                 </section>
 
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
-                <button class="button" type="submit" v-on:click="dropinRequestPaymentMethod"><span>Paga e
-                        Sponsorizza</span></button>
+                <button class="button" type="submit" v-on:click="dropinRequestPaymentMethod">
+                    <span>
+                        Paga e Sponsorizza
+                    </span>
+                </button>
             </form>
         </div>
     </main>

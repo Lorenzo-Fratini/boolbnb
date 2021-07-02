@@ -45,6 +45,20 @@
       }
 }
 
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: 80%;
+  padding: 50px 0;
+  margin: auto;
+  flex-grow: 1;
+}
+
 button {
     cursor: pointer;
 }
