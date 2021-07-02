@@ -49,7 +49,7 @@ button {
   font-size: 18px;
   border-radius: 10px;
   border: none;
-  background-color: #ff5a5f;
+  border: 1px solid #ff5a5f;
 }
 
 header {
@@ -327,7 +327,7 @@ header .user-header .dashboard-header-btn:hover {
   flex-wrap: wrap;
   color: white;
   line-height: 1.6;
-  background: linear-gradient(to right, black 42%, rgba(255, 255, 255, 0) 100%), url(/images/woman.jpg?92e97cd46ee196a660d34104aa72ca71) no-repeat right;
+  background: linear-gradient(to right, black 40%, rgba(255, 255, 255, 0) 60%), url(/images/woman.jpg?92e97cd46ee196a660d34104aa72ca71) no-repeat right;
   height: 200px;
   height: 390px;
   width: 80%;
@@ -1028,6 +1028,66 @@ a.prem-apart {
   }
 }
 
+#menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#menu .button {
+  width: 200px;
+  margin: 15px 0;
+  padding: 3px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 22px;
+  color: #ff5a5f;
+  text-align: center;
+}
+
+#menu .button .des-butt {
+  display: none;
+}
+
+#menu .button:hover .des-butt {
+  display: inline-block;
+}
+
+#btn-menu {
+  display: flex;
+}
+
+.box-service {
+  height: 110px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box-service .dis-flex {
+  height: 45%;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid #ff5a5f;
+  border-radius: 30px;
+}
+
+.box-service .filter {
+  width: 60%;
+}
+
+.box-service .center {
+  display: flex;
+  align-items: center;
+}
+
+.box-service .center label {
+  margin-right: 10px;
+}
+
 .box-app-map {
   display: flex;
   justify-content: space-between;
@@ -1045,19 +1105,30 @@ a.prem-apart {
 
 .box-app-map .my-apartments .spc-apart {
   height: 25%;
+}
+
+.box-app-map .my-apartments .spc-apart a {
+  height: 100%;
   padding: 10px;
   align-items: center;
   flex-wrap: wrap;
   display: flex;
+  color: black;
+  text-decoration: none;
 }
 
-.box-app-map .my-apartments .spc-apart img {
+.box-app-map .my-apartments .spc-apart a #img-box {
+  width: 25%;
+  height: 80%;
+}
+
+.box-app-map .my-apartments .spc-apart a #img-box img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
 }
 
-.box-app-map .my-apartments .spc-apart .ap-description {
+.box-app-map .my-apartments .spc-apart a .ap-description {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1067,11 +1138,6 @@ a.prem-apart {
 #mymap {
   width: 50vw;
   height: 98%;
-}
-
-#img-box {
-  width: 20%;
-  height: 80%;
 }
 
 #container-payment {
