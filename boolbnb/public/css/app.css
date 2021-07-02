@@ -49,7 +49,7 @@ button {
   font-size: 18px;
   border-radius: 10px;
   border: none;
-  background-color: #ff5a5f;
+  border: 1px solid #ff5a5f;
 }
 
 header {
@@ -327,7 +327,7 @@ header .user-header .dashboard-header-btn:hover {
   flex-wrap: wrap;
   color: white;
   line-height: 1.6;
-  background: linear-gradient(to right, black 42%, rgba(255, 255, 255, 0) 100%), url(/images/woman.jpg?92e97cd46ee196a660d34104aa72ca71) no-repeat right;
+  background: linear-gradient(to right, black 40%, rgba(255, 255, 255, 0) 60%), url(/images/woman.jpg?92e97cd46ee196a660d34104aa72ca71) no-repeat right;
   height: 200px;
   height: 390px;
   width: 80%;
@@ -1028,9 +1028,38 @@ a.prem-apart {
   }
 }
 
+#menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#menu .button {
+  width: 200px;
+  margin: 15px 0;
+  padding: 3px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 22px;
+  color: #ff5a5f;
+  text-align: center;
+}
+
+#menu .button .des-butt {
+  display: none;
+}
+
+#menu .button:hover .des-butt {
+  display: inline-block;
+}
+
+#btn-menu {
+  display: flex;
+}
+
 .box-service {
   height: 110px;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;

@@ -7,15 +7,18 @@
             {{-- button menu' --}}
             <div id="menu">
 
-                <button>
+                <button class="button" v-on:click="navbar">
                     <i class="far fa-compass"></i>
-                    <span>FILTRI</span>
+                    <span class="des-butt">FILTRI</span>
                 </button>
 
             </div>
 
             {{-- servizi --}}
-            <div class="box-service">
+            <div class="box-service" 
+            :style="@{{ visibility }}"
+            v-html="visibility"
+            >
                 <div class="dis-flex">
                     <div v-for="service in allServices" class="my-services">
                         <input v-on:change="filterApartments" type="checkbox" :name="service.name" :value="service.id"
@@ -105,6 +108,7 @@
                 lon: 0,
                 beds: '1',
                 rooms: '1',
+                visibility: 'display: none',
             },
 
             methods: {
@@ -252,6 +256,22 @@
 
                         });
 
+                },
+
+                navbar: function () {
+                    if (this.visibility == 'display: none') {
+
+                        // console.log(this.visibility);
+
+                        this.visibility = 'display: flex';
+
+                        console.log(this.visibility);
+
+                    } else {
+                        this.visibility = 'display: none';
+
+                        console.log(this.visibility);
+                    }
                 }
 
             },
