@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Http;
 
 use Braintree;
 
@@ -61,10 +62,10 @@ class LoggedController extends Controller {
             'title' => 'required|string|max:256',
             'cover_image' => 'required|mimes:jpeg,png,jpg',
             'description' => 'required|string',
-            'rooms_number' => 'required|integer|min:1',
-            'beds_number' => 'required|integer|min:1',
-            'bathrooms_number' => 'required|integer|min:1',
-            'area' => 'required|integer|min:1',
+            'rooms_number' => 'required|integer',
+            'beds_number' => 'required|integer',
+            'bathrooms_number' => 'required|integer',
+            'area' => 'required|integer',
             'address' => 'required|string|min:1',
             'city' => 'required|string|min:1',
             'country' => 'required|string|min:1',
@@ -83,9 +84,19 @@ class LoggedController extends Controller {
 
         $imgFile = $img -> storeAs($folder, $imgNewName, 'public');
 
+        $removeComma = str_replace(',', '', $request['address']);
+        $address = str_replace(' ', '%20', $removeComma);
+        $city = $request['city'];
+        $country = $request['country'];
+
+        $query = $address . '%20' . $city . '%20' . $country;
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $query . '.JSON?key=e221oCcENGoXZRDyweSTg7PnYGiEXO82')['results'][0]['position'];
+
         $apartment = Apartment::make($validation);
         $apartment -> user() -> associate($user);
         $apartment -> cover_image = $imgNewName;
+        $apartment -> latitude = $response['lat'];
+        $apartment -> longitude = $response['lon'];
         $apartment -> save();
 
         $apartment -> services() -> attach($request -> get('service_id'));
@@ -116,19 +127,18 @@ class LoggedController extends Controller {
             'title' => 'required|string|max:256',
             'cover_image' => 'mimes:jpeg,png,jpg',
             'description' => 'required|string',
-            'rooms_number' => 'required|integer|min:1',
-            'beds_number' => 'required|integer|min:1',
-            'bathrooms_number' => 'required|integer|min:1',
-            'area' => 'required|integer|min:1',
+            'rooms_number' => 'required|integer',
+            'beds_number' => 'required|integer',
+            'bathrooms_number' => 'required|integer',
+            'area' => 'required|integer',
             'address' => 'required|string|min:1',
             'city' => 'required|string|min:1',
             'country' => 'required|string|min:1',
             'postal_code' => 'required|string|min:5|max:5',
-            'visible' => '',
             'user_id' => 'required|exists:App\User,id|integer',
             'service_id.*' => 'required_if:current,1|distinct|exists:App\Service,id|integer'       
         ]);
-        // dd($validation);
+
         $user = User::findOrFail($request -> get('user_id'));
 
         $apartment = Apartment::findOrFail($id);
@@ -149,6 +159,17 @@ class LoggedController extends Controller {
             $apartment -> cover_image = $imgNewName;
         }
 
+        $removeComma = str_replace(',', '', $request['address']);
+        $address = str_replace(' ', '%20', $removeComma);
+        $city = $request['city'];
+        $country = $request['country'];
+
+        $query = $address . '%20' . $city . '%20' . $country;
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $query . '.JSON?key=e221oCcENGoXZRDyweSTg7PnYGiEXO82')['results'][0]['position'];
+
+        $apartment -> latitude = $response['lat'];
+        $apartment -> longitude = $response['lon'];
+        
         $apartment -> save();
 
         $apartment -> services() -> sync($request -> get('service_id'));
@@ -216,7 +237,7 @@ class LoggedController extends Controller {
             return view('pages.sponsorshipPayment', compact('token', 'sponsorships', 'apartment'));
         }
 
-        return redirect() -> route('dashboard', Auth::id());
+        return redirect() -> route('index');
     }
 
     public function paymentCheckout(Request $request, $id) {
@@ -263,7 +284,7 @@ class LoggedController extends Controller {
             $apartment -> save();
 
 
-            return back()->with('success_message', 'Transazione riuscita' . ' ' .  $transaction -> id);
+            return view('pages.successCheckout', compact('apartment', 'sponsorship', 'endDate', 'startDate'));
         } else {
 
             $errorString = "";
@@ -274,7 +295,14 @@ class LoggedController extends Controller {
 
             $error = $result -> message;
             
-            return back()->withErrors('an error occured with the message' . $result -> message);
+            return back() -> withErrors('an error occured with the message' . $result -> message);
         } 
     }
+
+    /* public function successCheckout($id) {
+
+        $apartment = Apartment::findOrFail($id);
+
+        return redirect() -> route('dashboard', $apartment -> user_id);
+    } */
 }

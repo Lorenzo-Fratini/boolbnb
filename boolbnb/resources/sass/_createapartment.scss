@@ -35,6 +35,11 @@
                 border-color: #ff5a5f;
                 border-style: solid;
             }
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
         }
 
         .cover-img {
@@ -81,18 +86,18 @@
         }
 
         button {
-            padding: 20px 40px;
+            padding: 15px 55px;
             border-radius: 10px;
             margin-top: 20px;
             margin-bottom: 100px;
             border-style: solid;
-            background-color: #ff5a5f;
-            border: none;
-            transition: color 0.5s, background-color 0.5s;
+            border: 2px solid $header_red;
+            background-color: transparent;
             font-weight: bold;
+            transition: color 0.5s, background-color 0.5s;
 
             &:hover {
-                background-color: #f52027;
+                background-color: $header_red;
                 color: white;
             }
         }

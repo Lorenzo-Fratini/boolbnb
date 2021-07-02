@@ -36,6 +36,20 @@
   padding: 0 10px;
 }
 
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: 80%;
+  padding: 50px 0;
+  margin: auto;
+  flex-grow: 1;
+}
+
 button {
   cursor: pointer;
 }
@@ -150,8 +164,15 @@ header .user-header .hamburger:focus {
 header .user-header .login-header-btn,
 header .user-header .register-header-btn {
   padding: 7px 14px;
-  background-color: #ff5a5f;
+  border: 2px solid #ff5a5f;
   border-radius: 20px;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+header .user-header .login-header-btn:hover,
+header .user-header .register-header-btn:hover {
+  color: white;
+  background-color: #ff5a5f;
 }
 
 header .user-header .hello-user {
@@ -162,7 +183,7 @@ header .user-header .logout-header-btn,
 header .user-header .dashboard-header-btn {
   font-size: 17px;
   padding: 7px 14px;
-  background-color: #ff5a5f;
+  border: 2px solid #ff5a5f;
   border-radius: 20px;
   transition: background-color 0.5s, color 0.5s;
 }
@@ -170,7 +191,7 @@ header .user-header .dashboard-header-btn {
 header .user-header .logout-header-btn:hover,
 header .user-header .dashboard-header-btn:hover {
   color: white;
-  background-color: #af3d41;
+  background-color: #ff5a5f;
 }
 
 @media screen and (max-width: 992px) {
@@ -293,10 +314,10 @@ header .user-header .dashboard-header-btn:hover {
 }
 
 .container-ap .row .mini-container {
-  margin: 2%;
+  margin: 1%;
   position: relative;
   z-index: 0;
-  width: 38%;
+  width: 48%;
   height: 250px;
   overflow: hidden;
   border-radius: 10px;
@@ -311,7 +332,7 @@ header .user-header .dashboard-header-btn:hover {
 }
 
 #adv-block {
-  padding: 12px;
+  margin: 50px 0 20px 0;
 }
 
 #adv-block h1 {
@@ -321,34 +342,25 @@ header .user-header .dashboard-header-btn:hover {
 }
 
 #adv-body {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  color: white;
-  line-height: 1.6;
-  background: linear-gradient(to right, black 40%, rgba(255, 255, 255, 0) 60%), url(/images/woman.jpg?92e97cd46ee196a660d34104aa72ca71) no-repeat right;
-  height: 200px;
+  width: 98%;
   height: 390px;
-  width: 80%;
+  padding: 5%;
   margin: 25px auto;
+  line-height: 1.6;
   border-radius: 30px;
+  background: linear-gradient(to right, black 42%, rgba(255, 255, 255, 0) 100%), url(/images/woman.jpg?92e97cd46ee196a660d34104aa72ca71) no-repeat right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
 }
 
 #adv-body div {
-  width: 35%;
-  margin: 30px;
+  width: 50%;
 }
 
-#adv-body div:last-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 80%;
-}
-
-#adv-body div h2 {
-  font-size: 25px;
+#adv-body a {
+  margin: 35px 0 0 0;
 }
 
 a.prem-apart {
@@ -394,24 +406,25 @@ a.prem-apart {
 
 #container_f {
   max-width: 100vw;
+  list-style-type: none;
+  text-decoration: none;
 }
 
-.container .row {
+.container .left-side {
   display: flex;
   justify-content: space-around;
   align-content: space-between;
   flex-wrap: wrap;
-  flex-direction: row;
 }
 
-.container .row ul {
+.container .left-side ul {
+  display: flex;
+  align-items: baseline;
   list-style: none;
-  background-color: #d8d8d8;
-  margin: 15px;
 }
 
-.container .row ul li {
-  line-height: 35px;
+.container .left-side ul li {
+  padding: 0 5px;
 }
 
 .links-ft {
@@ -435,8 +448,10 @@ a.prem-apart {
 
 #last-row-footer {
   justify-content: space-between;
+  align-content: center;
+  height: 80px;
   padding: 15px 5%;
-  background-color: lightgrey;
+  border-top: 1px solid lightgray;
 }
 
 #last-row-footer .fab {
@@ -531,8 +546,9 @@ a.prem-apart {
 }
 
 .container-flat .flat-block .container-text .flat-text span {
-  display: block;
+  display: inline-block;
   margin-top: 15px;
+  font-size: 18px;
 }
 
 .container-flat .flat-block .container-text .flat-text ul {
@@ -545,43 +561,17 @@ a.prem-apart {
 .container-flat .flat-block .container-text .flat-text ul li {
   list-style: none;
   display: inline-block;
-  margin-top: 15px;
+  padding: 15px 0;
+  font-size: 18px;
 }
 
-.container-flat .flat-block .container-text .flat-text ul li span {
+.container-flat .flat-block .container-text .flat-text ul li .rooms-details {
   display: inline-block;
   font-weight: bold;
 }
 
-.container-flat .flat-block .container-text .flat-form {
-  text-align: center;
-}
-
-.container-flat .flat-block .container-text .flat-form input {
-  margin: 10px;
-  border: 1px solid #ccc;
-  padding: 4px 8px;
-  border-radius: 20px;
-  outline: none;
-}
-
-.container-flat .flat-block .container-text .flat-form textarea {
-  height: 150px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  width: 75%;
-  outline: none;
-  resize: none;
-}
-
-.container-flat .flat-block .container-text .flat-form button {
-  background-color: salmon;
-  padding: 8px 16px;
-  margin: 10px 0;
-  border-radius: 10px;
-  outline: none;
-  border: none;
-  cursor: pointer;
+.container-flat .flat-block .container-text .flat-text ul li .rooms-details-number {
+  font-size: 23px;
 }
 
 .container-flat .flat-block .container-text hr {
@@ -595,35 +585,37 @@ a.prem-apart {
 .flat-form input {
   margin: 10px;
   border: 1px solid #ccc;
-  padding: 4px 8px;
+  padding: 6px 12px;
   border-radius: 20px;
   outline: none;
+  font-size: 17px;
 }
 
 .flat-form textarea {
   height: 150px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  width: 40%;
+  width: 30%;
   outline: none;
   resize: none;
   text-indent: 10px;
+  font-size: 17px;
 }
 
 .flat-form button {
-  background-color: salmon;
-  padding: 8px 25px;
+  padding: 10px 60px;
   margin: 10px 0;
   border-radius: 10px;
   outline: none;
-  border: none;
+  border: 2px solid #FF5A5F;
   cursor: pointer;
+  font-size: 18px;
   font-weight: bold;
   transition: background-color 0.5s, color 0.5s;
 }
 
 .flat-form button:hover {
-  background-color: #af3d41;
+  background-color: #FF5A5F;
   color: white;
 }
 
@@ -631,21 +623,37 @@ a.prem-apart {
   width: 65%;
   margin: auto;
   margin-top: 50px;
+  margin-bottom: 50px;
   display: flex;
-  justify-content: space-between;
-  height: auto;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 
 .my-apartment .stats {
   display: flex;
-  width: 50%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-apartment .stats .stats-container {
+  padding-bottom: 50px;
+}
+
+.my-apartment .stats .charts {
+  padding-bottom: 50px;
+}
+
+.my-apartment .stats .charts canvas {
+  margin: 40px 0;
 }
 
 .my-apartment .messages {
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
-  width: 50%;
+  width: 60%;
+  margin-top: 150px;
   align-items: center;
 }
 
@@ -656,7 +664,7 @@ a.prem-apart {
 
 .my-apartment .messages .received-msgs .msg {
   overflow-y: auto;
-  height: 400px;
+  height: auto;
   padding: 5px 10px;
 }
 
@@ -680,7 +688,7 @@ a.prem-apart {
 }
 
 .my-apartment .messages .received-msgs .msg-row .new-msg-from {
-  color: #9b2424;
+  color: #b12c2c;
 }
 
 @media screen and (max-width: 1300px) {
@@ -697,24 +705,26 @@ a.prem-apart {
     width: 100% !important;
   }
 
-  .my-apartment .stats canvas {
-    width: 400px;
-  }
-
   .my-apartment .messages {
     width: 100%;
-    margin: auto;
-    margin-top: 50px;
   }
 }
 
 @media screen and (max-width: 650px) {
-  .my-apartment {
-    width: 100% !important;
+  .flat-description {
+    text-align: center;
   }
 
-  .stats canvas {
-    width: 350px !important;
+  .flat-text {
+    text-align: center;
+  }
+
+  .stats-container {
+    text-align: center;
+  }
+
+  .my-apartment {
+    width: 100% !important;
   }
 
   .messages {
@@ -723,6 +733,11 @@ a.prem-apart {
 
   .flat-img {
     max-width: 95% !important;
+  }
+
+  .charts {
+    width: 90vw !important;
+    height: 400px !important;
   }
 }
 
@@ -759,23 +774,23 @@ a.prem-apart {
   margin-left: 10px;
   padding: 10px 20px;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 2px solid #FF5A5F;
   text-transform: uppercase;
   text-decoration: none;
   color: inherit;
-  background-color: #ff5a5f;
   transition: background-color 0.5s, color 0.5s;
 }
 
 .main-box .box-side .right-side .box-apart a:hover {
-  background-color: #af3d41;
+  background-color: #FF5A5F;
   color: white;
 }
 
 .main-box .box-side .right-side .box-content {
   border: 1px solid black;
   padding: 0 20px;
-  border-radius: 5px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #bebdbd;
 }
 
 .main-box .box-side .right-side .box-content .apartment-row {
@@ -795,6 +810,7 @@ a.prem-apart {
   right: 0;
   color: green;
   border: 1px solid green;
+  background-color: inherit;
 }
 
 .main-box .box-side .right-side .box-content .apartment-row:last-of-type {
@@ -806,10 +822,16 @@ a.prem-apart {
   margin-left: 10px;
   padding: 3px 6px;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 1px solid #FF5A5F;
   text-transform: uppercase;
   text-decoration: none;
   color: inherit;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.main-box .box-side .right-side .box-content a:hover {
+  background-color: #FF5A5F;
+  color: white;
 }
 
 .main-box .box-side .stat-side {
@@ -855,11 +877,10 @@ a.prem-apart {
 }
 
 .container-login .form-group {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .container-login h1:first-of-type {
-  margin-top: 10px;
   display: block;
   text-align: center;
 }
@@ -870,13 +891,20 @@ a.prem-apart {
   border-radius: 20px;
   outline: none;
   border-color: #FF5A5F;
+  border-style: solid;
 }
 
 .container-login button {
   padding: 10px 20px;
   border-radius: 20px;
+  border-style: solid;
+  border-color: #FF5A5F;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.container-login button:hover {
   background-color: #FF5A5F;
-  border-color: black;
+  color: white;
 }
 
 .container-login .forget-psw {
@@ -928,6 +956,14 @@ a.prem-apart {
 .edit-container form .line input {
   border-color: #ff5a5f;
   border-style: solid;
+}
+
+.create-container form .line input::-webkit-outer-spin-button,
+.create-container form .line input::-webkit-inner-spin-button,
+.edit-container form .line input::-webkit-outer-spin-button,
+.edit-container form .line input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .create-container form .cover-img,
@@ -984,20 +1020,20 @@ a.prem-apart {
 
 .create-container form button,
 .edit-container form button {
-  padding: 20px 40px;
+  padding: 15px 55px;
   border-radius: 10px;
   margin-top: 20px;
   margin-bottom: 100px;
   border-style: solid;
-  background-color: #ff5a5f;
-  border: none;
-  transition: color 0.5s, background-color 0.5s;
+  border: 2px solid #FF5A5F;
+  background-color: transparent;
   font-weight: bold;
+  transition: color 0.5s, background-color 0.5s;
 }
 
 .create-container form button:hover,
 .edit-container form button:hover {
-  background-color: #f52027;
+  background-color: #FF5A5F;
   color: white;
 }
 

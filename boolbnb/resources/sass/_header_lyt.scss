@@ -94,8 +94,14 @@ header {
     .login-header-btn,
     .register-header-btn {
       padding: 7px 14px;
-      background-color: #ff5a5f;
+      border: 2px solid #ff5a5f;
       border-radius: 20px;
+      transition: background-color 0.5s, color 0.5s;
+
+      &:hover {
+        color: white;
+        background-color: #ff5a5f;
+      }
     }
 
     .hello-user {
@@ -106,13 +112,13 @@ header {
     .dashboard-header-btn {
       font-size: 17px;
       padding: 7px 14px;
-      background-color: #ff5a5f;
+      border: 2px solid #ff5a5f;
       border-radius: 20px;
       transition: background-color 0.5s, color 0.5s;
 
       &:hover {
         color: white;
-        background-color: #af3d41;
+        background-color: #ff5a5f;
       }
     }
   }
