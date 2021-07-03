@@ -16,8 +16,8 @@
 
             {{-- servizi --}}
             <div class="box-service" 
-            :style="@{{ visibility }}"
-            v-html="visibility"
+            {{-- :style="@{{ visibility }}"
+            v-html="visibility" --}}
             >
                 <div class="dis-flex">
                     <div v-for="service in allServices" class="my-services">
