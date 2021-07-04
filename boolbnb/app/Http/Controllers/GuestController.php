@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
-use Illuminate\Support\Facades\Http;
-
 use Illuminate\Http\Request;
 
 use App\Apartment;
@@ -13,11 +11,6 @@ use App\Service;
 use App\Sponsorship;
 
 class GuestController extends Controller {
-
-    public function testApi(){
-
-        return Http::get('https://api.tomtom.com/search/2/geocode/via%20Cogoleto%209%20roma%20it.JSON?key=e221oCcENGoXZRDyweSTg7PnYGiEXO82')->body();
-    }
     
     public function index(){
 

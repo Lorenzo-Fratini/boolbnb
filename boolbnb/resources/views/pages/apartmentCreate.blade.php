@@ -17,117 +17,90 @@
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
             {{-- title --}}
-            <div class="line">
-                <div>
-                    <label for="title">Titolo</label>
-                    <div>
-                        <input id="title" type="text" name="title">
-                    </div>
-                </div>
-                {{-- description --}}
-                <div>
-                    <label for="description">Descrizione</label>
-                    <div>
-                        <input id="description" type="text" name="description">
-                    </div>
-                </div>
+            <div class="form-input">
+                <label for="title">Titolo</label>
+                <input id="title" type="text" name="title">
             </div>
-            <div class="line">
-                {{-- rooms number --}}
-                <div>
+            {{-- description --}}
+            <div class="form-input">
+                <label for="description">Descrizione</label>
+                {{-- <input id="description" type="text" name="description"> --}}
+                <textarea id="description" name="description" rows="5"></textarea>
+            </div>
+
+            <div class="row">
+                {{-- rooms --}}
+                <div class="form-input">
                     <label for="rooms_number">Stanze</label>
-                    <div>
-                        <input id="rooms_number" type="number" name="rooms_number" min="1"
-                            oninput="validity.valid||(value='')">
-                    </div>
+                    <input id="rooms_number" type="number" name="rooms_number" min="1" oninput="validity.valid||(value='')">
                 </div>
-                {{-- beds number --}}
-                <div>
+                {{-- beds --}}
+                <div class="form-input">
                     <label for="beds_number">Letti</label>
-                    <div>
-                        <input id="beds_number" type="number" name="beds_number" min="1"
-                            oninput="validity.valid||(value='')">
-                    </div>
+                    <input id="beds_number" type="number" name="beds_number" min="1" oninput="validity.valid||(value='')">
                 </div>
             </div>
-            {{-- bathrooms number --}}
-            <div class="line">
-                <div>
+
+            <div class="row">
+                {{-- bathrooms --}}
+                <div class="form-input">
                     <label for="bathrooms_number">Bagni</label>
-                    <div>
-                        <input id="bathrooms_number" type="number" name="bathrooms_number" min="1"
-                            oninput="validity.valid||(value='')">
-                    </div>
+                    <input id="bathrooms_number" type="number" name="bathrooms_number" min="1" oninput="validity.valid||(value='')">
                 </div>
                 {{-- area --}}
-                <div>
+                <div class="form-input">
                     <label for="area">m²</label>
-                    <div>
-                        <input id="area" type="number" name="area" min="1" oninput="validity.valid||(value='')">
-                    </div>
+                    <input id="area" type="number" name="area" min="1" oninput="validity.valid||(value='')">
                 </div>
             </div>
-            {{-- address --}}
-            <div class=" line">
-                <div>
+
+            <div class="row">
+                {{-- address --}}
+                <div class="form-input">
                     <label for="address">Indirizzo</label>
-                    <div>
-                        <input id="address" type="text" name="address">
-                    </div>
+                    <input id="address" type="text" name="address">
                 </div>
                 {{-- city --}}
-                <div>
+                <div class="form-input">
                     <label for="city">Città</label>
-                    <div>
-                        <input id="city" type="text" name="city">
-                    </div>
+                    <input id="city" type="text" name="city">
                 </div>
             </div>
-            {{-- country --}}
-            <div class="line">
-                <div class="form-group row mix">
+
+            <div class="row">
+                {{-- country --}}
+                <div class="form-input">
                     <label for="country">Nazione</label>
-                    <div>
-                        <input id="country" type="text" name="country">
-                    </div>
+                    <input id="country" type="text" name="country">
                 </div>
                 {{-- postal_code --}}
-                <div>
+                <div class="form-input">
                     <label for="postal_code">CAP</label>
-                    <div>
-                        <input id="postal_code" type="text" name="postal_code">
-                    </div>
+                    <input id="postal_code" type="text" name="postal_code">
                 </div>
             </div>
+
             {{-- cover image --}}
-            <div class="cover-img">
-                <label for="cover_image">
-                    <h3>Immagine di copertina</h3>
-                </label>
-                <div>
-                    <input id="cover_image" type="file" name="cover_image">
-                </div>
+            <div class="form-input cover-img">
+                <label for="cover_image">Immagine di copertina</label>
+                <input id="cover_image" type="file" name="cover_image">
             </div>
             {{-- services --}}
             <h2 class="servizih2">Servizi</h2>
             <div class="services">
-                <div>
-                    @foreach ($services as $service)
-                        <div class="service">
-                            <input type="checkbox" id="service_id[]" name="service_id[]" value="{{ $service->id }}">
-                            <br>
-                            <span for="service_id">{{ $service->name }}</span>
-                        </div>
-                    @endforeach
-                </div>
+                @foreach ($services as $service)
+                    <div class="service">
+                        <input class="toggle" type="checkbox" id="service_id[]" name="service_id[]" value="{{ $service->id }}">
+                        <p for="service_id">{{ $service->name }}</p>
+                    </div>
+                @endforeach
             </div>
 
             {{-- BUTTON --}}
-            <div>
-                <button type="submit">
-                    CREA
-                </button>
-            </div>
+            <button type="submit">
+                CREA
+            </button>
+
         </form>
     </div>
 @endsection
