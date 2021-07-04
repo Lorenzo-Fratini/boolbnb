@@ -41,7 +41,8 @@
 .box-service {
     height: 110px;
 
-    display: none;
+    // display: none;
+    display: flex;
 
     flex-direction: column;
     align-items: center;
@@ -133,8 +134,7 @@
 }
 
 #mymap {
-    // border: 1px solid black;
-    width: 50vw;
+    width: 40vw;
     height: 98%;
 }
 
