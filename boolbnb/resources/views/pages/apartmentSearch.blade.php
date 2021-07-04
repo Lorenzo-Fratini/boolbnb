@@ -2,28 +2,40 @@
 
 @section('content')
     <main>
-            <div id="search">
+        <div id="search">
+            {{-- button menu' --}}
+            <div id="menu">
+                <button class="button" v-on:click="navbar">
+                    <i class="far fa-compass"></i>
+                    <span class="des-butt">FILTRI</span>
+                </button>
+            </div>
 
             {{-- servizi --}}
             <div class="box-service">
-                <div style="display:flex">
+                <div class="dis-flex">
                     <div v-for="service in allServices" class="my-services">
                         <input v-on:change="filterApartments" type="checkbox" :name="service.name" :value="service.id"
                             v-model="filterServices">
                         <label for="" style="margin-right:10px">@{{ service . name }}</label>
                     </div>
                 </div>
-
-                <div>
-                    <label for="rooms">Rooms</label>
-                    <input v-on:change="filterApartments" type="number" name="rooms" id="rooms" v-model="rooms"
-                        onkeydown="return false" min="1">
-                    <label for="beds">Beds</label>
-                    <input v-on:change="filterApartments" type="number" name="beds" id="beds" v-model="beds"
-                        onkeydown="return false" min="1">
+                <div class="dis-flex filter">
+                    <div class="center">
+                        <label for="rooms">Camere</label>
+                        <input v-on:change="filterApartments" type="number" name="rooms" id="rooms" v-model="rooms"
+                            onkeydown="return false" min="1">
+                    </div>
+                    <div class="center">
+                        <label for="beds">Letti</label>
+                        <input v-on:change="filterApartments" type="number" name="beds" id="beds" v-model="beds"
+                            onkeydown="return false" min="1">
+                    </div>
+                    <div class="center">
                         <label for="radius">Raggio</label>
                         <input v-on:change="filterApartments" type="range" id="radius" name="radius" v-model="radius"
                         min="0" max="20">
+                    </div>
                 </div>
             </div>
 
@@ -31,25 +43,21 @@
             <div class="box-app-map">
                 <div class="my-apartments">
                     <div v-for="apartment in currentApartments" v-if="apartment.visible == 0" class="spc-apart">
-{{--                         <a :href="'/apartment/' + apartment.id">
- --}}                        <hr>
+                        <hr>
+                         <a :href="'/apartment/' + apartment.id">
                             <div id="img-box">
                                 <img :src="'/storage/images/' + apartment.cover_image">
                             </div>
-                            
                             <div class="ap-description">
-
                                 <h3>
-
                                     @{{ apartment.title }}
-
                                 </h3>
-
-                                Address: @{{ apartment.address}}
-
+                                <p>
+                                    Indirizzo: @{{ apartment.address}}
+                                </p>
                             </div>
-{{--                         </a>
- --}}                    </div>
+                         </a>
+                    </div>
                     <hr>
                 </div>
                 {{-- tom tom --}}
@@ -62,6 +70,7 @@
         </div>
     </main>
 
+    {{-- Vue Js --}}
     <script>
         new Vue({
 
@@ -81,6 +90,7 @@
                 lon: 0,
                 beds: '1',
                 rooms: '1',
+                visibility: 'display: none',
             },
 
             methods: {
@@ -228,6 +238,22 @@
 
                         });
 
+                },
+
+                navbar: function () {
+                    if (this.visibility == 'display: none') {
+
+                        // console.log(this.visibility);
+
+                        this.visibility = 'display: flex';
+
+                        console.log(this.visibility);
+
+                    } else {
+                        this.visibility = 'display: none';
+
+                        console.log(this.visibility);
+                    }
                 }
 
             },

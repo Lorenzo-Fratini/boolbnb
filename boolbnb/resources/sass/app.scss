@@ -45,6 +45,20 @@
       }
 }
 
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: 80%;
+  padding: 50px 0;
+  margin: auto;
+  flex-grow: 1;
+}
+
 button {
     cursor: pointer;
 }
@@ -61,7 +75,7 @@ button {
     border-radius: 10px;
     border: none;
 
-    background-color: #ff5a5f;
+    border: 1px solid #ff5a5f;
 }
 
 
@@ -69,6 +83,7 @@ button {
 // Fonts
 // @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url("https://fonts.googleapis.com/css2?family=Benne&display=swap");
+//@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
 
 // lyt-pages
 @import "header_lyt"; //consigliato margin-top: 80px;
@@ -81,3 +96,5 @@ button {
 @import "createapartment";
 @import "searchapartment";
 @import "sponsorship";
+@import "checkout";
+
