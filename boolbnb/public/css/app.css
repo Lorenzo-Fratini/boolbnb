@@ -348,11 +348,16 @@ header .user-header .dashboard-header-btn:hover {
   margin: 25px auto;
   line-height: 1.6;
   border-radius: 30px;
-  background: linear-gradient(to right, black 42%, rgba(255, 255, 255, 0) 100%), url(/images/woman.jpg?92e97cd46ee196a660d34104aa72ca71) no-repeat right;
+  background: linear-gradient(to right, black 48%, rgba(255, 255, 255, 0) 70%), url(/images/woman.jpg?92e97cd46ee196a660d34104aa72ca71) no-repeat right;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
+}
+
+#adv-body .big-button {
+  background-color: rgba(255, 90, 95, 0.3);
+  color: #ff5a5f;
 }
 
 #adv-body div {
@@ -1095,7 +1100,7 @@ a.prem-apart {
 
 .box-service {
   height: 110px;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -1172,7 +1177,7 @@ a.prem-apart {
 }
 
 #mymap {
-  width: 50vw;
+  width: 40vw;
   height: 98%;
 }
 

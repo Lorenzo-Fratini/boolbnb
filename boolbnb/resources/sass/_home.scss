@@ -98,11 +98,16 @@
   margin: 25px auto;
   line-height: 1.6;
   border-radius: 30px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 1) 42%, rgba(255, 255, 255, 0) 100%), url('storage/images/woman.jpg') no-repeat right; 
+  background: linear-gradient(to right, rgba(0, 0, 0, 1) 48%, rgba(255, 255, 255, 0) 70%), url('storage/images/woman.jpg') no-repeat right; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
+
+  .big-button {
+    background-color: rgba(#ff5a5f, $alpha: 0.3);
+    color: #ff5a5f;
+  }
 
   div {
     width: 50%;
