@@ -237,7 +237,7 @@ class LoggedController extends Controller {
             return view('pages.sponsorshipPayment', compact('token', 'sponsorships', 'apartment'));
         }
 
-        return redirect() -> route('dashboard', Auth::id());
+        return redirect() -> route('index');
     }
 
     public function paymentCheckout(Request $request, $id) {
@@ -284,7 +284,7 @@ class LoggedController extends Controller {
             $apartment -> save();
 
 
-            return back()->with('success_message', 'Transazione riuscita' . ' ' .  $transaction -> id);
+            return view('pages.successCheckout', compact('apartment', 'sponsorship', 'endDate', 'startDate'));
         } else {
 
             $errorString = "";
@@ -295,7 +295,14 @@ class LoggedController extends Controller {
 
             $error = $result -> message;
             
-            return back()->withErrors('an error occured with the message' . $result -> message);
+            return back() -> withErrors('an error occured with the message' . $result -> message);
         } 
     }
+
+    /* public function successCheckout($id) {
+
+        $apartment = Apartment::findOrFail($id);
+
+        return redirect() -> route('dashboard', $apartment -> user_id);
+    } */
 }
