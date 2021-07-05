@@ -54,9 +54,9 @@
                             @foreach ($apartment->services as $service)
 
                                 {{ $service->name }}
-
+                                <i class=" {{ $service->icon }} "></i>
                                 @if (!$loop->last)
-                                    -
+                                    |
                                 @endif
 
                             @endforeach
@@ -71,7 +71,7 @@
         <div class="flat-form">
             <h3>Desideri maggiori informazioni? <br> Contatta {{ $apartment->title }}</h3>
 
-            <form method="POST" action="{{ route('storeMessage') }}">
+            <form method="POST" action="{{ route('storeMessage', $apartment->id) }}">
 
                 @csrf
                 @method('POST')

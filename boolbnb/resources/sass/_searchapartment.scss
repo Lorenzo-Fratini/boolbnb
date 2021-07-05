@@ -169,61 +169,84 @@ ul, li {
     .box-app-map {
         display: flex;
         flex-direction: column;
+        justify-content: center;
 
         .box-map {
-            width: 100%;
-            height: 300px;
+            width: 100vw;
+            height: 600px;
 
             #mymap {
-                width: 100%;
-                height: 100%;
+                width: 95vw;
+                //height: 100%;
+                border-top: 0.5px solid black;
             }
         } 
 
-}
+    }
+}    
 
 @media screen and (max-width: 576px) {
-    .serv-bottom {
-        //flex-wrap: wrap;
 
-        .center {
-    
-            label {
-                margin: 5px 0;
-            }
-    
-            .inp {
-                width: 60px;
-            }
-        }
-    }
+    .box-app-map {
 
-    .box-title{
-        text-align: center;
-    }
+        height: 100%;
 
-    .box-list-apt {
-        display: flex;
-        flex-direction: column;
-        margin: 5px 0;
+        .my-apartments {
 
-        .ap-description {
+            overflow: unset;
 
-            .box-apts {
-                text-align: center;
+            .serv-bottom {
 
-                .box-options {
-                    display: flex;
-                    justify-content: center;
+                .center {
+            
+                    label {
+                        margin: 5px 0;
+                    }
+            
+                    .inp {
+                        width: 60px;
+                    }
                 }
             }
+        
+            .box-title{
+                text-align: center;
+            }
+        
+            .box-list-apt {
+                display: flex;
+                flex-direction: column;
+                margin: 5px 0;
+        
+                .ap-description {
+        
+                    .box-apts {
+                        text-align: center;
+        
+                        .box-options {
+                            display: flex;
+                            justify-content: center;
+                        }
+                    }
+                }
+        
+                #img-box {
+                    margin: 15px 0;
+                }
+            }
+    
         }
 
-        #img-box {
-            margin: 15px 0;
-        }
+        .box-map {
+            min-height: 250px;
+
+            #mymap {
+                width: 95vw;
+                //height: 100%;
+                border-top: 0.5px solid black;
+            }
+        } 
     }
 }
 
-}
 }

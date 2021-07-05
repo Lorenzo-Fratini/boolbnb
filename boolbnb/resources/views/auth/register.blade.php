@@ -8,7 +8,7 @@
                 <div class="col-md-8">
                     <div class="card">
                         <h1 class="">Register</h1>
-        
+
                         <div class="card-body">
                             <div class="border-reg">
                                 <form method="POST" action="{{ route('register') }}">

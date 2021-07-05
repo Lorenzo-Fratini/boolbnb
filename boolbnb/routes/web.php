@@ -8,7 +8,7 @@ Route::get('/', 'GuestController@index')
 Route::get('/apartment/{id}', 'GuestController@showApartment')
     -> name('showApartment');
 
-Route::post('/message/store', 'GuestController@storeMessage')
+Route::post('/message/store/{id}', 'GuestController@storeMessage')
     -> name('storeMessage');
 
 Route::get('/search', 'GuestController@search')
@@ -38,8 +38,5 @@ Route::get('/sponsorshipPayment/{id}', 'LoggedController@sponsorshipPayment')
 
 Route::post('/paymentCheckout/{id}', 'LoggedController@paymentCheckout')
     -> name('paymentCheckout');
-
-/* Route::post('/successCheckout/{id}', 'LoggedController@successCheckout')
-    -> name('successCheckout'); */
 
 Auth::routes();

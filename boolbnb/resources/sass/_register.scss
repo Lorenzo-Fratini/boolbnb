@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 .register-container {
     width: 100;
@@ -49,5 +49,11 @@
             background-color: $header_red;
             border-color: black;
         }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .register-container .card-body {
+        width: 90%;
     }
 }

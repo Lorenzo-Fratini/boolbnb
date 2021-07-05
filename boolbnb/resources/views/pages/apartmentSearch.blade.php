@@ -64,7 +64,6 @@
                 {{-- tom tom map --}}
                 <div id="map" class="box-map">
                     <div id="mymap">
-                        Tom Tom Map
                     </div>
                 </div>
             </div>
@@ -135,7 +134,7 @@
                             });
 
                     }
-                    
+
 
                 },
 
@@ -243,7 +242,7 @@
 
                 },
 
-                navbar: function () {
+                navbar: function() {
                     if (this.visibility == 'display: none') {
 
                         // console.log(this.visibility);
