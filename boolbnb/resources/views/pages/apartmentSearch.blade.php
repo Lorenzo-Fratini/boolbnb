@@ -25,7 +25,7 @@
                             onkeydown="return false" min="1" class="inp">
                     </div>
                     <div class="center">
-                        <label for="radius">Raggio</label>
+                        <label for="radius">Raggio - @{{ this.radius }}km</label>
                         <input v-on:change="filterApartments" type="range" id="radius" name="radius" v-model="radius"
                         min="0" max="20">
                     </div>
@@ -48,10 +48,10 @@
                                     @{{ apartment.title }}
                                 </h3>   
                                 <p>
-                                    Indirizzo: @{{ apartment.address}}
+                                    <i class="fas fa-map-marker-alt"></i>  @{{ apartment.address}}
                                 </p>
                                 <p>
-                                    Città: @{{ apartment.city}}
+                                    <i class="fas fa-city"></i>  @{{ apartment.city}}
                                 </p>
                             </div>
                          </a>
