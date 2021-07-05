@@ -108,6 +108,10 @@
                         .rooms-details-number {
                             font-size: 23px;
                         }
+
+                        i {
+                            margin-left: 2px;
+                        }
                     }
                 }
             }
@@ -192,16 +196,22 @@
         display: flex;
         flex-direction: column;
         width: 60%;
-        margin-top: 150px;
+        margin-top: 300px;
         align-items: center;
 
         .received-msgs {
             width: 90%;
             margin: auto;
+            text-align: center;
+
+            .no-msg-received {
+                margin-top: 25px;
+                font-weight: bold;
+            }
 
             .msg {
                 overflow-y: auto;
-                height: auto;
+                max-height: 400px;
                 padding: 5px 10px;
             }
 
@@ -220,11 +230,12 @@
             }
 
             .msg-row {
-                border: 1px solid black;
+                border-bottom: 1px solid black;
                 padding: 5px;
 
                 .new-msg-from {
-                    color: rgb(177, 44, 44);
+                    color: $header_red;
+                    font-weight: bold;
                 }
             }
         }
