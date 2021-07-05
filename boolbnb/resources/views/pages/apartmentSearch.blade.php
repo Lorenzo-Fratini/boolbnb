@@ -64,7 +64,6 @@
                 {{-- tom tom map --}}
                 <div id="map" class="box-map">
                     <div id="mymap">
-                        Tom Tom Map
                     </div>
                 </div>
             </div>
