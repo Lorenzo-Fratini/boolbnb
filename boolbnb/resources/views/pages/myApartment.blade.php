@@ -53,9 +53,9 @@
                             @foreach ($apartment->services as $service)
 
                                 {{ $service->name }}
-
+                                <i class=" {{ $service->icon }} "></i>
                                 @if (!$loop->last)
-                                    -
+                                    |
                                 @endif
 
                             @endforeach
@@ -81,9 +81,9 @@
                         </option>
                     </select>
 
-                    <div class="charts" style="position: relative; height:400px; width:60vw">
-                        <canvas id="statisticsChart" width="800px height:200px"></canvas>
-                        <canvas id="messagesChart" width="800px height:200px"></canvas>
+                    <div class="charts" style="position: relative; height:500px; width:60vw">
+                        <canvas id="statisticsChart" width="800px height:250px"></canvas>
+                        <canvas id="messagesChart" width="800px height:250px"></canvas>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
 
                         </div>
                     @else
-                        <p>Non hai messaggi da leggere</p>
+                        <p class="no-msg-received">Non hai messaggi da leggere</p>
                     @endif
 
                 </div>

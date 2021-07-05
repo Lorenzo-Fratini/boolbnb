@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Benne&display=swap);* {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: montserrat;
   box-sizing: border-box;
   font-family: "Benne", serif;
   /* Track */
@@ -18,14 +18,12 @@
 }
 
 * ::-webkit-scrollbar-thumb {
-  background: lightgray;
+  background: gray;
   border-radius: 10px;
-  display: none;
 }
 
 * ::-webkit-scrollbar-thumb:hover {
-  background: gray;
-  display: block;
+  background: #636161;
 }
 
 * .box-service {
@@ -599,6 +597,10 @@ li a {
   font-size: 23px;
 }
 
+.container-flat .flat-block .container-text .flat-text ul li i {
+  margin-left: 2px;
+}
+
 .container-flat .flat-block .container-text hr {
   margin: 25px;
 }
@@ -678,18 +680,24 @@ li a {
   display: flex;
   flex-direction: column;
   width: 60%;
-  margin-top: 150px;
+  margin-top: 300px;
   align-items: center;
 }
 
 .my-apartment .messages .received-msgs {
   width: 90%;
   margin: auto;
+  text-align: center;
+}
+
+.my-apartment .messages .received-msgs .no-msg-received {
+  margin-top: 25px;
+  font-weight: bold;
 }
 
 .my-apartment .messages .received-msgs .msg {
   overflow-y: auto;
-  height: auto;
+  max-height: 400px;
   padding: 5px 10px;
 }
 
@@ -708,12 +716,13 @@ li a {
 }
 
 .my-apartment .messages .received-msgs .msg-row {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   padding: 5px;
 }
 
 .my-apartment .messages .received-msgs .msg-row .new-msg-from {
-  color: #b12c2c;
+  color: #FF5A5F;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1300px) {
