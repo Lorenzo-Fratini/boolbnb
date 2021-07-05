@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Benne&display=swap);* {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: montserrat;
   box-sizing: border-box;
   font-family: "Benne", serif;
   /* Track */
@@ -18,14 +18,12 @@
 }
 
 * ::-webkit-scrollbar-thumb {
-  background: lightgray;
+  background: gray;
   border-radius: 10px;
-  display: none;
 }
 
 * ::-webkit-scrollbar-thumb:hover {
-  background: gray;
-  display: block;
+  background: #636161;
 }
 
 * .box-service {
@@ -626,6 +624,10 @@ li a {
   font-size: 23px;
 }
 
+.container-flat .flat-block .container-text .flat-text ul li i {
+  margin-left: 2px;
+}
+
 .container-flat .flat-block .container-text hr {
   margin: 25px;
 }
@@ -705,18 +707,24 @@ li a {
   display: flex;
   flex-direction: column;
   width: 60%;
-  margin-top: 150px;
+  margin-top: 300px;
   align-items: center;
 }
 
 .my-apartment .messages .received-msgs {
   width: 90%;
   margin: auto;
+  text-align: center;
+}
+
+.my-apartment .messages .received-msgs .no-msg-received {
+  margin-top: 25px;
+  font-weight: bold;
 }
 
 .my-apartment .messages .received-msgs .msg {
   overflow-y: auto;
-  height: auto;
+  max-height: 400px;
   padding: 5px 10px;
 }
 
@@ -735,12 +743,13 @@ li a {
 }
 
 .my-apartment .messages .received-msgs .msg-row {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   padding: 5px;
 }
 
 .my-apartment .messages .received-msgs .msg-row .new-msg-from {
-  color: #b12c2c;
+  color: #FF5A5F;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1300px) {
@@ -1116,55 +1125,30 @@ li a {
   }
 }
 
-#menu {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-#menu .button {
-  width: 200px;
-  margin: 15px 0;
-  padding: 3px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0);
-  font-size: 22px;
-  color: #ff5a5f;
-  text-align: center;
-}
-
-#menu .button .des-butt {
-  display: none;
-}
-
-#menu .button:hover .des-butt {
-  display: inline-block;
-}
-
-#btn-menu {
-  display: flex;
-}
-
 .box-service {
-  height: 110px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 50px;
 }
 
-.box-service .dis-flex {
-  height: 45%;
-  width: 80%;
+.box-service .serv-top {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  margin-bottom: 10px;
   border: 2px solid #ff5a5f;
   border-radius: 30px;
+  padding: 10px 10px 10px 25px;
 }
 
-.box-service .filter {
-  width: 60%;
+.box-service .serv-bottom {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid #ff5a5f;
+  border: 2px solid #ff5a5f;
+  border-radius: 30px;
+  padding: 10px;
 }
 
 .box-service .center {
@@ -1173,7 +1157,11 @@ li a {
 }
 
 .box-service .center label {
-  margin-right: 10px;
+  margin: 0 10px;
+}
+
+.box-service .center .inp {
+  width: 60px;
 }
 
 .box-app-map {
@@ -1184,22 +1172,28 @@ li a {
 
 .box-app-map .my-apartments {
   overflow: auto;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-.box-app-map .my-apartments hr {
-  margin: 15px auto;
-  width: 90%;
+.box-app-map .my-apartments h2 {
+  margin: 10px 0;
+}
+
+.box-app-map .my-apartments .myline {
+  border-top: 1px solid lightgray;
 }
 
 .box-app-map .my-apartments .spc-apart {
   height: 25%;
+  margin: 5px 0;
 }
 
 .box-app-map .my-apartments .spc-apart a {
-  height: 100%;
-  padding: 10px;
+  display: flex;
+  padding: 10px 0;
   align-items: center;
-  flex-wrap: wrap;
   display: flex;
   color: black;
   text-decoration: none;
@@ -1207,12 +1201,14 @@ li a {
 
 .box-app-map .my-apartments .spc-apart a #img-box {
   width: 25%;
-  height: 80%;
+  height: 100%;
 }
 
 .box-app-map .my-apartments .spc-apart a #img-box img {
-  width: 100%;
-  height: 100%;
+  width: 120px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 10px;
 }
 
@@ -1220,12 +1216,60 @@ li a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 25px;
+  margin-left: 25px;
+}
+
+.box-app-map .my-apartments .spc-apart a .ap-description p {
+  margin-top: 10px;
 }
 
 #mymap {
   width: 40vw;
   height: 98%;
+}
+
+@media screen and (max-width: 1200px) {
+  main {
+    width: 90%;
+  }
+
+  .box-app-map .ap-description {
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .serv-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .box-app-map {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box-app-map .ap-description {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .box-app-map .box-map {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .serv-bottom .center label {
+    margin: 5px 0;
+  }
+
+  .serv-bottom .center .inp {
+    width: 60px;
+  }
 }
 
 #container-payment {
