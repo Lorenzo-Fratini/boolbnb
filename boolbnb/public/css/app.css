@@ -1332,7 +1332,7 @@ li {
 
   .box-app-map .box-map {
     width: 100vw;
-    height: 500px;
+    height: 600px;
   }
 
   .box-app-map .box-map #mymap {
@@ -1342,34 +1342,42 @@ li {
 }
 
 @media screen and (max-width: 880px) and (max-width: 576px) {
-  .serv-bottom .center label {
+  .box-app-map {
+    height: 100%;
+  }
+
+  .box-app-map .my-apartments {
+    overflow: unset;
+  }
+
+  .box-app-map .my-apartments .serv-bottom .center label {
     margin: 5px 0;
   }
 
-  .serv-bottom .center .inp {
+  .box-app-map .my-apartments .serv-bottom .center .inp {
     width: 60px;
   }
 
-  .box-title {
+  .box-app-map .my-apartments .box-title {
     text-align: center;
   }
 
-  .box-list-apt {
+  .box-app-map .my-apartments .box-list-apt {
     display: flex;
     flex-direction: column;
     margin: 5px 0;
   }
 
-  .box-list-apt .ap-description .box-apts {
+  .box-app-map .my-apartments .box-list-apt .ap-description .box-apts {
     text-align: center;
   }
 
-  .box-list-apt .ap-description .box-apts .box-options {
+  .box-app-map .my-apartments .box-list-apt .ap-description .box-apts .box-options {
     display: flex;
     justify-content: center;
   }
 
-  .box-list-apt #img-box {
+  .box-app-map .my-apartments .box-list-apt #img-box {
     margin: 15px 0;
   }
 }
