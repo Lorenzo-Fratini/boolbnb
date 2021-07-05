@@ -27,10 +27,10 @@ li a {
 
             ul {
                 display: flex;
-                align-items: baseline;
+                align-items: center;
                 list-style: none;
-                //background-color: green; //$lt_gray
-                //margin: 15px;
+                //debug
+                //background-color: green;
 
                 li {
                     padding: 0 10px;
@@ -87,8 +87,8 @@ li a {
     .container {
 
         .left-side ul {
-            display: flex;
             flex-direction: column;
+            text-align: center;
 
             li {
                 margin-top: 10px;
@@ -97,8 +97,4 @@ li a {
 
     }
 
-}
-
-@media screen and (max-width: 563px) {
-    // code
 }

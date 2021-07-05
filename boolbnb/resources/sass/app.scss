@@ -34,13 +34,13 @@
   }
 
   // sezione Servizi
-  .box-service {
-    margin: 20px 0 20px 70px;
+  // .box-service {
+  //   margin: 20px 0 20px 70px;
 
-    .my-services input {
-      padding: 0 10px;
-    }
-  }
+  //   .my-services input {
+  //     padding: 0 10px;
+  //   }
+  // }
 }
 
 body {
@@ -78,8 +78,8 @@ button {
 
 // Fonts
 // @import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Benne&display=swap");
-//@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
 
 // lyt-pages
 @import "header_lyt"; //consigliato margin-top: 80px;
