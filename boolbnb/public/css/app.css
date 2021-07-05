@@ -245,6 +245,39 @@ header .user-header .dashboard-header-btn:hover {
   }
 }
 
+@media screen and (max-width: 800px) {
+  .container-ap .row .mini-container {
+    min-width: 75%;
+  }
+
+  .container-ap .row .mini-container a .details {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-ap .row .mini-container {
+    min-width: 75%;
+    max-height: 125px;
+  }
+
+  .container-ap .row .mini-container .ap-img {
+    margin-top: -77px;
+  }
+
+  .container-ap .row .mini-container a .white-buble {
+    font-size: 15px;
+  }
+
+  .container-ap .row .mini-container a .white-buble .details {
+    display: none;
+  }
+
+  .container-ap #adv-body div p {
+    display: none;
+  }
+}
+
 .container-content {
   height: 600px;
   background-color: #ccc;
@@ -391,12 +424,6 @@ a.prem-apart {
   font-size: 15px;
   line-height: 15px;
   margin-left: 5px;
-}
-
-@media screen and (max-width: 800px) {
-  .mini-container {
-    width: 65% !important;
-  }
 }
 
 li a {
