@@ -1093,7 +1093,8 @@ li a {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 50px;
 }
 
 .box-service .serv-top {
@@ -1182,22 +1183,50 @@ li a {
   margin-left: 25px;
 }
 
+.box-app-map .my-apartments .spc-apart a .ap-description p {
+  margin-top: 10px;
+}
+
 #mymap {
   width: 40vw;
   height: 98%;
 }
 
+@media screen and (max-width: 1200px) {
+  main {
+    width: 90%;
+  }
+
+  .box-app-map .ap-description {
+    padding-left: 20px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .serv-top {
-    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .box-app-map {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box-app-map .ap-description {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .box-app-map .box-map {
+    display: none;
   }
 }
 
 @media screen and (max-width: 576px) {
-  .serv-bottom {
-    flex-wrap: wrap;
-  }
-
   .serv-bottom .center label {
     margin: 5px 0;
   }
