@@ -32,8 +32,8 @@
                 </div>
             </div>
 
-            {{-- appartamenti --}}
             <div class="box-app-map">
+                {{-- appartamenti --}}
                 <div class="my-apartments">
                     <h2>Appartamenti:</h2>
                     <div v-for="apartment in currentApartments" v-if="apartment.visible == 0" class="spc-apart">
@@ -57,7 +57,7 @@
                          </a>
                     </div>
                 </div>
-                {{-- tom tom --}}
+                {{-- tom tom map --}}
                 <div id="map" class="box-map">
                     <div id="mymap">
                         Tom Tom Map
@@ -69,6 +69,8 @@
 
     {{-- Vue Js --}}
     <script>
+
+    
         new Vue({
 
             el: '#search',
