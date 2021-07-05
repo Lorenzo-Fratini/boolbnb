@@ -1065,28 +1065,48 @@ li a {
   }
 }
 
-.register-container label {
+.register-container {
+  width: 100;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.register-container .border-reg {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.register-container .border-reg label {
   width: 150px;
 }
 
-.register-container .form-group {
-  margin: 20px 0;
+.register-container .border-reg .form-group {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.register-container h1:first-of-type {
+.register-container .border-reg h1:first-of-type {
   margin-top: 10px;
   display: block;
   text-align: center;
 }
 
-.register-container input {
+.register-container .border-reg input {
   padding: 3px 6px;
   border-radius: 20px;
   outline: none;
   border-color: #FF5A5F;
 }
 
-.register-container button {
+.register-container .border-reg button {
+  width: 100%;
   padding: 10px 20px;
   border-radius: 20px;
   background-color: #FF5A5F;
