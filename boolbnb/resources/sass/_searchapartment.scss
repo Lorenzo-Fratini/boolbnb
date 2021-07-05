@@ -174,7 +174,6 @@ ul, li {
         .box-map {
             width: 100vw;
             height: 600px;
-            //display: none;
 
             #mymap {
                 width: 95vw;
@@ -237,6 +236,16 @@ ul, li {
             }
     
         }
+
+        .box-map {
+            min-height: 250px;
+
+            #mymap {
+                width: 95vw;
+                //height: 100%;
+                border-top: 0.5px solid black;
+            }
+        } 
     }
 }
 
