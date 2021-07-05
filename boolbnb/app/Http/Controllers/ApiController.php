@@ -58,7 +58,7 @@ class ApiController extends Controller {
 
             $filterServices = explode(',', $filterServices);
             
-            $services = [];
+            $services = array();
             
             foreach ($filterServices as $data) {
                 
@@ -71,32 +71,6 @@ class ApiController extends Controller {
             }, "=", count($services))
             ->where('city', 'LIKE', '%' . $searchString . '%')
             ->get();
-    
-            $newApartments = [];
-    
-            foreach ($apartments as $apartment) {
-                
-                foreach ($apartment -> sponsorships as $apartRel) {
-    
-                    $endDate = $apartRel -> pivot -> end_date;
-    
-                    date_default_timezone_set('Europe/Rome');
-                    $currentDate = date('m/d/Y H:i:s', time());
-                    $endDateFormat = date('m/d/Y H:i:s', strtotime($endDate));
-                    
-                    if ($currentDate < $endDateFormat) {
-    
-                        !in_array($apartment, $newApartments) ? $newApartments [] = $apartment : '';
-                    }
-                }
-            }
-            
-            foreach ($apartments as $apartment) {
-                
-                !in_array($apartment, $newApartments) ? $newApartments [] = $apartment : '';
-            }
-
-            $apartments = $newApartments;
         }
 
         $filterBedsRooms = explode(',', $bedsRooms);
@@ -109,7 +83,7 @@ class ApiController extends Controller {
 
         $beds = $bedsRooms[0];
         $rooms = $bedsRooms[1];
-        $filteredApartments = [];
+        $filteredApartments = array();
 
         foreach ($apartments as $apartment) {
 
