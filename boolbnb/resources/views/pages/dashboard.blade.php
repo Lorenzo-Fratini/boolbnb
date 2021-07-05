@@ -15,11 +15,20 @@
                         <div class="box-content">
                             @foreach ($apartments as $apartment)
                                 <div class="apartment-row">
+                                    
+                                    <div class="img-box">
+
+                                        <img src="/storage/images/{{ $apartment->cover_image }}" alt="{{ $apartment->title }}">
+
+                                    </div>
     
-    
-                                    <i class="fas fa-home"></i>
-                                    <span>{{ $apartment->title }} - {{ $apartment->address }} -
-                                        {{ $apartment->city }}</span>
+                                    {{-- <i class="fas fa-home"></i> --}}
+                                    <div class="info-ap">
+                                        <h3>{{ $apartment->title }}</h3>
+                                        <span class="ap-address"><i class="fas fa-map-marked"></i> - {{ $apartment->address }}</span>
+                                        <span class="ap-city"><i class="fas fa-city"></i> - {{ $apartment->city }}</span>
+                                    </div>
+                                        
                                     <div class="dash-row-buttons">
     
                                         <a href="{{ route('myApartment', $apartment->id) }}">Dettagli</a>

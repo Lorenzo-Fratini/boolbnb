@@ -859,23 +859,54 @@ li a {
 }
 
 .main-box .box-side .right-side .box-content .apartment-row {
-  height: auto;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   border-bottom: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 40px 0;
   position: relative;
 }
 
+.main-box .box-side .right-side .box-content .apartment-row .info-ap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-box .box-side .right-side .box-content .apartment-row .info-ap h3 {
+  text-align: center;
+}
+
+.main-box .box-side .right-side .box-content .apartment-row .img-box {
+  width: 300px;
+  height: 125px;
+  margin: 20px 0;
+}
+
+.main-box .box-side .right-side .box-content .apartment-row .img-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
 .main-box .box-side .right-side .box-content .apartment-row .sponsor-alreadysponsored {
   position: absolute;
   top: 10px;
-  right: 0;
+  right: 37%;
   color: green;
   border: 1px solid green;
   background-color: inherit;
+}
+
+.main-box .box-side .right-side .box-content .dash-row-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .main-box .box-side .right-side .box-content .apartment-row:last-of-type {
