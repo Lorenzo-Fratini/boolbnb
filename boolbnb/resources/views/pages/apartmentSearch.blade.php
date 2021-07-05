@@ -1,63 +1,65 @@
 @extends('layouts.main-layout')
 
 @section('content')
-    <main>
+    <div class="box-container">
         <div id="search">
-            <div class="box-service">
-                {{-- servizi --}}
-                <div class="serv-top">
-                    <div v-for="service in allServices" class="my-services">
-                        <input v-on:change="filterApartments" type="checkbox" :name="service.name" :value="service.id"
-                            v-model="filterServices">
-                        <label for="" style="margin-right:10px">@{{ service . name }}</label>
-                    </div>
-                </div>
-                {{-- camere - letti - raggio --}}
-                <div class="serv-bottom">
-                    <div class="center">
-                        <label for="rooms">Camere</label>
-                        <input v-on:change="filterApartments" type="number" name="rooms" id="rooms" v-model="rooms"
-                            onkeydown="return false" min="1" class="inp">
-                    </div>
-                    <div class="center">
-                        <label for="beds">Letti</label>
-                        <input v-on:change="filterApartments" type="number" name="beds" id="beds" v-model="beds"
-                            onkeydown="return false" min="1" class="inp">
-                    </div>
-                    <div class="center">
-                        <label for="radius">Raggio</label>
-                        <input v-on:change="filterApartments" type="range" id="radius" name="radius" v-model="radius"
-                        min="0" max="20">
-                    </div>
-                </div>
-            </div>
-
-            {{-- appartamenti --}}
             <div class="box-app-map">
+                {{-- appartamenti --}}
                 <div class="my-apartments">
+                    <div class="box-service">
+                        {{-- servizi --}}
+                        <div class="serv-top">
+                            <div v-for="service in allServices" class="my-services">
+                                <input v-on:change="filterApartments" type="checkbox" :name="service.name" :value="service.id"
+                                    v-model="filterServices">
+                                <label for="" style="margin-right:10px">@{{ service . name }}</label>
+                            </div>
+                        </div>
+                        {{-- camere - letti - raggio --}}
+                        <div class="serv-bottom">
+                            <div class="center">
+                                <label for="rooms">Camere</label>
+                                <input v-on:change="filterApartments" type="number" name="rooms" id="rooms" v-model="rooms"
+                                    onkeydown="return false" min="1" class="inp">
+                            </div>
+                            <div class="center">
+                                <label for="beds">Letti</label>
+                                <input v-on:change="filterApartments" type="number" name="beds" id="beds" v-model="beds"
+                                    onkeydown="return false" min="1" class="inp">
+                            </div>
+                            <div class="center">
+                                <label for="radius">Raggio @{{ this.radius }} (km)</label>
+                                <input v-on:change="filterApartments" type="range" id="radius" name="radius" v-model="radius"
+                                min="0" max="20">
+                            </div>
+                        </div>
+                    </div>
                     <h2>Appartamenti:</h2>
                     <div v-for="apartment in currentApartments" v-if="apartment.visible == 0" class="spc-apart">
                         <div class="myline">
                         </div>
-                         <a :href="'/apartment/' + apartment.id">
+                        <a :href="'/apartment/' + apartment.id" class="box-list-apt">
                             <div id="img-box">
                                 <img :src="'/storage/images/' + apartment.cover_image">
                             </div>
                             <div class="ap-description">
-                                <h3>
-                                    @{{ apartment.title }}
-                                </h3>   
-                                <p>
-                                    Indirizzo: @{{ apartment.address}}
-                                </p>
-                                <p>
-                                    Città: @{{ apartment.city}}
-                                </p>
+                                <ul class="box-apts">
+                                    <li><h3>@{{ apartment.title }}</h3></li>
+                                    <li><i class="fas fa-map-marker-alt"></i>  @{{ apartment.address}}</li>
+                                    <li><i class="fas fa-city"></i>  @{{ apartment.city}}</li>
+                                    <li>
+                                        <ul class="box-options">
+                                            <li><i class="fas fa-door-open"></i>  @{{ apartment.rooms_number}}</li>
+                                            <li><i class="fas fa-bed"></i>  @{{ apartment.beds_number}}</li>
+                                            <li><i class="fas fa-toilet"></i>  @{{ apartment.bathrooms_number}}</li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </div>
-                         </a>
+                        </a>
                     </div>
                 </div>
-                {{-- tom tom --}}
+                {{-- tom tom map --}}
                 <div id="map" class="box-map">
                     <div id="mymap">
                         Tom Tom Map
@@ -65,10 +67,12 @@
                 </div>
             </div>
         </div>
-    </main>
+    </div>   
 
     {{-- Vue Js --}}
     <script>
+
+    
         new Vue({
 
             el: '#search',

@@ -1,5 +1,6 @@
 //variables
 @import "variables";
+@import "mobile-lyt/m-home";;
 
 .container-content {
   height: 600px;
@@ -158,8 +159,4 @@ a.prem-apart {
   }
 }
 
-@media screen and(max-width:800px) {
-  .mini-container {
-    width: 65% !important;
-  }
-}
+// per il layout mobile controllare nella sottocartella mobile-lyt
