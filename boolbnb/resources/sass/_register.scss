@@ -1,37 +1,52 @@
-@import 'variables';
+@import "variables";
 
 .register-container {
-
     label {
-
         width: 150px;
     }
 
-    .form-group {
+    .card-body {
+        text-align: center;
+        border: 2px solid black;
+        border-radius: 10px;
+        box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.411);
+        width: 600px;
+        margin: auto;
+    }
 
+    .form-group {
         margin: 20px 0;
     }
 
     h1:first-of-type {
-
         margin-top: 10px;
         display: block;
         text-align: center;
     }
 
     input {
-
         padding: 3px 6px;
         border-radius: 20px;
         outline: none;
-        border-color: $header_red;
+        border: 2px solid $header_red;
     }
 
     button {
-
         padding: 10px 20px;
         border-radius: 20px;
-        background-color: $header_red;
-        border-color: black;
+        border: 2px solid $header_red;
+        font-size: 17px;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+            background-color: $header_red;
+            color: white;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .register-container .card-body {
+        width: 90%;
     }
 }

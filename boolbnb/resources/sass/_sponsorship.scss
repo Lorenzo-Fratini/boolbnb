@@ -11,6 +11,10 @@
 
         section {
             text-align: center;
+
+            .input-label {
+                margin-bottom: 15px;
+            }
             .amount {
                 align-items: center;
             }
@@ -25,9 +29,14 @@
                     flex-direction: column;
                     justify-content: center;
                     border-radius: 5px;
-                    border: 1px solid black;
+                    border: 1px solid $header_red;
                     padding: 4px;
                     margin: 0 20px;
+
+                    input:checked + label {
+                        background-color: $header_red;
+                        color: white;
+                    }
 
                     label {
                         padding: 8px;
@@ -47,14 +56,20 @@
                     }
                 }
             }
-
-            .bt-drop-in-wrapper {
-                width: 100%;
-            }
         }
 
         button {
             padding: 8px 16px;
+            background-color: transparent;
+            font-size: 18px;
+            border: 2px solid $header_red;
+            border-radius: 10px;
+            transition: background-color 0.3s, color 0.3s;
+
+            &:hover {
+                background-color: $header_red;
+                color: white;
+            }
         }
     }
 }

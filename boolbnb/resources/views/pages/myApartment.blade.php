@@ -100,7 +100,7 @@
                             @foreach ($messages as $message)
                                 <div class="msg-row">
 
-                                    <p class="new-msg-from">Hai un nuovo messaggio da: {{ $message->email }} </p>
+                                    <p class="new-msg-from">Messaggio da: {{ $message->email }} </p>
                                     <p> {{ $message->text }} </p>
 
                                 </div>
