@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Benne&display=swap);* {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: montserrat;
   box-sizing: border-box;
   font-family: "Benne", serif;
   /* Track */
@@ -18,22 +18,12 @@
 }
 
 * ::-webkit-scrollbar-thumb {
-  background: lightgray;
+  background: gray;
   border-radius: 10px;
-  display: none;
 }
 
 * ::-webkit-scrollbar-thumb:hover {
-  background: gray;
-  display: block;
-}
-
-* .box-service {
-  margin: 20px 0 20px 70px;
-}
-
-* .box-service .my-services input {
-  padding: 0 10px;
+  background: #636161;
 }
 
 body {
@@ -255,6 +245,43 @@ header .user-header .dashboard-header-btn:hover {
   }
 }
 
+@media screen and (max-width: 800px) {
+  .container-ap .row .mini-container {
+    min-width: 75%;
+  }
+
+  .container-ap .row .mini-container a .details {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-ap .row .mini-container {
+    min-width: 75%;
+    max-height: 125px;
+  }
+
+  .container-ap .row .mini-container .ap-img {
+    margin-top: -77px;
+  }
+
+  .container-ap .row .mini-container a .white-buble {
+    font-size: 15px;
+  }
+
+  .container-ap .row .mini-container a .white-buble .details {
+    display: none;
+  }
+
+  .container-ap #adv-body div h2 {
+    font-size: 80%;
+  }
+
+  .container-ap #adv-body div p {
+    display: none;
+  }
+}
+
 .container-content {
   height: 600px;
   background-color: #ccc;
@@ -401,12 +428,6 @@ a.prem-apart {
   font-size: 15px;
   line-height: 15px;
   margin-left: 5px;
-}
-
-@media screen and (max-width: 800px) {
-  .mini-container {
-    width: 65% !important;
-  }
 }
 
 li a {
@@ -599,6 +620,10 @@ li a {
   font-size: 23px;
 }
 
+.container-flat .flat-block .container-text .flat-text ul li i {
+  margin-left: 2px;
+}
+
 .container-flat .flat-block .container-text hr {
   margin: 25px;
 }
@@ -678,18 +703,24 @@ li a {
   display: flex;
   flex-direction: column;
   width: 60%;
-  margin-top: 150px;
+  margin-top: 300px;
   align-items: center;
 }
 
 .my-apartment .messages .received-msgs {
   width: 90%;
   margin: auto;
+  text-align: center;
+}
+
+.my-apartment .messages .received-msgs .no-msg-received {
+  margin-top: 25px;
+  font-weight: bold;
 }
 
 .my-apartment .messages .received-msgs .msg {
   overflow-y: auto;
-  height: auto;
+  max-height: 400px;
   padding: 5px 10px;
 }
 
@@ -708,12 +739,13 @@ li a {
 }
 
 .my-apartment .messages .received-msgs .msg-row {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   padding: 5px;
 }
 
 .my-apartment .messages .received-msgs .msg-row .new-msg-from {
-  color: #b12c2c;
+  color: #FF5A5F;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1300px) {
@@ -819,23 +851,54 @@ li a {
 }
 
 .main-box .box-side .right-side .box-content .apartment-row {
-  height: auto;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
   border-bottom: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 40px 0;
   position: relative;
 }
 
+.main-box .box-side .right-side .box-content .apartment-row .info-ap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-box .box-side .right-side .box-content .apartment-row .info-ap h3 {
+  text-align: center;
+}
+
+.main-box .box-side .right-side .box-content .apartment-row .img-box {
+  width: 300px;
+  height: 125px;
+  margin: 20px 0;
+}
+
+.main-box .box-side .right-side .box-content .apartment-row .img-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
 .main-box .box-side .right-side .box-content .apartment-row .sponsor-alreadysponsored {
   position: absolute;
   top: 10px;
-  right: 0;
+  right: 37%;
   color: green;
   border: 1px solid green;
   background-color: inherit;
+}
+
+.main-box .box-side .right-side .box-content .dash-row-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .main-box .box-side .right-side .box-content .apartment-row:last-of-type {
@@ -899,10 +962,42 @@ li a {
 
 .container-login .card-body {
   text-align: center;
+  padding: 10%;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.411);
 }
 
 .container-login .form-group {
+  weight: 50%;
   margin: 10px 0;
+  display: flex;
+}
+
+.container-login .form-group label {
+  width: 170px;
+  line-height: 55px;
+}
+
+.container-login .form-group div {
+  margin-left: 12px;
+}
+
+.container-login .form-group .form-check {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-login .form-group .form-check label {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.container-login .form-group:last-child {
+  justify-content: center;
 }
 
 .container-login h1:first-of-type {
@@ -1072,116 +1167,194 @@ li a {
   }
 }
 
-#menu {
+ul,
+li {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.box-container {
+  margin-left: 20px;
+}
+
+.box-container .box-app-map {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+  height: calc(100vh - 80px);
 }
 
-#menu .button {
-  width: 200px;
-  margin: 15px 0;
-  padding: 3px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0);
-  font-size: 22px;
-  color: #ff5a5f;
-  text-align: center;
-}
-
-#menu .button .des-butt {
-  display: none;
-}
-
-#menu .button:hover .des-butt {
-  display: inline-block;
-}
-
-#btn-menu {
-  display: flex;
-}
-
-.box-service {
-  height: 110px;
+.box-container .box-app-map .my-apartments {
+  overflow: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.box-service .dis-flex {
-  height: 45%;
-  width: 80%;
+.box-container .box-app-map .my-apartments .box-service {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 20px 40px 0;
+  border: 1px solid lightgrey;
+}
+
+.box-container .box-app-map .my-apartments .box-service .serv-top {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  border-bottom: 0.2px solid lightgrey;
+  padding: 10px 10px 10px 25px;
+}
+
+.box-container .box-app-map .my-apartments .box-service .serv-bottom {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  border: 2px solid #ff5a5f;
-  border-radius: 30px;
-}
-
-.box-service .filter {
-  width: 60%;
-}
-
-.box-service .center {
-  display: flex;
-  align-items: center;
-}
-
-.box-service .center label {
-  margin-right: 10px;
-}
-
-.box-app-map {
-  display: flex;
-  justify-content: space-between;
-  height: calc(100vh - 140px);
-}
-
-.box-app-map .my-apartments {
-  overflow: auto;
-}
-
-.box-app-map .my-apartments hr {
-  margin: 15px auto;
-  width: 90%;
-}
-
-.box-app-map .my-apartments .spc-apart {
-  height: 25%;
-}
-
-.box-app-map .my-apartments .spc-apart a {
-  height: 100%;
   padding: 10px;
+}
+
+.box-container .box-app-map .my-apartments .box-service .center {
+  display: flex;
   align-items: center;
-  flex-wrap: wrap;
+}
+
+.box-container .box-app-map .my-apartments .box-service .center label {
+  margin: 0 10px;
+}
+
+.box-container .box-app-map .my-apartments .box-service .center .inp {
+  width: 60px;
+}
+
+.box-container .box-app-map .my-apartments h2 {
+  margin: 10px 0;
+}
+
+.box-container .box-app-map .my-apartments .myline {
+  border-top: 1px solid lightgray;
+}
+
+.box-container .box-app-map .my-apartments .spc-apart {
+  margin: 5px 0;
+}
+
+.box-container .box-app-map .my-apartments .spc-apart a {
+  display: flex;
+  padding: 10px 0;
+  align-items: center;
   display: flex;
   color: black;
   text-decoration: none;
 }
 
-.box-app-map .my-apartments .spc-apart a #img-box {
-  width: 25%;
-  height: 80%;
+.box-container .box-app-map .my-apartments .spc-apart a #img-box {
+  height: 100%;
 }
 
-.box-app-map .my-apartments .spc-apart a #img-box img {
-  width: 100%;
-  height: 100%;
+.box-container .box-app-map .my-apartments .spc-apart a #img-box img {
+  width: 120px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 10px;
 }
 
-.box-app-map .my-apartments .spc-apart a .ap-description {
+.box-container .box-app-map .my-apartments .spc-apart a .ap-description {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 25px;
+  margin-left: 25px;
 }
 
-#mymap {
-  width: 40vw;
-  height: 98%;
+.box-container .box-app-map .my-apartments .spc-apart a .ap-description .box-apts li {
+  margin: 5px 0;
+}
+
+.box-container .box-app-map .my-apartments .spc-apart a .ap-description .box-apts .box-options {
+  display: flex;
+  margin-top: 10px;
+}
+
+.box-container .box-app-map .my-apartments .spc-apart a .ap-description .box-apts .box-options li {
+  margin-right: 15px;
+}
+
+.box-container .box-app-map .box-map {
+  width: 60%;
+}
+
+.box-container #mymap {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 880px) {
+  .serv-bottom {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .serv-bottom .center {
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 880px) and (max-width: 768px) {
+  .serv-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .box-app-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .box-app-map .box-map {
+    width: 100vw;
+    height: 500px;
+  }
+
+  .box-app-map .box-map #mymap {
+    width: 95vw;
+    border-top: 0.5px solid black;
+  }
+}
+
+@media screen and (max-width: 880px) and (max-width: 576px) {
+  .serv-bottom .center label {
+    margin: 5px 0;
+  }
+
+  .serv-bottom .center .inp {
+    width: 60px;
+  }
+
+  .box-title {
+    text-align: center;
+  }
+
+  .box-list-apt {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+  }
+
+  .box-list-apt .ap-description .box-apts {
+    text-align: center;
+  }
+
+  .box-list-apt .ap-description .box-apts .box-options {
+    display: flex;
+    justify-content: center;
+  }
+
+  .box-list-apt #img-box {
+    margin: 15px 0;
+  }
 }
 
 #container-payment {
