@@ -1261,11 +1261,6 @@ li {
     display: flex;
   }
 
-  .box-app-map .ap-description {
-    margin-left: 0;
-    padding-left: 0;
-  }
-
   .box-app-map .box-map {
     display: none;
   }
@@ -1284,6 +1279,10 @@ li {
     display: flex;
     flex-direction: column;
     margin: 5px 0;
+  }
+
+  .box-list-apt #img-box {
+    margin: 15px 0;
   }
 }
 
