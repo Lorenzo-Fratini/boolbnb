@@ -172,8 +172,8 @@ ul, li {
         //flex-direction: column;
 
         .ap-description {
-            margin-left: 0;
-            padding-left: 0;
+            // margin-left: 0;
+            // padding-left: 0;
         }
 
         .box-map {
@@ -203,6 +203,10 @@ ul, li {
         display: flex;
         flex-direction: column;
         margin: 5px 0;
+
+        #img-box {
+            margin: 15px 0;
+        }
     }
 }
 
