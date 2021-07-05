@@ -13,7 +13,7 @@ ul, li {
     .box-app-map {
         display: flex;
         justify-content: space-between;
-        height: calc(100vh - 140px);
+        height: calc(100vh - 80px);
         //debug
         //background-color: lightcyan;
     
@@ -46,7 +46,6 @@ ul, li {
             
                 .serv-bottom {
                     display: flex;
-                    //flex-wrap: wrap;
                     justify-content: space-around;
                     padding:10px;
                     //debug
@@ -169,17 +168,17 @@ ul, li {
 
     .box-app-map {
         display: flex;
-        //flex-direction: column;
-
-        .ap-description {
-            // margin-left: 0;
-            // padding-left: 0;
-        }
+        flex-direction: column;
 
         .box-map {
-            display: none;
-        }
-    }
+            width: 100%;
+            height: 300px;
+
+            #mymap {
+                width: 100%;
+                height: 100%;
+            }
+        } 
 
 }
 
@@ -199,10 +198,26 @@ ul, li {
         }
     }
 
+    .box-title{
+        text-align: center;
+    }
+
     .box-list-apt {
         display: flex;
         flex-direction: column;
         margin: 5px 0;
+
+        .ap-description {
+
+            .box-apts {
+                text-align: center;
+
+                .box-options {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
 
         #img-box {
             margin: 15px 0;
@@ -210,4 +225,5 @@ ul, li {
     }
 }
 
+}
 }

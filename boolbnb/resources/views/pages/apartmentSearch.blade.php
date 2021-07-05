@@ -34,7 +34,9 @@
                             </div>
                         </div>
                     </div>
-                    <h2>Appartamenti:</h2>
+                    <div class="box-title">
+                        <h2>Appartamenti:</h2>
+                    </div>
                     <div v-for="apartment in currentApartments" v-if="apartment.visible == 0" class="spc-apart">
                         <div class="myline">
                         </div>
