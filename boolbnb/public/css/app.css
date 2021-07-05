@@ -198,7 +198,9 @@ header .user-header .dashboard-header-btn:hover {
   }
 
   .logout-header-btn:hover,
-  .dashboard-header-btn:hover {
+  .dashboard-header-btn:hover,
+  .login-header-btn:hover,
+  .register-header-btn:hover {
     color: black !important;
   }
 
@@ -214,7 +216,9 @@ header .user-header .dashboard-header-btn:hover {
   }
 
   .nav-ul .dashboard-header-btn,
-  .nav-ul .logout-header-btn {
+  .nav-ul .logout-header-btn,
+  .nav-ul .login-header-btn,
+  .nav-ul .register-header-btn {
     display: block;
     margin: 3px;
     background-color: transparent !important;
@@ -930,6 +934,15 @@ li a {
   width: 150px;
 }
 
+.register-container .card-body {
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.411);
+  width: 600px;
+  margin: auto;
+}
+
 .register-container .form-group {
   margin: 20px 0;
 }
@@ -944,14 +957,26 @@ li a {
   padding: 3px 6px;
   border-radius: 20px;
   outline: none;
-  border-color: #FF5A5F;
+  border: 2px solid #FF5A5F;
 }
 
 .register-container button {
   padding: 10px 20px;
   border-radius: 20px;
+  border: 2px solid #FF5A5F;
+  font-size: 17px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.register-container button:hover {
   background-color: #FF5A5F;
-  border-color: black;
+  color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .register-container .card-body {
+    width: 90%;
+  }
 }
 
 .container-login {
@@ -1373,6 +1398,10 @@ li {
   text-align: center;
 }
 
+#container-payment form section .input-label {
+  margin-bottom: 15px;
+}
+
 #container-payment form section .amount {
   align-items: center;
 }
@@ -1388,9 +1417,14 @@ li {
   flex-direction: column;
   justify-content: center;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 1px solid #FF5A5F;
   padding: 4px;
   margin: 0 20px;
+}
+
+#container-payment form section .input-wrapper .prices input:checked + label {
+  background-color: #FF5A5F;
+  color: white;
 }
 
 #container-payment form section .input-wrapper .prices label {
@@ -1410,12 +1444,18 @@ li {
   margin: 0 7px;
 }
 
-#container-payment form section .bt-drop-in-wrapper {
-  width: 100%;
-}
-
 #container-payment form button {
   padding: 8px 16px;
+  background-color: transparent;
+  font-size: 18px;
+  border: 2px solid #FF5A5F;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#container-payment form button:hover {
+  background-color: #FF5A5F;
+  color: white;
 }
 
 .title {
@@ -1449,9 +1489,53 @@ li {
   padding: 20px;
 }
 
-.card-container .card .elem {
-  padding: 5px;
+.card-container .card .dashButtonCheck {
+  text-align: center;
+  font-size: 17px;
+  padding: 7px 14px;
+  border: 2px solid #ff5a5f;
+  border-radius: 20px;
+  background-color: #ff5a5f;
+  color: white;
+  text-decoration: none;
+  margin-top: 30px;
+}
+
+.alert-container {
+  display: flex;
+  justify-content: center;
+}
+
+.alert-container .msg-alert {
+  margin-top: 50px;
+  width: 600px;
+  height: auto;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: -1px 1px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.alert-container .msg-alert h1 {
+  color: #0ca80c;
+  display: block;
+  margin-top: 10px;
+}
+
+.alert-container .msg-alert a {
+  text-decoration: none;
+  width: 50%;
+  display: block;
+  margin: 20px auto 30px auto;
   border-radius: 10px;
-  border: 2px solid lightgray;
+  font-size: 18px;
+  color: black;
+  border: 2px solid #FF5A5F;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.alert-container .msg-alert a:hover {
+  background-color: #FF5A5F;
+  color: white;
 }
 
