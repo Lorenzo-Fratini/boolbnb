@@ -1,21 +1,14 @@
 .main-box {
-    //margin-top: 100px;
     margin-bottom: 20px;
     font-size: 22px;
 
     .box-side {
         display: flex;
         justify-content: space-around;
-        //debug
-        //background-color: yellowgreen;
 
         .right-side {
-            //debug
-            //background-color: green;
 
             .box-title {
-                //debug
-                //background-color: goldenrod;
                 text-align: center;
 
                 h3 {
@@ -60,23 +53,52 @@
                 box-shadow: 0 0 30px rgb(190, 189, 189);
 
                 .apartment-row {
-                    height: auto;
+                    height: max-content;
                     border-bottom: 1px solid black;
                     display: flex;
                     flex-direction: column;
-                    justify-content: center;
+                    justify-content: space-between;
                     align-items: center;
                     padding: 40px 0;
                     position: relative;
 
+                    .info-ap {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        h3 {
+                            text-align: center;
+                        }
+                   }
+
+                    .img-box {
+                        width: 300px;
+                        height: 125px;
+                        margin: 20px 0;
+
+                        img {
+                            width: 100%;
+                            height: 100%;  
+                            border-radius: 10px;
+                        }
+                    }
+
                     .sponsor-alreadysponsored {
                         position: absolute;
                         top: 10px;
-                        right: 0;
+                        right: 37%;
                         color: green;
                         border: 1px solid green;
                         background-color: inherit;
                     }
+                }
+
+                .dash-row-buttons {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
                 }
 
                 .apartment-row:last-of-type {
