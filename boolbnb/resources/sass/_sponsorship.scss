@@ -4,6 +4,12 @@
     width: 80%;
     margin: 20px auto;
 
+    .error {
+        width: 100%;
+        text-align: center;
+        color: red;
+    }
+
     form {
         display: flex;
         flex-direction: column;

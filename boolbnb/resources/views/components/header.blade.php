@@ -24,7 +24,7 @@
         <div class="user-header">
                 @guest
                         <a class="login-header-btn" href="{{ route('login') }}">Login</a>
-                        <a class="register-header-btn" href="{{ route('register') }}">Register</a>
+                        <a class="register-header-btn" href="{{ route('register') }}">Registrati</a>
                 @else
                 <div id="user-logged">
                         <button onclick="myFunction()" class="hamburger dropbtn" id="hamburger">

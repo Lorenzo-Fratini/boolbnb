@@ -1039,112 +1039,100 @@ li a {
   align-items: center;
 }
 
-.create-container h1:first-of-type,
-.edit-container h1:first-of-type {
+.create-container h1,
+.edit-container h1 {
   margin-top: 20px;
 }
 
 .create-container form,
 .edit-container form {
-  text-align: center;
-}
-
-.create-container form input,
-.edit-container form input {
-  padding: 20px 40px;
-  border-radius: 10px;
-  outline: none;
-  line-height: 30px;
-  font-size: 18px;
-}
-
-.create-container form .line,
-.edit-container form .line {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   margin: 20px auto;
   width: 60%;
 }
 
-.create-container form .line label,
-.edit-container form .line label {
-  font-weight: bold;
+.create-container form label,
+.edit-container form label {
+  display: block;
+  font-size: 1.2em;
 }
 
-.create-container form .line input,
-.edit-container form .line input {
-  border-color: #ff5a5f;
-  border-style: solid;
+.create-container form .form-input,
+.edit-container form .form-input {
+  margin: 0.7em 0;
 }
 
-.create-container form .line input::-webkit-outer-spin-button,
-.create-container form .line input::-webkit-inner-spin-button,
-.edit-container form .line input::-webkit-outer-spin-button,
-.edit-container form .line input::-webkit-inner-spin-button {
+.create-container form .form-input input,
+.create-container form .form-input textarea,
+.edit-container form .form-input input,
+.edit-container form .form-input textarea {
+  width: 100%;
+  padding: 0.7em 1.2em;
+  outline: none;
+  font-size: 18px;
+  line-height: 30px;
+  outline: none;
+  resize: none;
+  border-radius: 5px;
+  border: 1px solid #ff5a5f;
+}
+
+.create-container form .row,
+.edit-container form .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.create-container form .row .form-input,
+.edit-container form .row .form-input {
+  display: inline-block;
+  flex-basis: 49%;
+}
+
+.create-container form input::-webkit-outer-spin-button,
+.create-container form input::-webkit-inner-spin-button,
+.edit-container form input::-webkit-outer-spin-button,
+.edit-container form input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-.create-container form .cover-img,
-.edit-container form .cover-img {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
 }
 
 .create-container form .servizih2,
 .edit-container form .servizih2 {
   display: block;
-  margin-top: 30px;
+  margin-top: 3em;
+  font-weight: 600;
 }
 
 .create-container form .services,
 .edit-container form .services {
   display: flex;
-  flex-wrap: wrap;
-  width: 50%;
-  margin: auto;
   justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
 }
 
 .create-container form .services .service,
 .edit-container form .services .service {
-  display: inline-block;
-  margin: 8px;
-  width: 130px;
-  text-align: center;
-  border: 1px solid black;
-  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  width: calc((100% - 2%) / 2);
+  margin-right: 1%;
+  padding: 0.9em 0 0.3em;
+  border-bottom: 1px solid lightslategray;
 }
 
-.create-container form .services .service label,
-.edit-container form .services .service label {
-  display: inline-block;
-  text-align: start;
-}
-
-.create-container form .services input,
-.create-container form .services label,
-.edit-container form .services input,
-.edit-container form .services label {
-  display: inline;
-}
-
-.create-container form .services label,
-.edit-container form .services label {
-  margin: 5px;
+.create-container form .services .service p,
+.edit-container form .services .service p {
+  margin-left: 1em;
+  font-size: 1.2em;
 }
 
 .create-container form button,
 .edit-container form button {
+  display: block;
+  margin: 5em auto;
   padding: 15px 55px;
   border-radius: 10px;
-  margin-top: 20px;
-  margin-bottom: 100px;
-  border-style: solid;
   border: 2px solid #FF5A5F;
   background-color: transparent;
   font-weight: bold;
@@ -1157,20 +1145,15 @@ li a {
   color: white;
 }
 
-@media screen and (max-width: 1200px) {
-  .services {
-    width: 80% !important;
-  }
-
-  .line {
-    width: 80% !important;
+@media screen and (min-width: 701px) and (max-width: 1200px) {
+  .form-input {
+    display: block !important;
   }
 }
 
-@media screen and (max-width: 700px) {
-  .line input {
-    padding: 10px 20px !important;
-    font-size: 16px !important;
+@media screen and (min-width: 564px) and (max-width: 700px) {
+  .form-input {
+    display: block !important;
   }
 }
 
@@ -1179,8 +1162,8 @@ li a {
     width: 100% !important;
   }
 
-  .line {
-    width: 100% !important;
+  .service {
+    display: block;
   }
 }
 
