@@ -39,14 +39,17 @@
     
                                 <h2>{{ $apartment->title }}</h2>
     
-                                <div>
+                                {{-- <div>
     
                                     <span>Numero di stanze:</span>
                                     <span>{{ $apartment->rooms_number }}</span>
     
-                                </div>
+                                </div> --}}
     
                                 <div class="details">
+
+                                    <i class="fas fa-door-open"></i>
+                                    <span>{{ $apartment->rooms_number }}</span>
     
                                     <i class="fas fa-bed"></i>
                                     <span>{{ $apartment->beds_number }}</span>
