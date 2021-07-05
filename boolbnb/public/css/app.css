@@ -1201,7 +1201,6 @@ li {
 }
 
 .box-container .box-app-map .my-apartments .spc-apart a #img-box {
-  width: 25%;
   height: 100%;
 }
 
@@ -1277,6 +1276,7 @@ li {
   .box-list-apt {
     display: flex;
     flex-direction: column;
+    margin: 5px 0;
   }
 }
 
