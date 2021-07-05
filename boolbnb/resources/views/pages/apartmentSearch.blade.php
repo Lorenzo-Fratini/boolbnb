@@ -25,9 +25,9 @@
                             onkeydown="return false" min="1" class="inp">
                     </div>
                     <div class="center">
-                        <label for="radius">Raggio</label>
+                        <label for="radius">Raggio - @{{ this . radius }}km</label>
                         <input v-on:change="filterApartments" type="range" id="radius" name="radius" v-model="radius"
-                        min="0" max="20">
+                            min="0" max="20">
                     </div>
                 </div>
             </div>
@@ -39,22 +39,22 @@
                     <div v-for="apartment in currentApartments" v-if="apartment.visible == 0" class="spc-apart">
                         <div class="myline">
                         </div>
-                         <a :href="'/apartment/' + apartment.id">
+                        <a :href="'/apartment/' + apartment.id">
                             <div id="img-box">
                                 <img :src="'/storage/images/' + apartment.cover_image">
                             </div>
                             <div class="ap-description">
                                 <h3>
-                                    @{{ apartment.title }}
-                                </h3>   
+                                    @{{ apartment . title }}
+                                </h3>
                                 <p>
-                                    Indirizzo: @{{ apartment.address}}
+                                    Indirizzo: @{{ apartment . address }}
                                 </p>
                                 <p>
-                                    Città: @{{ apartment.city}}
+                                    Città: @{{ apartment . city }}
                                 </p>
                             </div>
-                         </a>
+                        </a>
                     </div>
                 </div>
                 {{-- tom tom --}}
@@ -129,7 +129,7 @@
                             });
 
                     }
-                    
+
 
                 },
 
@@ -237,7 +237,7 @@
 
                 },
 
-                navbar: function () {
+                navbar: function() {
                     if (this.visibility == 'display: none') {
 
                         // console.log(this.visibility);

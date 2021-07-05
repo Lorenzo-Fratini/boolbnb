@@ -3,19 +3,54 @@
 .container-login {
     display: flex;
     flex-direction: row;
+
     justify-content: center;
 
     .card-body {
         text-align: center;
+        padding: 10%;
+
+        border: 2px solid black;
+        border-radius: 10px;
+
+        box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.411);
     }
 
     .form-group {
+        weight: 50%;
 
         margin: 10px 0;
+
+        display: flex;
+
+        label {
+            width: 170px;
+            line-height: 55px;
+        }
+
+        div {
+            margin-left: 12px;
+        }
+
+        .form-check {
+            width: 100%;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            label {
+                width: min-content;
+            }
+        }
+
+        &:last-child {
+            justify-content: center;
+        }
     }
 
     h1:first-of-type {
-
         display: block;
         text-align: center;
     }
