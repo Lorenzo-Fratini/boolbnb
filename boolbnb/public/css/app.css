@@ -281,6 +281,10 @@ header .user-header .dashboard-header-btn:hover {
     display: none;
   }
 
+  .container-ap #adv-body div h2 {
+    font-size: 80%;
+  }
+
   .container-ap #adv-body div p {
     display: none;
   }
@@ -935,10 +939,42 @@ li a {
 
 .container-login .card-body {
   text-align: center;
+  padding: 10%;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.411);
 }
 
 .container-login .form-group {
+  weight: 50%;
   margin: 10px 0;
+  display: flex;
+}
+
+.container-login .form-group label {
+  width: 170px;
+  line-height: 55px;
+}
+
+.container-login .form-group div {
+  margin-left: 12px;
+}
+
+.container-login .form-group .form-check {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-login .form-group .form-check label {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.container-login .form-group:last-child {
+  justify-content: center;
 }
 
 .container-login h1:first-of-type {
