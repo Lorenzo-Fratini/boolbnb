@@ -68,9 +68,7 @@ ul, li {
                         width: 60px;
                     }
                 }
-            
             }
-        
             
             h2 {
                 margin: 10px 0;
@@ -81,7 +79,6 @@ ul, li {
             }
           
             .spc-apart {
-                //height: 25%;
                 margin: 5px 0;
                 
                 a {
@@ -93,7 +90,7 @@ ul, li {
                     text-decoration: none;
     
                     #img-box {
-                        width: 25%;
+                        //width: 25%;
                         height: 100%;
         
                         img {
@@ -198,6 +195,7 @@ ul, li {
     .box-list-apt {
         display: flex;
         flex-direction: column;
+        margin: 5px 0;
     }
 }
 
