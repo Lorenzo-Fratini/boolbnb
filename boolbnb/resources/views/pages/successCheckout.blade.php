@@ -3,7 +3,7 @@
 @section('content')
 
     <main>
-        
+
         <div class="title">
             <h1>GRAZIE PER L'ACQUISTO</h1>
         </div>
@@ -16,12 +16,12 @@
                 <h3 class="elm">Pacchetto: {{ $sponsorship -> duration }}h - {{ $sponsorship -> price }}€</h3>
                 <p class="elm">Data inizio: {{ $newStartDate }} | Data fine: {{ $newEndDate }}</p>
             
-                <a class="elm" href="{{ route('dashboard', $apartment -> user_id) }}">Dashboard</a>
+                <a class="dashButtonCheck" href="{{ route('dashboard', $apartment -> user_id) }}">Dashboard</a>
 
             </div>
 
         </div>
-        
+
     </main>
 
 

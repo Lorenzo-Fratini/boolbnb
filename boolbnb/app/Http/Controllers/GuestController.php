@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 
 use App\Apartment;
@@ -46,8 +48,10 @@ class GuestController extends Controller {
         return view('pages.apartmentShow', compact('apartment', 'services'));
     }
 
-    public function storeMessage(Request $request) {
+    public function storeMessage(Request $request, $id) {
 
+        $apartment = Apartment::findOrFail($id);
+        
         $validation = $request -> validate([
             'email' => 'required|string|max:128',
             'text' => 'required|string|min:20|max:255',
@@ -60,6 +64,7 @@ class GuestController extends Controller {
         $message -> apartment() -> associate($apartment);
         $message -> save();
 
-        return redirect() -> route('showApartment', ['id' => $apartment]);
+        return view ('pages.messageSent', compact('apartment'));
     }
+
 }

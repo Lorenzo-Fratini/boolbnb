@@ -134,7 +134,7 @@
                             });
 
                     }
-                    
+
 
                 },
 
@@ -242,7 +242,7 @@
 
                 },
 
-                navbar: function () {
+                navbar: function() {
                     if (this.visibility == 'display: none') {
 
                         // console.log(this.visibility);
