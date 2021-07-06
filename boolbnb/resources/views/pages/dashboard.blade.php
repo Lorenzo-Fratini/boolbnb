@@ -27,35 +27,35 @@
                                         <h3>{{ $apartment->title }}</h3>
                                         <span class="ap-address"><i class="fas fa-map-marked"></i> - {{ $apartment->address }}</span>
                                         <span class="ap-city"><i class="fas fa-city"></i> - {{ $apartment->city }}</span>
-                                    </div>
-                                        
-                                    <div class="dash-row-buttons">
-    
-                                        <a href="{{ route('myApartment', $apartment->id) }}">Dettagli</a>
-                                        <a href="{{ route('editApartment', $apartment->id) }}">Modifica</a>
-    
-                                        @if (count($apartment->sponsorships) == 0)
-                                            <a href="{{ route('sponsorshipPayment', $apartment->id) }}">Sponsorizza</a>
-                                        @endif
-    
-                                        @foreach ($apartment->sponsorships as $apartRel)
-                                            @if ($currentDate < $apartRel->pivot->end_date)
-                                                <a class="sponsor-alreadysponsored">Sponsorizzato! <i
-                                                        class="fas fa-star"></i></a>
-                                            @break
-                                        @endif
-                                        @if ($loop->last)
-    
-                                            @if ($currentDate > $apartRel->pivot->end_date)
+                                        <div class="dash-row-buttons">
+        
+                                            <a href="{{ route('myApartment', $apartment->id) }}">Dettagli</a>
+                                            <a href="{{ route('editApartment', $apartment->id) }}">Modifica</a>
+        
+                                            @if (count($apartment->sponsorships) == 0)
                                                 <a href="{{ route('sponsorshipPayment', $apartment->id) }}">Sponsorizza</a>
                                             @endif
-    
-                                        @endif
-                            @endforeach
-    
-                            <a href="{{ route('destroyApartment', $apartment->id) }}">Elimina</a>
-    
-                        </div>
+        
+                                            @foreach ($apartment->sponsorships as $apartRel)
+                                                @if ($currentDate < $apartRel->pivot->end_date)
+                                                    <a class="sponsor-alreadysponsored">Sponsorizzato! <i
+                                                            class="fas fa-star"></i></a>
+                                                @break
+                                            @endif
+                                            @if ($loop->last)
+        
+                                                @if ($currentDate > $apartRel->pivot->end_date)
+                                                    <a href="{{ route('sponsorshipPayment', $apartment->id) }}">Sponsorizza</a>
+                                                @endif
+        
+                                            @endif
+                                            @endforeach
+                    
+                                            <a href="{{ route('destroyApartment', $apartment->id) }}">Elimina</a>
+                    
+                                        </div>
+                                    </div>
+                                        
     
     
     
