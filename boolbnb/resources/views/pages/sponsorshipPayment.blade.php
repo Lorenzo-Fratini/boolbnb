@@ -7,7 +7,7 @@
                 {{ session('success_message') }}
             @endif
             @if (count($errors) > 0)
-                <ul>
+                <ul class="error">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
