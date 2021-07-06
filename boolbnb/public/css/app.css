@@ -904,11 +904,10 @@ li a {
 }
 
 .main-box .box-side .right-side .box-content .dash-row-buttons {
-  height: 200px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  flex-direction: column;
+  margin-right: 10px;
+  margin-top: 20px;
 }
 
 .main-box .box-side .right-side .box-content .apartment-row:last-of-type {
@@ -917,7 +916,7 @@ li a {
 
 .main-box .box-side .right-side .box-content a {
   font-size: 14px;
-  margin-left: 10px;
+  margin: 0 10px 0 0;
   padding: 3px 6px;
   border-radius: 5px;
   border: 1px solid #FF5A5F;
@@ -1038,8 +1037,9 @@ li a {
   }
 
   .main-box .box-side .right-side .box-content .dash-row-buttons {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
   }
 
@@ -1049,7 +1049,8 @@ li a {
 
   .main-box .box-side .right-side .box-content a {
     font-size: 14px;
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     padding: 3px 6px;
     border-radius: 5px;
     border: 1px solid #FF5A5F;
