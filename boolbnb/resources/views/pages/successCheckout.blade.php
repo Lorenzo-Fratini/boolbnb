@@ -14,7 +14,7 @@
 
                 <h1 class="elm">{{ $apartment -> title }}</h1>
                 <h3 class="elm">Pacchetto: {{ $sponsorship -> duration }}h - {{ $sponsorship -> price }}€</h3>
-                <p class="elm">Data inizio: {{ $startDate }} | Data fine: {{ $endDate }}</p>
+                <p class="elm">Data inizio: {{ $newStartDate }} | Data fine: {{ $newEndDate }}</p>
             
                 <a class="elm" href="{{ route('dashboard', $apartment -> user_id) }}">Dashboard</a>
 

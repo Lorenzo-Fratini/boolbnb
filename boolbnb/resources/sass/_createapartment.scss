@@ -59,6 +59,20 @@
             font-weight: 600;
         }
 
+        // .vis-if {
+
+        //     display: flex;
+        //     margin-top: 2em;
+
+        //     div {
+
+        //         &:last-child {
+
+        //             margin-left: 2em;
+        //         }
+        //     }
+        // }
+
         .services {
             display: flex;
             justify-content: center;
@@ -106,11 +120,57 @@
 }
 
 @media screen and (min-width: 564px) and (max-width: 700px) {
+       
+    .create-container,
+    .edit-container {
+
+        form {
+
+            .row {
+                display: block;
+        
+                .form-input {
+                    display: block;
     
+                }
+            }
+
+            .services {
     
+                .service {
+    
+                    display: flex;
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 563px) {
 
+    .create-container,
+    .edit-container {
+
+        form {
+
+            .row {
+                display: block;
+        
+                .form-input {
+                    display: block;
     
+                }
+            }
+
+            .services {
+    
+                .service {
+    
+                    display: flex;
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

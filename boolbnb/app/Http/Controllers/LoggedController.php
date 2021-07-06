@@ -283,8 +283,10 @@ class LoggedController extends Controller {
             $apartment -> sponsorships() -> attach($sponsorship, ['start_date' => $startDate, 'end_date' => $endDate]);
             $apartment -> save();
 
+            $newStartDate = date("d-m-Y", strtotime($startDate));
+            $newEndDate = date("d-m-Y", strtotime($endDate));
 
-            return view('pages.successCheckout', compact('apartment', 'sponsorship', 'endDate', 'startDate'));
+            return view('pages.successCheckout', compact('apartment', 'sponsorship', 'newStartDate', 'newEndDate'));
         } else {
 
             $errorString = "";
